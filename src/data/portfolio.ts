@@ -1,0 +1,58 @@
+import { PortfolioItem } from "@/types/api";
+
+export const portfolioItems: PortfolioItem[] = [
+  {
+    id: "1",
+    title: "E-Commerce Platform",
+    description: "A full-featured e-commerce platform with payment integration and inventory management.",
+    category: "Web Development",
+    image: "/images/portfolio/ecommerce.jpg",
+    technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+    link: "#",
+  },
+  {
+    id: "2",
+    title: "Health & Fitness App",
+    description: "Mobile application for tracking workouts, nutrition, and health metrics.",
+    category: "Mobile App",
+    image: "/images/portfolio/fitness.jpg",
+    technologies: ["React Native", "Firebase", "Redux"],
+    link: "#",
+  },
+  {
+    id: "3",
+    title: "AI Chatbot Platform",
+    description: "Intelligent chatbot platform with natural language processing capabilities.",
+    category: "AI Solutions",
+    image: "/images/portfolio/chatbot.jpg",
+    technologies: ["Python", "TensorFlow", "OpenAI API"],
+    link: "#",
+  },
+  {
+    id: "4",
+    title: "SaaS Dashboard",
+    description: "Analytics dashboard for SaaS companies with real-time data visualization.",
+    category: "Web Development",
+    image: "/images/portfolio/dashboard.jpg",
+    technologies: ["React", "D3.js", "Node.js", "MongoDB"],
+    link: "#",
+  },
+  {
+    id: "5",
+    title: "Food Delivery App",
+    description: "On-demand food delivery application with real-time tracking and payments.",
+    category: "Mobile App",
+    image: "/images/portfolio/food.jpg",
+    technologies: ["Flutter", "Google Maps API", "Stripe"],
+    link: "#",
+  },
+  {
+    id: "6",
+    title: "Brand Identity System",
+    description: "Complete brand identity design including logo, guidelines, and marketing materials.",
+    category: "UI/UX Design",
+    image: "/images/portfolio/brand.jpg",
+    technologies: ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
+    link: "#",
+  },
+];
