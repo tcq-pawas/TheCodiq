@@ -14,9 +14,25 @@ export default function Services() {
       <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-brand-blue/10 blur-[150px]" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
-        {/* Service cards grid - moved to top */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {services.slice(0, 4).map((service, index) => (
+        {/* Our Services Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-silver-primary mb-6">
+            Our Services
+          </h2>
+          <p className="text-lg text-secondary-text max-w-3xl mx-auto leading-relaxed">
+            We deliver comprehensive technology solutions tailored to your business needs. From web and mobile development to AI-powered systems and cloud infrastructure.
+          </p>
+        </motion.div>
+
+        {/* Service cards grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
+          {services.slice(0, 5).map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 30 }}

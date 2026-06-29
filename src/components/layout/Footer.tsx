@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS } from "@/lib/constants";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+
   return (
     <footer className="bg-[#050505] border-t border-white/8 relative top-20">
       {/* Floating CTA Banner */}
@@ -14,7 +17,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-6xl mx-auto"
+          className={`max-w-6xl mx-auto hidden lg:block ${pathname === "/contact" ? "hidden" : ""}`}
         >
           <div className="bg-bg-card/80 backdrop-blur-xl border border-white/10 rounded-[32px] p-8 md:p-12 shadow-2xl overflow-hidden relative">
             {/* Background glow effects */}
