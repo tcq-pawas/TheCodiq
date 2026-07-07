@@ -4,6 +4,18 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { testimonials } from "@/data/testimonials";
 
+function StarIcon({ active = true }: { active?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={`h-4 w-4 ${active ? "text-brand-gold" : "text-brand-gold/60"}`}
+      fill="currentColor"
+    >
+      <path d="m12 2.8 2.85 5.78 6.38.93-4.62 4.5 1.09 6.35L12 17.36l-5.7 3 1.09-6.35-4.62-4.5 6.38-.93L12 2.8Z" />
+    </svg>
+  );
+}
+
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -29,7 +41,7 @@ export default function Testimonials() {
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 500 : -500,
       opacity: 0,
     }),
     center: {
@@ -37,47 +49,39 @@ export default function Testimonials() {
       opacity: 1,
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 500 : -500,
       opacity: 0,
     }),
   };
 
   return (
-    <section className="pt-24 pb-28 bg-bg-primary relative overflow-hidden">
-      {/* Background glow effects */}
-      <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-brand-blue/10 blur-[150px]" />
-      <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-brand-gold/10 blur-[150px]" />
-      <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-brand-green/10 blur-[150px]" />
+    <section className="relative overflow-hidden bg-bg-primary py-16 sm:py-20 lg:py-24 pt-30">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.12),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(251,146,60,0.12),transparent_36%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:100%_72px] opacity-40" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
-        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mx-auto mb-10 max-w-3xl text-center sm:mb-12"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-silver-primary mb-6">
+          <h2 className="mb-4 text-3xl font-bold leading-tight text-silver-primary sm:text-4xl lg:text-4xl">
             Feedback from our clients
           </h2>
-          <p className="text-lg text-secondary-text max-w-2xl mx-auto leading-relaxed">
+
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-secondary-text sm:text-base">
             Our WORK speaks louder than our WORD. Find out how we helped clients overcome challenges and succeed.
           </p>
         </motion.div>
 
-        {/* Section Container */}
-        <div className="max-w-[1600px] w-[95%] mx-auto">
-          {/* Testimonial Showcase Box */}
-          <div
-            className="bg-bg-card/50 backdrop-blur-xl border border-white/10 rounded-4xl overflow-hidden shadow-lg"
-            style={{ minHeight: 600 }}
-          >
-            <div className="h-full p-6 md:p-8 lg:p-12 xl:p-[48px]">
-              <div className="flex flex-col lg:flex-row gap-8">
-                {/* Left indicator panel */}
-                <div className="hidden lg:flex flex-col items-center justify-center gap-4 w-[80px]">
-                  <div className="h-[220px] w-[10px] flex flex-col items-center justify-between">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.035] shadow-[0_24px_90px_rgba(255,255,255,0.06)] backdrop-blur-xl">
+            <div className="p-4 sm:p-5 md:p-6 lg:p-7">
+              <div className="flex flex-col gap-6 lg:flex-row">
+                <div className="hidden w-12 flex-col items-center justify-center lg:flex">
+                  <div className="flex h-[170px] flex-col items-center justify-between">
                     {testimonials.map((_, index) => (
                       <button
                         key={index}
@@ -85,7 +89,7 @@ export default function Testimonials() {
                           setDirection(index > currentIndex ? 1 : -1);
                           setCurrentIndex(index);
                         }}
-                        className={`w-[10px] h-24 rounded-full transition-all duration-300 ${
+                        className={`h-12 w-2 rounded-full transition-all duration-300 ${
                           index === currentIndex
                             ? "bg-brand-blue shadow-[0_0_18px_rgba(59,130,246,0.55)]"
                             : "bg-white/20 hover:bg-white/35"
@@ -96,8 +100,7 @@ export default function Testimonials() {
                   </div>
                 </div>
 
-                {/* Testimonial cards */}
-                <div className="flex-1">
+                <div className="min-w-0 flex-1">
                   <AnimatePresence initial={false} custom={direction} mode="wait">
                     <motion.div
                       key={currentIndex}
@@ -107,66 +110,57 @@ export default function Testimonials() {
                       animate="center"
                       exit="exit"
                       transition={{
-                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        x: { type: "spring", stiffness: 260, damping: 30 },
                         opacity: { duration: 0.2 },
                       }}
                     >
-                      {/* Desktop: 3 cards, Tablet: 2 cards, Mobile: 1 card */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-7">
+                      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
                         {[0, 1, 2].map((offset, i) => {
                           const idx = (currentIndex + offset) % testimonials.length;
 
-                          // Content must remain unchanged; only presentation changes.
-                          // On tablet/mobile we naturally hide extra columns via grid breakpoints.
                           return (
                             <div
                               key={`${idx}-${i}`}
-                              className={i === 2 ? "hidden xl:block" : ""}
+                              className={`${i === 1 ? "hidden md:block" : ""} ${
+                                i === 2 ? "hidden xl:block" : ""
+                              }`}
                             >
                               <div
-                                className={
+                                className={`h-full min-h-[245px] rounded-2xl border p-5 transition-all duration-300 ${
                                   i === 0
-                                    ? "bg-bg-panel/60 backdrop-blur-sm border border-white/10 rounded-3xl p-8"
-                                    : "bg-bg-panel/35 backdrop-blur-sm border border-white/6 rounded-3xl p-8"
-                                }
-                                style={{ minHeight: 320 }}
+                                    ? "border-white/15 bg-white/[0.06] shadow-[0_18px_60px_rgba(56,189,248,0.08)]"
+                                    : "border-white/8 bg-white/[0.035]"
+                                }`}
                               >
-                                <div className="flex items-start gap-5 mb-6">
+                                <div className="mb-4 flex items-start gap-4">
                                   <div
-                                    className={
+                                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-lg font-bold ${
                                       i === 0
-                                        ? "w-16 h-16 bg-blue-gradient rounded-full flex items-center justify-center text-white font-bold text-3xl flex-shrink-0"
-                                        : "w-16 h-16 bg-bg-card rounded-full flex items-center justify-center text-silver-primary font-bold text-3xl flex-shrink-0"
-                                    }
+                                        ? "bg-blue-gradient text-white"
+                                        : "bg-white/[0.06] text-silver-primary"
+                                    }`}
                                   >
                                     {testimonials[idx].name.charAt(0)}
                                   </div>
 
-                                  <div>
-                                    <h4 className="text-silver-primary font-bold text-[22px] leading-tight mb-2">
+                                  <div className="min-w-0">
+                                    <h4 className="mb-1 text-base font-bold leading-tight text-silver-primary">
                                       {testimonials[idx].name}
                                     </h4>
-                                    <p className="text-secondary-text text-[15px]">
+                                    <p className="text-xs leading-relaxed text-secondary-text sm:text-sm">
                                       {testimonials[idx].role} at {testimonials[idx].company}
                                     </p>
                                   </div>
                                 </div>
 
-                                <div className="flex mb-6">
+                                <div className="mb-4 flex gap-1">
                                   {[...Array(testimonials[idx].rating)].map((_, s) => (
-                                    <span
-                                      key={s}
-                                      className={
-                                        i === 0 ? "text-brand-gold text-2xl" : "text-brand-gold/60 text-2xl"
-                                      }
-                                    >
-                                      ★
-                                    </span>
+                                    <StarIcon key={s} active={i === 0} />
                                   ))}
                                 </div>
 
-                                <p className="text-silver-secondary text-[18px] leading-[1.8] font-medium">
-                                  "{testimonials[idx].content}"
+                                <p className="text-sm font-medium leading-relaxed text-silver-secondary">
+                                  &quot;{testimonials[idx].content}&quot;
                                 </p>
                               </div>
                             </div>
@@ -176,8 +170,7 @@ export default function Testimonials() {
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Mobile indicators */}
-                  <div className="lg:hidden flex justify-center gap-2 mt-8">
+                  <div className="mt-6 flex justify-center gap-2 lg:hidden">
                     {testimonials.map((_, index) => (
                       <button
                         key={index}
@@ -185,37 +178,32 @@ export default function Testimonials() {
                           setDirection(index > currentIndex ? 1 : -1);
                           setCurrentIndex(index);
                         }}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                          index === currentIndex
-                            ? "bg-brand-blue w-8"
-                            : "bg-white/20 hover:bg-white/40"
+                        className={`h-2.5 rounded-full transition-all duration-300 ${
+                          index === currentIndex ? "w-7 bg-brand-blue" : "w-2.5 bg-white/20 hover:bg-white/40"
                         }`}
                         aria-label={`Go to testimonial ${index + 1}`}
                       />
                     ))}
                   </div>
 
-                  {/* Navigation Controls (below cards) */}
-                  <div className="flex justify-center gap-6 mt-10">
+                  <div className="mt-7 flex justify-center gap-3">
                     <button
                       onClick={prevTestimonial}
-                      className="w-[56px] h-[56px] rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-[1.04]"
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white transition-all duration-300 hover:scale-[1.04] hover:bg-white/[0.1]"
                       aria-label="Previous testimonials"
                     >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 19l-7-7 7-7" />
                       </svg>
                     </button>
 
-                    <div className="w-[10px]" />
-
                     <button
                       onClick={nextTestimonial}
-                      className="w-[56px] h-[56px] rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 hover:scale-[1.04]"
+                      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white transition-all duration-300 hover:scale-[1.04] hover:bg-white/[0.1]"
                       aria-label="Next testimonials"
                     >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
                   </div>
