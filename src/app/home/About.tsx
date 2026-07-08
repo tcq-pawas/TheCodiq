@@ -64,8 +64,10 @@ export default function About() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center p-8">
                   <div className="text-9xl mb-6">🚀</div>
-                  <p className="text-silver-primary text-2xl font-bold mb-2">Excellence in Every Project</p>
-                  <p className="text-secondary-text">Delivering premium IT solutions worldwide</p>
+                  <p className="text-silver-primary text-xl font-semibold mb-2">Excellence in Every Project</p>
+                  <p className="text-secondary-text">
+                    Delivering premium IT solutions worldwide
+                  </p>
                 </div>
               </div>
               {/* Decorative elements */}
@@ -101,7 +103,7 @@ export default function About() {
                     <div className="p-6">
                       <div className="flex items-center gap-4">
                         <div
-                          className={`w-14 h-14 rounded-2xl flex items-center justify-center text-3xl transition-all duration-300 ${
+                          className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 ${
                             activeIndex === index
                               ? "bg-blue-gradient shadow-lg"
                               : "bg-bg-panel"
@@ -111,7 +113,7 @@ export default function About() {
                         </div>
                         <div className="flex-1">
                           <h3
-                            className={`text-lg font-bold transition-colors ${
+                            className={`text-md font-semibold transition-colors ${
                               activeIndex === index
                                 ? "text-brand-blue"
                                 : "text-silver-primary"
@@ -149,7 +151,7 @@ export default function About() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <p className="pt-4 text-secondary-text text-sm leading-relaxed">
+                        <p className="pt-4 text-secondary-text text-xs leading-relaxed">
                           {feature.description}
                         </p>
                       </motion.div>
@@ -168,11 +170,6 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <Link href="/about">
-              <button className="px-8 py-4 bg-blue-gradient text-white font-medium rounded-full hover:opacity-90 transition-all duration-300 glow-button">
-                Learn More About Us
-              </button>
-            </Link>
           </motion.div>
         </div>
       </div>

@@ -11,7 +11,7 @@ export default function InnerPageBanner({ title, subtitle, className = '' }: Inn
     <section
       className={cn('relative w-full overflow-hidden', className)}
       style={{
-        marginTop: '120px',
+        marginTop: '90px',
         height: '200px',
       }}
     >

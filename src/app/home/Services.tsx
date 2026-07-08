@@ -22,10 +22,10 @@ export default function Services() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-silver-primary mb-6">
+          <h2 className="text-4xl md:text-3xl lg:text-4xl font-bold text-silver-primary mb-6">
             Our Services
           </h2>
-          <p className="text-lg text-secondary-text max-w-3xl mx-auto leading-relaxed">
+          <p className=" text-secondary-text max-w-3xl mx-auto leading-relaxed">
             We deliver comprehensive technology solutions tailored to your business needs. From web and mobile development to AI-powered systems and cloud infrastructure.
           </p>
         </motion.div>
@@ -47,16 +47,10 @@ export default function Services() {
                     {service.icon}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-silver-primary mb-4">
+                <h3 className=" font-semibold text-silver-primary mb-4">
                   {service.title}
                 </h3>
-                <p className="text-secondary-text text-sm mb-6 leading-relaxed">{service.description}</p>
-                <span className="text-sm text-brand-blue font-medium group-hover:text-brand-blue transition-colors inline-flex items-center gap-2">
-                  Learn More 
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </span>
+                <p className="text-secondary-text text-xs mb-6 leading-relaxed">{service.description}</p>
               </div>
             </motion.div>
           ))}
@@ -70,10 +64,10 @@ export default function Services() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-silver-primary mb-6">
+          <h2 className="text-4xl md:text-3xl lg:text-4xl font-bold text-silver-primary mb-6">
             End-To-End Development Services
           </h2>
-          <p className="text-lg text-secondary-text max-w-3xl mx-auto leading-relaxed">
+          <p className=" text-secondary-text max-w-3xl mx-auto leading-relaxed">
             Build powerful, scalable, and innovative digital solutions tailored to your business needs. From strategy and design to development, deployment, and maintenance, we provide complete technology services under one roof.
           </p>
         </motion.div>

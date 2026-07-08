@@ -21,9 +21,13 @@ export default function SectionTitle({
 
   return (
     <div className={cn("mb-12", alignments[align], className)}>
-      <h2 className="premium-heading">{title}</h2>
+      <h2 className="text-4xl md:text-3xl lg:text-4xl font-bold text-silver-primary mb-4">
+        {title}
+      </h2>
       {subtitle && (
-        <p className={cn("premium-subheading", subtitleAlignments[align])}>{subtitle}</p>
+        <p className={cn("text-secondary-text", subtitleAlignments[align])}>
+          {subtitle}
+        </p>
       )}
     </div>
   );
