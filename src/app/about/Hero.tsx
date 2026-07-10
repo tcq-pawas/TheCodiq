@@ -49,7 +49,7 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-6 max-w-xl text-sm leading-8 text-gray-300 md:text-sm"
+            className="mt-6 max-w-xl text-base leading-8 text-gray-300 md:text-sm"
           >
             At TheCodiQ, we help startups, businesses, and enterprises transform
             ideas into powerful digital products. From modern web applications
@@ -60,7 +60,7 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-4 max-w-xl text-sm leading-8 text-gray-400 md:text-sm"
+            className="mt-4 max-w-xl text-base leading-8 text-gray-400 md:text-sm"
           >
             Our team combines technical expertise, creative thinking, and a
             customer-first approach to build scalable, secure, and future-ready
@@ -76,7 +76,7 @@ export default function Hero() {
               (item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-gray-300"
+                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-300"
                 >
                   {item}
                 </span>
@@ -123,7 +123,7 @@ export default function Hero() {
                     {stat.value}
                   </h3>
 
-                  <p className="mt-2 max-w-[120px] text-xs font-xs uppercase tracking-[0.14em] text-gray-400">
+                  <p className="mt-2 max-w-[120px] text-sm  uppercase  text-gray-400">
                     {stat.label}
                   </p>
                 </motion.div>

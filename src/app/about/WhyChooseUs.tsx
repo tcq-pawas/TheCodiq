@@ -112,9 +112,6 @@ export default function WhyChooseUs() {
                 <div className="absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-500 group-hover:scale-x-100" />
 
                 {/* faded decorative index number */}
-                <span className="pointer-events-none absolute right-5 top-4 font-mono text-4xl font-bold text-white/[0.04] transition-colors duration-300 group-hover:text-primary/10">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
 
                 <div className="relative flex items-start justify-between">
                   <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl border border-primary/20 bg-gradient-to-br from-primary/20 to-primary/5 shadow-inner shadow-primary/10 transition-transform duration-300 group-hover:scale-110">

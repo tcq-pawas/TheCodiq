@@ -3,8 +3,9 @@
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 
 import Hero from "@/app/contact/Hero";
-import ContactForm from "@/app/contact/ContactForm";
-import ContactInfo from "@/app/contact/ContactInfo";
+import ContactSection from "@/app/contact/ContactSection";
+
+
 
 export default function ContactPage() {
   return (
@@ -24,13 +25,12 @@ export default function ContactPage() {
         />
 
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
-          <Hero />
+  <Hero />
 
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            <ContactForm />
-            <ContactInfo />
-          </div>
-        </div>
+  <div className="mb-16">
+    <ContactSection />
+  </div>
+</div>
       </div>
     </>
   );
