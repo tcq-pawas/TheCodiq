@@ -9,7 +9,7 @@ function MetallicCube({ position, rotation, scale }: { position: [number, number
   const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current) {
       meshRef.current.rotation.x += 0.005;
       meshRef.current.rotation.y += 0.005;
@@ -42,7 +42,7 @@ function HeroScene() {
   const groupRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (groupRef.current && !hovered) {
       groupRef.current.rotation.y += 0.002;
       groupRef.current.rotation.x += 0.001;

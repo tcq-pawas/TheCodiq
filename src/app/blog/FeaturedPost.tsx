@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Card from "@/components/common/Card";
-import Button from "@/components/common/Button";
 
 export default function FeaturedPost() {
   return (

@@ -153,7 +153,7 @@ export default function Testimonials() {
                           </div>
 
                           <p className="text-[15px] font-medium leading-7 text-silver-secondary">
-                            "{testimonials[idx].content}"
+                            &ldquo;{testimonials[idx].content}&rdquo;
                           </p>
                         </article>
                       </div>

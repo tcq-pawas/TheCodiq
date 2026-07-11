@@ -17,7 +17,7 @@ export default function CTA() {
             Ready to <span className="accent-gradient-text">get started</span>?
           </h2>
           <p className="text-lg text-secondary-text mb-12 max-w-2xl mx-auto">
-            Let's build something amazing together. Get in touch with our team today.
+            Let&apos;s build something amazing together. Get in touch with our team today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">

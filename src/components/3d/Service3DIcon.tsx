@@ -9,7 +9,7 @@ import * as THREE from "three";
 function HollowCube({ hovered }: { hovered: boolean }) {
   const meshRef = useRef<THREE.Group>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current && !hovered) {
       meshRef.current.rotation.y += 0.01;
       meshRef.current.rotation.x += 0.005;
@@ -47,7 +47,7 @@ function HollowCube({ hovered }: { hovered: boolean }) {
 function SphereWithNodes({ hovered }: { hovered: boolean }) {
   const meshRef = useRef<THREE.Group>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current && !hovered) {
       meshRef.current.rotation.y += 0.01;
       meshRef.current.rotation.x += 0.005;
@@ -127,7 +127,7 @@ function SphereWithNodes({ hovered }: { hovered: boolean }) {
 function GeometricHollowCube({ hovered }: { hovered: boolean }) {
   const meshRef = useRef<THREE.Group>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current && !hovered) {
       meshRef.current.rotation.y += 0.01;
       meshRef.current.rotation.x += 0.005;

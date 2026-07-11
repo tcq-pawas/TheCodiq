@@ -29,7 +29,7 @@ export default function Footer() {
               {/* Left side - Content */}
               <div>
                 <h2 className="text-3xl md:text-3xl font-bold text-silver-primary mb-4">
-                  Let's Build Something Amazing Together
+                  Let&apos;s Build Something Amazing Together
                 </h2>
                 <p className="text-secondary-text text-base md:text-base mb-6 leading-relaxed max-w-lg">
                   Transform your ideas into powerful digital products with TheCodiQ Global. From web applications and mobile apps to AI-powered platforms and enterprise solutions, we deliver end-to-end technology services.
@@ -69,7 +69,7 @@ export default function Footer() {
                           <span className="text-silver-primary">console.</span>
                           <span className="text-brand-blue">log</span>
                           <span className="text-silver-secondary">(</span>
-                          <span className="text-brand-green">"Success"</span>
+                          <span className="text-brand-green">&quot;Success&quot;</span>
                           <span className="text-silver-secondary">);</span>
                         </div>
                       </div>
