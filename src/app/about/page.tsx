@@ -165,40 +165,40 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                title: "Expert Team",
+                title: "Expert Engineering",
                 description:
-                  "Highly skilled professionals with years of industry experience",
-                icon: "✨",
+                  "Highly skilled engineers with deep expertise in building scalable, secure, and high-performance solutions",
+                icon: "👨‍💻",
               },
               {
-                title: "Quality Work",
+                title: "AI-First Approach",
                 description:
-                  "Delivering excellence through rigorous quality standards",
-                icon: "🏆",
+                  "Leveraging cutting-edge AI and machine learning to deliver intelligent, automated, and data-driven solutions",
+                icon: "🤖",
               },
               {
-                title: "24/7 Support",
+                title: "Fast Delivery",
                 description:
-                  "Round-the-clock assistance for all your technical needs",
-                icon: "🛟",
-              },
-              {
-                title: "Modern Tech",
-                description:
-                  "Latest technologies and best practices for optimal results",
+                  "Agile development methodology ensuring rapid turnaround without compromising on quality or functionality",
                 icon: "⚡",
               },
               {
-                title: "Transparent Pricing",
+                title: "Scalable Architecture",
                 description:
-                  "Clear, competitive pricing with no hidden costs",
-                icon: "💰",
+                  "Building flexible and robust systems that grow with your business needs and handle increasing demands seamlessly",
+                icon: "🏗️",
               },
               {
-                title: "On-Time Delivery",
+                title: "Transparent Communication",
                 description:
-                  "Meeting deadlines consistently with efficient project management",
-                icon: "📅",
+                  "Clear, regular updates and open collaboration ensuring you're always informed about project progress and decisions",
+                icon: "�",
+              },
+              {
+                title: "Dedicated Support",
+                description:
+                  "24/7 ongoing support and maintenance to ensure your applications run smoothly and issues are resolved quickly",
+                icon: "�",
               },
             ].map((feature, index) => (
               <motion.div

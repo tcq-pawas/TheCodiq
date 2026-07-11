@@ -63,7 +63,7 @@ export const services: Service[] = [
   },
   {
     id: "6",
-    title: "Cloud Solutions",
+    title: "Cloud & DevOps",
     description: "Scalable cloud infrastructure and deployment solutions for modern applications.",
     icon: "☁️",
     features: [

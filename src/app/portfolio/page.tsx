@@ -100,23 +100,7 @@ export default function PortfolioPage() {
           </AnimatePresence>
         </motion.div>
 
-        {/* CTA */}
-        <motion.div
-          className="text-center glass-effect rounded-2xl p-12 border border-primary/20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h3 className="text-3xl font-bold text-white mb-4">
-            Have a Project in Mind?
-          </h3>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Let's work together to bring your vision to life. Get in touch with
-            our team today.
-          </p>
-          <Button size="lg">Start Your Project</Button>
-        </motion.div>
+
       </div>
     </div>
     </>

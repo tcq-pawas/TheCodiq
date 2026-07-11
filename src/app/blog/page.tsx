@@ -77,6 +77,7 @@ export default function BlogPage() {
       <div className="animated-blob w-96 h-96 bg-primary/20 top-1/4 -left-48" />
       <div className="animated-blob w-96 h-96 bg-accent/20 bottom-1/4 -right-48" style={{ animationDelay: "3s" }} />
 
+
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
         {/* Featured Post */}
         <motion.div
@@ -150,23 +151,7 @@ export default function BlogPage() {
           ))}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          className="text-center glass-effect rounded-2xl p-12 border border-primary/20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h3 className="text-3xl font-bold text-white mb-4">
-            Stay Updated
-          </h3>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter to get the latest articles and updates
-            delivered to your inbox.
-          </p>
-          <Button size="lg">Subscribe Now</Button>
-        </motion.div>
+
       </div>
     </div>
     </>
