@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Link from "next/link";
 
 const faqItems = [
   {
@@ -32,6 +31,14 @@ const faqItems = [
   },
 ];
 
+const particles = Array.from({ length: 20 }, (_, i) => ({
+  id: i,
+  x: (i * 37 + 13) % 100,
+  y: (i * 53 + 29) % 100,
+  duration: 3 + ((i * 17) % 20) / 10,
+  delay: ((i * 11) % 20) / 10,
+}));
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -41,88 +48,81 @@ export default function FAQ() {
 
   return (
     <section className="py-24 bg-bg-primary relative overflow-hidden">
-      {/* Background glow effects */}
       <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-brand-blue/10 blur-[150px]" />
       <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-brand-gold/10 blur-[150px]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-brand-blue/5 blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-blue/5 blur-[120px]" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <div className="inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-2 backdrop-blur-md mb-6">
-            <span className="text-sm font-medium text-silver-primary">
+          <div className="mb-6 inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-2 backdrop-blur-md">
+            <span className="text-sm  text-silver-primary">
               FREQUENTLY ASKED QUESTIONS
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-silver-primary mb-6">
+          <h2 className="mb-6 text-4xl font-bold text-silver-primary md:text-4xl lg:text-4xl">
             Questions We Hear Most Often
           </h2>
 
-          <p className="text-lg text-secondary-text max-w-3xl mx-auto leading-relaxed">
+          <p className="mx-auto max-w-3xl  leading-relaxed text-secondary-text">
             Everything you need to know about our software development, AI solutions, project delivery process, and long-term support.
           </p>
         </motion.div>
 
-        {/* FAQ Content */}
-        <div className="grid lg:grid-cols-5 gap-12 items-start mb-16">
-          {/* Left side - Premium Visual UI Showcase (40%) */}
+        <div className="mb-16 grid items-start gap-12 lg:grid-cols-5">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-2 hidden lg:block"
+            className="hidden lg:col-span-2 lg:block"
           >
-            <div className="relative h-[500px] rounded-[30px] border border-white/10 bg-bg-card/50 backdrop-blur-xl overflow-hidden">
-              {/* Ambient glow */}
+            <div className="relative h-[430px] overflow-hidden rounded-[30px] border border-white/10 bg-bg-card/50 backdrop-blur-xl">
               <div className="absolute inset-0">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-gold/5" />
-                <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-brand-blue/20 blur-[60px]" />
-                <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-brand-gold/20 blur-[60px]" />
+                <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-gold/5" />
+                <div className="absolute left-10 top-10 h-32 w-32 rounded-full bg-brand-blue/20 blur-[60px]" />
+                <div className="absolute bottom-10 right-10 h-32 w-32 rounded-full bg-brand-gold/20 blur-[60px]" />
               </div>
 
-              {/* Floating particles */}
-              {[...Array(20)].map((_, i) => (
+              {particles.map((particle) => (
                 <motion.div
-                  key={i}
-                  className="absolute w-1 h-1 rounded-full bg-brand-blue/40"
+                  key={particle.id}
+                  className="absolute h-1 w-1 rounded-full bg-brand-blue/40"
                   initial={{
-                    x: Math.random() * 100 + "%",
-                    y: Math.random() * 100 + "%",
+                    x: `${particle.x}%`,
+                    y: `${particle.y}%`,
                   }}
                   animate={{
                     y: [0, -20, 0],
                     opacity: [0.2, 0.6, 0.2],
                   }}
                   transition={{
-                    duration: 3 + Math.random() * 2,
+                    duration: particle.duration,
                     repeat: Infinity,
-                    delay: Math.random() * 2,
+                    delay: particle.delay,
                   }}
                 />
               ))}
 
-              {/* Main 3D Laptop with Code */}
               <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-32 bg-[#0d1117] rounded-lg border border-white/10 shadow-2xl"
+                className="absolute left-1/2 top-1/2 h-32 w-48 -translate-x-1/2 -translate-y-1/2 rounded-lg border border-white/10 bg-[#0d1117] shadow-2xl"
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                {/* Laptop screen */}
-                <div className="p-3 space-y-2">
-                  <div className="flex gap-1.5 mb-2">
-                    <div className="w-2 h-2 rounded-full bg-red-500" />
-                    <div className="w-2 h-2 rounded-full bg-yellow-500" />
-                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                <div className="space-y-2 p-3">
+                  <div className="mb-2 flex gap-1.5">
+                    <div className="h-2 w-2 rounded-full bg-red-500" />
+                    <div className="h-2 w-2 rounded-full bg-yellow-500" />
+                    <div className="h-2 w-2 rounded-full bg-green-500" />
                   </div>
-                  <div className="font-mono text-[8px] space-y-1">
+
+                  <div className="space-y-1 font-mono text-[8px]">
                     <div>
                       <span className="text-purple-400">class</span>
                       <span className="text-yellow-300"> Solution</span>
@@ -135,21 +135,20 @@ export default function FAQ() {
                     </div>
                     <div className="pl-4">
                       <span className="text-purple-400">return</span>
-                      <span className="text-green-300"> "AI"</span>
+                      <span className="text-green-300"> &quot;AI&quot;</span>
                     </div>
                   </div>
                 </div>
-                {/* Laptop base */}
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-56 h-2 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-lg" />
+
+                <div className="absolute -bottom-2 left-1/2 h-2 w-56 -translate-x-1/2 rounded-b-lg bg-gradient-to-b from-gray-700 to-gray-800" />
               </motion.div>
 
-              {/* Floating Code Snippet - Python */}
               <motion.div
-                className="absolute top-8 left-8 w-28 h-16 bg-bg-card/80 backdrop-blur border border-brand-blue/30 rounded-lg p-2 shadow-lg"
+                className="absolute left-8 top-8 h-16 w-28 rounded-lg border border-brand-blue/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               >
-                <div className="font-mono text-[9px] space-y-0.5">
+                <div className="space-y-0.5 font-mono text-[9px]">
                   <div>
                     <span className="text-purple-400">import</span>
                     <span className="text-white"> ai</span>
@@ -162,122 +161,70 @@ export default function FAQ() {
                 </div>
               </motion.div>
 
-              {/* Floating Code Snippet - JavaScript */}
               <motion.div
-                className="absolute bottom-12 right-8 w-32 h-14 bg-bg-card/80 backdrop-blur border border-brand-gold/30 rounded-lg p-2 shadow-lg"
+                className="absolute bottom-12 right-8 h-14 w-32 rounded-lg border border-brand-gold/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               >
-                <div className="font-mono text-[9px] space-y-0.5">
+                <div className="space-y-0.5 font-mono text-[9px]">
                   <div>
                     <span className="text-blue-400">const</span>
-                    <span className="text-white"> cloud</span>
-                    <span className="text-white"> = </span>
+                    <span className="text-white"> cloud = </span>
                     <span className="text-green-300">new</span>
                     <span className="text-white"> Cloud()</span>
                   </div>
                 </div>
               </motion.div>
 
-              {/* AI Assistant Panel */}
               <motion.div
-                className="absolute top-20 right-6 w-16 h-16 bg-brand-blue/20 rounded-xl flex items-center justify-center border border-brand-blue/40 backdrop-blur shadow-lg"
+                className="absolute right-6 top-20 flex h-16 w-16 items-center justify-center rounded-xl border border-brand-blue/40 bg-brand-blue/20 shadow-lg backdrop-blur"
                 animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
               >
-                <span className="text-2xl">🤖</span>
+                <span className="text-2xl">AI</span>
               </motion.div>
 
-              {/* Dashboard Analytics Card */}
               <motion.div
-                className="absolute bottom-24 left-6 w-24 h-20 bg-bg-card/80 backdrop-blur border border-brand-green/30 rounded-lg p-2 shadow-lg"
+                className="absolute bottom-24 left-6 h-20 w-24 rounded-lg border border-brand-green/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
               >
-                <div className="text-[8px] text-brand-green mb-1">Analytics</div>
+                <div className="mb-1 text-[8px] text-brand-green">Analytics</div>
                 <div className="space-y-1">
-                  <div className="h-1 w-full bg-brand-green/30 rounded">
-                    <div className="h-full w-3/4 bg-brand-green rounded" />
+                  <div className="h-1 w-full rounded bg-brand-green/30">
+                    <div className="h-full w-3/4 rounded bg-brand-green" />
                   </div>
-                  <div className="h-1 w-full bg-brand-green/30 rounded">
-                    <div className="h-full w-1/2 bg-brand-green rounded" />
+                  <div className="h-1 w-full rounded bg-brand-green/30">
+                    <div className="h-full w-1/2 rounded bg-brand-green" />
                   </div>
                 </div>
               </motion.div>
 
-              {/* Cloud Deployment Card */}
               <motion.div
-                className="absolute top-32 left-20 w-20 h-16 bg-bg-card/80 backdrop-blur border border-purple-400/30 rounded-lg p-2 shadow-lg"
+                className="absolute left-20 top-32 h-16 w-20 rounded-lg border border-purple-400/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
                 animate={{ y: [0, -7, 0] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
               >
-                <div className="text-[8px] text-purple-400 mb-1">Cloud</div>
+                <div className="mb-1 text-[8px] text-purple-400">Cloud</div>
                 <div className="flex gap-1">
-                  <div className="w-3 h-3 rounded-full bg-purple-400/50" />
-                  <div className="w-3 h-3 rounded-full bg-purple-400/50" />
-                  <div className="w-3 h-3 rounded-full bg-purple-400/50" />
+                  <div className="h-3 w-3 rounded-full bg-purple-400/50" />
+                  <div className="h-3 w-3 rounded-full bg-purple-400/50" />
+                  <div className="h-3 w-3 rounded-full bg-purple-400/50" />
                 </div>
               </motion.div>
 
-              {/* API Response Card */}
               <motion.div
-                className="absolute bottom-8 right-24 w-28 h-12 bg-bg-card/80 backdrop-blur border border-brand-blue/30 rounded-lg p-2 shadow-lg"
+                className="absolute bottom-8 right-24 h-12 w-28 rounded-lg border border-brand-blue/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 3 }}
               >
                 <div className="font-mono text-[9px]">
-                  <div className="text-brand-green mb-0.5">200 OK</div>
+                  <div className="mb-0.5 text-brand-green">200 OK</div>
                   <div className="text-white">GET /api</div>
                 </div>
               </motion.div>
 
-              {/* Small Info Cards */}
-              <motion.div
-                className="absolute top-4 right-4 px-3 py-1.5 bg-brand-blue/20 backdrop-blur border border-brand-blue/40 rounded-lg"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <div className="flex items-center gap-1.5">
-                  <span className="text-xs">🛟</span>
-                  <span className="text-[10px] text-silver-primary font-medium">24/7 Support</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute bottom-4 left-4 px-3 py-1.5 bg-brand-gold/20 backdrop-blur border border-brand-gold/40 rounded-lg"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-              >
-                <div className="flex items-center gap-1.5">
-                  <span className="text-xs">⚡</span>
-                  <span className="text-[10px] text-silver-primary font-medium">Fast Delivery</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute top-1/2 right-4 px-3 py-1.5 bg-green-500/20 backdrop-blur border border-green-500/40 rounded-lg"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 2 }}
-              >
-                <div className="flex items-center gap-1.5">
-                  <span className="text-xs">🔒</span>
-                  <span className="text-[10px] text-silver-primary font-medium">Security</span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute top-1/3 left-4 px-3 py-1.5 bg-purple-500/20 backdrop-blur border border-purple-500/40 rounded-lg"
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
-              >
-                <div className="flex items-center gap-1.5">
-                  <span className="text-xs">👥</span>
-                  <span className="text-[10px] text-silver-primary font-medium">Dedicated Team</span>
-                </div>
-              </motion.div>
-
-              {/* Network Lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+              <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-20">
                 <line x1="20%" y1="30%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
                 <line x1="80%" y1="30%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
                 <line x1="20%" y1="70%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
@@ -292,27 +239,26 @@ export default function FAQ() {
             </div>
           </motion.div>
 
-          {/* Right side - Accordion (60%) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-3 space-y-4"
+            className="space-y-4 lg:col-span-3"
           >
             {faqItems.map((item, index) => (
               <motion.div
-                key={index}
+                key={item.question}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <div
-                  className={`rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden ${
+                  className={`cursor-pointer overflow-hidden rounded-2xl border transition-all duration-300 ${
                     openIndex === index
-                      ? "border-brand-blue bg-bg-card/80 backdrop-blur-xl shadow-lg shadow-brand-blue/20"
-                      : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:border-brand-blue/50 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-blue/10"
+                      ? "border-brand-blue bg-bg-card/80 shadow-lg shadow-brand-blue/20 backdrop-blur-xl"
+                      : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-lg hover:shadow-brand-blue/10"
                   }`}
                   onClick={() => toggleFAQ(index)}
                   onKeyDown={(e) => {
@@ -326,34 +272,26 @@ export default function FAQ() {
                   aria-expanded={openIndex === index}
                 >
                   <div className="p-6">
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between gap-4">
                       <h4
-                        className={`text-lg font-bold transition-colors ${
+                        className={` font-semibold transition-colors ${
                           openIndex === index ? "text-brand-blue" : "text-silver-primary"
                         }`}
                       >
                         {item.question}
                       </h4>
+
                       <motion.div
-                        animate={{ rotate: openIndex === index ? 180 : 0 }}
+                        animate={{ rotate: openIndex === index ? 45 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="text-silver-secondary"
+                        className="shrink-0 text-silver-secondary"
                       >
-                        <svg
-                          className="w-6 h-6"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 4v16m8-8H4"
-                          />
+                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                         </svg>
                       </motion.div>
                     </div>
+
                     <motion.div
                       initial={false}
                       animate={{
@@ -363,7 +301,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="pt-4 text-secondary-text text-sm leading-relaxed">
+                      <p className="pt-4 text-sm leading-relaxed text-secondary-text">
                         {item.answer}
                       </p>
                     </motion.div>

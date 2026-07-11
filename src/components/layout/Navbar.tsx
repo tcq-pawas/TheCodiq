@@ -21,16 +21,16 @@ export default function Navbar() {
           ? "bg-bg-primary/90 backdrop-blur-xl"
           : "bg-transparent"
       )}
-      style={{ height: "120px" }}
+      style={{ height: "80px" }}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 h-full">
         <div className="flex items-center justify-between h-full">
           <Link href="/" className="flex items-center">
-            <img src="/logo/logo.png" alt="TheCodiQ" className="h-24 w-auto" />
+            <img src="/logo/logo.png" alt="TheCodiQ" className="h-20 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center flex-1 justify-center">
-            <div className="bg-bg-card/80 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2 shadow-lg">
+            <div className="flex items-center space-x-1">
               <div className="flex items-center space-x-1">
                 {NAV_LINKS.map((link) => (
                   <Link

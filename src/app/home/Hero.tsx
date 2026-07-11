@@ -26,7 +26,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
           </div>
 
-          <div className="relative z-10 grid items-center gap-12 lg:gap-20 px-4 py-16 lg:px-8 lg:py-24 xl:px-12 xl:py-32 lg:grid-cols-2">
+          <div  className="relative z-10 grid items-center gap-12 lg:gap-20 px-4 py-8 lg:px-6 lg:py-10 xl:px-8 xl:py-12 lg:grid-cols-2">
 
             {/* Left Content */}
 
@@ -52,7 +52,7 @@ export default function Hero() {
 
 
 
-              <h1 className="mt-8 text-5xl font-bold leading-tight text-silver-primary md:text-6xl lg:text-7xl">
+              <h1 className="mt-8 text-5xl font-bold leading-tight text-silver-primary md:text-4xl lg:text-5xl">
 
                 Build AI-Powered Software That
 
@@ -64,7 +64,7 @@ export default function Hero() {
 
 
 
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-secondary-text">
+              <p className="mt-6 max-w-2xl  leading-relaxed text-secondary-text">
 
                 Custom Web Applications, Mobile Apps, AI Solutions, Cloud Infrastructure, and Digital Transformation Services for Startups, Enterprises, and Growing Businesses.
 
@@ -130,7 +130,7 @@ export default function Hero() {
 
             <motion.div
 
-              className="relative flex items-center justify-center"
+              className="relative flex items-center justify-center lg:-mt-15 xl:-mt-16 2xl:-mt-20"
 
               initial={{ opacity: 0, scale: 0.85 }}
 
@@ -166,7 +166,7 @@ export default function Hero() {
 
                 <Image
 
-                  src="/images/hero-banner.png"
+                  src="images/hero-banner.png"
 
                   alt="TheCodiQ Global - Premium Software Development"
 
