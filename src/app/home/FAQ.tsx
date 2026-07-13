@@ -3,6 +3,21 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+import {
+  FaRobot,
+  FaCloudUploadAlt,
+  FaChartBar,
+} from "react-icons/fa";
+
+import {
+  HiOutlineStatusOnline,
+} from "react-icons/hi";
+
+import {
+  BsStars,
+} from "react-icons/bs";
+
+
 const faqItems = [
   {
     question: "How much does a project cost?",
@@ -83,24 +98,30 @@ export default function FAQ() {
             transition={{ duration: 0.6 }}
             className="hidden lg:col-span-2 lg:block"
           >
-            <div className="relative h-[430px] overflow-hidden rounded-[30px] border border-white/10 bg-bg-card/50 backdrop-blur-xl">
+            <div className="relative h-[430px] overflow-hidden rounded-[32px] border border-white/10 bg-[#070b14]/80 backdrop-blur-2xl">
+
+              {/* Background */}
               <div className="absolute inset-0">
-                <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-gold/5" />
-                <div className="absolute left-10 top-10 h-32 w-32 rounded-full bg-brand-blue/20 blur-[60px]" />
-                <div className="absolute bottom-10 right-10 h-32 w-32 rounded-full bg-brand-gold/20 blur-[60px]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#2563eb22,transparent_40%),radial-gradient(circle_at_bottom_right,#8b5cf622,transparent_45%)]" />
+
+                <div className="absolute left-8 top-8 h-44 w-44 rounded-full bg-blue-500/20 blur-[90px]" />
+
+                <div className="absolute bottom-0 right-0 h-52 w-52 rounded-full bg-violet-500/20 blur-[90px]" />
               </div>
+
+              {/* Floating particles */}
 
               {particles.map((particle) => (
                 <motion.div
                   key={particle.id}
-                  className="absolute h-1 w-1 rounded-full bg-brand-blue/40"
+                  className="absolute h-1 w-1 rounded-full bg-blue-400"
                   initial={{
                     x: `${particle.x}%`,
                     y: `${particle.y}%`,
                   }}
                   animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.2, 0.6, 0.2],
+                    y: [0, -25, 0],
+                    opacity: [.2, .8, .2],
                   }}
                   transition={{
                     duration: particle.duration,
@@ -110,132 +131,261 @@ export default function FAQ() {
                 />
               ))}
 
+              {/* Main Laptop */}
+
               <motion.div
-                className="absolute left-1/2 top-1/2 h-32 w-48 -translate-x-1/2 -translate-y-1/2 rounded-lg border border-white/10 bg-[#0d1117] shadow-2xl"
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute left-1/2 top-1/2 w-56 -translate-x-1/2 -translate-y-1/2"
+                animate={{ y: [0, -8, 0] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
               >
-                <div className="space-y-2 p-3">
-                  <div className="mb-2 flex gap-1.5">
-                    <div className="h-2 w-2 rounded-full bg-red-500" />
-                    <div className="h-2 w-2 rounded-full bg-yellow-500" />
-                    <div className="h-2 w-2 rounded-full bg-green-500" />
+
+                <div className="rounded-xl border border-white/10 bg-[#0d1117] shadow-[0_25px_60px_rgba(37,99,235,.25)]">
+
+                  {/* Window */}
+
+                  <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+
+                    <div className="h-2.5 w-2.5 rounded-full bg-red-500" />
+
+                    <div className="h-2.5 w-2.5 rounded-full bg-yellow-500" />
+
+                    <div className="h-2.5 w-2.5 rounded-full bg-green-500" />
+
+                    <div className="ml-3 h-2 w-20 rounded-full bg-white/10" />
+
                   </div>
 
-                  <div className="space-y-1 font-mono text-[8px]">
+                  <div className="space-y-2 p-4 font-mono text-[10px]">
+
                     <div>
-                      <span className="text-purple-400">class</span>
-                      <span className="text-yellow-300"> Solution</span>
-                      <span className="text-white">:</span>
+                      <span className="text-purple-400">import</span>{" "}
+                      <span className="text-blue-400">OpenAI</span>
                     </div>
-                    <div className="pl-2">
-                      <span className="text-purple-400">def</span>
-                      <span className="text-blue-300"> build</span>
-                      <span className="text-white">(self):</span>
+
+                    <div>
+                      <span className="text-blue-300">const</span>{" "}
+                      <span className="text-white">assistant</span>{" "}
+                      <span className="text-white">=</span>{" "}
+                      <span className="text-green-400">new AI()</span>
                     </div>
-                    <div className="pl-4">
-                      <span className="text-purple-400">return</span>
-                      <span className="text-green-300"> &quot;AI&quot;</span>
+
+                    <div>
+                      <span className="text-purple-400">await</span>{" "}
+                      <span className="text-yellow-300">assistant</span>
+                      <span className="text-white">.generate()</span>
                     </div>
+
+                    <div className="mt-3 h-1.5 w-full rounded-full bg-white/10">
+                      <motion.div
+                        className="h-full rounded-full bg-gradient-to-r from-blue-500 to-violet-500"
+                        animate={{
+                          width: ["20%", "80%", "35%"]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity
+                        }}
+                      />
+                    </div>
+
                   </div>
+
                 </div>
 
-                <div className="absolute -bottom-2 left-1/2 h-2 w-56 -translate-x-1/2 rounded-b-lg bg-gradient-to-b from-gray-700 to-gray-800" />
+                <div className="mx-auto h-2 w-64 rounded-b-xl bg-gradient-to-b from-slate-600 to-slate-800" />
               </motion.div>
 
+
+
+              {/* AI Card */}
+
               <motion.div
-                className="absolute left-8 top-8 h-16 w-28 rounded-lg border border-brand-blue/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
+                className="absolute left-8 top-8 rounded-2xl border border-blue-400/20 bg-white/5 px-4 py-3 backdrop-blur-xl"
                 animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
               >
-                <div className="space-y-0.5 font-mono text-[9px]">
-                  <div>
-                    <span className="text-purple-400">import</span>
-                    <span className="text-white"> ai</span>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/20 text-blue-400">
+                    <FaRobot className="text-lg" />
                   </div>
-                  <div>
-                    <span className="text-blue-400">model</span>
-                    <span className="text-white"> = </span>
-                    <span className="text-green-300">AI()</span>
-                  </div>
-                </div>
-              </motion.div>
 
-              <motion.div
-                className="absolute bottom-12 right-8 h-14 w-32 rounded-lg border border-brand-gold/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              >
-                <div className="space-y-0.5 font-mono text-[9px]">
                   <div>
-                    <span className="text-blue-400">const</span>
-                    <span className="text-white"> cloud = </span>
-                    <span className="text-green-300">new</span>
-                    <span className="text-white"> Cloud()</span>
+                    <div className="text-xs text-blue-400">
+                      AI Assistant
+                    </div>
+
+                    <div className="mt-0.5 flex items-center gap-1 text-lg font-semibold text-white">
+                      GPT-5
+                      <BsStars className="text-sm text-yellow-400" />
+                    </div>
+
+                    <div className="text-[11px] text-white/60">
+                      Thinking...
+                    </div>
                   </div>
                 </div>
               </motion.div>
 
-              <motion.div
-                className="absolute right-6 top-20 flex h-16 w-16 items-center justify-center rounded-xl border border-brand-blue/40 bg-brand-blue/20 shadow-lg backdrop-blur"
-                animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-              >
-                <span className="text-2xl">AI</span>
-              </motion.div>
+
+              {/* Deploy */}
 
               <motion.div
-                className="absolute bottom-24 left-6 h-20 w-24 rounded-lg border border-brand-green/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
+                className="absolute right-8 top-10 rounded-2xl border border-violet-400/20 bg-white/5 px-4 py-3 backdrop-blur-xl"
                 animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                }}
               >
-                <div className="mb-1 text-[8px] text-brand-green">Analytics</div>
-                <div className="space-y-1">
-                  <div className="h-1 w-full rounded bg-brand-green/30">
-                    <div className="h-full w-3/4 rounded bg-brand-green" />
+                <div className="flex items-center gap-2">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400">
+                    <FaCloudUploadAlt className="text-lg" />
                   </div>
-                  <div className="h-1 w-full rounded bg-brand-green/30">
-                    <div className="h-full w-1/2 rounded bg-brand-green" />
+
+                  <div>
+                    <div className="text-xs text-violet-400">
+                      Cloud Deploy
+                    </div>
+
+                    <div className="mt-2 h-1.5 w-28 rounded-full bg-white/10">
+                      <motion.div
+                        className="h-full rounded-full bg-violet-500"
+                        animate={{
+                          width: ["25%", "100%", "60%"],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                        }}
+                      />
+                    </div>
+
+                    <div className="mt-2 text-[11px] text-white/60">
+                      Production Ready
+                    </div>
                   </div>
                 </div>
               </motion.div>
 
+              {/* Analytics */}
+
               <motion.div
-                className="absolute left-20 top-32 h-16 w-20 rounded-lg border border-purple-400/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
-                animate={{ y: [0, -7, 0] }}
-                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
+                className="absolute bottom-8 left-8 rounded-2xl border border-emerald-400/20 bg-white/5 px-4 py-3 backdrop-blur-xl"
+                animate={{ y: [0, -8, 0] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                }}
               >
-                <div className="mb-1 text-[8px] text-purple-400">Cloud</div>
-                <div className="flex gap-1">
-                  <div className="h-3 w-3 rounded-full bg-purple-400/50" />
-                  <div className="h-3 w-3 rounded-full bg-purple-400/50" />
-                  <div className="h-3 w-3 rounded-full bg-purple-400/50" />
+                <div className="mb-2 flex items-center gap-2">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400">
+                    <FaChartBar className="text-lg" />
+                  </div>
+
+                  <div>
+                    <div className="text-xs text-emerald-400">
+                      Analytics
+                    </div>
+
+                    <div className="text-[11px] text-white/60">
+                      Live Metrics
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-end gap-1">
+                  {[18, 26, 16, 38, 22, 44].map((h, index) => (
+                    <motion.div
+                      key={index}
+                      className="w-2 rounded bg-emerald-400"
+                      animate={{
+                        height: [h, h + 8, h],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: index * 0.2,
+                      }}
+                      style={{ height: h }}
+                    />
+                  ))}
                 </div>
               </motion.div>
 
+              {/* API */}
+
               <motion.div
-                className="absolute bottom-8 right-24 h-12 w-28 rounded-lg border border-brand-blue/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
+                className="absolute bottom-8 right-8 rounded-2xl border border-cyan-400/20 bg-white/5 px-4 py-3 backdrop-blur-xl"
                 animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
               >
-                <div className="font-mono text-[9px]">
-                  <div className="mb-0.5 text-brand-green">200 OK</div>
-                  <div className="text-white">GET /api</div>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400">
+                    <HiOutlineStatusOnline className="text-lg" />
+                  </div>
+
+                  <div>
+                    <div className="text-xs text-cyan-400">
+                      API Status
+                    </div>
+
+                    <div className="mt-2 flex items-center gap-2">
+                      <motion.div
+                        animate={{
+                          opacity: [0.4, 1, 0.4],
+                          scale: [0.9, 1.2, 0.9],
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                        }}
+                        className="h-2.5 w-2.5 rounded-full bg-green-400"
+                      />
+
+                      <span className="text-xs text-white">
+                        99.99% Online
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
 
-              <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-20">
-                <line x1="20%" y1="30%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
-                <line x1="80%" y1="30%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
-                <line x1="20%" y1="70%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
-                <line x1="80%" y1="70%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
+              {/* Connection Lines */}
+
+              <svg className="absolute inset-0 h-full w-full opacity-30">
+
                 <defs>
-                  <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#3B82F6" />
+
+                  <linearGradient id="line">
+
+                    <stop offset="0%" stopColor="#2563EB" />
+
                     <stop offset="100%" stopColor="#8B5CF6" />
+
                   </linearGradient>
+
                 </defs>
+
+                <line x1="25%" y1="18%" x2="50%" y2="50%" stroke="url(#line)" strokeWidth="1" />
+
+                <line x1="75%" y1="18%" x2="50%" y2="50%" stroke="url(#line)" strokeWidth="1" />
+
+                <line x1="25%" y1="82%" x2="50%" y2="50%" stroke="url(#line)" strokeWidth="1" />
+
+                <line x1="75%" y1="82%" x2="50%" y2="50%" stroke="url(#line)" strokeWidth="1" />
+
               </svg>
+
             </div>
           </motion.div>
 
@@ -255,11 +405,10 @@ export default function FAQ() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <div
-                  className={`cursor-pointer overflow-hidden rounded-2xl border transition-all duration-300 ${
-                    openIndex === index
-                      ? "border-brand-blue bg-bg-card/80 shadow-lg shadow-brand-blue/20 backdrop-blur-xl"
-                      : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-lg hover:shadow-brand-blue/10"
-                  }`}
+                  className={`cursor-pointer overflow-hidden rounded-2xl border transition-all duration-300 ${openIndex === index
+                    ? "border-brand-blue bg-bg-card/80 shadow-lg shadow-brand-blue/20 backdrop-blur-xl"
+                    : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-lg hover:shadow-brand-blue/10"
+                    }`}
                   onClick={() => toggleFAQ(index)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
@@ -274,9 +423,8 @@ export default function FAQ() {
                   <div className="p-6">
                     <div className="flex items-center justify-between gap-4">
                       <h4
-                        className={` font-semibold transition-colors ${
-                          openIndex === index ? "text-brand-blue" : "text-silver-primary"
-                        }`}
+                        className={` font-semibold transition-colors ${openIndex === index ? "text-brand-blue" : "text-silver-primary"
+                          }`}
                       >
                         {item.question}
                       </h4>

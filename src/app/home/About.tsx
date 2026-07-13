@@ -10,6 +10,7 @@ import {
   FaUserTie,
 } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
+import Image from "next/image";
 
 const features = [
   {
@@ -50,156 +51,7 @@ const sparks = [
   "left-[58%] top-[78%]",
 ];
 
-function AnimatedRocket() {
-  return (
-    <div className="relative h-64 w-64">
-      {/* Engine Glow */}
-      <motion.div
-        animate={{
-          opacity: [0.3, 0.7, 0.3],
-          scale: [0.9, 1.25, 0.9],
-        }}
-        transition={{
-          duration: 0.7,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute left-[92px] top-[182px] h-20 w-20 rounded-full bg-brand-blue/30 blur-3xl"
-      />
 
-      <motion.svg
-        viewBox="0 0 260 260"
-        className="absolute inset-0 h-full w-full drop-shadow-[0_0_40px_rgba(37,99,235,.35)]"
-        animate={{
-          rotate: [0, 2, -2, 0],
-          y: [0, -6, 0],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        <defs>
-          <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="100%" stopColor="#b8c7ff" />
-          </linearGradient>
-
-          <linearGradient id="nose" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFD166" />
-            <stop offset="100%" stopColor="#F59E0B" />
-          </linearGradient>
-
-          <linearGradient id="window" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#6EE7FF" />
-            <stop offset="100%" stopColor="#2563EB" />
-          </linearGradient>
-
-          <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="35%" stopColor="#FFE066" />
-            <stop offset="70%" stopColor="#FF7A18" />
-            <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-
-        {/* Flame */}
-        <motion.path
-          d="M130 188 C152 215 146 240 130 252 C114 240 108 215 130 188Z"
-          fill="url(#flame)"
-          animate={{
-            scaleY: [0.8, 1.25, 0.85],
-          }}
-          transition={{
-            duration: 0.35,
-            repeat: Infinity,
-          }}
-          style={{
-            transformOrigin: "130px 190px",
-          }}
-        />
-
-        {/* Left Fin */}
-        <path
-          d="M92 145 L58 185 L100 172Z"
-          fill="#2563EB"
-        />
-
-        {/* Right Fin */}
-        <path
-          d="M168 145 L202 185 L160 172Z"
-          fill="#2563EB"
-        />
-
-        {/* Body */}
-        <path
-          d="M130 24
-             C165 56 178 105 165 150
-             C160 168 148 184 130 194
-             C112 184 100 168 95 150
-             C82 105 95 56 130 24Z"
-          fill="url(#body)"
-          stroke="rgba(255,255,255,.75)"
-          strokeWidth="2"
-        />
-
-        {/* Nose */}
-        <path
-          d="M130 24
-             C142 40 150 56 153 75
-             C138 69 122 69 107 75
-             C110 56 118 40 130 24Z"
-          fill="url(#nose)"
-        />
-
-        {/* Window */}
-        <circle
-          cx="130"
-          cy="95"
-          r="20"
-          fill="url(#window)"
-          stroke="white"
-          strokeWidth="3"
-        />
-
-        {/* Reflection */}
-        <ellipse
-          cx="123"
-          cy="88"
-          rx="5"
-          ry="8"
-          fill="rgba(255,255,255,.45)"
-        />
-
-        {/* Engine */}
-        <rect
-          x="118"
-          y="180"
-          width="24"
-          height="16"
-          rx="4"
-          fill="#334155"
-        />
-
-        {/* Accent Lines */}
-        <path
-          d="M108 135 Q130 145 152 135"
-          stroke="#3B82F6"
-          strokeWidth="4"
-          strokeLinecap="round"
-          opacity=".4"
-        />
-
-        <path
-          d="M112 155 H148"
-          stroke="rgba(255,255,255,.4)"
-          strokeWidth="2"
-        />
-      </motion.svg>
-    </div>
-  );
-}
 
 export default function About() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -261,31 +113,30 @@ export default function About() {
                 />
               ))}
 
-              <div className="absolute inset-0 flex items-center justify-center px-6">
-                <div className="relative text-center">
-                  <motion.div
-                    animate={{
-                      x: [0, 18, 0],
-                      y: [0, -18, 0],
-                    }}
-                    transition={{
-                      duration: 2.8,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="relative mx-auto mb-8 flex h-56 w-56 items-center justify-center"
-                  >
-                    <AnimatedRocket />
-                  </motion.div>
+              <div className="absolute inset-0 flex flex-col items-center justify-start pt-4">
+  {/* Bigger Rocket */}
+  <div className="relative h-[430px] w-[430px]">
+    <Image
+      src="/images/image-2.png"
+      alt="Rocket"
+      fill
+      priority
+      unoptimized
+      className="object-contain scale-[1.35]"
+    />
+  </div>
 
-                  <p className="text-silver-primary text-xl font-semibold mb-2">
-                    Excellence in Every Project
-                  </p>
-                  <p className="text-secondary-text">
-                    Delivering premium IT solutions worldwide
-                  </p>
-                </div>
-              </div>
+  {/* Text */}
+  <div className="-mt-6 text-center">
+    <h3 className="text-4xl font-bold text-silver-primary">
+      Excellence in Every Project
+    </h3>
+
+    <p className="mt-3 text-lg text-secondary-text">
+      Delivering premium IT solutions worldwide
+    </p>
+  </div>
+</div>
 
               <div className="absolute left-8 top-8 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-xl">
                 <p className="text-xs font-semibold uppercase text-secondary-text">
@@ -322,8 +173,8 @@ export default function About() {
                     <button
                       type="button"
                       className={`w-full text-left rounded-2xl border transition-all duration-300 ${isActive
-                          ? "border-brand-blue bg-bg-card/80 backdrop-blur-xl shadow-lg shadow-brand-blue/20"
-                          : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:border-brand-blue/50"
+                        ? "border-brand-blue bg-bg-card/80 backdrop-blur-xl shadow-lg shadow-brand-blue/20"
+                        : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:border-brand-blue/50"
                         }`}
                       onClick={() => setActiveIndex(index)}
                     >
