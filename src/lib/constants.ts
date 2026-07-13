@@ -20,9 +20,9 @@ export const SOCIAL_LINKS = [
 ];
 
 export const CONTACT_INFO = {
-  email: "contact@thecodiq.com",
+  email: "pawas.singh@thecodiq.com",
   phone: "+1 (555) 123-4567",
-  address: "123 Tech Street, Silicon Valley, CA 94025",
+  address: "Gorakhpur, Uttar Pradesh, India",
 };
 
 export const TECH_STACK = [

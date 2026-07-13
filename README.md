@@ -206,4 +206,4 @@ This project is licensed under the MIT License.
 
 ## 📞 Contact
 
-For any questions or support, please contact us at contact@thecodiq.com
+For any questions or support, please contact us at pawas.singh@thecodiq.com

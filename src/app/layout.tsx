@@ -7,34 +7,62 @@ import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TheCodiQ - Premium IT Solutions",
-  description:
-    "Premium IT solutions including web development, mobile apps, AI solutions, and digital marketing services for modern businesses.",
+  metadataBase: new URL('https://thecodiq.com'),
+  title: {
+    default: "The CodiQ Global | Premium Software Development & AI Solutions",
+    template: "%s | The CodiQ Global"
+  },
+  description: "Premium software development company specializing in mobile apps, web applications, AI solutions, machine learning, and digital marketing services for businesses worldwide.",
   keywords: [
+    "software development company",
+    "mobile app development",
     "web development",
-    "mobile apps",
-    "AI solutions",
+    "AI development",
+    "machine learning",
     "digital marketing",
-    "IT services",
-    "software development",
+    "SEO services",
+    "custom software",
+    "IT services"
   ],
-  authors: [{ name: "TheCodiQ" }],
-  openGraph: {
-    title: "TheCodiQ - Premium IT Solutions",
-    description:
-      "Premium IT solutions including web development, mobile apps, AI solutions, and digital marketing services.",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "TheCodiQ - Premium IT Solutions",
-    description:
-      "Premium IT solutions including web development, mobile apps, AI solutions, and digital marketing services.",
-  },
+  authors: [{ name: "The CodiQ Global", url: "https://thecodiq.com" }],
+  creator: "The CodiQ Global",
+  publisher: "The CodiQ Global",
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://thecodiq.com",
+    title: "The CodiQ Global | Premium Software Development & AI Solutions",
+    description: "Transform your business with AI-powered software solutions. Expert mobile app development, web development, and digital marketing services.",
+    siteName: "The CodiQ Global",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "The CodiQ Global - Software Development Company",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The CodiQ Global | Premium Software Development & AI Solutions",
+    description: "Transform your business with AI-powered software solutions. Expert mobile app development, web development, and digital marketing services.",
+    images: ["/twitter-image.jpg"],
+    creator: "@thecodiq",
+  },
+  verification: {
+    google: "your-google-verification-code",
   },
 };
 

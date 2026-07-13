@@ -1,14 +1,37 @@
-"use client";
-
+import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
-
 import Hero from "@/app/blog/Hero";
 import FeaturedPost from "@/app/blog/FeaturedPost";
 import BlogGrid from "@/app/blog/BlogGrid";
+import JsonLd from "@/components/seo/JsonLd";
+
+export const metadata: Metadata = {
+  title: "The CodiQ Blog",
+  description: "Latest tech insights and development trends. Expert articles on software development, AI, mobile apps, web development, and digital marketing.",
+  keywords: ["software development blog", "tech insights", "development trends", "AI blog", "web development articles"],
+  openGraph: {
+    title: "The CodiQ Blog | Tech Insights & Development Trends",
+    description: "Latest tech insights and development trends. Expert articles on software development, AI, mobile apps, and web development.",
+    url: "https://thecodiq.com/blog",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://thecodiq.com/blog",
+  },
+};
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "The CodiQ Blog",
+  "description": "Latest tech insights and development trends. Expert articles on software development, AI, mobile apps, and web development.",
+  "url": "https://thecodiq.com/blog"
+};
 
 export default function BlogPage() {
   return (
     <>
+      <JsonLd data={blogSchema} />
       <InnerPageBanner
         title="Our Blog"
         subtitle="Insights and updates from the world of technology"
