@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS } from "@/lib/constants";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+
   return (
     <footer className="bg-[#050505] border-t border-white/8 relative top-20">
       {/* Floating CTA Banner */}
@@ -14,7 +17,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-6xl mx-auto"
+          className={`max-w-6xl mx-auto hidden lg:block ${pathname === "/contact" ? "hidden" : ""}`}
         >
           <div className="bg-bg-card/80 backdrop-blur-xl border border-white/10 rounded-[32px] p-8 md:p-12 shadow-2xl overflow-hidden relative">
             {/* Background glow effects */}
@@ -22,20 +25,15 @@ export default function Footer() {
             <div className="absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full bg-brand-gold/10 blur-[100px]" />
             <div className="absolute -top-20 -right-20 h-[300px] w-[300px] rounded-full bg-brand-green/10 blur-[100px]" />
 
-            <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+            <div className="relative z-10 grid md:grid-cols-2 gap-4 items-center">
               {/* Left side - Content */}
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-silver-primary mb-4">
+                <h2 className="text-3xl md:text-3xl font-bold text-silver-primary mb-4">
                   Let's Build Something Amazing Together
                 </h2>
-                <p className="text-secondary-text text-sm md:text-base mb-6 leading-relaxed max-w-lg">
+                <p className="text-secondary-text text-base md:text-base mb-6 leading-relaxed max-w-lg">
                   Transform your ideas into powerful digital products with TheCodiQ Global. From web applications and mobile apps to AI-powered platforms and enterprise solutions, we deliver end-to-end technology services.
                 </p>
-                <Link href="/contact">
-                  <button className="px-8 py-4 bg-blue-gradient text-white font-medium rounded-full hover:opacity-90 transition-all duration-300 glow-button">
-                    Get Started
-                  </button>
-                </Link>
               </div>
 
               {/* Right side - Laptop mockup */}
@@ -45,7 +43,7 @@ export default function Footer() {
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   className="relative"
                 >
-                  <div className="w-full max-w-md h-64 bg-bg-panel/50 backdrop-blur-sm border border-white/10 rounded-2xl p-4 shadow-xl">
+                  <div className="w-full max-w-md h-58 bg-bg-panel/50 backdrop-blur-sm border border-white/10 rounded-2xl p-2 shadow-xl">
                     {/* Laptop screen mockup */}
                     <div className="w-full h-full bg-bg-card rounded-lg p-4 font-mono text-xs overflow-hidden">
                       <div className="flex gap-2 mb-3">
@@ -106,7 +104,7 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="lg:pt-[5rem]">
             <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Services</h4>
             <ul className="space-y-3">
               <li>
@@ -143,7 +141,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="lg:pt-[5rem]">
             <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-3">
               <li>
@@ -180,7 +178,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="lg:pt-[5rem]">
             <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Contact</h4>
             <ul className="space-y-3">
               <li className="text-sm text-secondary-text">

@@ -1,8 +1,9 @@
 import { Metadata } from "next";
-import Hero from "@/components/home/Hero";
-import Services from "@/components/home/Services";
-import About from "@/components/home/About";
-import Testimonials from "@/components/home/Testimonials";
+import Hero from "@/app/home/Hero";
+import Services from "@/app/home/Services";
+import About from "@/app/home/About";
+import Testimonials from "@/app/home/Testimonials";
+import FAQ from "@/app/home/FAQ";
 
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Services />
       <About />
       <Testimonials />
+      <FAQ />
     </>
   );
 }
