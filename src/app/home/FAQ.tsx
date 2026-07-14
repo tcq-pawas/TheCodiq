@@ -376,13 +376,6 @@ export default function FAQ() {
 
                 </defs>
 
-                <line x1="25%" y1="18%" x2="50%" y2="50%" stroke="url(#line)" strokeWidth="1" />
-
-                <line x1="75%" y1="18%" x2="50%" y2="50%" stroke="url(#line)" strokeWidth="1" />
-
-                <line x1="25%" y1="82%" x2="50%" y2="50%" stroke="url(#line)" strokeWidth="1" />
-
-                <line x1="75%" y1="82%" x2="50%" y2="50%" stroke="url(#line)" strokeWidth="1" />
 
               </svg>
 

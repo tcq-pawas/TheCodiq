@@ -77,11 +77,17 @@ export default function AuthenticContactForm() {
     setIsSubmitting(true);
     setIsSubmitted(false);
 
+    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 900));
 
+    // Reset form
     setFormData(initialFormState);
+
     setIsSubmitting(false);
     setIsSubmitted(true);
+
+    // Show thank you alert
+    alert("🎉 Thank you! Your message has been submitted successfully.");
   };
 
   const inputClass =
@@ -187,8 +193,24 @@ export default function AuthenticContactForm() {
                 <span>Your message has been received. We will contact you soon.</span>
               </div>
             )}
+            <button
+              type="submit"
+              className="mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 active:scale-95"
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send className="h-5 w-5" />
+                  Submit
+                </>
+              )}
+            </button>
 
-          
+
           </form>
         </div>
 

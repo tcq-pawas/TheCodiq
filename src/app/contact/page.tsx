@@ -17,7 +17,7 @@ export default function ContactPage() {
 
       <div className="py-16 bg-background relative overflow-hidden">
         {/* Background effects */}
-        <div className="absolute inset-0 grid-pattern opacity-10" />
+        <div className="absolute inset-0 pointer-events-none opacity-10 grid-pattern" />
         <div className="animated-blob w-96 h-96 bg-primary/20 top-1/4 -left-48" />
         <div
           className="animated-blob w-96 h-96 bg-accent/20 bottom-1/4 -right-48"

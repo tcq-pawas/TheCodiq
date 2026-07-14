@@ -51,8 +51,6 @@ const sparks = [
   "left-[58%] top-[78%]",
 ];
 
-
-
 export default function About() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -82,72 +80,84 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative h-[500px] rounded-3xl border border-white/10 overflow-hidden bg-[radial-gradient(circle_at_30%_25%,rgba(0,129,255,0.18),transparent_34%),radial-gradient(circle_at_78%_70%,rgba(51,214,159,0.14),transparent_30%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] shadow-2xl shadow-black/20">
-              <div className="absolute inset-0 opacity-[0.16] bg-[linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:42px_42px]" />
+            <div className="relative h-[500px] overflow-hidden rounded-3xl border border-white/10   shadow-black/30">
 
+              {/* Rocket Image — base background layer */}
+              <Image
+                src="/images/rocket-image.png"
+                alt="Rocket Background"
+                fill
+                priority
+                unoptimized
+                className="object-cover object-center scale-[1.18] pt-4"
+              />
+
+              {/* Brand color wash on top of the photo */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(37,99,235,0.35),transparent_45%),radial-gradient(circle_at_80%_75%,rgba(34,197,94,0.2),transparent_35%)] mix-blend-screen" />
+
+              {/* Rotating Circles */}
               <motion.div
-                aria-hidden="true"
                 animate={{ rotate: 360 }}
-                transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-                className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-brand-blue/25"
-              />
-              <motion.div
-                aria-hidden="true"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-                className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute bottom-[-180px] right-[-120px] h-[420px] w-[420px] rounded-full border border-white/10"
               />
 
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+                className="absolute bottom-[-120px] right-[20px] h-[300px] w-[300px] rounded-full border border-dashed border-brand-blue/20"
+              />
+
+              {/* Stars */}
               {sparks.map((position, index) => (
                 <motion.span
                   key={position}
-                  aria-hidden="true"
-                  animate={{ opacity: [0.25, 1, 0.25], scale: [0.85, 1.25, 0.85] }}
-                  transition={{
-                    duration: 2.4,
-                    repeat: Infinity,
-                    delay: index * 0.28,
-                    ease: "easeInOut",
+                  animate={{
+                    opacity: [0.25, 1, 0.25],
+                    scale: [0.8, 1.25, 0.8],
                   }}
-                  className={`absolute ${position} h-2 w-2 rounded-full bg-silver-primary shadow-[0_0_20px_rgba(255,255,255,0.8)]`}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    delay: index * 0.3,
+                  }}
+                  className={`absolute ${position} h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.9)]`}
                 />
               ))}
 
-              <div className="absolute inset-0 flex flex-col items-center justify-start pt-4">
-  {/* Bigger Rocket */}
-  <div className="relative h-[430px] w-[430px]">
-    <Image
-      src="/images/image-2.png"
-      alt="Rocket"
-      fill
-      priority
-      unoptimized
-      className="object-contain scale-[1.35]"
-    />
-  </div>
+              {/* Dark overlay for text legibility */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#08111d]/10 via-[#08111d]/35 to-[#08111d]/95" />
 
-  {/* Text */}
-  <div className="-mt-6 text-center">
-    <h3 className="text-4xl font-bold text-silver-primary">
-      Excellence in Every Project
-    </h3>
+              {/* Text Overlay */}
+              <div className="absolute inset-0 z-20 flex flex-col justify-end items-center text-center px-10 pb-16">
 
-    <p className="mt-3 text-lg text-secondary-text">
-      Delivering premium IT solutions worldwide
-    </p>
-  </div>
-</div>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-3xl font-bold leading-tight text-white drop-shadow-[0_6px_30px_rgba(0,0,0,0.6)]"
+                >
+                  Excellence in Every Project
+                </motion.h3>
 
-              <div className="absolute left-8 top-8 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-xl">
-                <p className="text-xs font-semibold uppercase text-secondary-text">
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="mt-5  text-slate-300"
+                >
+                  Delivering premium IT solutions worldwide with innovation, reliability, and exceptional customer satisfaction.
+                </motion.p>
+
+              </div>
+
+              {/* Launch Ready Badge */}
+              <div className="absolute left-8 top-8 z-20 rounded-2xl border border-white/10 bg-slate-700/40 px-6 py-3 backdrop-blur-xl">
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-200">
                   Launch Ready
                 </p>
               </div>
-              <div className="absolute bottom-8 right-8 rounded-2xl border border-brand-green/20 bg-brand-green/10 px-4 py-3 backdrop-blur-xl">
-                <p className="text-sm font-semibold text-brand-green">
-                  Scalable Delivery
-                </p>
-              </div>
+
             </div>
           </motion.div>
 
