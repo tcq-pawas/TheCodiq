@@ -108,33 +108,33 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Services</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/services" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+                <Link href="/services/web-development" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
                   Web Development
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+                <Link href="/services/mobile-app-development" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
                   Mobile App Development
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+                <Link href="/services/ui-ux-design" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
                   UI/UX Design
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+                <Link href="/services/cloud-devops" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
                   Cloud Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+                <Link href="/services/ai-solutions" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
                   AI Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  Digital Transformation
+                <Link href="/services/digital-marketing" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+                  Digital Marketing
                 </Link>
               </li>
             </ul>
@@ -165,7 +165,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+                <Link href="/careers" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
                   Careers
                 </Link>
               </li>
@@ -218,10 +218,10 @@ export default function Footer() {
             © {new Date().getFullYear()} TheCodiQ Global. All Rights Reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="/" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+            <Link href="/privacy-policy" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+            <Link href="/terms-and-conditions" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
               Terms & Conditions
             </Link>
           </div>

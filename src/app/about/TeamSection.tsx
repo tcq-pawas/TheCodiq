@@ -131,9 +131,10 @@ export default function TeamSection() {
                       <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-background">
                         <Image
                           src={member.image}
-                          alt={member.name}
+                          alt={`${member.name} - ${member.role} at TheCodiQ Global`}
                           fill
                           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 88vw"
+                          loading="lazy"
                           className="object-cover object-center transition duration-500 group-hover:scale-105"
                         />
 

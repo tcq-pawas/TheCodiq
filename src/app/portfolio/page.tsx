@@ -1,8 +1,15 @@
-"use client";
-
+import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 import Hero from "@/app/portfolio/Hero";
 import PortfolioGrid from "@/app/portfolio/PortfolioGrid";
+
+export const metadata: Metadata = {
+  title: "Portfolio | TheCodiQ - Our Latest Projects & Case Studies",
+  description: "Explore TheCodiQ's portfolio of successful web development, mobile app, AI, and digital marketing projects. See our work and client success stories.",
+  alternates: {
+    canonical: "https://thecodiq.com/portfolio",
+  },
+};
 
 export default function PortfolioPage() {
   return (
@@ -26,6 +33,30 @@ export default function PortfolioPage() {
           <PortfolioGrid />
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://thecodiq.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Portfolio",
+                item: "https://thecodiq.com/portfolio",
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 }

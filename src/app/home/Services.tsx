@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   FiCloud,
   FiCode,
@@ -78,33 +79,36 @@ export default function Services() {
                 keywords.some((keyword) => serviceText.includes(keyword))
               )?.Icon ?? fallbackServiceIcons[index % fallbackServiceIcons.length];
 
-            return (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="group"
-              >
-                <div className="h-full p-8 rounded-2xl border border-white/8 bg-bg-card/50 backdrop-blur-xl hover:border-brand-blue/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-blue">
-                  <div className="mb-6">
-                    <div
-                      className={`relative w-14 h-14 rounded-2xl flex items-center justify-center ring-1 ring-inset transition-all duration-300 group-hover:scale-105 ${iconThemes[index % iconThemes.length]}`}
-                    >
-                      <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                      <Icon className="relative h-7 w-7" aria-hidden="true" />
-                    </div>
-                  </div>
+            const serviceHref = `/services/${service.id === "1" ? "web-development" : service.id === "2" ? "mobile-app-development" : service.id === "3" ? "ai-solutions" : service.id === "4" ? "ui-ux-design" : service.id === "5" ? "digital-marketing" : "cloud-devops"}`;
 
-                  <h3 className="text-lg font-semibold text-silver-primary mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-secondary-text text-sm mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </motion.div>
+            return (
+              <Link key={service.id} href={serviceHref}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  className="group h-full"
+                >
+                  <div className="h-full p-8 rounded-2xl border border-white/8 bg-bg-card/50 backdrop-blur-xl hover:border-brand-blue/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-blue">
+                    <div className="mb-6">
+                      <div
+                        className={`relative w-14 h-14 rounded-2xl flex items-center justify-center ring-1 ring-inset transition-all duration-300 group-hover:scale-105 ${iconThemes[index % iconThemes.length]}`}
+                      >
+                        <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        <Icon className="relative h-7 w-7" aria-hidden="true" />
+                      </div>
+                    </div>
+
+                    <h3 className="text-lg font-semibold text-silver-primary mb-4">
+                      {service.title}
+                    </h3>
+                    <p className="text-secondary-text text-sm mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
+                </motion.div>
+              </Link>
             );
           })}
         </div>

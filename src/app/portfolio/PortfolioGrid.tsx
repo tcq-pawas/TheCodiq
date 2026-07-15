@@ -75,9 +75,10 @@ export default function PortfolioGrid() {
                   <div className="relative aspect-video w-full overflow-hidden border-b border-white/10 bg-background">
                     <Image
                       src={image}
-                      alt={item.title}
+                      alt={`${item.title} - ${item.category} project by TheCodiQ`}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      loading="lazy"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
                     />
 
