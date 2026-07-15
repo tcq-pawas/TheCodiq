@@ -16,7 +16,7 @@ export default function MobileAppDevelopmentPage() {
     <>
       <InnerPageBanner
         title="Mobile App Development Services"
-        subtitle="Technology solutions for你的 business growth"
+        subtitle="Technology solutions for your business growth"
       />
 
       <div className="py-16 bg-background">

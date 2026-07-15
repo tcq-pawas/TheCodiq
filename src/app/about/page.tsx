@@ -7,12 +7,12 @@ import WhyChooseUs from "@/app/about/WhyChooseUs";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "About The CodiQ Global",
-  description: "Learn about The CodiQ Global - a leading software development company building innovative digital solutions, AI-powered applications, and enterprise software for businesses worldwide.",
+  title: "About Us | TheCodiQ Global - IT Solutions Company",
+  description: "Learn about TheCodiQ Global - our mission, vision, team, and why businesses choose us for web development, mobile apps, AI solutions, and digital marketing services.",
   keywords: ["software company profile", "about software company", "IT company profile", "software development company"],
   openGraph: {
-    title: "About The CodiQ Global",
-    description: "Learn about The CodiQ Global - a leading software development company building innovative digital solutions.",
+    title: "About Us | TheCodiQ Global",
+    description: "Learn about TheCodiQ Global - our mission, vision, team, and why businesses choose us for software development services.",
     url: "https://thecodiq.com/about",
     type: "website",
   },
@@ -32,14 +32,6 @@ const organizationSchema = {
     "name": "The CodiQ Global Pvt. Ltd.",
     "description": "Premium software development company specializing in mobile apps, web applications, AI solutions, and digital marketing services."
   }
-};
-
-export const metadata: Metadata = {
-  title: "About Us | TheCodiQ Global - IT Solutions Company",
-  description: "Learn about TheCodiQ Global - our mission, vision, team, and why businesses choose us for web development, mobile apps, AI solutions, and digital marketing services.",
-  alternates: {
-    canonical: "https://thecodiq.com/about",
-  },
 };
 
 export default function AboutPage() {

@@ -213,7 +213,7 @@ export default function Footer() {
           <div>
             <div className="mb-6">
               <Link href="/" className="flex items-center mb-4">
-                <img src="/logo/logo.png" alt="TheCodiQ" className="h-12 w-auto" />
+                <img src="/logo/logo.png" alt="TheCodiQ Global - Software Development Company Logo" className="h-12 w-auto" />
               </Link>
               <h3 className="text-xl font-bold text-silver-primary mb-2">TheCodiQ Global</h3>
             </div>

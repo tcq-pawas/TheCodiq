@@ -12,6 +12,25 @@ export const metadata: Metadata = {
   },
 };
 
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact The CodiQ Global",
+  "description": "Get free consultation for your software project. Contact The CodiQ Global for expert software development services.",
+  "url": "https://thecodiq.com/contact",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "The CodiQ Global Pvt. Ltd.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1 (555) 123-4567", // TODO: Replace with real phone number
+      "contactType": "sales",
+      "email": "pawas.singh@thecodiq.com",
+      "availableLanguage": ["English"]
+    }
+  }
+};
+
 export default function ContactPage() {
   return (
     <>
@@ -47,8 +66,8 @@ export default function ContactPage() {
             "@type": "LocalBusiness",
             name: "TheCodiQ Global",
             image: "https://thecodiq.com/logo/logo.png",
-            telephone: "+1 (555) 123-4567",
-            email: "contact@thecodiq.com",
+            telephone: "+1 (555) 123-4567", // TODO: Replace with real phone number
+            email: "pawas.singh@thecodiq.com",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Gorakhpur",

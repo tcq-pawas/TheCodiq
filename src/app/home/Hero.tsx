@@ -102,7 +102,7 @@ export default function Hero() {
               >
                 <Image
                   src="/images/hero-banner.png"
-                  alt="TheCodiQ Global - Premium Software Development"
+                  alt="TheCodiQ Global - Premium Software Development and AI Solutions Hero Banner"
                   fill
                   priority
                   className="object-contain"

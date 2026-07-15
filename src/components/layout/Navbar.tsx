@@ -26,7 +26,7 @@ export default function Navbar() {
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 h-full">
         <div className="flex items-center justify-between h-full">
           <Link href="/" className="flex items-center">
-            <img src="/logo/logo.png" alt="TheCodiQ" className="h-20 w-auto" />
+            <img src="/logo/logo.png" alt="TheCodiQ Global - Software Development Company Logo" className="h-20 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center flex-1 justify-center">

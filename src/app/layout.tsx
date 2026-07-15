@@ -30,19 +30,6 @@ export const metadata: Metadata = {
     shortcut: "/logo/codiqi-favicon.png",
     apple: "/logo/codiqi-favicon.png",
   },
-  openGraph: {
-    title: "TheCodiQ - Premium IT Solutions",
-    description:
-      "Premium IT solutions including web development, mobile apps, AI solutions, and digital marketing services.",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "TheCodiQ - Premium IT Solutions",
-    description:
-      "Premium IT solutions including web development, mobile apps, AI solutions, and digital marketing services.",
-  },
   robots: {
     index: true,
     follow: true,
@@ -78,7 +65,7 @@ export const metadata: Metadata = {
     creator: "@thecodiq",
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "TODO: insert real GSC verification code",
   },
   alternates: {
     canonical: "https://thecodiq.com",
@@ -99,21 +86,27 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "TheCodiQ Global",
+              name: "TheCodiQ Global Pvt. Ltd.",
               url: "https://thecodiq.com",
               logo: "https://thecodiq.com/logo/logo.png",
               sameAs: [
-                "https://twitter.com",
-                "https://linkedin.com",
-                "https://github.com",
-                "https://instagram.com",
+                "https://twitter.com/thecodiq",
+                "https://linkedin.com/company/thecodiq",
+                "https://facebook.com/thecodiq",
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+1 (555) 123-4567",
-                contactType: "customer service",
-                email: "contact@thecodiq.com",
+                telephone: "+1 (555) 123-4567", // TODO: Replace with real phone number
+                contactType: "sales",
+                email: "pawas.singh@thecodiq.com",
+                availableLanguage: ["English"]
               },
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "IN",
+                addressRegion: "Uttar Pradesh",
+                addressLocality: "Gorakhpur"
+              }
             }),
           }}
         />
