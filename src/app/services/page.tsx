@@ -3,6 +3,10 @@ import InnerPageBanner from "@/components/common/InnerPageBanner";
 import Link from "next/link";
 import { ArrowRight, Globe2, Smartphone, BrainCircuit, Palette, Megaphone, CloudCog } from "lucide-react";
 
+import Hero from "@/app/services/Hero";
+import ServicesGrid from "@/app/services/ServicesGrid";
+import Process from "@/app/services/Process";
+
 export const metadata: Metadata = {
   title: "IT Services | Web, Mobile, AI & Cloud Solutions – TheCodiQ",
   description: "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
