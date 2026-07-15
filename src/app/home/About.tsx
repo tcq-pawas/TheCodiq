@@ -8,7 +8,20 @@ import {
   FaCode,
   FaHeadset,
   FaUserTie,
+  FaGlobe,
+  FaRocket,
+  FaTrophy,
+  FaUsers,
+  FaShieldAlt,
+  FaLightbulb,
 } from "react-icons/fa";
+import {
+  Users,
+  Rocket,
+  Award,
+  Globe,
+} from "lucide-react";
+
 import { FiChevronDown } from "react-icons/fi";
 import Image from "next/image";
 
@@ -41,6 +54,20 @@ const features = [
     Icon: FaCode,
     accent: "from-silver-primary/20 to-white/5 text-silver-primary",
   },
+  {
+  title: "Secure Solutions",
+  description:
+    "Security is integrated into every stage of development. From secure coding standards and encrypted communication to regular security audits, we ensure your applications remain protected against modern cyber threats.",
+  Icon: FaShieldAlt,
+  accent: "from-red-500/20 to-red-500/5 text-red-400",
+},
+{
+  title: "Innovative Approach",
+  description:
+    "We combine creativity with technology to build future-ready digital products. Our team constantly explores emerging technologies and innovative strategies to deliver solutions that keep your business ahead of the competition.",
+  Icon: FaLightbulb,
+  accent: "from-yellow-400/20 to-yellow-400/5 text-yellow-400",
+},
 ];
 
 const sparks = [
@@ -80,82 +107,117 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative h-[500px] overflow-hidden rounded-3xl border border-white/10   shadow-black/30">
+            <div className="relative h-[520px] md:h-[800px] overflow-hidden rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#08111d] shadow-[0_25px_80px_rgba(0,0,0,.45)]">
 
-              {/* Rocket Image — base background layer */}
+              {/* Background */}
               <Image
-                src="/images/rocket-image.png"
-                alt="Rocket Background"
+                src="/images/image3.png"
+                alt="Rocket"
                 fill
                 priority
-                unoptimized
-                className="object-cover object-center scale-[1.18] pt-4"
+                className="object-cover object-center scale-[1.03]"
               />
 
-              {/* Brand color wash on top of the photo */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(37,99,235,0.35),transparent_45%),radial-gradient(circle_at_80%_75%,rgba(34,197,94,0.2),transparent_35%)] mix-blend-screen" />
-
-              {/* Rotating Circles */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-[-180px] right-[-120px] h-[420px] w-[420px] rounded-full border border-white/10"
-              />
-
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-[-120px] right-[20px] h-[300px] w-[300px] rounded-full border border-dashed border-brand-blue/20"
-              />
-
-              {/* Stars */}
-              {sparks.map((position, index) => (
-                <motion.span
-                  key={position}
-                  animate={{
-                    opacity: [0.25, 1, 0.25],
-                    scale: [0.8, 1.25, 0.8],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    delay: index * 0.3,
-                  }}
-                  className={`absolute ${position} h-2.5 w-2.5 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.9)]`}
-                />
-              ))}
-
-              {/* Dark overlay for text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-b from-[#08111d]/10 via-[#08111d]/35 to-[#08111d]/95" />
-
-              {/* Text Overlay */}
-              <div className="absolute inset-0 z-20 flex flex-col justify-end items-center text-center px-10 pb-16">
-
-                <motion.h3
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="text-3xl font-bold leading-tight text-white drop-shadow-[0_6px_30px_rgba(0,0,0,0.6)]"
-                >
-                  Excellence in Every Project
-                </motion.h3>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="mt-5  text-slate-300"
-                >
-                  Delivering premium IT solutions worldwide with innovation, reliability, and exceptional customer satisfaction.
-                </motion.p>
-
-              </div>
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/15 via-[#020617]/30 to-[#020617]/95" />
 
               {/* Launch Ready Badge */}
-              <div className="absolute left-8 top-8 z-20 rounded-2xl border border-white/10 bg-slate-700/40 px-6 py-3 backdrop-blur-xl">
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-200">
-                  Launch Ready
-                </p>
+              <div className="absolute left-4 top-4 z-20 md:left-7 md:top-7">
+                <div
+                  className="flex items-center gap-2 md:gap-3 rounded-full border border-[#3b82f6]/30 bg-gradient-to-r
+        from-[#2563eb]/25 via-[#1e3a8a]/20 to-[#0b1220]/90 px-3 py-2 md:px-5 backdrop-blur-2xl
+        shadow-[0_0_30px_rgba(37,99,235,0.22)] ring-1 ring-white/5"
+                >
+                  <div className="flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#60a5fa] to-[#2563eb] shadow-[0_0_18px_rgba(59,130,246,.45)]">
+                    <FaRocket className="text-xs md:text-sm text-white -rotate-45" />
+                  </div>
+
+                  <span className="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
+                    Launch Ready
+                  </span>
+                </div>
+              </div>
+
+              {/* Main Content */}
+              <div className="absolute inset-0 z-20 flex flex-col justify-end">
+
+                {/* Text */}
+                <div className="px-5 md:px-8 text-center">
+
+                  <h2 className="text-[28px] leading-[1.08] font-semibold md:text-[34px] text-white">
+                    Excellence in
+                    <br />
+                    Every <span className="text-brand-blue">Project Idea</span>
+                  </h2>
+
+                  <p className="mx-auto mt-3 md:mt-4 max-w-[320px] md:max-w-[360px] text-[13px] md:text-[14px] leading-5 md:leading-6 text-slate-300">
+                    Delivering premium IT solutions worldwide with innovation,
+                    reliability, and exceptional <br/> customer satisfaction.
+                  </p>
+
+                </div>
+
+                {/* Stats */}
+                <div className="mt-6 md:mt-7 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-2 px-4 pb-4">
+
+                  <div className="rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-3 md:py-4 backdrop-blur-xl">
+
+                    <Users className="mx-auto mb-2 h-6 w-6 md:h-[26px] md:w-[26px] text-brand-blue" />
+
+                    <h3 className="text-center text-[16px] md:text-[18px] font-bold text-white">
+                      250+
+                    </h3>
+
+                    <p className="mt-1 text-center text-[10px] md:text-[11px] leading-4 text-slate-400">
+                      Happy Clients
+                    </p>
+
+                  </div>
+
+                  <div className="rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-3 md:py-4 backdrop-blur-xl">
+
+                    <Rocket className="mx-auto mb-2 h-6 w-6 md:h-[26px] md:w-[26px] text-violet-500" />
+
+                    <h3 className="text-center text-[16px] md:text-[18px] font-bold text-white">
+                      400+
+                    </h3>
+
+                    <p className="mt-1 text-center text-[10px] md:text-[11px] leading-4 text-slate-400">
+                      Projects Delivered
+                    </p>
+
+                  </div>
+
+                  <div className="rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-3 md:py-4 backdrop-blur-xl">
+
+                    <Award className="mx-auto mb-2 h-6 w-6 md:h-[26px] md:w-[26px] text-amber-400" />
+
+                    <h3 className="text-center text-[16px] md:text-[18px] font-bold text-white">
+                      50+
+                    </h3>
+
+                    <p className="mt-1 text-center text-[10px] md:text-[11px] leading-4 text-slate-400">
+                      Experts
+                    </p>
+
+                  </div>
+
+                  <div className="rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-3 md:py-4 backdrop-blur-xl">
+
+                    <Globe className="mx-auto mb-2 h-6 w-6 md:h-[26px] md:w-[26px] text-green-500" />
+
+                    <h3 className="text-center text-[16px] md:text-[18px] font-bold text-white">
+                      25+
+                    </h3>
+
+                    <p className="mt-1 text-center text-[10px] md:text-[11px] leading-4 text-slate-400">
+                      Countries Served
+                    </p>
+
+                  </div>
+
+                </div>
+
               </div>
 
             </div>
