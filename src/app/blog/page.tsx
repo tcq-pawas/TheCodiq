@@ -28,6 +28,14 @@ const blogSchema = {
   "url": "https://thecodiq.com/blog"
 };
 
+export const metadata: Metadata = {
+  title: "Blog | TheCodiQ - Technology Insights & Updates",
+  description: "Read the latest insights, tutorials, and updates from TheCodiQ on web development, mobile apps, AI solutions, and digital marketing trends.",
+  alternates: {
+    canonical: "https://thecodiq.com/blog",
+  },
+};
+
 export default function BlogPage() {
   return (
     <>
@@ -52,6 +60,30 @@ export default function BlogPage() {
           <BlogGrid />
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://thecodiq.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: "https://thecodiq.com/blog",
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 }

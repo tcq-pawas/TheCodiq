@@ -3,44 +3,150 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const faqItems = [
+import {
+  FaRobot,
+  FaCloudUploadAlt,
+  FaChartBar,
+  FaCode,
+  FaDollarSign,
+  FaHeadset,
+  FaLink,
+  FaShieldAlt,
+  FaUsers,
+  FaRocket,
+  FaGlobe,
+  FaLock,
+  FaRegClock,
+} from "react-icons/fa";
+
+import { BsStars } from "react-icons/bs";
+
+type Color = "emerald" | "blue" | "violet" | "amber";
+
+type ColorConfig = {
+  bg: string;
+  text: string;
+  border: string;
+  dot: string;
+};
+
+const colorMap: Record<Color, ColorConfig> = {
+  emerald: {
+    bg: "bg-emerald-500/15",
+    text: "text-emerald-400",
+    border: "border-emerald-400/20",
+    dot: "bg-emerald-400",
+  },
+  blue: {
+    bg: "bg-blue-500/15",
+    text: "text-blue-400",
+    border: "border-blue-400/20",
+    dot: "bg-blue-400",
+  },
+  violet: {
+    bg: "bg-violet-500/15",
+    text: "text-violet-400",
+    border: "border-violet-400/20",
+    dot: "bg-violet-400",
+  },
+  amber: {
+    bg: "bg-amber-500/15",
+    text: "text-amber-400",
+    border: "border-amber-400/20",
+    dot: "bg-amber-400",
+  },
+};
+
+const features = [
   {
-    question: "How much does a project cost?",
-    answer:
-      "Project costs depend on the scope, complexity, features, and technology requirements. After understanding your requirements, we provide a transparent quote with no hidden charges.",
+    icon: FaCode,
+    color: "emerald" as Color,
+    title: "AI Code Generation",
+    desc: "Write, refactor and debug code with AI assistance.",
   },
   {
+    icon: FaCloudUploadAlt,
+    color: "violet" as Color,
+    title: "Cloud Deployment",
+    desc: "One-click deploy to production with global infrastructure.",
+  },
+  {
+    icon: FaChartBar,
+    color: "emerald" as Color,
+    title: "Real-time Analytics",
+    desc: "Monitor performance and usage in real-time.",
+  },
+];
+
+const faqItems = [
+  {
+    icon: FaDollarSign,
+    color: "emerald" as Color,
+    question: "How much does a project cost?",
+    answer:
+      "Project cost depends on the scope, complexity, and features you need. After understanding your requirements, we provide a detailed proposal with transparent pricing.",
+    cta: "Get a free consultation and estimate within 24 hours.",
+  },
+  {
+    icon: FaRegClock,
+    color: "blue" as Color,
     question: "How long does development take?",
     answer:
       "Timelines vary based on project size. Small business websites may take a few weeks, while enterprise applications and AI solutions can take several months. We provide a clear project roadmap before development begins.",
   },
   {
+    icon: FaHeadset,
+    color: "violet" as Color,
     question: "Do you provide support after launch?",
     answer:
       "Yes. We offer ongoing maintenance, monitoring, performance optimization, bug fixes, security updates, and technical support after project deployment.",
   },
   {
+    icon: FaLink,
+    color: "amber" as Color,
     question: "Can you work with existing systems?",
     answer:
       "Absolutely. We can upgrade, optimize, integrate, or extend existing software systems, APIs, databases, and third-party platforms without disrupting your operations.",
   },
   {
+    icon: FaShieldAlt,
+    color: "emerald" as Color,
     question: "Do you sign NDA?",
     answer:
       "Yes. We fully respect client confidentiality and are happy to sign Non-Disclosure Agreements before discussing project details.",
   },
 ];
 
-const particles = Array.from({ length: 20 }, (_, i) => ({
-  id: i,
-  x: (i * 37 + 13) % 100,
-  y: (i * 53 + 29) % 100,
-  duration: 3 + ((i * 17) % 20) / 10,
-  delay: ((i * 11) % 20) / 10,
-}));
+const stats = [
+  { icon: FaUsers, color: "emerald" as Color, value: "500+", label: "Happy Clients" },
+  { icon: FaRocket, color: "violet" as Color, value: "1200+", label: "Projects Delivered" },
+  { icon: FaGlobe, color: "blue" as Color, value: "99.99%", label: "Uptime" },
+  { icon: FaLock, color: "amber" as Color, value: "100%", label: "Secure & Reliable" },
+];
+
+// Faint background "code" lines for the left panel
+const bgCodeLines = [
+  "function deploy(app) {",
+  "  const build = await compile(app);",
+  "  if (build.success) {",
+  "    return ship(build);",
+  "  }",
+  "}",
+  "",
+  "class Assistant extends AI {",
+  "  generate(prompt) {",
+  "    return this.model.run(prompt);",
+  "  }",
+  "}",
+  "",
+  "export const config = {",
+  "  runtime: 'edge',",
+  "  regions: ['auto'],",
+  "};",
+];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -75,242 +181,241 @@ export default function FAQ() {
           </p>
         </motion.div>
 
-        <div className="mb-16 grid items-start gap-12 lg:grid-cols-5">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+          {/* ---------------- LEFT PANEL ---------------- */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="hidden lg:col-span-2 lg:block"
+            className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#080b13] p-8 lg:col-span-6 lg:p-10 xl:col-span-5"
           >
-            <div className="relative h-[430px] overflow-hidden rounded-[30px] border border-white/10 bg-bg-card/50 backdrop-blur-xl">
-              <div className="absolute inset-0">
-                <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-br from-brand-blue/5 via-transparent to-brand-gold/5" />
-                <div className="absolute left-10 top-10 h-32 w-32 rounded-full bg-brand-blue/20 blur-[60px]" />
-                <div className="absolute bottom-10 right-10 h-32 w-32 rounded-full bg-brand-gold/20 blur-[60px]" />
+            {/* Background glows */}
+            <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/20 blur-[100px]" />
+            <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-violet-500/20 blur-[110px]" />
+
+            {/* Coding-themed background texture */}
+            <div className="pointer-events-none absolute inset-0 select-none overflow-hidden opacity-[0.07] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]">
+              <pre className="p-6 font-mono text-[11px] leading-relaxed text-blue-200">
+                {bgCodeLines.join("\n").repeat(3)}
+              </pre>
+            </div>
+
+            {/* Faint watermark </> mark */}
+            <FaCode className="pointer-events-none absolute -right-6 -top-6 text-[160px] text-white/[0.03]" />
+
+            {/* Drifting binary specks */}
+            {[
+              { top: "18%", left: "8%", delay: 0 },
+              { top: "62%", left: "4%", delay: 1.2 },
+              { top: "40%", left: "92%", delay: 0.6 },
+              { top: "78%", left: "88%", delay: 1.8 },
+            ].map((p, i) => (
+              <motion.span
+                key={i}
+                className="pointer-events-none absolute select-none font-mono text-[10px] text-blue-300/20"
+                style={{ top: p.top, left: p.left }}
+                animate={{ y: [0, -10, 0], opacity: [0.15, 0.35, 0.15] }}
+                transition={{ duration: 5, repeat: Infinity, delay: p.delay }}
+              >
+                {i % 2 === 0 ? "01001" : "{ }"}
+              </motion.span>
+            ))}
+
+            <div className="relative">
+              {/* Top badges */}
+              <div className="mb-10 flex flex-wrap items-center gap-4">
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="flex items-center gap-3 rounded-2xl border border-blue-400/20 bg-white/5 px-4 py-3 backdrop-blur-xl"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20 text-blue-400">
+                    <FaRobot className="text-lg" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-blue-400">AI ASSISTANT</div>
+                    <div className="flex items-center gap-1 text-sm font-semibold text-white">
+                      GPT-5
+                      <BsStars className="text-xs text-yellow-400" />
+                    </div>
+                    <div className="text-[10px] text-white/50">Thinking...</div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 5, repeat: Infinity }}
+                  className="flex items-center gap-3 rounded-2xl border border-violet-400/20 bg-white/5 px-4 py-3 backdrop-blur-xl"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400">
+                    <FaCloudUploadAlt className="text-lg" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] text-violet-400">Cloud Deploy</div>
+                    <div className="mt-1 h-1.5 w-28 rounded-full bg-white/10">
+                      <motion.div
+                        className="h-full rounded-full bg-violet-500"
+                        animate={{ width: ["25%", "100%", "60%"] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                      />
+                    </div>
+                    <div className="mt-1 text-[10px] text-white/50">Production Ready</div>
+                  </div>
+                </motion.div>
               </div>
 
-              {particles.map((particle) => (
-                <motion.div
-                  key={particle.id}
-                  className="absolute h-1 w-1 rounded-full bg-brand-blue/40"
-                  initial={{
-                    x: `${particle.x}%`,
-                    y: `${particle.y}%`,
-                  }}
-                  animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.2, 0.6, 0.2],
-                  }}
-                  transition={{
-                    duration: particle.duration,
-                    repeat: Infinity,
-                    delay: particle.delay,
-                  }}
-                />
-              ))}
+              {/* Heading + copy */}
+              <h3 className="mb-4 text-4xl font-bold leading-tight text-white">
+                Build <span className="text-emerald-400">Smarter.</span>
+                <br />
+                Ship <span className="text-violet-400">Faster.</span>
+              </h3>
+              <p className="mb-8 max-w-md text-sm leading-relaxed text-white/60">
+                AI-powered development platform that helps you build,
+                deploy and scale with confidence.
+              </p>
 
-              <motion.div
-                className="absolute left-1/2 top-1/2 h-32 w-48 -translate-x-1/2 -translate-y-1/2 rounded-lg border border-white/10 bg-[#0d1117] shadow-2xl"
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="space-y-2 p-3">
-                  <div className="mb-2 flex gap-1.5">
-                    <div className="h-2 w-2 rounded-full bg-red-500" />
-                    <div className="h-2 w-2 rounded-full bg-yellow-500" />
-                    <div className="h-2 w-2 rounded-full bg-green-500" />
-                  </div>
-
-                  <div className="space-y-1 font-mono text-[8px]">
-                    <div>
-                      <span className="text-purple-400">class</span>
-                      <span className="text-yellow-300"> Solution</span>
-                      <span className="text-white">:</span>
+              {/* Feature list — laid out horizontally so it doesn't feel cramped */}
+              <div className="grid gap-5 sm:grid-cols-3">
+                {features.map((f) => {
+                  const c = colorMap[f.color];
+                  return (
+                    <div key={f.title}>
+                      <div
+                        className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${c.bg} ${c.text}`}
+                      >
+                        <f.icon className="text-base" />
+                      </div>
+                      <div className="mb-1 text-sm font-semibold text-white">
+                        {f.title}
+                      </div>
+                      <div className="text-xs leading-relaxed text-white/50">
+                        {f.desc}
+                      </div>
                     </div>
-                    <div className="pl-2">
-                      <span className="text-purple-400">def</span>
-                      <span className="text-blue-300"> build</span>
-                      <span className="text-white">(self):</span>
-                    </div>
-                    <div className="pl-4">
-                      <span className="text-purple-400">return</span>
-                      <span className="text-green-300"> &quot;AI&quot;</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="absolute -bottom-2 left-1/2 h-2 w-56 -translate-x-1/2 rounded-b-lg bg-gradient-to-b from-gray-700 to-gray-800" />
-              </motion.div>
-
-              <motion.div
-                className="absolute left-8 top-8 h-16 w-28 rounded-lg border border-brand-blue/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              >
-                <div className="space-y-0.5 font-mono text-[9px]">
-                  <div>
-                    <span className="text-purple-400">import</span>
-                    <span className="text-white"> ai</span>
-                  </div>
-                  <div>
-                    <span className="text-blue-400">model</span>
-                    <span className="text-white"> = </span>
-                    <span className="text-green-300">AI()</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute bottom-12 right-8 h-14 w-32 rounded-lg border border-brand-gold/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              >
-                <div className="space-y-0.5 font-mono text-[9px]">
-                  <div>
-                    <span className="text-blue-400">const</span>
-                    <span className="text-white"> cloud = </span>
-                    <span className="text-green-300">new</span>
-                    <span className="text-white"> Cloud()</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute right-6 top-20 flex h-16 w-16 items-center justify-center rounded-xl border border-brand-blue/40 bg-brand-blue/20 shadow-lg backdrop-blur"
-                animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-              >
-                <span className="text-2xl">AI</span>
-              </motion.div>
-
-              <motion.div
-                className="absolute bottom-24 left-6 h-20 w-24 rounded-lg border border-brand-green/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              >
-                <div className="mb-1 text-[8px] text-brand-green">Analytics</div>
-                <div className="space-y-1">
-                  <div className="h-1 w-full rounded bg-brand-green/30">
-                    <div className="h-full w-3/4 rounded bg-brand-green" />
-                  </div>
-                  <div className="h-1 w-full rounded bg-brand-green/30">
-                    <div className="h-full w-1/2 rounded bg-brand-green" />
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute left-20 top-32 h-16 w-20 rounded-lg border border-purple-400/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
-                animate={{ y: [0, -7, 0] }}
-                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
-              >
-                <div className="mb-1 text-[8px] text-purple-400">Cloud</div>
-                <div className="flex gap-1">
-                  <div className="h-3 w-3 rounded-full bg-purple-400/50" />
-                  <div className="h-3 w-3 rounded-full bg-purple-400/50" />
-                  <div className="h-3 w-3 rounded-full bg-purple-400/50" />
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="absolute bottom-8 right-24 h-12 w-28 rounded-lg border border-brand-blue/30 bg-bg-card/80 p-2 shadow-lg backdrop-blur"
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-              >
-                <div className="font-mono text-[9px]">
-                  <div className="mb-0.5 text-brand-green">200 OK</div>
-                  <div className="text-white">GET /api</div>
-                </div>
-              </motion.div>
-
-              <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-20">
-                <line x1="20%" y1="30%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
-                <line x1="80%" y1="30%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
-                <line x1="20%" y1="70%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
-                <line x1="80%" y1="70%" x2="50%" y2="50%" stroke="url(#blueGradient)" strokeWidth="1" />
-                <defs>
-                  <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#3B82F6" />
-                    <stop offset="100%" stopColor="#8B5CF6" />
-                  </linearGradient>
-                </defs>
-              </svg>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
 
+          {/* ---------------- RIGHT PANEL: FAQ ---------------- */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-4 lg:col-span-3"
+            className="space-y-4 lg:col-span-6 xl:col-span-7"
           >
-            {faqItems.map((item, index) => (
-              <motion.div
-                key={item.question}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-              >
-                <div
-                  className={`cursor-pointer overflow-hidden rounded-2xl border transition-all duration-300 ${
-                    openIndex === index
-                      ? "border-brand-blue bg-bg-card/80 shadow-lg shadow-brand-blue/20 backdrop-blur-xl"
-                      : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:-translate-y-1 hover:border-brand-blue/50 hover:shadow-lg hover:shadow-brand-blue/10"
-                  }`}
-                  onClick={() => toggleFAQ(index)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      toggleFAQ(index);
-                    }
-                  }}
-                  role="button"
-                  tabIndex={0}
-                  aria-expanded={openIndex === index}
+            {faqItems.map((item, index) => {
+              const c = colorMap[item.color];
+              const isOpen = openIndex === index;
+
+              return (
+                <motion.div
+                  key={item.question}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08, duration: 0.5 }}
                 >
-                  <div className="p-6">
-                    <div className="flex items-center justify-between gap-4">
-                      <h4
-                        className={` font-semibold transition-colors ${
-                          openIndex === index ? "text-brand-blue" : "text-silver-primary"
-                        }`}
-                      >
-                        {item.question}
-                      </h4>
+                  <div
+                    className={`cursor-pointer overflow-hidden rounded-2xl border transition-all duration-300 ${
+                      isOpen
+                        ? `${c.border} bg-[#0a0e18]`
+                        : "border-white/8 bg-[#0a0e18]/60 hover:border-white/20"
+                    }`}
+                    onClick={() => toggleFAQ(index)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        toggleFAQ(index);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    aria-expanded={isOpen}
+                  >
+                    <div className="p-5 sm:p-6">
+                      <div className="flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-4">
+                          <div
+                            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${c.bg} ${c.text}`}
+                          >
+                            <item.icon className="text-base" />
+                          </div>
+                          <h4 className="font-semibold text-white">
+                            {item.question}
+                          </h4>
+                        </div>
+
+                        <motion.span
+                          animate={{ rotate: isOpen ? 45 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="shrink-0 text-xl font-light text-white/40"
+                        >
+                          +
+                        </motion.span>
+                      </div>
 
                       <motion.div
-                        animate={{ rotate: openIndex === index ? 45 : 0 }}
+                        initial={false}
+                        animate={{
+                          height: isOpen ? "auto" : 0,
+                          opacity: isOpen ? 1 : 0,
+                        }}
                         transition={{ duration: 0.3 }}
-                        className="shrink-0 text-silver-secondary"
+                        className="overflow-hidden"
                       >
-                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                        </svg>
+                        <div className="pt-4 sm:pl-[60px]">
+                          <p className="text-sm leading-relaxed text-white/50">
+                            {item.answer}
+                          </p>
+
+                          {item.cta && (
+                            <div
+                              className={`mt-4 flex items-center gap-2 rounded-xl border ${c.border} ${c.bg} px-4 py-3`}
+                            >
+                              <BsStars className={`text-sm ${c.text}`} />
+                              <span className="text-sm text-white/70">
+                                {item.cta}
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </motion.div>
                     </div>
-
-                    <motion.div
-                      initial={false}
-                      animate={{
-                        height: openIndex === index ? "auto" : 0,
-                        opacity: openIndex === index ? 1 : 0,
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="pt-4 text-sm leading-relaxed text-secondary-text">
-                        {item.answer}
-                      </p>
-                    </motion.div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
+
+        {/* ---------------- STATS BAR ---------------- */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-8 grid grid-cols-2 gap-8 rounded-[28px] border border-white/10 bg-[#080b13] p-8 sm:grid-cols-4"
+        >
+          {stats.map((s) => {
+            const c = colorMap[s.color];
+            return (
+              <div key={s.label} className="flex items-center gap-3">
+                <s.icon className={`text-2xl ${c.text}`} />
+                <div>
+                  <div className="text-xl font-bold text-white sm:text-2xl">
+                    {s.value}
+                  </div>
+                  <div className="text-xs text-white/50">{s.label}</div>
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

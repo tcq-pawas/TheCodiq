@@ -24,9 +24,25 @@ export const metadata: Metadata = {
     "custom software",
     "IT services"
   ],
-  authors: [{ name: "The CodiQ Global", url: "https://thecodiq.com" }],
-  creator: "The CodiQ Global",
-  publisher: "The CodiQ Global",
+  authors: [{ name: "TheCodiQ" }],
+  icons: {
+    icon: "/logo/codiqi-favicon.png",
+    shortcut: "/logo/codiqi-favicon.png",
+    apple: "/logo/codiqi-favicon.png",
+  },
+  openGraph: {
+    title: "TheCodiQ - Premium IT Solutions",
+    description:
+      "Premium IT solutions including web development, mobile apps, AI solutions, and digital marketing services.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TheCodiQ - Premium IT Solutions",
+    description:
+      "Premium IT solutions including web development, mobile apps, AI solutions, and digital marketing services.",
+  },
   robots: {
     index: true,
     follow: true,
@@ -64,6 +80,9 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
+  alternates: {
+    canonical: "https://thecodiq.com",
+  },
 };
 
 export default function RootLayout({
@@ -73,6 +92,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "TheCodiQ Global",
+              url: "https://thecodiq.com",
+              logo: "https://thecodiq.com/logo/logo.png",
+              sameAs: [
+                "https://twitter.com",
+                "https://linkedin.com",
+                "https://github.com",
+                "https://instagram.com",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+1 (555) 123-4567",
+                contactType: "customer service",
+                email: "contact@thecodiq.com",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <Header />
         <main className="min-h-screen">{children}</main>

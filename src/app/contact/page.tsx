@@ -5,37 +5,11 @@ import ContactSection from "@/app/contact/ContactSection";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Contact The CodiQ Global",
-  description: "Get free consultation for your software project. Contact The CodiQ Global for expert mobile app development, web development, and AI solutions.",
-  keywords: ["software development contact", "contact software company", "get free consultation", "software development inquiry"],
-  openGraph: {
-    title: "Contact The CodiQ Global",
-    description: "Get free consultation for your software project. Contact The CodiQ Global for expert software development services.",
-    url: "https://thecodiq.com/contact",
-    type: "website",
-  },
+  title: "Contact Us | TheCodiQ Global - Get in Touch",
+  description: "Contact TheCodiQ Global for web development, mobile apps, AI solutions, and digital marketing services. Get a free quote for your next project.",
   alternates: {
     canonical: "https://thecodiq.com/contact",
   },
-};
-
-const contactPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "name": "Contact The CodiQ Global",
-  "description": "Get free consultation for your software project. Contact The CodiQ Global for expert software development services.",
-  "url": "https://thecodiq.com/contact",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": "The CodiQ Global Pvt. Ltd.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-555-123-4567",
-      "contactType": "sales",
-      "email": "pawas.singh@thecodiq.com",
-      "availableLanguage": ["English"]
-    }
-  }
 };
 
 export default function ContactPage() {
@@ -49,7 +23,7 @@ export default function ContactPage() {
 
       <div className="py-16 bg-background relative overflow-hidden">
         {/* Background effects */}
-        <div className="absolute inset-0 grid-pattern opacity-10" />
+        <div className="absolute inset-0 pointer-events-none opacity-10 grid-pattern" />
         <div className="animated-blob w-96 h-96 bg-primary/20 top-1/4 -left-48" />
         <div
           className="animated-blob w-96 h-96 bg-accent/20 bottom-1/4 -right-48"
@@ -64,6 +38,56 @@ export default function ContactPage() {
   </div>
 </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "TheCodiQ Global",
+            image: "https://thecodiq.com/logo/logo.png",
+            telephone: "+1 (555) 123-4567",
+            email: "contact@thecodiq.com",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Gorakhpur",
+              addressRegion: "Uttar Pradesh",
+              addressCountry: "IN",
+            },
+            url: "https://thecodiq.com",
+            openingHoursSpecification: {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              opens: "09:00",
+              closes: "18:00",
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://thecodiq.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Contact",
+                item: "https://thecodiq.com/contact",
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 }

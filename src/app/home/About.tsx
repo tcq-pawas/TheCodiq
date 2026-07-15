@@ -8,8 +8,22 @@ import {
   FaCode,
   FaHeadset,
   FaUserTie,
+  FaGlobe,
+  FaRocket,
+  FaTrophy,
+  FaUsers,
+  FaShieldAlt,
+  FaLightbulb,
 } from "react-icons/fa";
+import {
+  Users,
+  Rocket,
+  Award,
+  Globe,
+} from "lucide-react";
+
 import { FiChevronDown } from "react-icons/fi";
+import Image from "next/image";
 
 const features = [
   {
@@ -40,6 +54,20 @@ const features = [
     Icon: FaCode,
     accent: "from-silver-primary/20 to-white/5 text-silver-primary",
   },
+  {
+  title: "Secure Solutions",
+  description:
+    "Security is integrated into every stage of development. From secure coding standards and encrypted communication to regular security audits, we ensure your applications remain protected against modern cyber threats.",
+  Icon: FaShieldAlt,
+  accent: "from-red-500/20 to-red-500/5 text-red-400",
+},
+{
+  title: "Innovative Approach",
+  description:
+    "We combine creativity with technology to build future-ready digital products. Our team constantly explores emerging technologies and innovative strategies to deliver solutions that keep your business ahead of the competition.",
+  Icon: FaLightbulb,
+  accent: "from-yellow-400/20 to-yellow-400/5 text-yellow-400",
+},
 ];
 
 const sparks = [
@@ -49,157 +77,6 @@ const sparks = [
   "left-[22%] top-[72%]",
   "left-[58%] top-[78%]",
 ];
-
-function AnimatedRocket() {
-  return (
-    <div className="relative h-64 w-64">
-      {/* Engine Glow */}
-      <motion.div
-        animate={{
-          opacity: [0.3, 0.7, 0.3],
-          scale: [0.9, 1.25, 0.9],
-        }}
-        transition={{
-          duration: 0.7,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute left-[92px] top-[182px] h-20 w-20 rounded-full bg-brand-blue/30 blur-3xl"
-      />
-
-      <motion.svg
-        viewBox="0 0 260 260"
-        className="absolute inset-0 h-full w-full drop-shadow-[0_0_40px_rgba(37,99,235,.35)]"
-        animate={{
-          rotate: [0, 2, -2, 0],
-          y: [0, -6, 0],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        <defs>
-          <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="100%" stopColor="#b8c7ff" />
-          </linearGradient>
-
-          <linearGradient id="nose" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FFD166" />
-            <stop offset="100%" stopColor="#F59E0B" />
-          </linearGradient>
-
-          <linearGradient id="window" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#6EE7FF" />
-            <stop offset="100%" stopColor="#2563EB" />
-          </linearGradient>
-
-          <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="35%" stopColor="#FFE066" />
-            <stop offset="70%" stopColor="#FF7A18" />
-            <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-
-        {/* Flame */}
-        <motion.path
-          d="M130 188 C152 215 146 240 130 252 C114 240 108 215 130 188Z"
-          fill="url(#flame)"
-          animate={{
-            scaleY: [0.8, 1.25, 0.85],
-          }}
-          transition={{
-            duration: 0.35,
-            repeat: Infinity,
-          }}
-          style={{
-            transformOrigin: "130px 190px",
-          }}
-        />
-
-        {/* Left Fin */}
-        <path
-          d="M92 145 L58 185 L100 172Z"
-          fill="#2563EB"
-        />
-
-        {/* Right Fin */}
-        <path
-          d="M168 145 L202 185 L160 172Z"
-          fill="#2563EB"
-        />
-
-        {/* Body */}
-        <path
-          d="M130 24
-             C165 56 178 105 165 150
-             C160 168 148 184 130 194
-             C112 184 100 168 95 150
-             C82 105 95 56 130 24Z"
-          fill="url(#body)"
-          stroke="rgba(255,255,255,.75)"
-          strokeWidth="2"
-        />
-
-        {/* Nose */}
-        <path
-          d="M130 24
-             C142 40 150 56 153 75
-             C138 69 122 69 107 75
-             C110 56 118 40 130 24Z"
-          fill="url(#nose)"
-        />
-
-        {/* Window */}
-        <circle
-          cx="130"
-          cy="95"
-          r="20"
-          fill="url(#window)"
-          stroke="white"
-          strokeWidth="3"
-        />
-
-        {/* Reflection */}
-        <ellipse
-          cx="123"
-          cy="88"
-          rx="5"
-          ry="8"
-          fill="rgba(255,255,255,.45)"
-        />
-
-        {/* Engine */}
-        <rect
-          x="118"
-          y="180"
-          width="24"
-          height="16"
-          rx="4"
-          fill="#334155"
-        />
-
-        {/* Accent Lines */}
-        <path
-          d="M108 135 Q130 145 152 135"
-          stroke="#3B82F6"
-          strokeWidth="4"
-          strokeLinecap="round"
-          opacity=".4"
-        />
-
-        <path
-          d="M112 155 H148"
-          stroke="rgba(255,255,255,.4)"
-          strokeWidth="2"
-        />
-      </motion.svg>
-    </div>
-  );
-}
 
 export default function About() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -230,73 +107,119 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative h-[500px] rounded-3xl border border-white/10 overflow-hidden bg-[radial-gradient(circle_at_30%_25%,rgba(0,129,255,0.18),transparent_34%),radial-gradient(circle_at_78%_70%,rgba(51,214,159,0.14),transparent_30%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] shadow-2xl shadow-black/20">
-              <div className="absolute inset-0 opacity-[0.16] bg-[linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:42px_42px]" />
+            <div className="relative h-[520px] md:h-[800px] overflow-hidden rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#08111d] shadow-[0_25px_80px_rgba(0,0,0,.45)]">
 
-              <motion.div
-                aria-hidden="true"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-                className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-brand-blue/25"
-              />
-              <motion.div
-                aria-hidden="true"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
-                className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"
+              {/* Background */}
+              <Image
+                src="/images/image3.png"
+                alt="Rocket"
+                fill
+                priority
+                className="object-cover object-center scale-[1.03]"
               />
 
-              {sparks.map((position, index) => (
-                <motion.span
-                  key={position}
-                  aria-hidden="true"
-                  animate={{ opacity: [0.25, 1, 0.25], scale: [0.85, 1.25, 0.85] }}
-                  transition={{
-                    duration: 2.4,
-                    repeat: Infinity,
-                    delay: index * 0.28,
-                    ease: "easeInOut",
-                  }}
-                  className={`absolute ${position} h-2 w-2 rounded-full bg-silver-primary shadow-[0_0_20px_rgba(255,255,255,0.8)]`}
-                />
-              ))}
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/15 via-[#020617]/30 to-[#020617]/95" />
 
-              <div className="absolute inset-0 flex items-center justify-center px-6">
-                <div className="relative text-center">
-                  <motion.div
-                    animate={{
-                      x: [0, 18, 0],
-                      y: [0, -18, 0],
-                    }}
-                    transition={{
-                      duration: 2.8,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="relative mx-auto mb-8 flex h-56 w-56 items-center justify-center"
-                  >
-                    <AnimatedRocket />
-                  </motion.div>
+              {/* Launch Ready Badge */}
+              <div className="absolute left-4 top-4 z-20 md:left-7 md:top-7">
+                <div
+                  className="flex items-center gap-2 md:gap-3 rounded-full border border-[#3b82f6]/30 bg-gradient-to-r
+        from-[#2563eb]/25 via-[#1e3a8a]/20 to-[#0b1220]/90 px-3 py-2 md:px-5 backdrop-blur-2xl
+        shadow-[0_0_30px_rgba(37,99,235,0.22)] ring-1 ring-white/5"
+                >
+                  <div className="flex h-7 w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#60a5fa] to-[#2563eb] shadow-[0_0_18px_rgba(59,130,246,.45)]">
+                    <FaRocket className="text-xs md:text-sm text-white -rotate-45" />
+                  </div>
 
-                  <p className="text-silver-primary text-xl font-semibold mb-2">
-                    Excellence in Every Project
-                  </p>
-                  <p className="text-secondary-text">
-                    Delivering premium IT solutions worldwide
-                  </p>
+                  <span className="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
+                    Launch Ready
+                  </span>
                 </div>
               </div>
 
-              <div className="absolute left-8 top-8 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-xl">
-                <p className="text-xs font-semibold uppercase text-secondary-text">
-                  Launch Ready
-                </p>
+              {/* Main Content */}
+              <div className="absolute inset-0 z-20 flex flex-col justify-end">
+
+                {/* Text */}
+                <div className="px-5 md:px-8 text-center">
+
+                  <h2 className="text-[28px] leading-[1.08] font-semibold md:text-[34px] text-white">
+                    Excellence in
+                    <br />
+                    Every <span className="text-brand-blue">Project Idea</span>
+                  </h2>
+
+                  <p className="mx-auto mt-3 md:mt-4 max-w-[320px] md:max-w-[360px] text-[13px] md:text-[14px] leading-5 md:leading-6 text-slate-300">
+                    Delivering premium IT solutions worldwide with innovation,
+                    reliability, and exceptional <br/> customer satisfaction.
+                  </p>
+
+                </div>
+
+                {/* Stats */}
+                <div className="mt-6 md:mt-7 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-2 px-4 pb-4">
+
+                  <div className="rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-3 md:py-4 backdrop-blur-xl">
+
+                    <Users className="mx-auto mb-2 h-6 w-6 md:h-[26px] md:w-[26px] text-brand-blue" />
+
+                    <h3 className="text-center text-[16px] md:text-[18px] font-bold text-white">
+                      250+
+                    </h3>
+
+                    <p className="mt-1 text-center text-[10px] md:text-[11px] leading-4 text-slate-400">
+                      Happy Clients
+                    </p>
+
+                  </div>
+
+                  <div className="rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-3 md:py-4 backdrop-blur-xl">
+
+                    <Rocket className="mx-auto mb-2 h-6 w-6 md:h-[26px] md:w-[26px] text-violet-500" />
+
+                    <h3 className="text-center text-[16px] md:text-[18px] font-bold text-white">
+                      400+
+                    </h3>
+
+                    <p className="mt-1 text-center text-[10px] md:text-[11px] leading-4 text-slate-400">
+                      Projects Delivered
+                    </p>
+
+                  </div>
+
+                  <div className="rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-3 md:py-4 backdrop-blur-xl">
+
+                    <Award className="mx-auto mb-2 h-6 w-6 md:h-[26px] md:w-[26px] text-amber-400" />
+
+                    <h3 className="text-center text-[16px] md:text-[18px] font-bold text-white">
+                      50+
+                    </h3>
+
+                    <p className="mt-1 text-center text-[10px] md:text-[11px] leading-4 text-slate-400">
+                      Experts
+                    </p>
+
+                  </div>
+
+                  <div className="rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-3 md:py-4 backdrop-blur-xl">
+
+                    <Globe className="mx-auto mb-2 h-6 w-6 md:h-[26px] md:w-[26px] text-green-500" />
+
+                    <h3 className="text-center text-[16px] md:text-[18px] font-bold text-white">
+                      25+
+                    </h3>
+
+                    <p className="mt-1 text-center text-[10px] md:text-[11px] leading-4 text-slate-400">
+                      Countries Served
+                    </p>
+
+                  </div>
+
+                </div>
+
               </div>
-              <div className="absolute bottom-8 right-8 rounded-2xl border border-brand-green/20 bg-brand-green/10 px-4 py-3 backdrop-blur-xl">
-                <p className="text-sm font-semibold text-brand-green">
-                  Scalable Delivery
-                </p>
-              </div>
+
             </div>
           </motion.div>
 
@@ -322,8 +245,8 @@ export default function About() {
                     <button
                       type="button"
                       className={`w-full text-left rounded-2xl border transition-all duration-300 ${isActive
-                          ? "border-brand-blue bg-bg-card/80 backdrop-blur-xl shadow-lg shadow-brand-blue/20"
-                          : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:border-brand-blue/50"
+                        ? "border-brand-blue bg-bg-card/80 backdrop-blur-xl shadow-lg shadow-brand-blue/20"
+                        : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:border-brand-blue/50"
                         }`}
                       onClick={() => setActiveIndex(index)}
                     >
