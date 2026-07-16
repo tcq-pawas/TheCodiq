@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { NAV_LINKS } from "@/lib/constants";
 import { useScroll } from "@/hooks/useScroll";
 import { cn } from "@/lib/helper";
@@ -26,7 +27,7 @@ export default function Navbar() {
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 h-full">
         <div className="flex items-center justify-between h-full">
           <Link href="/" className="flex items-center">
-            <img src="/logo/logo.png" alt="TheCodiQ Global - Software Development Company Logo" className="h-20 w-auto" />
+            <Image src="/logo/logo.png" alt="TheCodiQ Global - Software Development Company Logo" width={80} height={80} className="h-20 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center flex-1 justify-center">

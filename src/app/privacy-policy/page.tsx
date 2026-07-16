@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
 
               <h2 className="text-xl font-bold text-white mt-8 mb-4">1. Introduction</h2>
               <p className="text-gray-300 mb-4">
-                TheCodiQ Global ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                TheCodiQ Global (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
               </p>
 
               <h2 className="text-xl font-bold text-white mt-8 mb-4">2. Information We Collect</h2>

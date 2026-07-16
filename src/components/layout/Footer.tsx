@@ -2,6 +2,7 @@
 
 import { HiSparkles, HiBolt, HiCloud, HiChartBar, HiShieldCheck } from "react-icons/hi2";
 import Link from "next/link";
+import Image from "next/image";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -213,7 +214,7 @@ export default function Footer() {
           <div>
             <div className="mb-6">
               <Link href="/" className="flex items-center mb-4">
-                <img src="/logo/logo.png" alt="TheCodiQ Global - Software Development Company Logo" className="h-12 w-auto" />
+                <Image src="/logo/logo.png" alt="TheCodiQ Global - Software Development Company Logo" width={48} height={48} className="h-12 w-auto" />
               </Link>
               <h3 className="text-xl font-bold text-silver-primary mb-2">TheCodiQ Global</h3>
             </div>

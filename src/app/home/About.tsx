@@ -8,10 +8,7 @@ import {
   FaCode,
   FaHeadset,
   FaUserTie,
-  FaGlobe,
   FaRocket,
-  FaTrophy,
-  FaUsers,
   FaShieldAlt,
   FaLightbulb,
 } from "react-icons/fa";
@@ -68,14 +65,6 @@ const features = [
   Icon: FaLightbulb,
   accent: "from-yellow-400/20 to-yellow-400/5 text-yellow-400",
 },
-];
-
-const sparks = [
-  "left-[18%] top-[22%]",
-  "left-[68%] top-[18%]",
-  "left-[80%] top-[44%]",
-  "left-[22%] top-[72%]",
-  "left-[58%] top-[78%]",
 ];
 
 export default function About() {
