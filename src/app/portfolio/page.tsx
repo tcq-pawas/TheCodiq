@@ -27,14 +27,6 @@ const portfolioSchema = {
   "url": "https://thecodiq.com/portfolio"
 };
 
-export const metadata: Metadata = {
-  title: "Portfolio | TheCodiQ - Our Latest Projects & Case Studies",
-  description: "Explore TheCodiQ's portfolio of successful web development, mobile app, AI, and digital marketing projects. See our work and client success stories.",
-  alternates: {
-    canonical: "https://thecodiq.com/portfolio",
-  },
-};
-
 export default function PortfolioPage() {
   return (
     <>

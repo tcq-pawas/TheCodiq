@@ -28,14 +28,6 @@ const blogSchema = {
   "url": "https://thecodiq.com/blog"
 };
 
-export const metadata: Metadata = {
-  title: "Blog | TheCodiQ - Technology Insights & Updates",
-  description: "Read the latest insights, tutorials, and updates from TheCodiQ on web development, mobile apps, AI solutions, and digital marketing trends.",
-  alternates: {
-    canonical: "https://thecodiq.com/blog",
-  },
-};
-
 export default function BlogPage() {
   return (
     <>
