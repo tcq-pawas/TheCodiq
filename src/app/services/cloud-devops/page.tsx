@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
-import { CloudCog, Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {

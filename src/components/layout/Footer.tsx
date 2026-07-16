@@ -74,7 +74,7 @@ export default function Footer() {
 
                 {/* Headline */}
                 <h2 className="mb-3 text-3xl font-bold leading-tight text-silver-primary xl:text-4xl">
-                  Let's Build{" "}
+                  Let&apos;s Build{" "}
                   <span className="bg-gradient-to-r from-brand-green via-brand-blue to-purple-400 bg-clip-text text-transparent">
                     Something Amazing Together
                   </span>
@@ -137,11 +137,11 @@ export default function Footer() {
                               <span className="text-brand-blue">build</span>
                               <span className="text-silver-secondary">( </span>
                               <span className="text-sky-300">ideas=</span>
-                              <span className="text-brand-green">'your_vision',</span>
+                              <span className="text-brand-green">&apos;your_vision&apos;,</span>
                             </span>
                             <span className="pl-16">
                               <span className="text-sky-300">tech=</span>
-                              <span className="text-brand-green">'modern_stack' </span>
+                              <span className="text-brand-green">&apos;modern_stack&apos; </span>
                               <span className="text-silver-secondary">)</span>
                             </span>
                           </div>
@@ -154,7 +154,7 @@ export default function Footer() {
                             <span className="text-brand-blue">deploy</span>
                             <span className="text-silver-secondary">( </span>
                             <span className="text-sky-300">to=</span>
-                            <span className="text-brand-green">'success' </span>
+                            <span className="text-brand-green">&apos;success&apos; </span>
                             <span className="text-silver-secondary">)</span>
                           </span>
                         </div>
@@ -164,7 +164,7 @@ export default function Footer() {
                           <span>
                             <span className="text-brand-gold">print</span>
                             <span className="text-silver-secondary">(</span>
-                            <span className="text-brand-green">'Let's build amazing together! 🚀'</span>
+                            <span className="text-brand-green">&apos;Let&apos;s build amazing together! 🚀&apos;</span>
                             <span className="text-silver-secondary">)</span>
                           </span>
                         </div>

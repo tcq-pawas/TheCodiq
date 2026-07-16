@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
-import { Globe2, Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -29,10 +29,10 @@ export default function WebDevelopmentPage() {
               At TheCodiQ, we build custom web applications that drive business growth. Our team of expert developers specializes in creating high-performance, scalable web solutions using modern technologies like React, Next.js, and Node.js. Whether you need an e-commerce platform, a progressive web app (PWA), or an enterprise portal, we deliver solutions that meet your specific requirements.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              Our web development process focuses on user experience, performance optimization, and seamless integration with your existing systems. We follow industry best practices to ensure your web application is secure, maintainable, and built to scale. From startups to enterprises, we've helped businesses across industries establish a strong digital presence.
+              Our web development process focuses on user experience, performance optimization, and seamless integration with your existing systems. We follow industry best practices to ensure your web application is secure, maintainable, and built to scale. From startups to enterprises, we&apos;ve helped businesses across industries establish a strong digital presence.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              We understand that every business has unique needs. That's why we take a consultative approach, working closely with you to understand your goals, target audience, and technical requirements. Our agile development methodology ensures transparency throughout the project, with regular updates and iterative improvements based on your feedback.
+              We understand that every business has unique needs. That&apos;s why we take a consultative approach, working closely with you to understand your goals, target audience, and technical requirements. Our agile development methodology ensures transparency throughout the project, with regular updates and iterative improvements based on your feedback.
             </p>
           </div>
 

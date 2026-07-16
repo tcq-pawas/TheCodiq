@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
-import { Megaphone, Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function DigitalMarketingPage() {
               Our digital marketing services are designed to deliver measurable results. We start with a comprehensive audit of your current digital presence, then develop a customized strategy aligned with your business goals. From technical SEO optimization to content creation and paid advertising, we execute campaigns that drive growth while providing transparent reporting on performance metrics.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              We believe in sustainable growth through organic channels complemented by strategic paid campaigns. Our team stays current with search algorithm updates and platform changes to ensure your marketing efforts remain effective. Whether you're launching a new product or scaling an established brand, we provide the expertise and execution to accelerate your digital growth.
+              We believe in sustainable growth through organic channels complemented by strategic paid campaigns. Our team stays current with search algorithm updates and platform changes to ensure your marketing efforts remain effective. Whether you&apos;re launching a new product or scaling an established brand, we provide the expertise and execution to accelerate your digital growth.
             </p>
           </div>
 

@@ -2,10 +2,6 @@ import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 import Link from "next/link";
 import { ArrowRight, Globe2, Smartphone, BrainCircuit, Palette, Megaphone, CloudCog } from "lucide-react";
-
-import Hero from "@/app/services/Hero";
-import ServicesGrid from "@/app/services/ServicesGrid";
-import Process from "@/app/services/Process";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
@@ -14,6 +10,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://thecodiq.com/services",
   },
+};
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "IT Services",
+  "description": "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
+  "url": "https://thecodiq.com/services"
 };
 
 const services = [

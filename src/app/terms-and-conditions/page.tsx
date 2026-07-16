@@ -30,7 +30,7 @@ export default function TermsAndConditionsPage() {
 
               <h2 className="text-xl font-bold text-white mt-8 mb-4">1. Acceptance of Terms</h2>
               <p className="text-gray-300 mb-4">
-                By accessing or using TheCodiQ Global's website and services, you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use our services.
+                By accessing or using TheCodiQ Global&apos;s website and services, you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use our services.
               </p>
 
               <h2 className="text-xl font-bold text-white mt-8 mb-4">2. Services</h2>

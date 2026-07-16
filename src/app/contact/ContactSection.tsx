@@ -6,10 +6,12 @@ import {
   ArrowRight,
   CheckCircle2,
   ExternalLink,
+  Loader2,
   Mail,
   MapPin,
   MessageSquare,
   Phone,
+  Send,
   ShieldCheck,
   User,
 } from "lucide-react";
@@ -36,6 +38,7 @@ const initialFormState: FormState = {
 export default function AuthenticContactForm() {
   const [formData, setFormData] = useState<FormState>(initialFormState);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const contactItems = [
     {
@@ -72,6 +75,7 @@ export default function AuthenticContactForm() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitted(false);
+    setIsSubmitting(true);
 
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 900));
