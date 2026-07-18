@@ -64,6 +64,18 @@ const features = [
 
 export default function About() {
   const [activeIndex, setActiveIndex] = useState(0);
+  // Tracks which feature descriptions are expanded to full text on small
+  // screens. On sm: and up, the full description always shows regardless.
+  const [expandedMobile, setExpandedMobile] = useState<Record<number, boolean>>({});
+
+  const toggleFeature = (index: number) => {
+    setActiveIndex(activeIndex === index ? -1 : index);
+  };
+
+  const toggleMobileAnswer = (e: React.MouseEvent, index: number) => {
+    e.stopPropagation(); // don't let this bubble up and collapse the accordion item
+    setExpandedMobile((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
 
   return (
     <section className="py-14 sm:py-20 lg:py-24 bg-bg-secondary relative overflow-hidden">
@@ -85,23 +97,31 @@ export default function About() {
           />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
+        {/*
+          items-stretch (instead of items-center) makes both grid columns
+          automatically match the height of the TALLEST column — no fixed
+          height needed anywhere. The accordion drives the height; the
+          image card just stretches to fit whatever that is.
+        */}
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 lg:items-stretch">
           {/* ---------------- Image / Stats Card ---------------- */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="min-h-[420px] xs:min-h-[460px] sm:min-h-[520px]"
           >
-            <div className="relative h-[420px] xs:h-[460px] sm:h-[560px] md:h-[800px] overflow-hidden rounded-[18px] sm:rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#08111d] shadow-[0_15px_50px_rgba(0,0,0,.4)] sm:shadow-[0_25px_80px_rgba(0,0,0,.45)]">
+            <div className="relative h-full min-h-[420px] xs:min-h-[460px] sm:min-h-[520px] w-full overflow-hidden rounded-[18px] sm:rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#08111d] shadow-[0_15px_50px_rgba(0,0,0,.4)] sm:shadow-[0_25px_80px_rgba(0,0,0,.45)]">
 
-              {/* Background */}
+              {/* Background - object-top stops the top of the rocket getting cropped */}
               <Image
                 src="/images/image3.png"
                 alt="Rocket"
                 fill
                 priority
-                className="object-cover object-center scale-[1.03]"
+                sizes="100vw"
+                className="object-cover object-[50%_15%]"
               />
 
               {/* Dark Overlay */}
@@ -135,7 +155,7 @@ export default function About() {
                     Every <span className="text-brand-blue">Project Idea</span>
                   </h2>
 
-                  <p className="mx-auto mt-2 sm:mt-3 md:mt-4 max-w-[260px] sm:max-w-[320px] md:max-w-[360px] text-[12px] sm:text-[13px] md:text-[14px] leading-5 md:leading-6 text-slate-300">
+                  <p className="mx-auto mt-2 sm:mt-3 md:mt-4 max-w-[260px] sm:max-w-[320px] md:max-w-[360px] text-[12px] sm:text-[13px] md:text-[14px] leading-5 md:leading-6 text-white">
                     Delivering premium IT solutions worldwide with innovation,
                     reliability, and exceptional customer satisfaction.
                   </p>
@@ -199,6 +219,7 @@ export default function About() {
               {features.map((feature, index) => {
                 const Icon = feature.Icon;
                 const isActive = activeIndex === index;
+                const isMobileExpanded = !!expandedMobile[index];
 
                 return (
                   <motion.div
@@ -208,32 +229,44 @@ export default function About() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.08, duration: 0.5 }}
                   >
-                    <button
-                      type="button"
-                      className={`w-full text-left rounded-xl sm:rounded-2xl border transition-all duration-300 ${
-                        isActive
+                    {/*
+                      Changed from <button> to a <div role="button"> because
+                      the "Know more" toggle below is also a <button> —
+                      HTML doesn't allow nesting interactive elements
+                      (<button> inside <button>), which throws a hydration
+                      error. This div is fully keyboard-accessible via
+                      role="button", tabIndex, and onKeyDown, same pattern
+                      as the FAQ component.
+                    */}
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      className={`w-full text-left rounded-xl sm:rounded-2xl border transition-all duration-300 cursor-pointer ${isActive
                           ? "border-brand-blue bg-bg-card/80 backdrop-blur-xl shadow-lg shadow-brand-blue/20"
                           : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:border-brand-blue/50"
-                      }`}
-                      onClick={() => setActiveIndex(isActive ? -1 : index)}
+                        }`}
+                      onClick={() => toggleFeature(index)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          toggleFeature(index);
+                        }
+                      }}
                       aria-expanded={isActive}
                     >
                       <div className="p-4 sm:p-5 md:p-6">
                         <div className="flex items-center gap-3 sm:gap-4">
                           <div
-                            className={`h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 shrink-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${
-                              feature.accent
-                            } flex items-center justify-center ring-1 ring-white/10 transition-all duration-300 ${
-                              isActive ? "scale-105 shadow-lg" : ""
-                            }`}
+                            className={`h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 shrink-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${feature.accent
+                              } flex items-center justify-center ring-1 ring-white/10 transition-all duration-300 ${isActive ? "scale-105 shadow-lg" : ""
+                              }`}
                           >
                             <Icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                           </div>
                           <div className="min-w-0 flex-1">
                             <h3
-                              className={`text-sm sm:text-base font-semibold transition-colors ${
-                                isActive ? "text-brand-blue" : "text-silver-primary"
-                              }`}
+                              className={`text-sm sm:text-base font-semibold transition-colors ${isActive ? "text-brand-blue" : "text-silver-primary"
+                                }`}
                             >
                               {feature.title}
                             </h3>
@@ -255,12 +288,31 @@ export default function About() {
                           transition={{ duration: 0.3 }}
                           className="overflow-hidden"
                         >
-                          <p className="pt-3 sm:pt-4 text-secondary-text text-xs sm:text-sm leading-relaxed">
-                            {feature.description}
-                          </p>
+                          <div className="pt-3 sm:pt-4">
+                            {/*
+                              Mobile: description clamped to 2 lines with a
+                              "Know more" toggle underneath (sm:hidden).
+                              Desktop/tablet (sm: and up): full text always
+                              shows, clamp removed, toggle hidden.
+                            */}
+                            <p
+                              className={`text-secondary-text text-xs sm:text-sm leading-relaxed ${isMobileExpanded ? "" : "line-clamp-2"
+                                } sm:line-clamp-none`}
+                            >
+                              {feature.description}
+                            </p>
+
+                            <button
+                              type="button"
+                              onClick={(e) => toggleMobileAnswer(e, index)}
+                              className="mt-1.5 text-xs font-semibold text-brand-blue sm:hidden"
+                            >
+                              {isMobileExpanded ? "Show less" : "Know more"}
+                            </button>
+                          </div>
                         </motion.div>
                       </div>
-                    </button>
+                    </div>
                   </motion.div>
                 );
               })}

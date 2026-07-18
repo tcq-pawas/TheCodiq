@@ -6,8 +6,8 @@ export default function Hero() {
   return (
     <div className="mb-16">
       <SectionTitle
-        title="Our Portfolio"
-        subtitle="Explore our latest projects and success stories."
+        title="Our Showcase"
+        subtitle="Crafting digital experiences that inspire, engage, and deliver results."
       />
     </div>
   );

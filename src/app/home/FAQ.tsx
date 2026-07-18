@@ -147,9 +147,17 @@ const bgCodeLines = [
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  // Tracks which FAQ answers are expanded to full text on small screens.
+  // On sm: and up, the full answer always shows regardless of this state.
+  const [expandedMobile, setExpandedMobile] = useState<Record<number, boolean>>({});
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const toggleMobileAnswer = (e: React.MouseEvent, index: number) => {
+    e.stopPropagation(); // don't let this bubble up and close the accordion item
+    setExpandedMobile((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
   return (
@@ -181,14 +189,21 @@ export default function FAQ() {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 sm:gap-8 lg:grid-cols-12 lg:items-start">
+        {/*
+          lg:items-stretch (instead of lg:items-start) makes both columns
+          match the height of whichever one is taller. The left panel is a
+          fixed-content card, the right FAQ panel grows/shrinks as items
+          open — this keeps the left card's border always level with the
+          right panel's current height.
+        */}
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-12 lg:items-stretch">
           {/* ---------------- LEFT PANEL ---------------- */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/10 bg-[#080b13] p-5 sm:p-8 lg:col-span-6 lg:p-10 xl:col-span-5"
+            className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/10 bg-[#080b13] p-5 sm:p-8 lg:col-span-6 lg:p-10 xl:col-span-5 h-full"
           >
             {/* Background glows */}
             <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/20 blur-[100px]" />
@@ -222,7 +237,11 @@ export default function FAQ() {
               </motion.span>
             ))}
 
-            <div className="relative">
+            {/* h-full + justify-center: vertically centers the content so
+                it looks balanced even when the stretched card is taller
+                than the content itself (e.g. multiple FAQ items open on
+                the right). */}
+            <div className="relative flex h-full flex-col justify-center">
               {/* Top badges */}
               <div className="mb-8 sm:mb-10 flex flex-wrap items-center gap-3 sm:gap-4">
                 <motion.div
@@ -277,7 +296,7 @@ export default function FAQ() {
               </p>
 
               {/* Feature list — laid out horizontally so it doesn't feel cramped */}
-              <div className="grid gap-4 sm:grid-cols-3 sm:gap-5">
+              <div className="grid gap-4 grid-cols-1 xs:grid-cols-3 sm:grid-cols-3 sm:gap-5">
                 {features.map((f) => {
                   const c = colorMap[f.color];
                   return (
@@ -311,6 +330,7 @@ export default function FAQ() {
             {faqItems.map((item, index) => {
               const c = colorMap[item.color];
               const isOpen = openIndex === index;
+              const isMobileExpanded = !!expandedMobile[index];
 
               return (
                 <motion.div
@@ -339,7 +359,7 @@ export default function FAQ() {
                   >
                     <div className="p-4 sm:p-6">
                       <div className="flex items-center justify-between gap-3 sm:gap-4">
-                        <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                           <div
                             className={`flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full ${c.bg} ${c.text}`}
                           >
@@ -369,15 +389,33 @@ export default function FAQ() {
                         className="overflow-hidden"
                       >
                         <div className="pt-3 sm:pt-4 sm:pl-[60px]">
-                          <p className="text-xs sm:text-sm leading-relaxed text-white/50">
+                          {/*
+                            Mobile: text is clamped to 2 lines with a
+                            "Know more" toggle below it (sm:hidden).
+                            Desktop/tablet (sm:): full text always shows,
+                            clamp is removed and the toggle is hidden.
+                          */}
+                          <p
+                            className={`text-xs sm:text-sm leading-relaxed text-white/50 ${
+                              isMobileExpanded ? "" : "line-clamp-2"
+                            } sm:line-clamp-none`}
+                          >
                             {item.answer}
                           </p>
+
+                          <button
+                            type="button"
+                            onClick={(e) => toggleMobileAnswer(e, index)}
+                            className={`mt-1.5 text-xs font-semibold ${c.text} sm:hidden`}
+                          >
+                            {isMobileExpanded ? "Show less" : "Know more"}
+                          </button>
 
                           {item.cta && (
                             <div
                               className={`mt-3 sm:mt-4 flex items-center gap-2 rounded-xl border ${c.border} ${c.bg} px-3 py-2.5 sm:px-4 sm:py-3`}
                             >
-                              <BsStars className={`text-sm ${c.text}`} />
+                              <BsStars className={`text-sm shrink-0 ${c.text}`} />
                               <span className="text-xs sm:text-sm text-white/70">
                                 {item.cta}
                               </span>

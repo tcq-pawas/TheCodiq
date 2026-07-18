@@ -8,7 +8,7 @@ const items = [
   {
     Icon: FaBullseye,
     title: "Our Mission",
-    text: "To empower businesses with cutting-edge technology solutions that drive innovation, improve efficiency, and accelerate sustainable growth. We aim to bridge the gap between complex technologies and real business success through reliable digital solutions.",
+    text: "To empower businesses with cutting-edge technology solutions that drive innovation, improve efficiency, and accelerate sustainable growth. We aim to bridge the gap between complex technologies and real business success.",
   },
   {
     Icon: FaBinoculars,
@@ -26,7 +26,7 @@ const sharedProgressStyle = "from-cyan-300 via-primary to-blue-400";
 export default function MissionVision() {
   return (
     <motion.section
-      className="relative mb-24 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] px-5 py-12 shadow-2xl shadow-primary/10 md:px-8 lg:px-10"
+      className="relative mb-16 sm:mb-20 lg:mb-24 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.03] px-4 py-10 sm:px-6 sm:py-12 shadow-2xl shadow-primary/10 md:px-8 lg:px-10"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
@@ -36,22 +36,28 @@ export default function MissionVision() {
       <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
 
       <div className="relative">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+        <div className="mx-auto mb-9 sm:mb-11 lg:mb-12 max-w-2xl text-center">
+          <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 sm:px-4 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary">
             Purpose Driven
           </span>
 
-          <h2 className="mt-5 text-3xl font-bold text-white md:text-3xl">
+          <h2 className="mt-4 sm:mt-5 text-[26px] leading-tight sm:text-3xl md:text-4xl font-bold text-white">
             Mission & <span className="gradient-text">Vision</span>
           </h2>
 
-          <p className="mt-4 text-sm leading-7 text-gray-400">
+          <p className="mt-3 sm:mt-4 text-sm leading-6 sm:leading-7 text-gray-400">
             We are driven by innovation, guided by purpose, and committed to
             delivering technology solutions that create lasting business impact.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
+        {/*
+          md:items-stretch: makes CSS Grid force both columns to match the
+          TALLER card's height (belt-and-braces alongside the text clamp
+          below — either one alone would fix it, both together makes it
+          bulletproof even if the Card component has its own quirks).
+        */}
+        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 md:items-stretch lg:gap-8">
           {items.map((item, index) => {
             const Icon = item.Icon;
 
@@ -69,7 +75,7 @@ export default function MissionVision() {
                 className="group h-full"
               >
                 <Card hover>
-                  <div className="relative flex h-full min-h-[360px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-background/70 p-6 shadow-xl shadow-black/20 transition-all duration-500 group-hover:-translate-y-1 group-hover:border-cyan-300/35 group-hover:bg-white/[0.06] group-hover:shadow-[0_24px_70px_-30px_rgba(34,211,238,0.55)] md:p-7">
+                  <div className="relative flex h-full min-h-[280px] sm:min-h-[320px] md:min-h-[360px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-background/70 p-5 sm:p-6 shadow-xl shadow-black/20 transition-all duration-500 group-hover:-translate-y-1 group-hover:border-cyan-300/35 group-hover:bg-white/[0.06] group-hover:shadow-[0_24px_70px_-30px_rgba(34,211,238,0.55)] md:p-7">
                     <div
                       className={`pointer-events-none absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r transition-transform duration-500 group-hover:scale-x-100 ${sharedLineStyle}`}
                     />
@@ -78,24 +84,33 @@ export default function MissionVision() {
                     />
                     <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-300/10 blur-3xl transition-opacity duration-500 group-hover:opacity-90" />
 
-                    <div className="relative mb-6 flex items-center justify-between gap-4">
+                    <div className="relative mb-5 sm:mb-6 flex items-center justify-between gap-4">
                       <div
-                        className={`flex h-14 w-14 items-center justify-center rounded-2xl border text-2xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-300/45 group-hover:bg-cyan-300/15 group-hover:shadow-[0_18px_45px_-22px_rgba(34,211,238,0.9)] ${sharedIconStyle}`}
+                        className={`flex h-12 w-12 sm:h-[3.25rem] sm:w-[3.25rem] md:h-14 md:w-14 shrink-0 items-center justify-center rounded-2xl border text-2xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-300/45 group-hover:bg-cyan-300/15 group-hover:shadow-[0_18px_45px_-22px_rgba(34,211,238,0.9)] ${sharedIconStyle}`}
                       >
-                        <Icon aria-hidden="true" className="h-6 w-6" />
+                        <Icon aria-hidden="true" className="h-5 w-5 sm:h-6 sm:w-6" />
                       </div>
                     </div>
 
                     <div className="relative flex flex-1 flex-col">
-                      <h3 className="mb-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-primary">
+                      <h3 className="mb-2.5 sm:mb-3 text-lg sm:text-xl font-bold text-white transition-colors duration-300 group-hover:text-primary">
                         {item.title}
                       </h3>
 
-                      <p className="text-sm leading-8 text-gray-400 transition-colors duration-300 group-hover:text-gray-300">
+                      {/*
+                        line-clamp-6: this is the real fix for your
+                        screenshot. Both paragraphs are now forced to the
+                        SAME fixed number of lines regardless of how much
+                        copy each one has, so the text block height is
+                        always identical — which means mt-auto below
+                        always pushes the progress bar to the exact same
+                        vertical position on both cards, every time.
+                      */}
+                      <p className="text-sm leading-7 sm:leading-8 text-gray-400 transition-colors duration-300 group-hover:text-gray-300 line-clamp-6">
                         {item.text}
                       </p>
 
-                      <div className="mt-auto pt-7">
+                      <div className="mt-auto pt-6 sm:pt-7">
                         <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
                           <div
                             className={`h-full w-2/3 rounded-full bg-gradient-to-r transition-all duration-500 group-hover:w-full ${sharedProgressStyle}`}

@@ -7,6 +7,10 @@ import { testimonials } from "@/data/testimonials";
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  // Tracks which card(s) are expanded to full text — keyed by testimonial
+  // index so it persists correctly as the carousel slides. Only used on
+  // small screens (lg:hidden toggle button below).
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
   const nextTestimonial = () => {
     setDirection(1);
@@ -16,6 +20,10 @@ export default function Testimonials() {
   const prevTestimonial = () => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const toggleExpanded = (idx: number) => {
+    setExpanded((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
 
   useEffect(() => {
@@ -46,24 +54,33 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-bg-primary py-20">
+    <section className="relative overflow-hidden bg-bg-primary py-16 sm:py-20 lg:py-24">
+      {/* Decorative ambient glows */}
+      <div className="pointer-events-none absolute -top-24 -left-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-brand-blue/10 blur-[90px] sm:blur-[140px]" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-brand-gold/10 blur-[90px] sm:blur-[140px]" />
+
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="mx-auto mb-10 max-w-2xl text-center"
+          className="mx-auto mb-10 sm:mb-14 max-w-2xl text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold text-silver-primary md:text-4xl">
+          <div className="mb-4 inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md">
+            <span className="text-[11px] sm:text-sm text-silver-primary tracking-wide">
+              CLIENT TESTIMONIALS
+            </span>
+          </div>
+          <h2 className="mb-3 sm:mb-4 text-[26px] leading-tight sm:text-3xl md:text-4xl font-bold text-silver-primary">
             Feedback from our clients
           </h2>
-          <p className="mx-auto max-w-xl text-sm leading-7 text-secondary-text md:text-base">
+          <p className="mx-auto max-w-xl text-sm leading-6 sm:leading-7 text-secondary-text sm:text-base">
             Our WORK speaks louder than our WORD. Find out how we helped clients overcome challenges and succeed.
           </p>
         </motion.div>
 
-        <div className="mx-auto flex max-w-6xl gap-6">
+        <div className="mx-auto flex max-w-6xl gap-4 sm:gap-6">
           <div className="hidden w-8 shrink-0 items-center justify-center lg:flex">
             <div className="flex flex-col items-center gap-2">
               {testimonials.map((_, index) => (
@@ -99,62 +116,101 @@ export default function Testimonials() {
                   filter: { duration: 0.18 },
                 }}
               >
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {/*
+                  items-stretch (grid's default is already stretch, made
+                  explicit here) + h-full on every article guarantees all
+                  visible cards in the row match height regardless of how
+                  long each testimonial's text is — quote text is clamped
+                  so it never pushes one card taller than its neighbors.
+                */}
+                <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:items-stretch xl:grid-cols-3">
                   {[0, 1, 2].map((offset, i) => {
                     const idx = (currentIndex + offset) % testimonials.length;
                     const isFeatured = i === 0;
+                    const isExpanded = !!expanded[idx];
 
                     return (
                       <div
                         key={`${idx}-${i}`}
-                        className={i === 1 ? "hidden md:block" : i === 2 ? "hidden xl:block" : ""}
+                        className={`h-full ${
+                          i === 1 ? "hidden md:block" : i === 2 ? "hidden xl:block" : ""
+                        }`}
                       >
                         <article
-                          className={`relative flex min-h-[260px] flex-col overflow-hidden rounded-lg border p-5 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 sm:p-6 ${
+                          className={`group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border p-5 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 sm:p-6 ${
                             isFeatured
-                              ? "border-white/15 bg-[linear-gradient(145deg,rgba(255,255,255,0.12),rgba(255,255,255,0.045))]"
-                              : "border-white/[0.08] bg-white/[0.045]"
+                              ? "border-brand-blue/25 bg-[linear-gradient(145deg,rgba(255,255,255,0.12),rgba(255,255,255,0.045))] hover:shadow-[0_24px_60px_rgba(59,130,246,0.18)]"
+                              : "border-white/[0.08] bg-white/[0.045] hover:border-white/[0.16]"
                           }`}
                         >
                           {isFeatured && (
                             <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.65),transparent)]" />
                           )}
 
-                          <div className="mb-5 flex items-start gap-4">
+                          {/* Decorative quote mark */}
+                          <svg
+                            className={`absolute -right-1 -top-1 h-16 w-16 sm:h-20 sm:w-20 ${
+                              isFeatured ? "text-brand-blue/10" : "text-white/[0.05]"
+                            }`}
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path d="M9.5 8C6.5 8 4 10.5 4 13.5S6.5 19 9.5 19c.3 0 .5 0 .8-.1-.5 1.5-1.8 2.6-3.5 2.9-.4.1-.6.5-.5.9.1.3.4.5.7.5h.1c3.2-.6 5.4-3.3 5.4-6.7V13c0-2.8-2.3-5-5-5zm10 0c-3 0-5.5 2.5-5.5 5.5S16.5 19 19.5 19c.3 0 .5 0 .8-.1-.5 1.5-1.8 2.6-3.5 2.9-.4.1-.6.5-.5.9.1.3.4.5.7.5h.1c3.2-.6 5.4-3.3 5.4-6.7V13c0-2.8-2.3-5-5-5z" />
+                          </svg>
+
+                          <div className="relative mb-4 sm:mb-5 flex items-start gap-3 sm:gap-4">
                             <div
-                              className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-bold ${
+                              className={`flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full text-lg sm:text-xl font-bold ring-2 ring-offset-2 ring-offset-transparent ${
                                 isFeatured
-                                  ? "bg-blue-gradient text-white shadow-[0_12px_26px_rgba(59,130,246,0.25)]"
-                                  : "bg-white/[0.08] text-silver-primary"
+                                  ? "bg-blue-gradient text-white shadow-[0_12px_26px_rgba(59,130,246,0.25)] ring-brand-blue/30"
+                                  : "bg-white/[0.08] text-silver-primary ring-white/10"
                               }`}
                             >
                               {testimonials[idx].name.charAt(0)}
                             </div>
 
-                            <div className="min-w-0">
-                              <h4 className="truncate text-lg font-semibold leading-tight text-silver-primary">
+                            <div className="min-w-0 flex-1">
+                              <h4 className="truncate text-base sm:text-lg font-semibold leading-tight text-silver-primary">
                                 {testimonials[idx].name}
                               </h4>
-                              <p className="mt-1 text-sm leading-5 text-secondary-text">
+                              <p className="mt-1 truncate text-xs sm:text-sm leading-5 text-secondary-text">
                                 {testimonials[idx].role} at {testimonials[idx].company}
                               </p>
                             </div>
                           </div>
 
-                          <div className="mb-4 flex gap-0.5">
+                          <div className="relative mb-3 sm:mb-4 flex gap-0.5">
                             {[...Array(testimonials[idx].rating)].map((_, s) => (
                               <span
                                 key={s}
-                                className={isFeatured ? "text-lg text-brand-gold" : "text-lg text-brand-gold/60"}
+                                className={`text-base sm:text-lg ${
+                                  isFeatured ? "text-brand-gold" : "text-brand-gold/60"
+                                }`}
                               >
                                 &#9733;
                               </span>
                             ))}
                           </div>
 
-                          <p className="text-[15px] font-medium leading-7 text-silver-secondary">
-                            "{testimonials[idx].content}"
+                          {/*
+                            Quote clamped to 4 lines by default so every
+                            card in the row stays the same height — this
+                            is what keeps the slide animation looking
+                            clean instead of jumping card sizes. On small
+                            screens (lg:hidden), a toggle lets the user
+                            read the full quote without affecting layout,
+                            since only one card is visible at a time there.
+                          */}
+                          <p
+                            className={`relative flex-1 text-[14px] sm:text-[15px] font-medium leading-6 sm:leading-7 text-silver-secondary ${
+                              isExpanded ? "" : "line-clamp-4"
+                            } lg:line-clamp-4`}
+                          >
+                            &ldquo;{testimonials[idx].content}&rdquo;
                           </p>
+
+                         
                         </article>
                       </div>
                     );
@@ -163,7 +219,7 @@ export default function Testimonials() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="mt-6 flex justify-center gap-2 lg:hidden">
+            <div className="mt-6 sm:mt-7 flex justify-center gap-2 lg:hidden">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
@@ -179,23 +235,23 @@ export default function Testimonials() {
               ))}
             </div>
 
-            <div className="mt-7 flex justify-center gap-4">
+            <div className="mt-6 sm:mt-7 flex justify-center gap-3 sm:gap-4">
               <button
                 onClick={prevTestimonial}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white transition-all duration-300 hover:scale-[1.04] hover:bg-white/[0.12]"
+                className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white transition-all duration-300 hover:scale-[1.04] hover:border-brand-blue/40 hover:bg-white/[0.12]"
                 aria-label="Previous testimonials"
               >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
 
               <button
                 onClick={nextTestimonial}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white transition-all duration-300 hover:scale-[1.04] hover:bg-white/[0.12]"
+                className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white transition-all duration-300 hover:scale-[1.04] hover:border-brand-blue/40 hover:bg-white/[0.12]"
                 aria-label="Next testimonials"
               >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
