@@ -75,7 +75,7 @@ export default function Footer() {
 
                 {/* Headline */}
                 <h2 className="mb-3 text-2xl sm:text-3xl font-bold leading-tight text-silver-primary xl:text-4xl">
-                  Let's Build{" "}
+                  Let&apos;s Build{" "}
                   <span className="bg-gradient-to-r from-brand-green via-brand-blue to-purple-400 bg-clip-text text-transparent">
                     Something Amazing Together
                   </span>

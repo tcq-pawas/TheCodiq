@@ -7,10 +7,6 @@ import { testimonials } from "@/data/testimonials";
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  // Tracks which card(s) are expanded to full text — keyed by testimonial
-  // index so it persists correctly as the carousel slides. Only used on
-  // small screens (lg:hidden toggle button below).
-  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
 
   const nextTestimonial = () => {
     setDirection(1);
@@ -20,10 +16,6 @@ export default function Testimonials() {
   const prevTestimonial = () => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const toggleExpanded = (idx: number) => {
-    setExpanded((prev) => ({ ...prev, [idx]: !prev[idx] }));
   };
 
   useEffect(() => {
@@ -127,7 +119,6 @@ export default function Testimonials() {
                   {[0, 1, 2].map((offset, i) => {
                     const idx = (currentIndex + offset) % testimonials.length;
                     const isFeatured = i === 0;
-                    const isExpanded = !!expanded[idx];
 
                     return (
                       <div
@@ -203,9 +194,7 @@ export default function Testimonials() {
                             since only one card is visible at a time there.
                           */}
                           <p
-                            className={`relative flex-1 text-[14px] sm:text-[15px] font-medium leading-6 sm:leading-7 text-silver-secondary ${
-                              isExpanded ? "" : "line-clamp-4"
-                            } lg:line-clamp-4`}
+                            className="relative flex-1 text-[14px] sm:text-[15px] font-medium leading-6 sm:leading-7 text-silver-secondary line-clamp-4"
                           >
                             &ldquo;{testimonials[idx].content}&rdquo;
                           </p>
