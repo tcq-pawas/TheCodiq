@@ -6,7 +6,7 @@ import Card from "@/components/common/Card";
 export default function FeaturedPost() {
   return (
     <motion.div
-      className="mb-12"
+      className="mb-8 sm:mb-12"
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -17,7 +17,7 @@ export default function FeaturedPost() {
           <div className="grid md:grid-cols-[0.85fr_1.15fr]">
 
             {/* LEFT SIDE */}
-            <div className="relative min-h-[260px] overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#111827] to-[#0b1220] p-6">
+            <div className="relative min-h-[220px] overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#111827] to-[#0b1220] p-4 sm:min-h-[260px] sm:p-6">
               <div className="absolute -left-16 -top-16 h-52 w-52 rounded-full bg-cyan-500/20 blur-[90px]" />
               <div className="absolute -right-20 bottom-0 h-56 w-56 rounded-full bg-violet-500/20 blur-[110px]" />
 
@@ -33,54 +33,55 @@ export default function FeaturedPost() {
               />
 
               <div className="relative flex h-full flex-col justify-between">
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-3">
                   <div>
-                    <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[11px] font-semibold text-cyan-300">
+                    <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2.5 py-1 text-[10px] font-semibold text-cyan-300 sm:px-3 sm:text-[11px]">
                       FEATURED ARTICLE
                     </span>
 
-                    <h4 className="mt-4 max-w-[240px] text-2xl font-semibold leading-tight text-white">
+                    <h4 className="mt-3 max-w-[220px] text-xl font-semibold leading-tight text-white sm:mt-4 sm:max-w-[240px] sm:text-2xl">
                       AI is Changing Modern Development
                     </h4>
                   </div>
 
-                  <div className="rounded-2xl bg-white/5 p-3 backdrop-blur">
-                    <div className="text-xl font-semibold text-white">2026</div>
+                  <div className="shrink-0 rounded-2xl bg-white/5 p-2.5 backdrop-blur sm:p-3">
+                    <div className="text-base font-semibold text-white sm:text-xl">2026</div>
                   </div>
                 </div>
 
-                <div className="my-8 space-y-2">
+                <div className="my-6 space-y-2 sm:my-8">
                   <div className="h-2 overflow-hidden rounded-full bg-white/10">
                     <div className="h-full w-[82%] rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
                   </div>
 
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                      <p className="text-xl font-bold text-white text-center">95%</p>
-                      <p className="mt-1 text-[11px] text-gray-400">
+                  <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-2 sm:p-3">
+                      <p className="text-center text-base font-bold text-white sm:text-xl">95%</p>
+                      <p className="mt-1 text-center text-[9px] leading-tight text-gray-400 sm:text-left sm:text-[11px]">
                         Faster Development
                       </p>
                     </div>
 
-                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                      <p className="text-xl font-bold text-white text-center">40%</p>
-                      <p className="mt-1 text-[11px] text-gray-400">
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-2 sm:p-3">
+                      <p className="text-center text-base font-bold text-white sm:text-xl">40%</p>
+                      <p className="mt-1 text-center text-[9px] leading-tight text-gray-400 sm:text-left sm:text-[11px]">
                         Less Manual Work
                       </p>
                     </div>
 
-                    <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-                      <p className="text-xl font-bold text-white text-center">24/7</p>
-                      <p className="mt-1 text-[11px] text-gray-400">
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-2 sm:p-3">
+                      <p className="text-center text-base font-bold text-white sm:text-xl">24/7</p>
+                      <p className="mt-1 text-center text-[9px] leading-tight text-gray-400 sm:text-left sm:text-[11px]">
                         AI Assistance
                       </p>
                     </div>
                   </div>
 
-                  <div className="relative h-24 rounded-xl border border-white/10 bg-white/[0.04]">
+                  <div className="relative h-20 rounded-xl border border-white/10 bg-white/[0.04] sm:h-24">
                     <svg
                       viewBox="0 0 300 90"
                       className="absolute inset-0 h-full w-full"
+                      preserveAspectRatio="none"
                     >
                       <defs>
                         <linearGradient id="line" x1="0" x2="1">
@@ -102,11 +103,11 @@ export default function FeaturedPost() {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-gray-400">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-gray-400 sm:text-xs sm:tracking-[0.3em]">
                       Trending Topic
                     </p>
 
-                    <p className="mt-1 text-lg font-semibold text-white">
+                    <p className="mt-1 text-base font-semibold text-white sm:text-lg">
                       Future of AI + Web
                     </p>
                   </div>
@@ -116,18 +117,18 @@ export default function FeaturedPost() {
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="flex flex-col justify-center p-5 sm:p-6">
+            <div className="flex flex-col justify-center p-4 sm:p-5 md:p-6">
               <div className="mb-3 flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-cyan-400/10 px-2.5 py-1 text-[11px] font-semibold text-cyan-300 ring-1 ring-cyan-300/20">
+                <span className="rounded-full bg-cyan-400/10 px-2.5 py-1 text-[10px] font-semibold text-cyan-300 ring-1 ring-cyan-300/20 sm:text-[11px]">
                   Latest Insight
                 </span>
 
-                <span className="text-xs text-gray-500">
+                <span className="text-[11px] text-gray-500 sm:text-xs">
                   Jan 15, 2026
                 </span>
               </div>
 
-              <h3 className="max-w-xl text-xl font-semibold leading-snug text-white sm:text-[28px]">
+              <h3 className="max-w-xl text-lg font-semibold leading-snug text-white sm:text-xl md:text-[28px]">
                 The Future of Web Development in 2026
               </h3>
 
@@ -137,11 +138,11 @@ export default function FeaturedPost() {
                 and performance-first development.
               </p>
 
-              <div className="mt-5 grid gap-2 sm:grid-cols-3">
+              <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3">
                 {["AI Workflows", "Better UX", "Faster Apps"].map((item) => (
                   <div
                     key={item}
-                    className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2"
+                    className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 first:col-span-2 first:sm:col-span-1"
                   >
                     <p className="text-xs font-semibold text-white">
                       {item}

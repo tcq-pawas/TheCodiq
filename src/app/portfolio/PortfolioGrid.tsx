@@ -37,12 +37,15 @@ export default function PortfolioGrid() {
 
   return (
     <>
-      <motion.div className="mb-14 flex flex-wrap justify-center gap-3">
+      {/* Filters: horizontally scrollable on very small screens, wraps from sm and up */}
+      <motion.div
+        className="mb-8 flex flex-nowrap justify-start gap-2 overflow-x-auto px-4 pb-2 sm:mb-10 sm:flex-wrap sm:justify-center sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0 md:mb-14 [scrollbar-width:thin] [scrollbar-color:white_transparent] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white [&::-webkit-scrollbar-thumb]:hover:bg-white/80"
+      >
         {categories.map((category) => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`rounded-full border px-6 py-2 text-sm font-medium transition-all duration-300 ${
+            className={`shrink-0 rounded-full border px-4 py-1.5 text-xs font-medium transition-all duration-300 sm:px-6 sm:py-2 sm:text-sm ${
               selectedCategory === category
                 ? "border-transparent bg-gradient-to-r from-primary to-accent text-white shadow-[0_0_25px_-5px] shadow-primary/50"
                 : "glass-effect border-white/10 text-gray-300 hover:border-primary/20 hover:bg-white/10 hover:text-white"
@@ -53,7 +56,11 @@ export default function PortfolioGrid() {
         ))}
       </motion.div>
 
-      <motion.div className="mb-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3" layout>
+      {/* Grid: 1 col on mobile, 2 on tablet, 3 on desktop, 4 on very wide screens */}
+      <motion.div
+        className="mb-12 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8 xl:grid-cols-3 2xl:grid-cols-4"
+        layout
+      >
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item, index) => {
             const image =
@@ -70,41 +77,44 @@ export default function PortfolioGrid() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ delay: index * 0.05, duration: 0.5 }}
                 layout
+                className="h-full"
               >
                 <Card hover className="group relative flex h-full flex-col overflow-hidden !p-0">
-                  <div className="relative aspect-video w-full overflow-hidden border-b border-white/10 bg-background">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/10 bg-background sm:aspect-video">
                     <Image
                       src={image}
                       alt={`TheCodiQ ${item.category} project: ${item.title} - ${item.description}`}
                       fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
                       className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
                     />
 
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
 
-                    <span className="absolute left-4 top-4 rounded-full border border-primary/30 bg-background/70 px-3 py-1 text-xs font-medium text-primary backdrop-blur-md">
+                    <span className="absolute left-3 top-3 rounded-full border border-primary/30 bg-background/70 px-2.5 py-1 text-[10px] font-medium text-primary backdrop-blur-md sm:left-4 sm:top-4 sm:px-3 sm:text-xs">
                       {item.category}
                     </span>
 
-                    <div className="absolute right-4 top-4 flex h-9 w-9 translate-y-1 items-center justify-center rounded-full border border-white/10 bg-background/70 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                      <ArrowUpRight className="h-4 w-4 text-primary" />
+                    <div className="absolute right-3 top-3 flex h-8 w-8 translate-y-1 items-center justify-center rounded-full border border-white/10 bg-background/70 opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:right-4 sm:top-4 sm:h-9 sm:w-9 md:opacity-100 md:translate-y-0">
+                      <ArrowUpRight className="h-3.5 w-3.5 text-primary sm:h-4 sm:w-4" />
                     </div>
                   </div>
 
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="mb-2 text-xl font-bold text-white group-hover:text-primary">
+                  <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-6">
+                    <h3 className="mb-2 text-lg font-bold leading-snug text-white group-hover:text-primary sm:text-xl">
                       {item.title}
                     </h3>
 
-                    <p className="mb-5 flex-1 text-sm leading-7 text-gray-400">
+                    <p className="mb-4 flex-1 text-sm leading-6 text-gray-400 sm:mb-5 sm:leading-7">
                       {item.description}
                     </p>
 
-                    <div className="mb-5 flex flex-wrap gap-2">
+                    <div className="mb-4 flex flex-wrap gap-1.5 sm:mb-5 sm:gap-2">
                       {item.technologies.map((tech) => (
-                        <span key={tech} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-gray-300">
+                        <span
+                          key={tech}
+                          className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-0.5 text-[11px] text-gray-300 sm:px-3 sm:py-1 sm:text-xs"
+                        >
                           {tech}
                         </span>
                       ))}

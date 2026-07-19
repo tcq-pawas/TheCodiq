@@ -47,42 +47,42 @@ export default function Footer() {
   return (
     <footer className="bg-[#050505] border-t border-white/8 relative top-20">
       {/* Floating CTA Banner */}
-      <div className="relative -mt-32 mb-20 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
+      <div className="relative mb-8 sm:mb-12 lg:-mt-32 lg:mb-20 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`max-w-6xl mx-auto hidden lg:block ${pathname === "/contact" ? "hidden" : ""}`}
+          className={`max-w-6xl mx-auto ${pathname === "/contact" ? "hidden" : ""}`}
         >
           {/* Card 1: Hero content */}
-          <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-bg-card/95 p-6 shadow-2xl backdrop-blur-xl md:p-10 lg:p-12">
+          <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-bg-card/95 p-5 shadow-xl backdrop-blur-xl sm:rounded-[32px] sm:p-6 sm:shadow-2xl md:p-10 lg:p-12">
             {/* Background glow effects */}
             <div className="absolute -top-20 -left-20 h-[300px] w-[300px] rounded-full bg-brand-blue/10 blur-[100px]" />
             <div className="absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full bg-brand-gold/10 blur-[100px]" />
             <div className="absolute -top-20 -right-20 h-[300px] w-[300px] rounded-full bg-brand-green/10 blur-[100px]" />
 
-            <div className="relative z-10 grid items-center gap-10 md:grid-cols-2 lg:gap-12 xl:gap-16">
+            <div className="relative z-10 grid items-center gap-8 sm:gap-10 md:grid-cols-2 lg:gap-12 xl:gap-16">
               {/* Left: text content */}
               <div className="min-w-0">
                 {/* Badge */}
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-green/30 bg-brand-green/5 px-4 py-2">
+                <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-brand-green/30 bg-brand-green/5 px-3 py-1.5 sm:px-4 sm:py-2">
                   <HiSparkles className="h-4 w-4 shrink-0 text-brand-green" />
-                  <span className="whitespace-nowrap text-xs font-semibold uppercase tracking-wider text-brand-green">
+                  <span className="whitespace-nowrap text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-brand-green">
                     AI-Powered Platform
                   </span>
                 </div>
 
                 {/* Headline */}
-                <h2 className="mb-3 text-3xl font-bold leading-tight text-silver-primary xl:text-4xl">
-                  Let&apos;s Build{" "}
+                <h2 className="mb-3 text-2xl sm:text-3xl font-bold leading-tight text-silver-primary xl:text-4xl">
+                  Let's Build{" "}
                   <span className="bg-gradient-to-r from-brand-green via-brand-blue to-purple-400 bg-clip-text text-transparent">
                     Something Amazing Together
                   </span>
                 </h2>
 
                 {/* Decorative underline */}
-                <div className="relative mb-6 h-3 w-20">
+                <div className="relative mb-4 sm:mb-6 h-3 w-20">
                   <span className="absolute left-0 top-0 h-[2px] w-16 rounded-full bg-brand-green" />
                 </div>
 
@@ -101,7 +101,7 @@ export default function Footer() {
                   {/* Green ambient glow behind the code card */}
                   <div className="absolute -inset-4 -z-10 rounded-2xl bg-brand-green/25 blur-2xl" />
 
-                  <div className="w-full rounded-2xl border border-brand-green/30 bg-black/80 p-4 shadow-xl backdrop-blur-sm sm:p-5">
+                  <div className="w-full rounded-2xl border border-brand-green/30 bg-black/80 p-3.5 shadow-xl backdrop-blur-sm sm:p-5">
                     {/* Window header */}
                     <div className="mb-4 flex items-center justify-between gap-2">
                       <div className="flex shrink-0 gap-2">
@@ -116,8 +116,8 @@ export default function Footer() {
                     </div>
 
                     {/* Code lines */}
-                    <div className="overflow-x-auto">
-                      <div className="min-w-max space-y-3 font-mono text-[11px] sm:text-xs">
+                    <div className="overflow-x-auto [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                      <div className="min-w-max space-y-3 font-mono text-[10px] sm:text-xs">
                         <div className="flex gap-3 whitespace-nowrap">
                           <span className="w-4 shrink-0 select-none text-silver-secondary/40">1</span>
                           <span>
@@ -178,8 +178,8 @@ export default function Footer() {
           </div>
 
           {/* Card 2: Feature strip — its own rounded box */}
-          <div className="relative mt-6 overflow-hidden rounded-[28px] border border-white/10 bg-bg-card/95 p-6 shadow-2xl backdrop-blur-xl lg:p-8">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-white/8">
+          <div className="relative mt-4 sm:mt-6 overflow-hidden rounded-[18px] border border-white/10 bg-bg-card/95 p-4 shadow-xl backdrop-blur-xl sm:rounded-[28px] sm:p-6 sm:shadow-2xl lg:p-8">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-white/8">
               {CTA_FEATURES.map((feature) => (
                 <div
                   key={feature.title}
@@ -208,8 +208,8 @@ export default function Footer() {
         </motion.div>
       </div>
       {/* Main Footer Area */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 py-10 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Company Info */}
           <div>
             <div className="mb-6">
@@ -222,8 +222,8 @@ export default function Footer() {
               Building innovative digital solutions, AI-powered applications, enterprise software, and scalable technology products for businesses worldwide.
             </p>
             <div className="space-y-2 text-sm text-secondary-text">
-              <p>Gorakhpur, Uttar Pradesh, India</p>
-              <p>+1 (555) 123-4567</p>
+              <p>Sports College, Chowk, Gorakhnath Rd, Gorakhpur, Uttar Pradesh, 273007</p>
+              <p>+91 9935795796</p>
               <p>pawas.singh@thecodiq.com</p>
             </div>
           </div>
@@ -308,7 +308,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="text-sm text-secondary-text">
                 <span className="block text-silver-primary mb-1">Phone</span>
-                +1 (555) 123-4567
+                +91 9935795796
               </li>
               <li className="text-sm text-secondary-text">
                 <span className="block text-silver-primary mb-1">Email</span>

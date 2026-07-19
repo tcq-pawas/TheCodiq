@@ -66,7 +66,7 @@ export default function ContactPage() {
             "@type": "LocalBusiness",
             name: "TheCodiQ Global",
             image: "https://thecodiq.com/logo/logo.png",
-            telephone: "+1 (555) 123-4567", // TODO: Replace with real phone number
+            telephone: "+91 9935795796",
             email: "pawas.singh@thecodiq.com",
             address: {
               "@type": "PostalAddress",
