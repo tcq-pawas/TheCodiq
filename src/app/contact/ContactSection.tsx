@@ -18,8 +18,8 @@ import {
 
 import { CONTACT_INFO } from "@/lib/constants";
 
-const mapSrc =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.308113742979!2d83.37288567453193!3d26.798316264999027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145b795d2cae9%3A0x98b3202d1e49fd25!2sHeyDay%20Realty%20Private%20Limited!5e0!3m2!1sen!2sin!4v1783511426153!5m2!1sen!2sin";
+// const mapSrc =
+//   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.308113742979!2d83.37288567453193!3d26.798316264999027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145b795d2cae9%3A0x98b3202d1e49fd25!2sHeyDay%20Realty%20Private%20Limited!5e0!3m2!1sen!2sin!4v1783511426153!5m2!1sen!2sin";
 
 type FormState = {
   name: string;
@@ -56,7 +56,7 @@ export default function AuthenticContactForm() {
     {
       label: "Office",
       value: CONTACT_INFO.address,
-      href: "https://www.google.com/maps/search/?api=1&query=HeyDay%20Realty%20Private%20Limited",
+      // href: "https://www.google.com/maps/search/?api=1&query=HeyDay%20Realty%20Private%20Limited",
       icon: MapPin,
       external: true,
     },
@@ -264,7 +264,7 @@ export default function AuthenticContactForm() {
             })}
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-lg border border-primary/20 bg-white/[0.035]">
+          {/* <div className="mt-6 overflow-hidden rounded-lg border border-primary/20 bg-white/[0.035]">
             <iframe
               src={mapSrc}
               title="HeyDay Realty Private Limited Location"
@@ -274,7 +274,7 @@ export default function AuthenticContactForm() {
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
             />
-          </div>
+          </div> */}
         </aside>
       </div>
     </section>

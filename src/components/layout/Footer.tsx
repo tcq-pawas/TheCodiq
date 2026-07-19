@@ -221,9 +221,9 @@ export default function Footer() {
               Building innovative digital solutions, AI-powered applications, enterprise software, and scalable technology products for businesses worldwide.
             </p>
             <div className="space-y-2 text-sm text-secondary-text">
-              <p>123 Tech Street, Silicon Valley, CA 94025</p>
-              <p>+1 (555) 123-4567</p>
-              <p>contact@thecodiq.com</p>
+              <p>Sports College, Chowk, Gorakhnath Rd, Gorakhpur, Uttar Pradesh, 273007</p>
+              <p>+91 9935795796</p>
+              <p>pawas.singh@thecodiq.com</p>
             </div>
           </div>
 
@@ -307,11 +307,11 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="text-sm text-secondary-text">
                 <span className="block text-silver-primary mb-1">Phone</span>
-                +1 (555) 123-4567
+                +91 9935795796
               </li>
               <li className="text-sm text-secondary-text">
                 <span className="block text-silver-primary mb-1">Email</span>
-                contact@thecodiq.com
+                pawas.singh@thecodiq.com
               </li>
               <li className="text-sm text-secondary-text">
                 <span className="block text-silver-primary mb-1">Business Hours</span>

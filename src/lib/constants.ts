@@ -20,9 +20,9 @@ export const SOCIAL_LINKS = [
 ];
 
 export const CONTACT_INFO = {
-  email: "contact@thecodiq.com",
-  phone: "+1 (555) 123-4567",
-  address: "123 Tech Street, Silicon Valley, CA 94025",
+  email: "pawas.singh@thecodiq.com",
+  phone: "+91 9935795796",
+  address: "Sports College, Chowk, Gorakhnath Rd, Gorakhpur, Uttar Pradesh, 273007",
 };
 
 export const TECH_STACK = [

@@ -71,9 +71,9 @@ export default function RootLayout({
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+1 (555) 123-4567",
+                telephone: "+91 9935795796",
                 contactType: "customer service",
-                email: "contact@thecodiq.com",
+                email: "pawas.singh@thecodiq.com",
               },
             }),
           }}
