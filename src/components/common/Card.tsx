@@ -6,7 +6,8 @@ export default function Card({ children, className = "", hover = false }: CardPr
     <div
       className={cn(
         "premium-card rounded-2xl p-6",
-        hover && "hover:scale-105 transition-all duration-300",
+        "[@media(hover:none)]:!scale-100 [@media(hover:none)]:!border-white/10",
+        hover && "[@media(hover:hover)]:hover:scale-105 transition-all duration-300",
         className
       )}
     >

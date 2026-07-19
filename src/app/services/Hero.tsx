@@ -7,7 +7,7 @@ export default function Hero() {
     <div className="mb-16">
       <SectionTitle
         title="Our Expertise"
-        subtitle="Technology Solutions for Every Business"
+        subtitle="Transforming Ideas Into Powerful Digital Solutions."
         />
     </div>
   );

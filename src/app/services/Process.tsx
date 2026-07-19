@@ -74,40 +74,42 @@ export default function Process() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <div className="relative mb-24">
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-primary/[0.07] blur-[120px]" />
+    <div className="relative mb-24 px-4 sm:px-0">
+      <div className="pointer-events-none absolute left-1/2 top-0 hidden h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-blue-500/[0.07] blur-[120px] sm:block" />
 
       <motion.div
-        className="relative mb-20 text-center"
+        className="relative mb-14 text-center sm:mb-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary shadow-[0_0_20px_-5px] shadow-primary/30">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px] shadow-primary" />
+        <span className="inline-flex items-center gap-2 rounded-full border  px-4 py-1.5 text-xs font-medium  shadow-[0_0_20px_-5px] shadow-blue-500/30 sm:text-sm">
+          <span className="h-1.5 w-1.5 rounded-full bg-blue-400 shadow-[0_0_8px] shadow-blue-400" />
           How We Work
         </span>
 
-        <h3 className="mt-6 text-3xl font-bold tracking-tight text-white md:text-4xl">
-          Our <span className="gradient-text">Process</span>
+        <h3 className="mt-5 text-2xl font-bold tracking-tight text-white sm:mt-6 sm:text-3xl md:text-4xl">
+          Our <span className=" text-white
+           to-cyan-400 bg-clip-text text-transparent">Process</span>
         </h3>
 
-        <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-gray-400 md:text-base">
+        <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-gray-400 sm:mt-4 sm:leading-7 md:text-base">
           A clear, proven path from idea to launch - every step designed to keep
           you informed and confident along the way.
         </p>
       </motion.div>
 
       <div ref={trackRef} className="relative">
-        <div className="absolute left-6 top-0 h-full w-px bg-white/10 md:left-1/2 md:-translate-x-1/2" />
+        {/* Timeline line — desktop/tablet only. Mobile uses standalone cards instead. */}
+        <div className="absolute left-1/2 top-0 hidden h-full w-[3px] -translate-x-1/2 rounded-full bg-white/15 md:block" />
 
         <motion.div
-          className="absolute left-6 top-0 w-px origin-top bg-gradient-to-b from-primary via-primary to-primary/40 shadow-[0_0_12px_1px] shadow-primary/50 md:left-1/2 md:-translate-x-1/2"
+          className="absolute left-1/2 top-0 hidden w-[3px] origin-top -translate-x-1/2 rounded-full bg-gradient-to-b from-blue-400 via-blue-400 to-blue-400/50 shadow-[0_0_16px_2px] shadow-blue-500/60 md:block"
           style={{ height: lineHeight }}
         />
 
-        <div className="flex flex-col gap-14 md:gap-0">
+        <div className="flex flex-col gap-6 sm:gap-8 md:gap-0">
           {steps.map((item, index) => {
             const Icon = item.icon;
             const isLeft = index % 2 === 0;
@@ -115,78 +117,63 @@ export default function Process() {
             return (
               <div
                 key={item.step}
-                className={`relative flex items-start gap-6 md:items-center md:gap-0 md:py-10 ${
-                  isLeft ? "md:flex-row-reverse" : "md:flex-row"
-                }`}
+                className={` relative flex justify-center items-center md:gap-0 md:py-10 ${isLeft ? "md:flex-row-reverse" : "md:flex-row"
+                  }`}
               >
-                <motion.div
-                  className="absolute left-6 top-12 z-10 -translate-x-1/2 md:left-1/2"
-                  initial="rest"
-                  whileInView="active"
-                  viewport={{ once: false, margin: "-45% 0px -45% 0px" }}
-                  variants={{
-                    rest: { scale: 0.7, opacity: 0.45 },
-                    active: { scale: 1, opacity: 1 },
-                  }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                >
-                  <span className="absolute -inset-1.5 rounded-full bg-primary/30 blur-sm" />
-                  <span className="relative block h-3.5 w-3.5 rounded-full bg-primary shadow-[0_0_10px_2px] shadow-primary/60 ring-4 ring-background" />
-                </motion.div>
+                {/* Dot — desktop/tablet only, perfectly centered on the line */}
+
 
                 <div className="hidden md:block md:w-1/2" />
 
                 <motion.div
-                  initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, margin: "-100px" }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className={`ml-16 flex-1 md:ml-0 md:w-1/2 ${
-                    isLeft ? "md:pr-12 md:text-right" : "md:pl-12"
-                  }`}
+                  className={`w-full max-w-md flex-1 mx-auto md:max-w-none md:w-1/2 ${isLeft ? "md:pr-12" : "md:pl-12"
+                    }`}
                 >
-                  <div className="group relative overflow-hidden rounded-2xl border border-primary/20 bg-gradient-to-b from-primary/10 to-transparent p-6 backdrop-blur-sm transition-all duration-500 hover:border-primary/40 hover:shadow-[0_20px_60px_-15px_rgba(59,130,246,0.35)]">
-                    <div
-                      className={`mb-5 flex items-center gap-4 ${
-                        isLeft ? "md:flex-row-reverse" : ""
-                      }`}
+                  <div className="group relative overflow-hidden rounded-2xl border border-blue-400/20 bg-gradient-to-b from-blue-400/10 to-transparent p-5 backdrop-blur-sm transition-all duration-500 hover:border-blue-400/40 hover:shadow-[0_20px_60px_-15px_rgba(59,130,246,0.35)] sm:p-6">
+                    {/* Large faded step number — decorative accent for the standalone mobile card look */}
+                    <span
+                      className={`pointer-events-none absolute -top-3 text-6xl font-black text-blue-400/[0.08] sm:text-7xl ${isLeft ? "md:right-3" : "right-3"
+                        } ${isLeft ? "md:left-auto" : ""} left-3 md:left-auto`}
                     >
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-gradient-to-br from-primary/20 to-primary/5 shadow-inner shadow-primary/10 transition-transform duration-300 group-hover:scale-110">
-                        <Icon className="h-6 w-6 text-primary" />
+                    </span>
+
+                    <div className="relative mb-4 flex items-center gap-3 sm:mb-5 sm:gap-4">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-blue-400/20 bg-gradient-to-br from-blue-400/20 to-blue-400/5 shadow-inner shadow-blue-500/10 transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12">
+                        <Icon className="h-5 w-5 text-blue-300 sm:h-6 sm:w-6" />
                       </div>
 
                       <div>
-                        <span className="block font-mono text-sm font-semibold text-primary">
+                        <span className="block font-mono text-xs font-semibold text-blue-300 sm:text-sm">
                           Step {item.step}
                         </span>
-                        <span className="block text-xs text-gray-500">
+                        <span className="block text-[11px] text-gray-400 sm:text-xs">
                           {item.duration}
                         </span>
                       </div>
                     </div>
 
-                    <h4 className="mb-3 text-xl font-bold text-white">
+                    <h4 className="relative mb-2.5 text-lg font-bold text-white sm:mb-3 sm:text-xl ">
                       {item.title}
                     </h4>
 
-                    <p className="text-sm leading-7 text-gray-400">
+                    <p className="relative text-sm leading-6 text-gray-400 sm:leading-7">
                       {item.description}
                     </p>
 
-                    <div className="mt-5 border-t border-white/10 pt-5">
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    <div className="relative mt-4 border-t border-white/10 pt-4 sm:mt-5 sm:pt-5">
+                      <p className="mb-2.5 text-[11px] font-semibold uppercase tracking-wide text-blue-300/60 sm:mb-3 sm:text-xs">
                         Deliverables
                       </p>
 
-                      <div
-                        className={`flex flex-wrap gap-2 ${
-                          isLeft ? "md:justify-end" : ""
-                        }`}
-                      >
+                      <div className="flex flex-wrap gap-2">
                         {item.deliverables.map((deliverable) => (
                           <span
                             key={deliverable}
-                            className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                            className="rounded-full border border-blue-400/20 bg-blue-400/10 px-2.5 py-1 text-[11px] font-medium text-blue-300 sm:px-3 sm:text-xs"
                           >
                             {deliverable}
                           </span>
@@ -194,8 +181,8 @@ export default function Process() {
                       </div>
                     </div>
 
-                    <div className="mt-5 rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                      <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    <div className="relative mt-4 rounded-xl border border-white/10 bg-white/[0.03] p-3.5 sm:mt-5 sm:p-4">
+                      <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-blue-300/60 sm:text-xs">
                         Key Outcome
                       </p>
                       <p className="text-sm font-medium leading-6 text-white">
@@ -203,7 +190,7 @@ export default function Process() {
                       </p>
                     </div>
 
-                    <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 opacity-0 transition-opacity group-hover:opacity-100" />
+                    <div className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-r from-blue-400/0 via-blue-400/20 to-blue-400/0 opacity-0 transition-opacity group-hover:opacity-100" />
                   </div>
                 </motion.div>
               </div>
