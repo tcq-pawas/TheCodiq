@@ -19,7 +19,7 @@ export default function InnerPageBanner({ title, subtitle, className = '' }: Inn
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(images/banner.jpg)`,
+          backgroundImage: `url(images/banner2.png)`,
         }}
       />
 
