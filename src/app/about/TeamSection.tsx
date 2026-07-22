@@ -75,15 +75,15 @@ export default function TeamSection() {
       transition={{ duration: 0.8 }}
     >
       <div className="relative text-center mb-10 sm:mb-12">
-        <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 sm:px-4 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary">
+        <span className="inline-flex rounded-full border border-brand-blue/30 bg-brand-blue/10  px-3.5 py-1.5 sm:px-4 text-[9px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary">
           Leadership Team
         </span>
 
-        <h2 className="mt-4 sm:mt-5 text-[26px] leading-tight sm:text-3xl md:text-4xl font-bold text-white">
+        <h2 className="mt-4 sm:mt-5 text-[26px] leading-tight font-bold text-white">
           Meet Our Team
         </h2>
 
-        <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-gray-400 text-center text-sm leading-6 sm:leading-7">
+        <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-gray-400 text-center text-[12px] leading-6 sm:leading-7">
           Behind every successful project is a passionate team of innovators,
           developers, designers, and strategists committed to delivering
           exceptional digital experiences.
@@ -108,7 +108,7 @@ export default function TeamSection() {
               <div className="mx-auto h-full w-full max-w-[320px] sm:max-w-none">
                 <Card>
                   <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
-                    <div className="relative aspect-[4/5] overflow-hidden bg-background">
+                    <div className="relative aspect-[4/3.4] overflow-hidden bg-background">
                       <Image
                         src={member.image}
                         alt={member.name}
@@ -118,12 +118,12 @@ export default function TeamSection() {
                       />
                     </div>
 
-                    <div className="flex flex-1 flex-col justify-center px-4 py-4 sm:py-5 text-center">
-                      <h3 className="min-h-[1.5rem] sm:min-h-[1.75rem] text-base sm:text-lg font-semibold leading-tight text-white line-clamp-1">
+                    <div className="flex flex-1 flex-col justify-center px-3 py-2.5 text-center">
+                      <h3 className="min-h-[1.25rem] font-semibold leading-tight text-white line-clamp-1">
                         {member.name}
                       </h3>
 
-                      <p className="mt-1 min-h-[1.25rem] text-xs sm:text-sm font-medium leading-snug text-primary line-clamp-1">
+                      <p className="mt-0.5 min-h-[1rem] text-xs font-medium leading-snug text-primary line-clamp-1">
                         {member.role}
                       </p>
                     </div>

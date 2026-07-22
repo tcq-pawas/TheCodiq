@@ -60,14 +60,14 @@ export default function Testimonials() {
           className="mx-auto mb-10 sm:mb-14 max-w-2xl text-center"
         >
           <div className="mb-4 inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md">
-            <span className="text-[11px] sm:text-sm text-silver-primary tracking-wide">
+            <span className="text-[9px] text-silver-primary tracking-wide">
               CLIENT TESTIMONIALS
             </span>
           </div>
-          <h2 className="mb-3 sm:mb-4 text-[26px] leading-tight sm:text-3xl md:text-4xl font-bold text-silver-primary">
+          <h2 className="mb-3 sm:mb-4 text-[26px] leading-tight sm:text-3xl md:text-3xl font-bold text-silver-primary">
             Feedback from our clients
           </h2>
-          <p className="mx-auto max-w-xl text-sm leading-6 sm:leading-7 text-secondary-text sm:text-base">
+          <p className="mx-auto max-w-xl text-[12px] leading-6 sm:leading-7 text-secondary-text ">
             Our WORK speaks louder than our WORD. Find out how we helped clients overcome challenges and succeed.
           </p>
         </motion.div>
@@ -115,7 +115,7 @@ export default function Testimonials() {
                   long each testimonial's text is — quote text is clamped
                   so it never pushes one card taller than its neighbors.
                 */}
-                <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:items-stretch xl:grid-cols-3">
+                <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 md:items-stretch xl:grid-cols-3">
                   {[0, 1, 2].map((offset, i) => {
                     const idx = (currentIndex + offset) % testimonials.length;
                     const isFeatured = i === 0;
@@ -128,7 +128,7 @@ export default function Testimonials() {
                         }`}
                       >
                         <article
-                          className={`group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-2xl border p-5 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 sm:p-6 ${
+                          className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border p-6 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 ${
                             isFeatured
                               ? "border-brand-blue/25 bg-[linear-gradient(145deg,rgba(255,255,255,0.12),rgba(255,255,255,0.045))] hover:shadow-[0_24px_60px_rgba(59,130,246,0.18)]"
                               : "border-white/[0.08] bg-white/[0.045] hover:border-white/[0.16]"
@@ -150,9 +150,9 @@ export default function Testimonials() {
                             <path d="M9.5 8C6.5 8 4 10.5 4 13.5S6.5 19 9.5 19c.3 0 .5 0 .8-.1-.5 1.5-1.8 2.6-3.5 2.9-.4.1-.6.5-.5.9.1.3.4.5.7.5h.1c3.2-.6 5.4-3.3 5.4-6.7V13c0-2.8-2.3-5-5-5zm10 0c-3 0-5.5 2.5-5.5 5.5S16.5 19 19.5 19c.3 0 .5 0 .8-.1-.5 1.5-1.8 2.6-3.5 2.9-.4.1-.6.5-.5.9.1.3.4.5.7.5h.1c3.2-.6 5.4-3.3 5.4-6.7V13c0-2.8-2.3-5-5-5z" />
                           </svg>
 
-                          <div className="relative mb-4 sm:mb-5 flex items-start gap-3 sm:gap-4">
+                          <div className="relative mb-3 flex items-start gap-3">
                             <div
-                              className={`flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full text-lg sm:text-xl font-bold ring-2 ring-offset-2 ring-offset-transparent ${
+                              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-lg sm:text-xl font-bold ring-2 ring-offset-2 ring-offset-transparent ${
                                 isFeatured
                                   ? "bg-blue-gradient text-white shadow-[0_12px_26px_rgba(59,130,246,0.25)] ring-brand-blue/30"
                                   : "bg-white/[0.08] text-silver-primary ring-white/10"
@@ -162,16 +162,16 @@ export default function Testimonials() {
                             </div>
 
                             <div className="min-w-0 flex-1">
-                              <h4 className="truncate text-base sm:text-lg font-semibold leading-tight text-silver-primary">
+                              <h4 className="truncate text-[14px] font-semibold leading-tight text-silver-primary">
                                 {testimonials[idx].name}
                               </h4>
-                              <p className="mt-1 truncate text-xs sm:text-sm leading-5 text-secondary-text">
+                              <p className="mt-0.5 truncate text-[12px] leading-5 text-secondary-text">
                                 {testimonials[idx].role} at {testimonials[idx].company}
                               </p>
                             </div>
                           </div>
 
-                          <div className="relative mb-3 sm:mb-4 flex gap-0.5">
+                          <div className="relative mb-2 flex gap-0.5">
                             {[...Array(testimonials[idx].rating)].map((_, s) => (
                               <span
                                 key={s}
@@ -194,7 +194,7 @@ export default function Testimonials() {
                             since only one card is visible at a time there.
                           */}
                           <p
-                            className="relative flex-1 text-[14px] sm:text-[15px] font-medium leading-6 sm:leading-7 text-silver-secondary line-clamp-4"
+                            className="relative flex-1 text-[12px] sm:text-[12px] font-medium leading-6 sm:leading-7 text-silver-secondary line-clamp-4"
                           >
                             &ldquo;{testimonials[idx].content}&rdquo;
                           </p>
@@ -208,7 +208,7 @@ export default function Testimonials() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="mt-6 sm:mt-7 flex justify-center gap-2 lg:hidden">
+            <div className="mt-5 sm:mt-6 flex justify-center gap-2 lg:hidden">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
@@ -224,7 +224,7 @@ export default function Testimonials() {
               ))}
             </div>
 
-            <div className="mt-6 sm:mt-7 flex justify-center gap-3 sm:gap-4">
+            <div className="mt-5 sm:mt-6 flex justify-center gap-3 sm:gap-4">
               <button
                 onClick={prevTestimonial}
                 className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white transition-all duration-300 hover:scale-[1.04] hover:border-brand-blue/40 hover:bg-white/[0.12]"

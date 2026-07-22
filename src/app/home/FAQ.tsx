@@ -60,19 +60,19 @@ const colorMap: Record<Color, ColorConfig> = {
 const features = [
   {
     icon: FaCode,
-    color: "emerald" as Color,
+    color: "blue" as Color,
     title: "AI Code Generation",
     desc: "Write, refactor and debug code with AI assistance.",
   },
   {
     icon: FaCloudUploadAlt,
-    color: "violet" as Color,
+    color: "emerald" as Color,
     title: "Cloud Deployment",
     desc: "One-click deploy to production with global infrastructure.",
   },
   {
     icon: FaChartBar,
-    color: "emerald" as Color,
+    color: "blue" as Color,
     title: "Real-time Analytics",
     desc: "Monitor performance and usage in real-time.",
   },
@@ -162,9 +162,11 @@ export default function FAQ() {
 
   return (
     <section className="py-14 sm:py-24 bg-bg-primary relative overflow-hidden">
-      <div className="absolute -top-24 -left-24 h-[240px] w-[240px] sm:-top-40 sm:-left-40 sm:h-[500px] sm:w-[500px] rounded-full bg-brand-blue/10 blur-[80px] sm:blur-[150px]" />
-      <div className="absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:-bottom-40 sm:-right-40 sm:h-[500px] sm:w-[500px] rounded-full bg-brand-gold/10 blur-[80px] sm:blur-[150px]" />
-      <div className="absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-blue/5 blur-[120px]" />
+      <div className="absolute -top-24 -left-24 h-[240px] w-[240px] sm:-top-40 sm:-left-40 sm:h-[500px] sm:w-[500px] rounded-full bg-sky-500/10 blur-[80px] sm:blur-[150px]" />
+
+      <div className="absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:-bottom-40 sm:-right-40 sm:h-[500px] sm:w-[500px] rounded-full bg-cyan-500/10 blur-[80px] sm:blur-[150px]" />
+
+      <div className="absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/5 blur-[120px]" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
         <motion.div
@@ -175,16 +177,16 @@ export default function FAQ() {
           className="mb-10 sm:mb-16 text-center"
         >
           <div className="mb-4 sm:mb-6 inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md">
-            <span className="text-[11px] sm:text-sm  text-silver-primary">
+            <span className="text-[9px]  text-silver-primary">
               FREQUENTLY ASKED QUESTIONS
             </span>
           </div>
 
-          <h2 className="mb-4 sm:mb-6 text-[26px] leading-tight sm:text-4xl font-bold text-silver-primary md:text-4xl lg:text-4xl">
+          <h2 className="mb-4 sm:mb-6 text-[26px] leading-tight sm:text-4xl font-bold text-silver-primary md:text-3xl lg:text-3xl">
             Questions We Hear Most Often
           </h2>
 
-          <p className="mx-auto max-w-3xl text-sm sm:text-base  leading-relaxed text-secondary-text">
+          <p className="mx-auto max-w-3xl text-[12px]  leading-relaxed text-secondary-text">
             Everything you need to know about our software development, AI solutions, project delivery process, and long-term support.
           </p>
         </motion.div>
@@ -206,8 +208,8 @@ export default function FAQ() {
             className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/10 bg-[#080b13] p-5 sm:p-8 lg:col-span-6 lg:p-10 xl:col-span-5 h-full"
           >
             {/* Background glows */}
-            <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/20 blur-[100px]" />
-            <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-violet-500/20 blur-[110px]" />
+            <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-sky-500/25 blur-[100px]" />
+            <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-500/20 blur-[110px]" />
 
             {/* Coding-themed background texture */}
             <div className="pointer-events-none absolute inset-0 select-none overflow-hidden opacity-[0.07] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]">
@@ -249,7 +251,7 @@ export default function FAQ() {
                   transition={{ duration: 4, repeat: Infinity }}
                   className="flex items-center gap-2.5 sm:gap-3 rounded-2xl border border-blue-400/20 bg-white/5 px-3 py-2.5 sm:px-4 sm:py-3 backdrop-blur-xl"
                 >
-                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-blue-500/20 text-blue-400">
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/25 to-cyan-500/20 text-cyan-300">
                     <FaRobot className="text-sm sm:text-lg" />
                   </div>
                   <div>
@@ -285,12 +287,14 @@ export default function FAQ() {
               </div>
 
               {/* Heading + copy */}
-              <h3 className="mb-3 sm:mb-4 text-[26px] leading-tight sm:text-4xl font-bold text-white">
-                Build <span className="text-emerald-400">Smarter.</span>
+              <h3 className="mb-3 text-[26px] font-bold leading-tight text-white sm:mb-4 ">
+                Build{" "}
+                <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+                  Smarter.
+                </span>
                 <br />
-                Ship <span className="text-violet-400">Faster.</span>
-              </h3>
-              <p className="mb-6 sm:mb-8 max-w-md text-xs sm:text-sm leading-relaxed text-white/60">
+                Ship Faster.</h3>
+              <p className="mb-6 sm:mb-8 max-w-md text-[12px] leading-relaxed text-white/60">
                 AI-powered development platform that helps you build,
                 deploy and scale with confidence.
               </p>
@@ -306,10 +310,10 @@ export default function FAQ() {
                       >
                         <f.icon className="text-sm sm:text-base" />
                       </div>
-                      <div className="mb-1 text-sm font-semibold text-white">
+                      <div className="mb-1 text-xs font-semibold text-white">
                         {f.title}
                       </div>
-                      <div className="text-xs leading-relaxed text-white/50">
+                      <div className="text-[12px] leading-relaxed text-white/50">
                         {f.desc}
                       </div>
                     </div>
@@ -341,11 +345,10 @@ export default function FAQ() {
                   transition={{ delay: index * 0.08, duration: 0.5 }}
                 >
                   <div
-                    className={`cursor-pointer overflow-hidden rounded-xl sm:rounded-2xl border transition-all duration-300 ${
-                      isOpen
-                        ? `${c.border} bg-[#0a0e18]`
-                        : "border-white/8 bg-[#0a0e18]/60 hover:border-white/20"
-                    }`}
+                    className={`cursor-pointer overflow-hidden rounded-xl sm:rounded-2xl border transition-all duration-300 ${isOpen
+                      ? `${c.border} bg-[#0a0e18]`
+                      : "border-white/8 bg-[#0a0e18]/60 hover:border-white/20"
+                      }`}
                     onClick={() => toggleFAQ(index)}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
@@ -363,9 +366,9 @@ export default function FAQ() {
                           <div
                             className={`flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full ${c.bg} ${c.text}`}
                           >
-                            <item.icon className="text-sm sm:text-base" />
+                            <item.icon className="text-sm" />
                           </div>
-                          <h4 className="text-sm sm:text-base font-semibold text-white">
+                          <h4 className="text-xs  font-semibold text-white">
                             {item.question}
                           </h4>
                         </div>
@@ -396,9 +399,8 @@ export default function FAQ() {
                             clamp is removed and the toggle is hidden.
                           */}
                           <p
-                            className={`text-xs sm:text-sm leading-relaxed text-white/50 ${
-                              isMobileExpanded ? "" : "line-clamp-2"
-                            } sm:line-clamp-none`}
+                            className={`text-[12px] leading-relaxed text-white/50 ${isMobileExpanded ? "" : "line-clamp-2"
+                              } sm:line-clamp-none`}
                           >
                             {item.answer}
                           </p>
@@ -443,12 +445,12 @@ export default function FAQ() {
             const c = colorMap[s.color];
             return (
               <div key={s.label} className="flex items-center gap-2.5 sm:gap-3">
-                <s.icon className={`text-xl sm:text-2xl shrink-0 ${c.text}`} />
+                <s.icon className={`text-xl  shrink-0 ${c.text}`} />
                 <div className="min-w-0">
-                  <div className="text-base sm:text-2xl font-bold text-white truncate">
+                  <div className="text-xl font-bold text-white truncate">
                     {s.value}
                   </div>
-                  <div className="text-[10px] sm:text-xs text-white/50 leading-tight">{s.label}</div>
+                  <div className="text-[8px] sm:text-xs text-white/50 leading-tight">{s.label}</div>
                 </div>
               </div>
             );

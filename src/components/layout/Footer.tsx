@@ -66,27 +66,27 @@ export default function Footer() {
               {/* Left: text content */}
               <div className="min-w-0">
                 {/* Badge */}
-                <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-brand-green/30 bg-brand-green/5 px-3 py-1.5 sm:px-4 sm:py-2">
-                  <HiSparkles className="h-4 w-4 shrink-0 text-brand-green" />
-                  <span className="whitespace-nowrap text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-brand-green">
+                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/5 px-3 py-1.5 sm:mb-6 sm:px-4 sm:py-2">
+                  <HiSparkles className="h-4 w-4 shrink-0 text-blue-400" />
+                  <span className="whitespace-nowrap text-[9px] font-semibold uppercase tracking-wider text-blue-400 ">
                     AI-Powered Platform
                   </span>
                 </div>
 
                 {/* Headline */}
-                <h2 className="mb-3 text-2xl sm:text-3xl font-bold leading-tight text-silver-primary xl:text-4xl">
+                <h2 className="mb-3 text-[26px] font-bold leading-tight text-silver-primary ">
                   Let&apos;s Build{" "}
-                  <span className="bg-gradient-to-r from-brand-green via-brand-blue to-purple-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-300 bg-clip-text text-transparent">
                     Something Amazing Together
                   </span>
                 </h2>
 
                 {/* Decorative underline */}
-                <div className="relative mb-4 sm:mb-6 h-3 w-20">
-                  <span className="absolute left-0 top-0 h-[2px] w-16 rounded-full bg-brand-green" />
+                <div className="relative mb-4 h-3 w-20 sm:mb-6">
+                  <span className="absolute left-0 top-0 h-[2px] w-16 rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-400 shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
                 </div>
 
-                <p className="max-w-lg text-sm leading-relaxed text-secondary-text sm:text-base">
+                <p className="max-w-lg text-[12px] leading-relaxed text-secondary-text">
                   Transform your ideas into powerful digital products with modern technology, scalable architecture, and AI-enhanced development. We deliver exceptional solutions that accelerate growth and create lasting impact.
                 </p>
               </div>
@@ -99,9 +99,9 @@ export default function Footer() {
                   className="relative w-full max-w-md xl:max-w-lg"
                 >
                   {/* Green ambient glow behind the code card */}
-                  <div className="absolute -inset-4 -z-10 rounded-2xl bg-brand-green/25 blur-2xl" />
+                  <div className="absolute -inset-4 -z-10 rounded-2xl bg-brand-blue/25 blur-2xl" />
 
-                  <div className="w-full rounded-2xl border border-brand-green/30 bg-black/80 p-3.5 shadow-xl backdrop-blur-sm sm:p-5">
+                  <div className="w-full rounded-2xl border border-brand-blue/30 bg-black/80 p-3.5 shadow-xl backdrop-blur-sm sm:p-5">
                     {/* Window header */}
                     <div className="mb-4 flex items-center justify-between gap-2">
                       <div className="flex shrink-0 gap-2">
@@ -111,7 +111,7 @@ export default function Footer() {
                       </div>
                       <div className="flex shrink-0 items-center gap-2 rounded-full border border-white/10 px-3 py-1 text-[11px] text-silver-secondary">
                         main.py
-                        <span className="h-1.5 w-1.5 rounded-full bg-brand-green" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-brand-blue" />
                       </div>
                     </div>
 
@@ -197,7 +197,7 @@ export default function Footer() {
                     <h5 className="mb-1 text-sm font-semibold text-silver-primary">
                       {feature.title}
                     </h5>
-                    <p className="text-xs leading-relaxed text-secondary-text">
+                    <p className="text-[12px] leading-relaxed text-secondary-text">
                       {feature.description}
                     </p>
                   </div>
@@ -209,11 +209,11 @@ export default function Footer() {
       </div>
       {/* Main Footer Area */}
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 py-10 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 text-center md:text-left">
           {/* Company Info */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <div className="mb-6">
-              <Link href="/" className="flex items-center mb-4">
+              <Link href="/" className="flex items-center justify-center md:justify-start mb-4">
                 <Image src="/logo/logo.png" alt="TheCodiQ Global - Software Development Company Logo" width={48} height={48} className="h-12 w-auto" />
               </Link>
               <h3 className="text-xl font-bold text-silver-primary mb-2">TheCodiQ Global</h3>
@@ -229,7 +229,7 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div className="lg:pt-[5rem]">
+          <div className="lg:pt-[5rem] flex flex-col items-center md:items-start">
             <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Services</h4>
             <ul className="space-y-3">
               <li>
@@ -266,7 +266,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="lg:pt-[5rem]">
+          <div className="lg:pt-[5rem] flex flex-col items-center md:items-start">
             <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Quick Links</h4>
             <ul className="space-y-3">
               <li>
@@ -303,7 +303,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="lg:pt-[5rem]">
+          <div className="lg:pt-[5rem] flex flex-col items-center md:items-start">
             <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Contact</h4>
             <ul className="space-y-3">
               <li className="text-sm text-secondary-text">
@@ -319,7 +319,7 @@ export default function Footer() {
                 Mon - Fri: 9AM - 6PM
               </li>
             </ul>
-            <div className="flex space-x-4 mt-6">
+            <div className="flex justify-center md:justify-start space-x-4 mt-6">
               {SOCIAL_LINKS.map((social) => (
                 <a
                   key={social.platform}

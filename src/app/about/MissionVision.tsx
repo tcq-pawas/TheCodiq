@@ -37,15 +37,15 @@ export default function MissionVision() {
 
       <div className="relative">
         <div className="mx-auto mb-9 sm:mb-11 lg:mb-12 max-w-2xl text-center">
-          <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3.5 py-1.5 sm:px-4 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary">
+          <span className="inline-flex rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3.5 py-1.5 sm:px-4 text-[9px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary">
             Purpose Driven
           </span>
 
-          <h2 className="mt-4 sm:mt-5 text-[26px] leading-tight sm:text-3xl md:text-4xl font-bold text-white">
+          <h2 className="mt-4 sm:mt-5 text-[26px] leading-tight  font-bold text-white">
             Mission & <span className="gradient-text">Vision</span>
           </h2>
 
-          <p className="mt-3 sm:mt-4 text-sm leading-6 sm:leading-7 text-gray-400">
+          <p className="mt-3 sm:mt-4 text-[12px] leading-6 sm:leading-7 text-gray-400">
             We are driven by innovation, guided by purpose, and committed to
             delivering technology solutions that create lasting business impact.
           </p>
@@ -84,16 +84,16 @@ export default function MissionVision() {
                     />
                     <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-300/10 blur-3xl transition-opacity duration-500 group-hover:opacity-90" />
 
-                    <div className="relative mb-5 sm:mb-6 flex items-center justify-between gap-4">
+                    <div className="relative mb-5  flex items-center justify-between gap-4">
                       <div
-                        className={`flex h-12 w-12 sm:h-[3.25rem] sm:w-[3.25rem] md:h-14 md:w-14 shrink-0 items-center justify-center rounded-2xl border text-2xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-300/45 group-hover:bg-cyan-300/15 group-hover:shadow-[0_18px_45px_-22px_rgba(34,211,238,0.9)] ${sharedIconStyle}`}
+                        className={`flex h-10 w-10 sm:h-[3.25rem] sm:w-[3.25rem] md:h-12 md:w-12 shrink-0 items-center justify-center rounded-2xl border text-2xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-300/45 group-hover:bg-cyan-300/15 group-hover:shadow-[0_18px_45px_-22px_rgba(34,211,238,0.9)] ${sharedIconStyle}`}
                       >
-                        <Icon aria-hidden="true" className="h-5 w-5 sm:h-6 sm:w-6" />
+                        <Icon aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
                       </div>
                     </div>
 
                     <div className="relative flex flex-1 flex-col">
-                      <h3 className="mb-2.5 sm:mb-3 text-lg sm:text-xl font-bold text-white transition-colors duration-300 group-hover:text-primary">
+                      <h3 className="mb-2.5 sm:mb-3 text-lg  font-bold text-white transition-colors duration-300 group-hover:text-primary">
                         {item.title}
                       </h3>
 
@@ -106,11 +106,11 @@ export default function MissionVision() {
                         always pushes the progress bar to the exact same
                         vertical position on both cards, every time.
                       */}
-                      <p className="text-sm leading-7 sm:leading-8 text-gray-400 transition-colors duration-300 group-hover:text-gray-300 line-clamp-6">
+                      <p className="leading-7 sm:leading-8 text-gray-400 transition-colors duration-300 group-hover:text-gray-300 line-clamp-6 text-[12px]">
                         {item.text}
                       </p>
 
-                      <div className="mt-auto pt-6 sm:pt-7">
+                      <div className="mt-auto pt-5">
                         <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
                           <div
                             className={`h-full w-2/3 rounded-full bg-gradient-to-r transition-all duration-500 group-hover:w-full ${sharedProgressStyle}`}

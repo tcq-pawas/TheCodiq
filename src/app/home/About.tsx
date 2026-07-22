@@ -135,10 +135,10 @@ export default function About() {
         shadow-[0_0_30px_rgba(37,99,235,0.22)] ring-1 ring-white/5"
                 >
                   <div className="flex h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#60a5fa] to-[#2563eb] shadow-[0_0_18px_rgba(59,130,246,.45)]">
-                    <FaRocket className="text-[10px] sm:text-xs md:text-sm text-white -rotate-45" />
+                    <FaRocket className="text-[9px] sm:text-xs md:text-sm text-white -rotate-45" />
                   </div>
 
-                  <span className="text-[9px] sm:text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-white whitespace-nowrap">
+                  <span className="text-[8px] sm:text-[10px] md:text-[9px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-white whitespace-nowrap">
                     Launch Ready
                   </span>
                 </div>
@@ -149,13 +149,13 @@ export default function About() {
 
                 {/* Text */}
                 <div className="px-4 sm:px-5 md:px-8 text-center">
-                  <h2 className="text-[22px] leading-[1.15] font-semibold xs:text-[24px] sm:text-[28px] md:text-[34px] text-white">
+                  <h2 className="text-[22px] leading-[1.15] font-semibold xs:text-[24px] sm:text-[28px] md:text-[24px] text-white">
                     Excellence in
                     <br />
                     Every <span className="text-brand-blue">Project Idea</span>
                   </h2>
 
-                  <p className="mx-auto mt-2 sm:mt-3 md:mt-4 max-w-[260px] sm:max-w-[320px] md:max-w-[360px] text-[12px] sm:text-[13px] md:text-[14px] leading-5 md:leading-6 text-white">
+                  <p className="mx-auto mt-2 sm:mt-3 md:mt-4 max-w-[260px] sm:max-w-[320px] md:max-w-[360px] text-[12px] sm:text-[13px] md:text-[12px] leading-5 md:leading-6 text-white">
                     Delivering premium IT solutions worldwide with innovation,
                     reliability, and exceptional customer satisfaction.
                   </p>
@@ -265,7 +265,7 @@ export default function About() {
                           </div>
                           <div className="min-w-0 flex-1">
                             <h3
-                              className={`text-sm sm:text-base font-semibold transition-colors ${isActive ? "text-brand-blue" : "text-silver-primary"
+                              className={`text-[14px] font-semibold transition-colors ${isActive ? "text-brand-blue" : "text-silver-primary"
                                 }`}
                             >
                               {feature.title}
@@ -296,7 +296,7 @@ export default function About() {
                               shows, clamp removed, toggle hidden.
                             */}
                             <p
-                              className={`text-secondary-text text-xs sm:text-sm leading-relaxed ${isMobileExpanded ? "" : "line-clamp-2"
+                              className={`text-secondary-text text-[12px] leading-relaxed ${isMobileExpanded ? "" : "line-clamp-2"
                                 } sm:line-clamp-none`}
                             >
                               {feature.description}

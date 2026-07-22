@@ -31,9 +31,9 @@ export default function Hero() {
           <motion.span
             variants={fadeUp}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3.5 py-1.5 sm:px-4 text-xs sm:text-sm font-medium text-primary shadow-lg shadow-primary/10"
+            className="inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3.5 py-1.5 sm:px-4 text-[11px] font-medium text-primary shadow-lg shadow-primary/10"
           >
-            <span className="h-2 w-2 shrink-0 rounded-full bg-primary shadow-[0_0_18px_rgba(59,130,246,0.9)]" />
+            <span className="h-2 w-2 shrink-0 rounded-full bg-blue-600 shadow-[0_0_18px_rgba(59,130,246,0.9)]" />
             About TheCodiQ
           </motion.span>
 
@@ -45,7 +45,7 @@ export default function Hero() {
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-5 sm:mt-6 max-w-2xl text-[26px] leading-[1.2] sm:text-3xl sm:leading-tight md:text-4xl font-bold text-white"
+            className="mt-5 sm:mt-6 max-w-2xl text-[26px] leading-[1.2]  sm:leading-tight  font-bold text-white"
           >
             Building the Future with{" "}
             <span className="gradient-text">Innovative Technology</span>
@@ -54,7 +54,7 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base leading-7 sm:leading-8 text-gray-300"
+            className="mt-4 sm:mt-6 max-w-xl text-[12px] leading-7 sm:leading-8 text-gray-300"
           >
             At TheCodiQ, we help startups, businesses, and enterprises transform
             ideas into powerful digital products. From modern web applications
@@ -65,7 +65,7 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-3 sm:mt-4 max-w-xl text-sm sm:text-base leading-7 sm:leading-8 text-gray-400"
+            className="mt-3 sm:mt-4 max-w-xl text-[12px] leading-7 sm:leading-8 text-gray-400"
           >
             Our team combines technical expertise, creative thinking, and a
             customer-first approach to build scalable, secure, and future-ready
@@ -100,11 +100,11 @@ export default function Hero() {
           <div className="relative rounded-[1.1rem] sm:rounded-[1.5rem] border border-white/10 bg-background/75 p-4 sm:p-5 md:p-6">
             <div className="mb-5 sm:mb-6 flex items-center justify-between gap-4">
               <div className="min-w-0">
-                <span className="inline-flex rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary">
+                <span className="inline-flex rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1 text-[9px]  font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary shadow-[0_0_20px_rgba(59,130,246,0.35)]">
                   Our Impact
                 </span>
 
-                <h3 className="mt-2.5 sm:mt-3 text-base sm:text-lg font-semibold text-white">
+                <h3 className="mt-2.5 sm:mt-3  font-semibold text-white ">
                   Results That Build Trust
                 </h3>
               </div>
@@ -130,11 +130,11 @@ export default function Hero() {
                 >
                   <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                  <h3 className="gradient-text text-xl sm:text-lg md:text-xl font-bold">
+                  <h3 className="gradient-text text-lg font-bold">
                     {stat.value}
                   </h3>
 
-                  <p className="mt-1.5 sm:mt-2 max-w-[120px] text-[10px] sm:text-xs md:text-sm uppercase tracking-wide text-gray-400">
+                  <p className="mt-1.5 sm:mt-2 max-w-[120px] text-[10px]  uppercase tracking-wide text-gray-400">
                     {stat.label}
                   </p>
                 </motion.div>
@@ -150,7 +150,7 @@ export default function Hero() {
                 Empowering Businesses Through Innovation
               </h4>
 
-              <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm leading-6 sm:leading-7 text-gray-300">
+              <p className="mt-2.5 sm:mt-3 text-[12px] leading-6 sm:leading-7 text-gray-300">
                 Every project we build is designed with performance, scalability, and
                 long-term success in mind. We do not just write code; we create digital
                 experiences that help businesses grow.

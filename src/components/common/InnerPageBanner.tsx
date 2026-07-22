@@ -28,9 +28,9 @@ export default function InnerPageBanner({ title, subtitle, className = '' }: Inn
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 lg:px-12">
-        <h1 className="mb-2 text-4xl font-bold text-white md:text-5xl">{title}</h1>
+        <h1 className="mb-2 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-4xl">{title}</h1>
 
-        {subtitle && <p className="text-sm text-white/80 md:text-base">{subtitle}</p>}
+        {subtitle && <p className="text-[14px] text-white/80 ">{subtitle}</p>}
       </div>
     </section>
   );

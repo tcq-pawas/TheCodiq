@@ -22,77 +22,77 @@ export default function AISolutionsPage() {
       <div className="py-16 bg-background">
         <div className="container max-w-7xl px-4 mx-auto">
           <div className="max-w-4xl mx-auto mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-[26px] font-bold text-white mb-6">
               AI Development Company
             </h1>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="text-[12px] text-gray-300 leading-relaxed mb-8">
               TheCodiQ helps businesses harness the power of artificial intelligence and machine learning. Our AI experts develop custom solutions that automate processes, extract insights from data, and create intelligent user experiences. From predictive analytics to computer vision, we transform how businesses operate and serve their customers.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="text-[12px] text-gray-300 leading-relaxed mb-8">
               Our AI development services span the full spectrum of machine learning technologies. We build custom ML models tailored to your specific business needs, implement natural language processing for text analysis and chatbots, and develop computer vision systems for image recognition and automated inspection. Our team stays at the forefront of AI research to bring you the most effective solutions.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="text-[12px] text-gray-300 leading-relaxed mb-8">
               We take a practical approach to AI implementation, focusing on solving real business problems rather than chasing trends. Our process begins with understanding your objectives and data landscape, then designing and training models that deliver measurable results. We ensure our AI solutions integrate seamlessly with your existing systems and provide ongoing support for model maintenance and improvement.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">Our AI Services</h2>
+              <h2 className="text-[20px] font-bold text-white mb-6">Our AI Services</h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className=" flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Machine Learning Models - Custom algorithms for prediction and classification</span>
+                  <span className="text-[12px]">Machine Learning Models - Custom algorithms for prediction and classification</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Natural Language Processing - Text analysis, sentiment analysis, chatbots</span>
+                  <span className="text-[12px]">Natural Language Processing - Text analysis, sentiment analysis, chatbots</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className=" flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Computer Vision - Image recognition, object detection, video analysis</span>
+                  <span className="text-[12px]">Computer Vision - Image recognition, object detection, video analysis</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className=" flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Predictive Analytics - Data-driven forecasting and decision support</span>
+                  <span className="text-[12px]">Predictive Analytics - Data-driven forecasting and decision support</span>
                 </li>
               </ul>
             </div>
 
             <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">Why Choose TheCodiQ?</h2>
+              <h2 className="text-[20px] font-bold text-white mb-6">Why Choose TheCodiQ?</h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className=" flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Expert team with PhD-level researchers and experienced engineers</span>
+                  <span className="text-[12px]">Expert team with PhD-level researchers and experienced engineers</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Focus on practical, business-driven AI solutions</span>
+                  <span className="text-[12px]">Focus on practical, business-driven AI solutions</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>End-to-end development from data preparation to deployment</span>
+                  <span className="text-[12px]">End-to-end development from data preparation to deployment</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Ongoing model monitoring and optimization services</span>
+                  <span className="text-[12px]">Ongoing model monitoring and optimization services</span>
                 </li>
               </ul>
             </div>
@@ -101,7 +101,7 @@ export default function AISolutionsPage() {
           <div className="text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors text-sm"
             >
               Discuss Your AI Project
               <ArrowRight className="h-5 w-5" />

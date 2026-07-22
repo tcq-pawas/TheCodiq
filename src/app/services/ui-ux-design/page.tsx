@@ -22,77 +22,77 @@ export default function UIUXDesignPage() {
       <div className="py-16 bg-background">
         <div className="container max-w-7xl px-4 mx-auto">
           <div className="max-w-4xl mx-auto mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-[26px] font-bold text-white mb-6">
               UI/UX Design Services
             </h1>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="text-[12px] text-gray-300 leading-relaxed mb-8">
               TheCodiQ creates intuitive, engaging digital experiences that users love. Our UI/UX design team combines user research, strategic thinking, and visual design to build products that are both beautiful and functional. We believe great design is about solving problems and creating seamless interactions that drive user engagement and business success.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="text-[12px] text-gray-300 leading-relaxed mb-8">
               Our design process is rooted in understanding your users and their needs. We conduct user research, create personas, and map user journeys to ensure every design decision serves a purpose. From wireframing to high-fidelity prototypes, we iterate based on feedback to refine the experience. The result is a product that feels intuitive to use and aligns with your business objectives.
             </p>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="text-[12px] text-gray-300 leading-relaxed mb-8">
               We design for all platforms and devices, ensuring consistency across web, mobile, and tablet experiences. Our design systems provide scalable foundations that maintain brand coherence while allowing for flexibility. Whether you need a complete product redesign or specific feature improvements, we deliver designs that convert users into loyal customers.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">Our Design Services</h2>
+              <h2 className="text-[20px] font-bold text-white mb-6">Our Design Services</h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>User Research - Understanding user needs through interviews and testing</span>
+                  <span className="text-[12px]">User Research - Understanding user needs through interviews and testing</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Wireframing & Prototyping - Low and high-fidelity interactive prototypes</span>
+                  <span className="text-[12px]">Wireframing & Prototyping - Low and high-fidelity interactive prototypes</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Visual Design - Beautiful, on-brand interfaces that engage users</span>
+                  <span className="text-[12px]">Visual Design - Beautiful, on-brand interfaces that engage users</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Design Systems - Scalable component libraries for consistent experiences</span>
+                  <span className="text-[12px]">Design Systems - Scalable component libraries for consistent experiences</span>
                 </li>
               </ul>
             </div>
 
             <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-8">
-              <h2 className="text-2xl font-bold text-white mb-6">Why Choose TheCodiQ?</h2>
+              <h2 className="text-[20px] font-bold text-white mb-6">Why Choose TheCodiQ?</h2>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>User-centered design approach backed by research</span>
+                  <span className="text-[12px]">User-centered design approach backed by research</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Focus on conversion and business metrics</span>
+                  <span className="text-[12px]">Focus on conversion and business metrics</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Collaborative process with stakeholder involvement</span>
+                  <span className="text-[12px]">Collaborative process with stakeholder involvement</span>
                 </li>
                 <li className="flex items-start gap-3 text-gray-300">
-                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Check className="h-3 w-3" strokeWidth={2.4} />
                   </span>
-                  <span>Design deliverables ready for development handoff</span>
+                  <span className="text-[12px]">Design deliverables ready for development handoff</span>
                 </li>
               </ul>
             </div>
@@ -101,7 +101,7 @@ export default function UIUXDesignPage() {
           <div className="text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors text-sm"
             >
               Start Your Design Project
               <ArrowRight className="h-5 w-5" />

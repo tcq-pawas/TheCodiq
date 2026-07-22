@@ -18,9 +18,6 @@ import {
 
 import { CONTACT_INFO } from "@/lib/constants";
 
-// const mapSrc =
-//   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3561.308113742979!2d83.37288567453193!3d26.798316264999027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399145b795d2cae9%3A0x98b3202d1e49fd25!2sHeyDay%20Realty%20Private%20Limited!5e0!3m2!1sen!2sin!4v1783511426153!5m2!1sen!2sin";
-
 type FormState = {
   name: string;
   email: string;
@@ -35,10 +32,12 @@ const initialFormState: FormState = {
   message: "",
 };
 
+const LOADING_TIME = 1000;
+
 export default function AuthenticContactForm() {
   const [formData, setFormData] = useState<FormState>(initialFormState);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const contactItems = [
     {
@@ -56,7 +55,6 @@ export default function AuthenticContactForm() {
     {
       label: "Office",
       value: CONTACT_INFO.address,
-      // href: "https://www.google.com/maps/search/?api=1&query=HeyDay%20Realty%20Private%20Limited",
       icon: MapPin,
       external: true,
     },
@@ -72,22 +70,17 @@ export default function AuthenticContactForm() {
     }));
   };
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsSubmitted(false);
+
     setIsSubmitting(true);
+    setIsSubmitted(false);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 900));
-
-    // Reset form
-    setFormData(initialFormState);
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Show thank you alert
-    alert("🎉 Thank you! Your message has been submitted successfully.");
+    window.setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData(initialFormState);
+    }, LOADING_TIME);
   };
 
   const inputClass =
@@ -96,18 +89,18 @@ export default function AuthenticContactForm() {
   return (
     <section className="w-full max-w-none overflow-hidden rounded-lg border border-white/10 bg-background shadow-2xl shadow-black/25">
       <div className="grid w-full lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.9fr)]">
-        <div className="p-5 sm:p-7 lg:p-8">
+        <div className="p-5 lg:p-8">
           <div className="mb-8 max-w-xl">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-lg border border-primary/25 bg-primary/10 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-primary">
-              <ShieldCheck className="h-4 w-4" />
+            <span className="mb-4 inline-flex items-center gap-2 rounded-lg border border-brand-blue/30 bg-brand-blue/10 px-3 py-1 text-[9px] font-semibold uppercase tracking-wider text-primary">
+              <ShieldCheck className="h-3 w-3" />
               Verified business contact
             </span>
 
-            <h2 className="text-2xl font-bold leading-tight text-white sm:text-3xl">
+            <h2 className="text-[24px] font-bold leading-tight text-white">
               Let us help you move with confidence
             </h2>
 
-            <p className="mt-3 text-sm leading-6 text-gray-400">
+            <p className="mt-3 text-[12px] leading-6 text-gray-400">
               Share a few details and our team will respond with clear,
               reliable guidance for your inquiry.
             </p>
@@ -187,15 +180,10 @@ export default function AuthenticContactForm() {
               </span>
             </label>
 
-            {isSubmitted && (
-              <div className="flex items-start gap-3 rounded-lg border border-green-500/30 bg-green-500/10 p-4 text-sm text-green-300">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>Your message has been received. We will contact you soon.</span>
-              </div>
-            )}
             <button
               type="submit"
-              className="mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 active:scale-95"
+              disabled={isSubmitting}
+              className="mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-4 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {isSubmitting ? (
                 <>
@@ -210,22 +198,29 @@ export default function AuthenticContactForm() {
               )}
             </button>
 
-
+            {isSubmitted && (
+              <div className="flex items-center gap-3 rounded-lg border border-green-500/20 bg-green-500/[0.06] px-4 py-3">
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-green-400" />
+                <p className="text-[12px] font-medium text-green-300">
+                  Message sent — we'll get back to you soon.
+                </p>
+              </div>
+            )}
           </form>
         </div>
 
         <aside className="w-full border-t border-white/10 bg-white/[0.025] p-5 sm:p-7 lg:border-l lg:border-t-0 lg:p-8">
           <div className="mb-6 flex items-start justify-between gap-4">
             <div>
-              <h3 className="text-xl font-bold text-white">Contact details</h3>
-              <p className="mt-2 text-sm leading-6 text-gray-400">
+              <h3 className="text-lg font-bold text-white">Contact details</h3>
+              <p className="mt-2 text-[12px] leading-6 text-gray-400">
                 Use the details below for direct communication or office
                 directions.
               </p>
             </div>
 
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
-              <MapPin className="h-5 w-5" />
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary">
+              <MapPin className="h-4 w-4" />
             </span>
           </div>
 
@@ -249,7 +244,7 @@ export default function AuthenticContactForm() {
                     <span className="block text-sm font-semibold text-white">
                       {item.label}
                     </span>
-                    <span className="mt-1 block break-words text-sm leading-6 text-gray-400 group-hover:text-gray-300">
+                    <span className="mt-1 block break-words text-[12px] leading-6 text-gray-400 group-hover:text-gray-300">
                       {item.value}
                     </span>
                   </span>
@@ -263,18 +258,6 @@ export default function AuthenticContactForm() {
               );
             })}
           </div>
-
-          {/* <div className="mt-6 overflow-hidden rounded-lg border border-primary/20 bg-white/[0.035]">
-            <iframe
-              src={mapSrc}
-              title="HeyDay Realty Private Limited Location"
-              className="h-[260px] w-full sm:h-[320px] lg:h-[300px]"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-          </div> */}
         </aside>
       </div>
     </section>

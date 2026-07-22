@@ -107,26 +107,26 @@ function AuthFeatureCard({
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
 
       <div className="flex items-start justify-between gap-3 sm:gap-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary transition-all duration-500 sm:h-12 sm:w-12 md:group-hover:border-primary/40 md:group-hover:bg-primary/15">
-          <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary transition-all duration-500  md:group-hover:border-primary/40 md:group-hover:bg-primary/15">
+          <Icon className="h-5 w-5 " />
         </div>
 
-        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2 py-1 text-[10px] font-medium text-gray-300 sm:px-2.5 sm:text-[11px]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2 py-1 text-[10px] font-medium text-gray-300 ">
           <BadgeCheck className="h-3.5 w-3.5 text-primary" />
           Authentic
         </span>
       </div>
 
       <div className="mt-5 sm:mt-7">
-        <span className="text-[10px] font-semibold uppercase tracking-wider text-primary/80 sm:text-[11px]">
+        <span className="text-[10px] font-semibold uppercase tracking-wider text-primary/80 ">
           {card.label}
         </span>
 
-        <h3 className="mt-2 text-base font-bold leading-snug text-white transition-colors duration-300 md:group-hover:text-primary sm:text-lg">
+        <h3 className="mt-2 text-[15px] font-bold leading-snug text-white transition-colors duration-300 md:group-hover:text-primary ">
           {card.title}
         </h3>
 
-        <p className="mt-2 text-sm leading-6 text-gray-400">{card.summary}</p>
+        <p className="mt-2 text-[12px] leading-6 text-gray-400">{card.summary}</p>
       </div>
 
       {/*
@@ -134,15 +134,15 @@ function AuthFeatureCard({
         From sm/md up: reverts to the absolute, hover-revealed slide-up panel.
       */}
       <div className="relative mt-4 border-t border-white/10 pt-4 sm:absolute sm:inset-x-0 sm:bottom-0 sm:mt-0 sm:translate-y-5 sm:bg-background/95 sm:px-5 sm:pb-5 sm:pt-4 sm:opacity-0 sm:shadow-[0_-18px_45px_-30px_rgba(0,0,0,0.85)] sm:backdrop-blur-md sm:transition-all sm:duration-500 sm:ease-out md:group-hover:translate-y-0 md:group-hover:opacity-100">
-        <p className="text-sm leading-6 text-gray-300">{card.detail}</p>
+        <p className="text-[12px] leading-6 text-gray-300">{card.detail}</p>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
           <span className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-400">
-            <CheckCircle2 className="h-4 w-4 text-primary" />
+            <CheckCircle2 className="h-3 w-3 text-primary" />
             {card.proof}
           </span>
 
-          <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
+          <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-primary">
             Learn more
             <ArrowRight className="h-4 w-4 transition-transform duration-300 md:group-hover:translate-x-1" />
           </span>

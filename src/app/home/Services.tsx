@@ -62,15 +62,15 @@ export default function Services() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-3xl lg:text-4xl font-bold text-silver-primary mb-6">
+          <h2 className="text-4xl text-2xl lg:text-3xl font-bold text-silver-primary mb-6">
             Our Services
           </h2>
-          <p className="text-secondary-text max-w-3xl mx-auto leading-relaxed">
+          <p className="text-secondary-text max-w-3xl mx-auto leading-relaxed text-[12px]">
             We deliver comprehensive technology solutions tailored to your business needs. From web and mobile development to AI-powered systems and cloud infrastructure.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-15">
           {services.slice(0, 5).map((service, index) => {
             const serviceText = `${service.title} ${service.description}`.toLowerCase();
             const Icon =
@@ -90,7 +90,7 @@ export default function Services() {
                   className="group h-full"
                 >
                   <div className="h-full p-8 rounded-2xl border border-white/8 bg-bg-card/50 backdrop-blur-xl hover:border-brand-blue/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-blue">
-                    <div className="mb-6">
+                    <div className="mb-4">
                       <div
                         className={`relative w-14 h-14 rounded-2xl flex items-center justify-center ring-1 ring-inset transition-all duration-300 group-hover:scale-105 ${iconThemes[index % iconThemes.length]}`}
                       >
@@ -99,10 +99,10 @@ export default function Services() {
                       </div>
                     </div>
 
-                    <h3 className="text-lg font-semibold text-silver-primary mb-4">
+                    <h3 className="text-[14px] font-semibold text-silver-primary mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-secondary-text text-sm mb-6 leading-relaxed">
+                    <p className="text-secondary-text text-[12px] mb-6 leading-relaxed">
                       {service.description}
                     </p>
                   </div>

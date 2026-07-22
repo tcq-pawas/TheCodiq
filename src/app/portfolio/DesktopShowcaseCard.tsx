@@ -18,11 +18,14 @@ import {
 import { HiOutlineStatusOnline } from "react-icons/hi";
 
 export const portfolioTextSizes = {
-  categoryBadge: "text-[10px] sm:text-xs md:text-[10px] lg:text-[11px]",
-  cardTitle: "text-sm sm:text-lg md:text-base lg:text-base",
+  categoryBadge: "text-[9px]",
+
+  cardTitle: "text-[14px]",
+
   cardDescription:
-    "text-sm leading-6 sm:leading-7 md:text-xs md:leading-5 lg:text-sm lg:leading-6",
-  techPill: "text-[11px] sm:text-xs md:text-[10px] lg:text-[11px]",
+    "text-[12px]",
+
+  techPill: "text-[12px]",
 };
 
 export type DesktopShowcaseCardProps = {
@@ -188,14 +191,14 @@ export default function DesktopShowcaseCard({
   return (
     <div className="group relative flex h-full flex-col gap-4 bg-transparent">
       {/* Monitor Container */}
-      <div className="relative overflow-hidden rounded-[26px] border border-[#6FA98D]/45 bg-[linear-gradient(135deg,rgba(31,76,57,0.72)_0%,rgba(7,16,21,0.78)_45%,rgba(5,14,18,0.92)_100%)] px-4 pb-6 pt-8 shadow-[0_24px_70px_rgba(0,0,0,.35)] backdrop-blur-xl sm:px-6 sm:pb-8 sm:pt-10 md:px-4 md:pb-5 md:pt-6 lg:px-5 lg:pb-6 lg:pt-7">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,.18),transparent_70%)]" />
+      <div className="relative overflow-hidden rounded-[26px] border border-[#6F93E0]/45 bg-[linear-gradient(135deg,rgba(23,44,90,0.72)_0%,rgba(7,16,21,0.78)_45%,rgba(5,14,18,0.92)_100%)] px-4 pb-6 pt-8 shadow-[0_24px_70px_rgba(0,0,0,.35)] backdrop-blur-xl sm:px-6 sm:pb-8 sm:pt-10 md:px-4 md:pb-5 md:pt-6 lg:px-5 lg:pb-6 lg:pt-7">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,.18),transparent_70%)]" />
         <div className="absolute left-1/2 top-12 h-52 w-52 -translate-x-1/2 rounded-full bg-primary/20 blur-[90px]" />
 
         {badge && (
-          <div className="absolute right-4 top-4 z-30 rounded-xl border border-green-500/35 bg-[#101a14]/90 px-4 py-2 shadow-[0_10px_30px_rgba(0,0,0,.35)] backdrop-blur-xl">
+          <div className="absolute right-4 top-4 z-30 rounded-xl border border-blue-500/35 bg-[#101a14]/90 px-4 py-2 shadow-[0_10px_30px_rgba(0,0,0,.35)] backdrop-blur-xl">
             <div className="flex items-center gap-2">
-              <HiOutlineStatusOnline className="text-lg text-green-400" />
+              <HiOutlineStatusOnline className="text-lg text-blue-400" />
               <span
                 className={`font-medium text-white ${portfolioTextSizes.categoryBadge}`}
               >
@@ -212,7 +215,7 @@ export default function DesktopShowcaseCard({
             <div
               onMouseEnter={handleEnter}
               onMouseLeave={handleLeave}
-              className="relative isolate aspect-[16/10] overflow-hidden rounded-[10px] border border-white/10 bg-black"
+              className="relative isolate aspect-[16/10] overflow-hidden rounded-[7px] border border-white/10 bg-black"
             >
               <div
                 className="flex h-full"
@@ -260,21 +263,21 @@ export default function DesktopShowcaseCard({
       </div>
 
       {/* Details Container */}
-      <div className="flex flex-1 flex-col rounded-[22px] border border-[#6FA98D]/45 bg-[linear-gradient(135deg,rgba(8,20,24,0.94)_0%,rgba(7,16,21,0.88)_48%,rgba(18,57,43,0.72)_100%)] p-4 shadow-[0_18px_55px_rgba(0,0,0,.28)] backdrop-blur-xl sm:p-5 md:p-4">
+      <div className="flex flex-1 flex-col rounded-[22px] border border-[#6F93E0]/45 bg-[linear-gradient(135deg,rgba(8,20,24,0.94)_0%,rgba(7,16,21,0.88)_48%,rgba(18,43,66,0.72)_100%)] p-4 shadow-[0_18px_55px_rgba(0,0,0,.28)] backdrop-blur-xl sm:p-5 md:p-2.5 lg:p-3">
         <span
-          className={`mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 uppercase tracking-wider text-green-500 ${portfolioTextSizes.categoryBadge}`}
+          className={`mb-1 inline-flex w-fit items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 uppercase tracking-wider text-blue-500 ${portfolioTextSizes.categoryBadge}`}
         >
           {category}
         </span>
 
         <h4
-          className={`mb-2 font-semibold leading-tight text-white transition-colors duration-300 group-hover:text-primary ${portfolioTextSizes.cardTitle}`}
+          className={`mb-1 mt-0.5 font-semibold leading-tight text-white transition-colors duration-300 group-hover:text-primary ${portfolioTextSizes.cardTitle}`}
         >
           {title}
         </h4>
 
         <p
-          className={`mb-4 line-clamp-2 text-gray-400 ${portfolioTextSizes.cardDescription}`}
+          className={`mb-1 line-clamp-2 text-gray-400 ${portfolioTextSizes.cardDescription}`}
         >
           {description}
         </p>

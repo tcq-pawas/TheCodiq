@@ -34,7 +34,7 @@ export default function Hero() {
               </div>
 
               {/* Heading */}
-              <h1 className="mt-6 text-3xl font-bold leading-tight text-silver-primary sm:text-4xl md:text-5xl lg:mt-8 lg:text-5xl">
+              <h1 className="mt-6 text-3xl font-bold leading-tight text-silver-primary sm:text-4xl md:text-5xl lg:mt-8 lg:text-3xl">
                 Build AI-Powered Software That
                 <br className="hidden sm:block" />
                 <span className="accent-gradient-text">
@@ -43,7 +43,7 @@ export default function Hero() {
               </h1>
 
               {/* Description */}
-              <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-secondary-text sm:text-base lg:mx-0 lg:mt-6">
+              <p className="mx-auto mt-5 max-w-2xl  leading-relaxed text-secondary-text  text-[12px] lg:mx-0 lg:mt-6">
                 Custom Web Applications, Mobile Apps, AI Solutions, Cloud
                 Infrastructure, and Digital Transformation Services for
                 Startups, Enterprises, and Growing Businesses.
@@ -72,7 +72,7 @@ export default function Hero() {
                   Trusted by innovative companies
                 </p>
 
-                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-secondary-text lg:justify-start">
+                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[12px] text-secondary-text lg:justify-start">
                   <span>Linear</span>
                   <span>HubSpot</span>
                   <span>Dropbox</span>
