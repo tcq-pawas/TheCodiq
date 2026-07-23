@@ -1,71 +1,76 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Card from "@/components/common/Card";
+import {
+  FaLinkedinIn,
+  FaEnvelope,
+  FaAward,
+  FaCheckCircle,
+  FaBriefcase,
+  FaUsers,
+  FaCode,
+  FaTrophy,
+  FaQuoteLeft,
+} from "react-icons/fa";
 
-const teamMembers = [
+const founder = {
+  firstName: "Pawas",
+  lastName: "Kr. Singh",
+  role: "Founder & CEO",
+  company: "TheCodiQ Global",
+  image: "/images/team/amit.png",
+  linkedin: "https://linkedin.com/in/amitsingh",
+  email: "pawas.singh@gmail.com",
+};
+
+const expertise = [
+  "Software Architecture",
+  "AI & Automation Solutions",
+  "Web & Mobile Applications",
+  "Cloud Infrastructure",
+  "Digital Transformation",
+  "Product Strategy & Development",
+  "Team Leadership",
+  "Project Management",
+];
+
+// cycles blue -> amber -> emerald, matching the check-icon colors in the reference
+const expertiseAccents = ["text-brand-blue", "text-amber-400", "text-emerald-400"];
+
+const stats = [
   {
-    name: "John Smith",
-    role: "CEO & Founder",
-    image: "/images/team/smith.png",
+    icon: FaBriefcase,
+    value: "150+",
+    label: "Projects Delivered",
+    color: "text-brand-blue",
+    bg: "bg-brand-blue/10",
   },
   {
-    name: "Sarah Johnson",
-    role: "Chief Technology Officer",
-    image: "/images/team/sarah.png",
+    icon: FaUsers,
+    value: "50+",
+    label: "Happy Clients",
+    color: "text-amber-400",
+    bg: "bg-amber-400/10",
   },
   {
-    name: "Mike Chen",
-    role: "Lead Software Engineer",
-    image: "/images/team/chen.png",
+    icon: FaCode,
+    value: "20+",
+    label: "Technologies",
+    color: "text-emerald-400",
+    bg: "bg-emerald-400/10",
   },
   {
-    name: "Emily Davis",
-    role: "Creative Design Lead",
-    image: "/images/team/chen.png",
+    icon: FaTrophy,
+    value: "10+",
+    label: "Years Experience",
+    color: "text-brand-blue",
+    bg: "bg-brand-blue/10",
   },
 ];
 
-export default function TeamSection() {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const goToSlide = (index: number) => {
-    const nextIndex = (index + teamMembers.length) % teamMembers.length;
-    const slider = sliderRef.current;
-    const slide = slider?.children[nextIndex] as HTMLElement | undefined;
-
-    setActiveIndex(nextIndex);
-    slider?.scrollTo({
-      left: slide?.offsetLeft ?? 0,
-      behavior: "smooth",
-    });
-  };
-
-  const syncActiveSlide = () => {
-    const slider = sliderRef.current;
-    if (!slider) return;
-
-    const center = slider.scrollLeft + slider.clientWidth / 2;
-    const slides = Array.from(slider.children) as HTMLElement[];
-    if (!slides.length) return;
-
-    const closestIndex = slides.reduce((closest, slide, index) => {
-      const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
-      const closestSlide = slides[closest];
-      const closestCenter =
-        closestSlide.offsetLeft + closestSlide.offsetWidth / 2;
-
-      return Math.abs(slideCenter - center) < Math.abs(closestCenter - center)
-        ? index
-        : closest;
-    }, 0);
-
-    setActiveIndex(closestIndex);
-  };
-
+export default function FounderSection() {
   return (
     <motion.section
       className="relative mb-16 sm:mb-20 overflow-hidden"
@@ -74,125 +79,157 @@ export default function TeamSection() {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <div className="relative text-center mb-10 sm:mb-12">
-        <span className="inline-flex rounded-full border border-brand-blue/30 bg-brand-blue/10  px-3.5 py-1.5 sm:px-4 text-[9px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary">
-          Leadership Team
-        </span>
-
-        <h2 className="mt-4 sm:mt-5 text-[26px] leading-tight font-bold text-white">
-          Meet Our Team
-        </h2>
-
-        <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-gray-400 text-center text-[12px] leading-6 sm:leading-7">
-          Behind every successful project is a passionate team of innovators,
-          developers, designers, and strategists committed to delivering
-          exceptional digital experiences.
-        </p>
-      </div>
-
-      <div className="relative">
-        <div
-          ref={sliderRef}
-          onScroll={syncActiveSlide}
-          className="-mx-4 flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto scroll-smooth px-4 pb-2 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:items-stretch sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 lg:gap-6 [&::-webkit-scrollbar]:hidden"
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,380px)_1fr] lg:items-start lg:gap-14">
+        {/* ---------- Image column ---------- */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto w-full max-w-[320px] lg:mx-0 lg:max-w-none"
         >
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group min-w-full snap-center sm:min-w-0"
-            >
-              <div className="mx-auto h-full w-full max-w-[320px] sm:max-w-none">
-                <Card>
-                  <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
-                    <div className="relative aspect-[4/3.4] overflow-hidden bg-background">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover object-center transition duration-500 sm:group-hover:scale-105"
-                      />
-                    </div>
+          <Card>
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-blue via-amber-400 to-emerald-400 p-[1.5px]">
+              <div className="relative overflow-hidden rounded-2xl bg-background">
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src={"/images/Boss.png"}
+                    alt={`${founder.firstName} ${founder.lastName}`}
+                    fill
+                    sizes="(min-width: 1024px) 380px, (min-width: 640px) 60vw, 100vw"
+                    className="object-cover object-top"
+                    priority
+                  />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
+                </div>
 
-                    <div className="flex flex-1 flex-col justify-center px-3 py-2.5 text-center">
-                      <h3 className="min-h-[1.25rem] font-semibold leading-tight text-white line-clamp-1">
-                        {member.name}
-                      </h3>
-
-                      <p className="mt-0.5 min-h-[1rem] text-xs font-medium leading-snug text-primary line-clamp-1">
-                        {member.role}
-                      </p>
-                    </div>
-                  </article>
-                </Card>
+                {/* logo badge overlapping the bottom of the image */}
+                <div className="absolute inset-x-3 bottom-3 flex items-center gap-2.5 rounded-xl border border-white/10 bg-background/85 px-3 py-2.5 backdrop-blur">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/[0.06] text-sm font-bold text-primary">
+                    {founder.company
+                      .split(" ")
+                      .map((w) => w[0])
+                      .slice(0, 2)
+                      .join("")}
+                  </span>
+                  <div className="leading-tight">
+                    <p className="text-[13px] font-bold text-white">TheCodiQ</p>
+                    <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-primary">
+                      Global
+                    </p>
+                  </div>
+                </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </Card>
 
-        <div className="mt-7 sm:mt-8 flex items-center justify-center gap-3 sm:gap-4 sm:hidden">
-          <button
-            type="button"
-            aria-label="Previous team member"
-            onClick={() => goToSlide(activeIndex - 1)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition duration-300"
-          >
-            <svg
-              aria-hidden="true"
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {/* contact actions, aligned to the image width */}
+          <div className="mt-4 flex items-center gap-2.5">
+            <a
+              href={founder.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${founder.firstName} ${founder.lastName} on LinkedIn`}
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-brand-blue/30 bg-brand-blue/10 px-4 py-2.5 text-[12px] font-semibold text-brand-blue transition duration-300 hover:bg-brand-blue/15"
             >
-              <path
-                d="M15 18l-6-6 6-6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-              />
-            </svg>
-          </button>
+              <FaLinkedinIn className="h-3.5 w-3.5" />
+              LinkedIn
+            </a>
+            <a
+              href={`mailto:${founder.email}`}
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-2.5 text-[12px] font-semibold text-emerald-400 transition duration-300 hover:bg-emerald-400/15"
+            >
+              <FaEnvelope className="h-3.5 w-3.5" />
+              <span className="truncate">{founder.email}</span>
+            </a>
+          </div>
+        </motion.div>
 
-          <div className="flex items-center gap-2">
-            {teamMembers.map((member, index) => (
-              <button
-                key={member.name}
-                type="button"
-                aria-label={`Show ${member.name}`}
-                onClick={() => goToSlide(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  activeIndex === index ? "w-8 bg-primary" : "w-2.5 bg-white/20"
-                }`}
-              />
-            ))}
+        {/* ---------- Content column ---------- */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <span className="inline-flex rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3.5 py-1.5 sm:px-4 text-[9px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary">
+            Leadership
+          </span>
+
+          <h2 className="mt-4 sm:mt-5 text-[26px] leading-tight font-bold text-white">
+            Meet Our{" "}
+            <span className="bg-gradient-to-r from-brand-blue via-amber-400 to-emerald-400 bg-clip-text text-transparent">
+              Founder
+            </span>
+          </h2>
+
+          <div className="mt-3 h-[3px] w-16 rounded-full bg-gradient-to-r from-brand-blue via-amber-400 to-emerald-400" />
+
+          <p className="mt-4 text-[12px] font-semibold leading-6 text-gray-300">
+            Building innovative digital products with a vision for the future.
+          </p>
+
+          <p className="mt-3 max-w-2xl text-[12px] leading-6 sm:leading-7 text-gray-400">
+            TheCodiQ Global was founded with a mission to help businesses
+            transform ideas into powerful digital solutions. With a focus on
+            quality, innovation, and growth, we deliver technology that
+            drives real impact.
+          </p>
+
+          <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_260px] lg:items-start">
+            <div>
+              <h3 className="text-2xl font-bold text-white sm:text-[28px]">
+                {founder.firstName}{" "}
+                <span className="text-brand-blue">{founder.lastName}</span>
+              </h3>
+              <div className="mt-2 h-[2px] w-10 rounded-full bg-brand-blue" />
+              <p className="mt-2 text-[13px] font-bold text-amber-400">
+                {founder.role}
+              </p>
+              <p className="text-[12px] text-gray-400">{founder.company}</p>
+
+              <div className="mt-5 inline-flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
+                  <FaAward className="h-4 w-4" />
+                </span>
+                <div className="leading-tight">
+                  <p className="text-[13px] font-bold text-white">10+ Years</p>
+                  <p className="text-[11px] text-gray-400">
+                    of Industry Experience
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-blue">
+                Expertise
+              </p>
+              <ul className="mt-2.5 flex flex-col gap-[7px]">
+                {expertise.map((item, index) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-1.5 text-[11px] leading-none text-gray-300"
+                  >
+                    <FaCheckCircle
+                      className={`h-3 w-3 shrink-0 ${expertiseAccents[index % expertiseAccents.length]}`}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <button
-            type="button"
-            aria-label="Next team member"
-            onClick={() => goToSlide(activeIndex + 1)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition duration-300"
-          >
-            <svg
-              aria-hidden="true"
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M9 18l6-6-6-6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-              />
-            </svg>
-          </button>
-        </div>
+          <div className="mt-6 relative rounded-2xl border border-white/10 bg-white/[0.03] p-5 pl-12">
+            <FaQuoteLeft className="absolute left-4 top-5 h-4 w-4 text-brand-blue/40" />
+            <p className="text-[13px] italic leading-6 sm:leading-7 text-gray-300">
+              Technology is not just about writing code—it&apos;s about
+              building solutions that create lasting business value and make
+              a difference.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </motion.section>
   );

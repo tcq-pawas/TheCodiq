@@ -70,18 +70,58 @@ export default function AuthenticContactForm() {
     }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
 
-    setIsSubmitting(true);
-    setIsSubmitted(false);
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\d{10}$/;
 
-    window.setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData(initialFormState);
-    }, LOADING_TIME);
-  };
+  if (!formData.name.trim()) {
+    alert("Please enter your full name.");
+    return;
+  }
+
+  if (!emailRegex.test(formData.email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  if (!phoneRegex.test(formData.phone)) {
+    alert("Please enter a valid 10 digit phone number.");
+    return;
+  }
+
+  setIsSubmitting(true);
+  setIsSubmitted(false);
+
+  try {
+    const response = await fetch("/api/contact", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    website: "thecodiq",
+    full_name: formData.name.trim(),
+    phone_number: formData.phone,
+    email: formData.email.trim(),
+    message: formData.message.trim(),
+  }),
+});
+
+    if (!response.ok) {
+      throw new Error("Failed to submit form");
+    }
+
+    setIsSubmitted(true);
+    setFormData(initialFormState);
+  } catch (error) {
+    console.error("Contact form error:", error);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const inputClass =
     "w-full rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 pl-11 text-sm text-white placeholder:text-gray-500 outline-none transition-all duration-300 focus:border-primary/60 focus:bg-white/[0.07] focus:ring-4 focus:ring-primary/10";

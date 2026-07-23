@@ -6,31 +6,43 @@ interface InnerPageBannerProps {
   className?: string;
 }
 
-export default function InnerPageBanner({ title, subtitle, className = '' }: InnerPageBannerProps) {
+export default function InnerPageBanner({
+  title,
+  subtitle,
+  className = '',
+}: InnerPageBannerProps) {
   return (
     <section
-      className={cn('relative w-full overflow-hidden', className)}
-      style={{
-        marginTop: '90px',
-        height: '200px',
-      }}
+      className={cn(
+        'relative mt-[90px] h-[180px] w-full overflow-hidden md:h-[200px]',
+        className
+      )}
     >
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(images/banner2.png)`,
+          backgroundImage: "url('/images/banner.png')",
+          backgroundPosition: 'center center',
         }}
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/55" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 lg:px-12">
-        <h1 className="mb-2 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-4xl">{title}</h1>
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 lg:px-12">
+        <div>
+          <h1 className="text-3xl font-bold leading-none text-white md:text-4xl">
+            {title}
+          </h1>
 
-        {subtitle && <p className="text-[14px] text-white/80 ">{subtitle}</p>}
+          {subtitle && (
+            <p className="mt-3 max-w-lg text-sm text-gray-200 md:text-base">
+              {subtitle}
+            </p>
+          )}
+        </div>
       </div>
     </section>
   );
