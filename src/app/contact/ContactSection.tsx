@@ -32,8 +32,6 @@ const initialFormState: FormState = {
   message: "",
 };
 
-const LOADING_TIME = 1000;
-
 export default function AuthenticContactForm() {
   const [formData, setFormData] = useState<FormState>(initialFormState);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -242,7 +240,7 @@ export default function AuthenticContactForm() {
               <div className="flex items-center gap-3 rounded-lg border border-green-500/20 bg-green-500/[0.06] px-4 py-3">
                 <CheckCircle2 className="h-4 w-4 shrink-0 text-green-400" />
                 <p className="text-[12px] font-medium text-green-300">
-                  Message sent — we'll get back to you soon.
+                  Message sent — we&apos;ll get back to you soon.
                 </p>
               </div>
             )}

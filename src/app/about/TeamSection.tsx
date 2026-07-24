@@ -7,10 +7,6 @@ import {
   FaEnvelope,
   FaAward,
   FaCheckCircle,
-  FaBriefcase,
-  FaUsers,
-  FaCode,
-  FaTrophy,
   FaQuoteLeft,
 } from "react-icons/fa";
 
@@ -30,44 +26,13 @@ const expertise = [
   "Web & Mobile Applications",
   "Cloud Infrastructure",
   "Digital Transformation",
-  "Product Strategy & Development",
+  "Product Strategy",
   "Team Leadership",
   "Project Management",
 ];
 
 // cycles blue -> amber -> emerald, matching the check-icon colors in the reference
 const expertiseAccents = ["text-brand-blue", "text-amber-400", "text-emerald-400"];
-
-const stats = [
-  {
-    icon: FaBriefcase,
-    value: "150+",
-    label: "Projects Delivered",
-    color: "text-brand-blue",
-    bg: "bg-brand-blue/10",
-  },
-  {
-    icon: FaUsers,
-    value: "50+",
-    label: "Happy Clients",
-    color: "text-amber-400",
-    bg: "bg-amber-400/10",
-  },
-  {
-    icon: FaCode,
-    value: "20+",
-    label: "Technologies",
-    color: "text-emerald-400",
-    bg: "bg-emerald-400/10",
-  },
-  {
-    icon: FaTrophy,
-    value: "10+",
-    label: "Years Experience",
-    color: "text-brand-blue",
-    bg: "bg-brand-blue/10",
-  },
-];
 
 export default function FounderSection() {
   return (
