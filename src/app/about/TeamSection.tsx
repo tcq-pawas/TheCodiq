@@ -73,12 +73,13 @@ const stats = [
 export default function FounderSection() {
   return (
     <motion.section
-      className="relative mb-12 sm:mb-16 md:mb-20 overflow-hidden px-4 sm:px-0"
+      className="relative overflow-hidden px-4 sm:px-0"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
+      <Card className="mb-12 sm:mb-16 md:mb-20">
       <div className="grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,380px)_1fr] lg:items-start lg:gap-14">
         {/* ---------- Image column ---------- */}
         <motion.div
@@ -88,7 +89,7 @@ export default function FounderSection() {
           transition={{ duration: 0.5 }}
           className="mx-auto w-full max-w-[280px] sm:max-w-[320px] lg:mx-0 lg:max-w-none"
         >
-          <Card>
+          
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-blue via-amber-400 to-emerald-400 p-[1.5px]">
               <div className="relative overflow-hidden rounded-2xl bg-background">
                 <div className="relative aspect-[4/5] w-full">
@@ -121,7 +122,6 @@ export default function FounderSection() {
                 </div>
               </div>
             </div>
-          </Card>
 
           {/* contact actions, aligned to the image width */}
           <div className="mt-4 flex flex-col xs:flex-row sm:flex-row items-stretch gap-2.5">
@@ -176,7 +176,7 @@ export default function FounderSection() {
             drives real impact.
           </p>
 
-          <div className="mt-5 grid gap-6 md:grid-cols-[1fr_240px] lg:grid-cols-[1fr_260px] md:items-start">
+          <div className="mt-5 grid gap-6 md:grid-cols-[1fr_320px] lg:grid-cols-[1fr_340px] md:items-start">
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-white lg:text-[28px]">
                 {founder.firstName}{" "}
@@ -201,20 +201,20 @@ export default function FounderSection() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 md:mr-2">
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-blue">
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-4 md:mr-2 shadow-lg h-[240px] flex flex-col">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-blue mb-2">
                 Expertise
               </p>
-              <ul className="mt-2.5 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-1 gap-x-3 gap-y-[7px]">
+              <ul className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-1.5 flex-1">
                 {expertise.map((item, index) => (
                   <li
                     key={item}
-                    className="flex items-center gap-1.5 text-[11px] leading-tight text-gray-300 sm:tracking-[0.5px]"
+                    className="flex items-center gap-2 text-[11px] leading-snug text-gray-200 tracking-[2px] transition-all duration-300 hover:translate-x-1"
                   >
                     <FaCheckCircle
                       className={`h-3 w-3 shrink-0 ${expertiseAccents[index % expertiseAccents.length]}`}
                     />
-                    <span>{item}</span>
+                    <span className="font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -231,6 +231,7 @@ export default function FounderSection() {
           </div>
         </motion.div>
       </div>
+      </Card>
     </motion.section>
   );
 }
