@@ -78,8 +78,8 @@ export default function FounderSection() {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <Card className="mb-12 sm:mb-16 md:mb-20">
-      <div className="grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,380px)_1fr] lg:items-start lg:gap-14">
+      {/* <Card className=""> */}
+      <div className="mb-12 sm:mb-16 md:mb-20 grid gap-8 sm:gap-10 lg:grid-cols-[minmax(0,380px)_1fr] lg:items-start lg:gap-14">
         {/* ---------- Image column ---------- */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -229,7 +229,7 @@ export default function FounderSection() {
           </div>
         </motion.div>
       </div>
-      </Card>
+      {/* </Card> */}
     </motion.section>
   );
 }
