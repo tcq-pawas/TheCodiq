@@ -1,11 +1,24 @@
 "use client";
 
 import { HiSparkles, HiBolt, HiCloud, HiChartBar, HiShieldCheck } from "react-icons/hi2";
+import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
-import { SOCIAL_LINKS } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+
+const SOCIAL_LINKS = [
+  {
+    platform: "LinkedIn",
+    url: "https://www.linkedin.com/company/thecodiq",
+    icon: <FaLinkedinIn className="h-4 w-4" />,
+  },
+  {
+    platform: "Instagram",
+    url: "https://www.instagram.com/thecodiq/",
+    icon: <FaInstagram className="h-4 w-4" />,
+  },
+];
 
 const CTA_FEATURES = [
   {
