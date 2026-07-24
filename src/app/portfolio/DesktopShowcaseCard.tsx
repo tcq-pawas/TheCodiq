@@ -234,13 +234,13 @@ export default function DesktopShowcaseCard({
                     style={{ width: `${100 / slides.length}%` }}
                   >
                     <Image
-                      src={src}
-                      alt={`${title} preview ${i + 1}`}
-                      fill
-                      priority={i === 0}
-                      className="bg-white object-contain object-top"
-                      sizes="420px"
-                    />
+  src={src}
+  alt={`${title} preview ${i + 1}`}
+  fill
+  priority={i === 0}
+  className="object-cover object-top"
+  sizes="420px"
+/>
                   </div>
                 ))}
               </div>

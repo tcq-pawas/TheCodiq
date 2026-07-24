@@ -53,6 +53,7 @@ const portfolioItems: PortfolioItem[] = [
     previewImage: "/images/portfolio/image.png",
     // TODO: replace with 5 real screenshots of the site's pages
     images: [
+      "/images/portfolio/heyday/HeyDay.png",
       "/images/portfolio/heyday/HeyDay2.png",
       "/images/portfolio/heyday/HeyDay3.png",
       "/images/portfolio/heyday/HeyDay4.png",
