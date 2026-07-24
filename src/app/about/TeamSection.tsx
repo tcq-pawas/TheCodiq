@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Card from "@/components/common/Card";
 import {
   FaLinkedinIn,
   FaEnvelope,
@@ -88,7 +87,6 @@ export default function FounderSection() {
           transition={{ duration: 0.5 }}
           className="mx-auto w-full max-w-[280px] sm:max-w-[320px] lg:mx-0 lg:max-w-none"
         >
-          <Card>
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-blue via-amber-400 to-emerald-400 p-[1.5px]">
               <div className="relative overflow-hidden rounded-2xl bg-background">
                 <div className="relative aspect-[4/5] w-full">
@@ -121,7 +119,6 @@ export default function FounderSection() {
                 </div>
               </div>
             </div>
-          </Card>
 
           {/* contact actions, aligned to the image width */}
           <div className="mt-4 flex flex-col xs:flex-row sm:flex-row items-stretch gap-2.5">
@@ -221,7 +218,7 @@ export default function FounderSection() {
             </div>
           </div>
 
-          <div className="mt-3 relative rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5 pl-10 sm:pl-12">
+          <div className="mt-5 relative rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5 pl-10 sm:pl-12">
             <FaQuoteLeft className="absolute left-4 top-5 h-3.5 w-3.5 sm:h-4 sm:w-4 text-brand-blue/40" />
             <p className="text-[12px] sm:text-[13px] italic leading-6 sm:leading-7 text-gray-300">
               Technology is not just about writing code—it&apos;s about
