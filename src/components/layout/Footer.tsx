@@ -236,7 +236,7 @@ export default function Footer() {
             </p>
             <div className="space-y-2 text-sm text-secondary-text">
               <p>Sports College, Chowk, Gorakhnath Rd, Gorakhpur, Uttar Pradesh, 273007</p>
-              <p>+91 9935795796</p>
+              <p>+91 9621315796</p>
               <p>pawas.singh@thecodiq.com</p>
             </div>
           </div>
@@ -321,7 +321,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="text-sm text-secondary-text">
                 <span className="block text-silver-primary mb-1">Phone</span>
-                +91 9935795796
+                +91 9621315796
               </li>
               <li className="text-sm text-secondary-text">
                 <span className="block text-silver-primary mb-1">Email</span>

@@ -21,7 +21,7 @@ export const SOCIAL_LINKS = [
 
 export const CONTACT_INFO = {
   email: "pawas.singh@thecodiq.com",
-  phone: "+91 9935795796",
+  phone: "+91 9621315796",
   address: "Sports College, Chowk, Gorakhnath Rd, Gorakhpur, Uttar Pradesh, 273007",
 };
 

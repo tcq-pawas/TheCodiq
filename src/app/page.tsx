@@ -125,7 +125,7 @@ export default function HomePage() {
             "@type": "LocalBusiness",
             name: "TheCodiQ Global",
             image: "https://thecodiq.com/logo/logo.png",
-            telephone: "+91 9935795796",
+            telephone: "+91 9621315796",
             email: "pawas.singh@thecodiq.com",
             address: {
               "@type": "PostalAddress",

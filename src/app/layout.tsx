@@ -96,7 +96,7 @@ export default function RootLayout({
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+91 9935795796",
+                telephone: "+91 9621315796",
                 contactType: "customer service",
                 email: "pawas.singh@thecodiq.com",
               },
