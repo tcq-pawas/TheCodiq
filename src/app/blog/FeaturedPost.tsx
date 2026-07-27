@@ -12,7 +12,6 @@ export default function FeaturedPost() {
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      <Card hover>
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0d1117]">
           <div className="grid md:grid-cols-[0.85fr_1.15fr]">
 
@@ -167,7 +166,7 @@ export default function FeaturedPost() {
 
           </div>
         </div>
-      </Card>
+
     </motion.div>
   );
 }

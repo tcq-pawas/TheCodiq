@@ -62,6 +62,11 @@ export default function Services() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
+          <div className="mb-4 inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md">
+            <span className="text-[9px] text-silver-primary tracking-wide">
+              OUR EXPERTISE
+            </span>
+          </div>
           <h2 className="text-4xl text-2xl lg:text-3xl font-bold text-silver-primary mb-6">
             Our Services
           </h2>

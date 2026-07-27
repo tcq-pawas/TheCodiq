@@ -45,7 +45,7 @@ export default function MissionVision() {
             Mission & <span className="gradient-text">Vision</span>
           </h2>
 
-          <p className="mt-3 sm:mt-4 text-[12px] leading-6 sm:leading-7 text-gray-400">
+          <p className="mt-3 sm:mt-4 text-[12px] leading-6 sm:leading-7 text-secondary-text">
             We are driven by innovation, guided by purpose, and committed to
             delivering technology solutions that create lasting business impact.
           </p>
@@ -74,7 +74,7 @@ export default function MissionVision() {
                 }}
                 className="group h-full"
               >
-                <Card hover>
+               
                   <div className="relative flex h-full min-h-[280px] sm:min-h-[320px] md:min-h-[360px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-background/70 p-5 sm:p-6 shadow-xl shadow-black/20 transition-all duration-500 group-hover:-translate-y-1 group-hover:border-cyan-300/35 group-hover:bg-white/[0.06] group-hover:shadow-[0_24px_70px_-30px_rgba(34,211,238,0.55)] md:p-7">
                     <div
                       className={`pointer-events-none absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r transition-transform duration-500 group-hover:scale-x-100 ${sharedLineStyle}`}
@@ -119,7 +119,6 @@ export default function MissionVision() {
                       </div>
                     </div>
                   </div>
-                </Card>
               </motion.div>
             );
           })}

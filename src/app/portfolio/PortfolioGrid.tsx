@@ -47,7 +47,7 @@ const portfolioItems: PortfolioItem[] = [
     category: "Web Development",
     description:
       "A modern real estate website built with Next.js and TypeScript — fast, SEO-optimized, and easy to browse for property seekers.",
-    technologies: ["React.js", "Tailwind CSS"],
+    technologies: ["React.js", "Tailwind CSS", "Django"],
     showcase: "desktop",
     liveUrl: "https://www.heydayrealty.in/",
     previewImage: "/images/portfolio/image.png",

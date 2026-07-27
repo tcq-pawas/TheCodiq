@@ -91,9 +91,14 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-16"
         >
+          <div className="mb-4 inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md">
+            <span className="text-[9px] text-silver-primary tracking-wide">
+              WHY CHOOSE US
+            </span>
+          </div>
           <SectionTitle
-            title="Why Choose Us"
-            subtitle="We deliver excellence through innovation and expertise"
+            title="Your Trusted Technology Partner"
+            subtitle="We combine innovation, expertise, and a client-first approach to deliver digital solutions that create measurable business results."
           />
         </motion.div>
 

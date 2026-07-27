@@ -22,6 +22,9 @@ type AuthCard = {
   detail: string;
   proof: string;
   icon: ElementType;
+  iconColor: string;
+  iconBg: string;
+  iconBorder: string;
 };
 
 const authCards: AuthCard[] = [
@@ -34,6 +37,9 @@ const authCards: AuthCard[] = [
       "Passkeys, device checks, and email verification help reduce fake access while keeping sign-in simple.",
     proof: "Trusted user flow",
     icon: ShieldCheck,
+    iconColor: "text-blue-400",
+    iconBg: "bg-blue-500/10",
+    iconBorder: "border-blue-500/20",
   },
   {
     id: "secure-login",
@@ -44,6 +50,9 @@ const authCards: AuthCard[] = [
       "Session protection, encrypted tokens, and retry limits help defend accounts from common attacks.",
     proof: "Encrypted sessions",
     icon: LockKeyhole,
+    iconColor: "text-amber-400",
+    iconBg: "bg-amber-500/10",
+    iconBorder: "border-amber-500/20",
   },
   {
     id: "passwordless",
@@ -54,6 +63,9 @@ const authCards: AuthCard[] = [
       "Magic links and passkeys make the login experience faster without weakening your security posture.",
     proof: "Low-friction entry",
     icon: KeyRound,
+    iconColor: "text-purple-400",
+    iconBg: "bg-purple-500/10",
+    iconBorder: "border-purple-500/20",
   },
   {
     id: "biometric-ready",
@@ -64,6 +76,9 @@ const authCards: AuthCard[] = [
       "Fingerprint-style device signals add context before a session is approved or challenged.",
     proof: "Risk-based checks",
     icon: Fingerprint,
+    iconColor: "text-pink-400",
+    iconBg: "bg-pink-500/10",
+    iconBorder: "border-pink-500/20",
   },
   {
     id: "reliable-sessions",
@@ -74,6 +89,9 @@ const authCards: AuthCard[] = [
       "Refresh handling and server-side validation reduce unexpected logouts and stale session issues.",
     proof: "Always validated",
     icon: ServerCog,
+    iconColor: "text-emerald-400",
+    iconBg: "bg-emerald-500/10",
+    iconBorder: "border-emerald-500/20",
   },
   {
     id: "account-alerts",
@@ -84,6 +102,9 @@ const authCards: AuthCard[] = [
       "Login alerts and recovery notices build confidence by making account activity easy to verify.",
     proof: "User confidence",
     icon: BellRing,
+    iconColor: "text-cyan-400",
+    iconBg: "bg-cyan-500/10",
+    iconBorder: "border-cyan-500/20",
   },
 ];
 
@@ -107,14 +128,11 @@ function AuthFeatureCard({
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
 
       <div className="flex items-start justify-between gap-3 sm:gap-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-primary/10 text-primary transition-all duration-500  md:group-hover:border-primary/40 md:group-hover:bg-primary/15">
-          <Icon className="h-5 w-5 " />
+        <div
+          className={`flex h-10 w-10 items-center justify-center rounded-lg border ${card.iconBorder} ${card.iconBg} ${card.iconColor} transition-all duration-500`}
+        >
+          <Icon className="h-5 w-5" />
         </div>
-
-        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-2 py-1 text-[10px] font-medium text-gray-300 ">
-          <BadgeCheck className="h-3.5 w-3.5 text-primary" />
-          Authentic
-        </span>
       </div>
 
       <div className="mt-5 sm:mt-7">

@@ -152,12 +152,7 @@ export default function Testimonials() {
 
                           <div className="relative mb-3 flex items-start gap-3">
                             <div
-                              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-lg sm:text-xl font-bold ring-2 ring-offset-2 ring-offset-transparent ${
-                                isFeatured
-                                  ? "bg-blue-gradient text-white shadow-[0_12px_26px_rgba(59,130,246,0.25)] ring-brand-blue/30"
-                                  : "bg-white/[0.08] text-silver-primary ring-white/10"
-                              }`}
-                            >
+                              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-gradient text-white text-lg font-bold ring-2 ring-brand-blue/30 ring-offset-2 ring-offset-transparent shadow-[0_12px_26px_rgba(59,130,246,0.25)] sm:text-xl">
                               {testimonials[idx].name.charAt(0)}
                             </div>
 
@@ -165,7 +160,7 @@ export default function Testimonials() {
                               <h4 className="truncate text-[14px] font-semibold leading-tight text-silver-primary">
                                 {testimonials[idx].name}
                               </h4>
-                              <p className="mt-0.5 truncate text-[12px] leading-5 text-secondary-text">
+                              <p className="mt-0.5 truncate text-[12px] leading-5 text-white">
                                 {testimonials[idx].role} at {testimonials[idx].company}
                               </p>
                             </div>

@@ -13,6 +13,7 @@ import {
   SiJavascript,
   SiMongodb,
   SiFirebase,
+  SiDjango,
 } from "react-icons/si";
 
 import { HiOutlineStatusOnline } from "react-icons/hi";
@@ -171,6 +172,11 @@ export default function DesktopShowcaseCard({
       boxClass: "border-[#68A063]/25 bg-[#68A063]/10",
       iconClass: "text-[#68A063]",
     },
+    Django: {
+      icon: <SiDjango />,
+      boxClass: "border-[#092E20]/25 bg-[#092E20]/10",
+      iconClass: "text-[#44B78B]",
+    },
     MongoDB: {
       icon: <SiMongodb />,
       boxClass: "border-[#47A248]/25 bg-[#47A248]/10",
@@ -221,9 +227,8 @@ export default function DesktopShowcaseCard({
                 className="flex h-full"
                 style={{
                   width: `${slides.length * 100}%`,
-                  transform: `translateX(-${
-                    activeIndex * (100 / slides.length)
-                  }%)`,
+                  transform: `translateX(-${activeIndex * (100 / slides.length)
+                    }%)`,
                   transition: `transform ${slideTransitionMs}ms ease-in-out`,
                 }}
               >
@@ -234,13 +239,13 @@ export default function DesktopShowcaseCard({
                     style={{ width: `${100 / slides.length}%` }}
                   >
                     <Image
-  src={src}
-  alt={`${title} preview ${i + 1}`}
-  fill
-  priority={i === 0}
-  className="object-cover object-top"
-  sizes="420px"
-/>
+                      src={src}
+                      alt={`${title} preview ${i + 1}`}
+                      fill
+                      priority={i === 0}
+                      className="object-cover object-top"
+                      sizes="420px"
+                    />
                   </div>
                 ))}
               </div>
