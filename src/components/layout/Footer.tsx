@@ -11,12 +11,14 @@ const SOCIAL_LINKS = [
   {
     platform: "LinkedIn",
     url: "https://www.linkedin.com/company/thecodiq",
-    icon: <FaLinkedinIn className="h-4 w-4" />,
+    icon: <FaLinkedinIn className="h-4 w-4 text-white" />,
+    bgColor: "bg-[#0A66C2]",
   },
   {
     platform: "Instagram",
     url: "https://www.instagram.com/thecodiq/",
-    icon: <FaInstagram className="h-4 w-4" />,
+    icon: <FaInstagram className="h-4 w-4 text-white" />,
+    bgColor: "bg-gradient-to-tr from-[#FEDA75] via-[#D62976] to-[#4F5BD5]",
   },
 ];
 
@@ -339,7 +341,7 @@ export default function Footer() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center text-silver-secondary hover:text-brand-blue hover:bg-brand-blue/20 transition-all duration-300"
+                  className={`w-8 h-8 rounded-lg flex items-center justify-center shadow-md ${social.bgColor}`}
                 >
                   {social.icon}
                 </a>

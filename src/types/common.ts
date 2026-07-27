@@ -15,6 +15,7 @@ export interface CardProps {
 }
 
 export interface SectionTitleProps {
+  badge?: string;
   title: string;
   subtitle?: string;
   align?: "left" | "center" | "right";

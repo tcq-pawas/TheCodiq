@@ -128,11 +128,11 @@ export default function FounderSection() {
 
           <div className="mt-1 h-[3px] w-16 rounded-full bg-gradient-to-r from-brand-blue via-amber-400 to-emerald-400" />
 
-          <p className="mt-2 text-[11px] sm:text-[12px] font-semibold leading-6 text-gray-300">
+          <p className="mt-2 text-[14px] sm:text-[14px] font-semibold leading-6 text-gray-300">
             Building innovative digital products with a vision for the future.
           </p>
 
-          <p className="mt-3 max-w-2xl text-[11px] sm:text-[12px] leading-6 sm:leading-7 text-gray-400">
+          <p className="mt-3 max-w-2xl text-[11px] sm:text-[12px] leading-6 sm:leading-7 text-secondary-text">
             TheCodiQ Global was founded with a mission to help businesses
             transform ideas into powerful digital solutions. With a focus on
             quality, innovation, and growth, we deliver technology that

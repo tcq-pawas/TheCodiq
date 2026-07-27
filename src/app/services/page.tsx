@@ -1,7 +1,19 @@
 import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
+import SectionTitle from "@/components/common/SectionTitle";
 import Link from "next/link";
-import { ArrowRight, Globe2, Smartphone, BrainCircuit, Palette, Megaphone, CloudCog } from "lucide-react";
+import {
+  BrainCircuit,
+  Layers,
+  Code2,
+  Smartphone,
+  CloudCog,
+  Database,
+  Palette,
+  Settings,
+  Lightbulb,
+  ArrowRight,
+} from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
@@ -20,41 +32,16 @@ const servicesSchema = {
   "url": "https://thecodiq.com/services"
 };
 
+// NOTE: id/href values below are aligned 1:1 with the 9 slugs defined in
+// data/services.ts (and used by the [slug]/page.tsx dynamic route from the PDF).
+// Card UI/markup is unchanged — only data (title, description, icon, href, color) was fixed.
 const services = [
   {
-    id: "web-development",
-    title: "Web Development",
-    description: "Custom web applications using React, Next.js & modern stacks. E-commerce, PWAs & enterprise portals.",
-    icon: Globe2,
-    href: "/services/web-development",
-    color: {
-      icon: "text-blue-400",
-      bg: "bg-blue-500/10",
-      border: "border-blue-500/20",
-      hoverBorder: "hover:border-blue-500/35",
-      hoverText: "group-hover:text-blue-400",
-    },
-  },
-  {
-    id: "mobile-app-development",
-    title: "Mobile App Development",
-    description: "Native & cross-platform mobile apps with React Native & Flutter. iOS & Android development.",
-    icon: Smartphone,
-    href: "/services/mobile-app-development",
-    color: {
-      icon: "text-amber-400",
-      bg: "bg-amber-500/10",
-      border: "border-amber-500/20",
-      hoverBorder: "hover:border-amber-500/35",
-      hoverText: "group-hover:text-amber-400",
-    },
-  },
-  {
-    id: "ai-solutions",
-    title: "AI Solutions",
-    description: "AI automation, NLP, computer vision & custom ML models for business automation.",
+    id: "ai-intelligent-automation",
+    title: "AI & Intelligent Automation",
+    description: "AI agents, generative AI, computer vision & workflow automation for business efficiency.",
     icon: BrainCircuit,
-    href: "/services/ai-solutions",
+    href: "/services/ai-intelligent-automation",
     color: {
       icon: "text-purple-400",
       bg: "bg-purple-500/10",
@@ -64,25 +51,39 @@ const services = [
     },
   },
   {
-    id: "ui-ux-design",
-    title: "UI/UX Design",
-    description: "User research, wireframing & high-conversion UI/UX design for web and mobile products.",
-    icon: Palette,
-    href: "/services/ui-ux-design",
+    id: "digital-product-engineering",
+    title: "Digital Product Engineering",
+    description: "End-to-end product design, architecture & engineering for scalable digital products.",
+    icon: Layers,
+    href: "/services/digital-product-engineering",
     color: {
-      icon: "text-pink-400",
-      bg: "bg-pink-500/10",
-      border: "border-pink-500/20",
-      hoverBorder: "hover:border-pink-500/35",
-      hoverText: "group-hover:text-pink-400",
+      icon: "text-blue-400",
+      bg: "bg-blue-500/10",
+      border: "border-blue-500/20",
+      hoverBorder: "hover:border-blue-500/35",
+      hoverText: "group-hover:text-blue-400",
     },
   },
   {
-    id: "digital-marketing",
-    title: "Digital Marketing",
-    description: "SEO, content marketing & social media growth strategies for tech and e-commerce brands.",
-    icon: Megaphone,
-    href: "/services/digital-marketing",
+    id: "custom-software-development",
+    title: "Custom Software Development",
+    description: "Tailored software solutions built with modern stacks for your unique business needs.",
+    icon: Code2,
+    href: "/services/custom-software-development",
+    color: {
+      icon: "text-amber-400",
+      bg: "bg-amber-500/10",
+      border: "border-amber-500/20",
+      hoverBorder: "hover:border-amber-500/35",
+      hoverText: "group-hover:text-amber-400",
+    },
+  },
+  {
+    id: "web-mobile-experience",
+    title: "Web & Mobile Experience",
+    description: "Custom web applications, PWAs, and native/cross-platform mobile apps for iOS & Android.",
+    icon: Smartphone,
+    href: "/services/web-mobile-experience",
     color: {
       icon: "text-emerald-400",
       bg: "bg-emerald-500/10",
@@ -92,17 +93,73 @@ const services = [
     },
   },
   {
-    id: "cloud-devops",
-    title: "Cloud & DevOps",
+    id: "cloud-infrastructure-engineering",
+    title: "Cloud Infrastructure Engineering",
     description: "Scalable cloud infrastructure, DevOps automation & microservices architecture setup.",
     icon: CloudCog,
-    href: "/services/cloud-devops",
+    href: "/services/cloud-infrastructure-engineering",
     color: {
       icon: "text-cyan-400",
       bg: "bg-cyan-500/10",
       border: "border-cyan-500/20",
       hoverBorder: "hover:border-cyan-500/35",
       hoverText: "group-hover:text-cyan-400",
+    },
+  },
+  {
+    id: "integration-data-solutions",
+    title: "Integration & Data Solutions",
+    description: "Seamless system integrations, data pipelines & API solutions connecting your business.",
+    icon: Database,
+    href: "/services/integration-data-solutions",
+    color: {
+      icon: "text-indigo-400",
+      bg: "bg-indigo-500/10",
+      border: "border-indigo-500/20",
+      hoverBorder: "hover:border-indigo-500/35",
+      hoverText: "group-hover:text-indigo-400",
+    },
+  },
+  {
+    id: "experience-design-digital-transformation",
+    title: "Experience Design & Digital Transformation",
+    description: "User research, wireframing & high-conversion UI/UX design for web and mobile products.",
+    icon: Palette,
+    href: "/services/experience-design-digital-transformation",
+    color: {
+      icon: "text-pink-400",
+      bg: "bg-pink-500/10",
+      border: "border-pink-500/20",
+      hoverBorder: "hover:border-pink-500/35",
+      hoverText: "group-hover:text-pink-400",
+    },
+  },
+  {
+    id: "managed-technology-services",
+    title: "Managed Technology Services",
+    description: "Ongoing support, monitoring & maintenance to keep your technology running smoothly.",
+    icon: Settings,
+    href: "/services/managed-technology-services",
+    color: {
+      icon: "text-orange-400",
+      bg: "bg-orange-500/10",
+      border: "border-orange-500/20",
+      hoverBorder: "hover:border-orange-500/35",
+      hoverText: "group-hover:text-orange-400",
+    },
+  },
+  {
+    id: "technology-consulting-innovation",
+    title: "Technology Consulting & Innovation",
+    description: "Strategic technology consulting & innovation roadmaps to drive digital transformation.",
+    icon: Lightbulb,
+    href: "/services/technology-consulting-innovation",
+    color: {
+      icon: "text-rose-400",
+      bg: "bg-rose-500/10",
+      border: "border-rose-500/20",
+      hoverBorder: "hover:border-rose-500/35",
+      hoverText: "group-hover:text-rose-400",
     },
   },
 ];
@@ -118,10 +175,12 @@ export default function ServicesPage() {
 
       <div className="py-16 bg-background">
         <div className="container max-w-7xl px-4 mx-auto">
-          <div className="max-w-3xl mx-auto mb-16 text-center">
-            <p className="text-[12px] text-gray-300 leading-relaxed">
-              We deliver comprehensive technology solutions tailored to your business needs. Explore our services below to learn how we can help transform your digital presence.
-            </p>
+          <div className="mb-16">
+            <SectionTitle
+              badge="OUR EXPERTISE"
+              title="Transforming Ideas Into Powerful Digital Solutions"
+              subtitle="Discover our comprehensive range of technology services designed to help businesses innovate, scale, and achieve sustainable growth through cutting-edge digital solutions."
+            />
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">

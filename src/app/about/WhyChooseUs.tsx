@@ -123,7 +123,7 @@ export default function WhyChooseUs() {
           <span className="gradient-text">TheCodiQ</span>
         </h2>
 
-        <p className="mx-auto mt-4 max-w-2xl text-[12px] leading-7 text-gray-400 ">
+        <p className="mx-auto mt-4 max-w-2xl text-[12px] leading-7 text-secondary-text">
           We combine technical expertise, creative thinking, and a
           customer-first mindset to build digital solutions that help businesses
           grow, innovate, and succeed.
@@ -162,7 +162,7 @@ export default function WhyChooseUs() {
                     <Icon className={`h-6 w-6 ${feature.color.icon}`} />
                   </div>
 
-                  <ArrowUpRight className="mt-1 h-5 w-5 -translate-x-1 translate-y-1 text-gray-600 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-primary group-hover:opacity-100" />
+          
                 </div>
 
                 <h3 className="relative mb-3  font-semibold text-white">

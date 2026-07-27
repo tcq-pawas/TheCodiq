@@ -23,11 +23,37 @@ export interface BlogPost {
 }
 
 export interface Service {
-  id: string;
+  slug: string;
+
   title: string;
+  subtitle: string;
   description: string;
+
+  heroIntro: string;
+
   icon: string;
-  features: string[];
+  color: string;
+  heroImage: string;
+
+  overview: string;
+
+  deliverables: string[];
+  benefits: string[];
+  industries: string[];
+  technologies: string[];
+  process: string[];
+  whyChooseUs: string[];
+
+  cta: {
+    heading: string;
+    tagline: string;
+    buttons: string[];
+  };
+
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 export interface PortfolioItem {

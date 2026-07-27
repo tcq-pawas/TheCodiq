@@ -54,7 +54,7 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-4 sm:mt-6 max-w-xl text-[12px] leading-7 sm:leading-8 text-gray-300"
+            className="mt-4 sm:mt-6 max-w-xl text-[12px] leading-7 sm:leading-8 text-secondary-text"
           >
             At TheCodiQ, we help startups, businesses, and enterprises transform
             ideas into powerful digital products. From modern web applications
@@ -115,7 +115,7 @@ export default function Hero() {
                 Outer is now sized to comfortably contain the inner block
                 at every breakpoint.
               */}
-              <div className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+              <div>
                 <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-lg bg-gradient-to-br from-primary to-cyan-300 shadow-lg shadow-primary/30" />
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function Hero() {
                     {stat.value}
                   </h3>
 
-                  <p className="mt-1.5 sm:mt-2 max-w-[120px] text-[10px]  uppercase tracking-wide text-gray-400">
+                  <p className="mt-1.5 sm:mt-2 max-w-[120px] text-[10px]  uppercase tracking-wide text-gray-300">
                     {stat.label}
                   </p>
                 </motion.div>
@@ -150,7 +150,7 @@ export default function Hero() {
                 Empowering Businesses Through Innovation
               </h4>
 
-              <p className="mt-2.5 sm:mt-3 text-[12px] leading-6 sm:leading-7 text-gray-300">
+              <p className="mt-2.5 sm:mt-3 text-[12px] leading-6 sm:leading-7 text-secondary-text">
                 Every project we build is designed with performance, scalability, and
                 long-term success in mind. We do not just write code; we create digital
                 experiences that help businesses grow.
