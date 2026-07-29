@@ -4,7 +4,6 @@ import type { ElementType } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  BadgeCheck,
   BellRing,
   CheckCircle2,
   Fingerprint,

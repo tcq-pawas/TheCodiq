@@ -9,7 +9,6 @@ import {
   Layers3,
   MessageSquare,
   Headset,
-  ArrowUpRight,
 } from "lucide-react";
 
 const features = [

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { FaBinoculars, FaBullseye } from "react-icons/fa";
-import Card from "@/components/common/Card";
 
 const items = [
   {
