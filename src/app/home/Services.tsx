@@ -14,7 +14,7 @@ import {
   FiSmartphone,
   FiTrendingUp,
 } from "react-icons/fi";
-import { services } from "@/data/services";
+import { serviceDetails } from "@/data/serviceDetails";
 
 const serviceIconRules = [
   { keywords: ["web", "website", "frontend", "software"], Icon: FiCode },
@@ -76,17 +76,17 @@ export default function Services() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-15">
-          {services.slice(0, 5).map((service, index) => {
+          {serviceDetails.slice(0, 5).map((service, index) => {
             const serviceText = `${service.title} ${service.description}`.toLowerCase();
             const Icon =
               serviceIconRules.find(({ keywords }) =>
                 keywords.some((keyword) => serviceText.includes(keyword))
               )?.Icon ?? fallbackServiceIcons[index % fallbackServiceIcons.length];
 
-            const serviceHref = `/services/${service.id === "1" ? "web-development" : service.id === "2" ? "mobile-app-development" : service.id === "3" ? "ai-solutions" : service.id === "4" ? "ui-ux-design" : service.id === "5" ? "digital-marketing" : "cloud-devops"}`;
+            const serviceHref = `/services/${service.slug}`;
 
             return (
-              <Link key={service.id} href={serviceHref}>
+              <Link key={service.slug} href={serviceHref}>
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}

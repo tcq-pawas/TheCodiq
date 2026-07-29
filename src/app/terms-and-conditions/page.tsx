@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
