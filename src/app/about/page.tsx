@@ -6,30 +6,50 @@ import TeamSection from "@/app/about/TeamSection";
 import WhyChooseUs from "@/app/about/WhyChooseUs";
 import JsonLd from "@/components/seo/JsonLd";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
+const organizationName = process.env.NEXT_PUBLIC_ORGANIZATION_NAME || 'The CodiQ Global Pvt. Ltd.';
+const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
+const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
+
 export const metadata: Metadata = {
-  title: "About Us | TheCodiQ Global - IT Solutions Company",
+  title: "About Us | IT Solutions Company",
   description: "Learn about TheCodiQ Global - our mission, vision, team, and why businesses choose us for web development, mobile apps, AI solutions, and digital marketing services.",
-  keywords: ["software company profile", "about software company", "IT company profile", "software development company"],
+  keywords: ["software company profile", "about software company", "IT company profile", "software development company", "company mission", "company vision"],
   openGraph: {
-    title: "About Us | TheCodiQ Global",
+    title: `About Us | ${siteName}`,
     description: "Learn about TheCodiQ Global - our mission, vision, team, and why businesses choose us for software development services.",
-    url: "https://thecodiq.com/about",
+    url: `${siteUrl}/about`,
     type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `About ${siteName}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `About Us | ${siteName}`,
+    description: "Learn about TheCodiQ Global - our mission, vision, team, and why businesses choose us for software development services.",
+    images: [twitterImage],
   },
   alternates: {
-    canonical: "https://thecodiq.com/about",
+    canonical: `${siteUrl}/about`,
   },
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": "About The CodiQ Global",
+  "name": `About ${siteName}`,
   "description": "Learn about The CodiQ Global - a leading software development company building innovative digital solutions.",
-  "url": "https://thecodiq.com/about",
+  "url": `${siteUrl}/about`,
   "mainEntity": {
     "@type": "Organization",
-    "name": "The CodiQ Global Pvt. Ltd.",
+    "name": organizationName,
     "description": "Premium software development company specializing in mobile apps, web applications, AI solutions, and digital marketing services."
   }
 };
@@ -71,13 +91,13 @@ export default function AboutPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://thecodiq.com",
+                item: siteUrl,
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "About",
-                item: "https://thecodiq.com/about",
+                item: `${siteUrl}/about`,
               },
             ],
           }),

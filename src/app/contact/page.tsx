@@ -4,28 +4,58 @@ import Hero from "@/app/contact/Hero";
 import ContactSection from "@/app/contact/ContactSection";
 import JsonLd from "@/components/seo/JsonLd";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
+const organizationName = process.env.NEXT_PUBLIC_ORGANIZATION_NAME || 'The CodiQ Global Pvt. Ltd.';
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'pawas.singh@thecodiq.com';
+const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '+91 9621315796';
+const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
+const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
+const logoUrl = process.env.NEXT_PUBLIC_LOGO_URL || '/logo/logo.png';
+
 export const metadata: Metadata = {
-  title: "Contact Us | TheCodiQ Global - Get in Touch",
+  title: "Contact Us | Get in Touch",
   description: "Contact TheCodiQ Global for web development, mobile apps, AI solutions, and digital marketing services. Get a free quote for your next project.",
+  keywords: ["contact software company", "get quote", "software development consultation", "IT services contact", "free consultation"],
+  openGraph: {
+    title: `Contact Us | ${siteName}`,
+    description: "Contact TheCodiQ Global for web development, mobile apps, AI solutions, and digital marketing services. Get a free quote for your next project.",
+    url: `${siteUrl}/contact`,
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `Contact ${siteName}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Contact Us | ${siteName}`,
+    description: "Contact TheCodiQ Global for web development, mobile apps, AI solutions, and digital marketing services. Get a free quote for your next project.",
+    images: [twitterImage],
+  },
   alternates: {
-    canonical: "https://thecodiq.com/contact",
+    canonical: `${siteUrl}/contact`,
   },
 };
 
 const contactPageSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "name": "Contact The CodiQ Global",
+  "name": `Contact ${siteName}`,
   "description": "Get free consultation for your software project. Contact The CodiQ Global for expert software development services.",
-  "url": "https://thecodiq.com/contact",
+  "url": `${siteUrl}/contact`,
   "mainEntity": {
     "@type": "Organization",
-    "name": "The CodiQ Global Pvt. Ltd.",
+    "name": organizationName,
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+1 (555) 123-4567", // TODO: Replace with real phone number
+      "telephone": contactPhone,
       "contactType": "sales",
-      "email": "pawas.singh@thecodiq.com",
+      "email": contactEmail,
       "availableLanguage": ["English"]
     }
   }
@@ -64,17 +94,17 @@ export default function ContactPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            name: "TheCodiQ Global",
-            image: "https://thecodiq.com/logo/logo.png",
-            telephone: "+91 9621315796",
-            email: "pawas.singh@thecodiq.com",
+            name: siteName,
+            image: `${siteUrl}${logoUrl}`,
+            telephone: contactPhone,
+            email: contactEmail,
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Gorakhpur",
-              addressRegion: "Uttar Pradesh",
-              addressCountry: "IN",
+              addressLocality: process.env.NEXT_PUBLIC_ADDRESS_LOCALITY || "Gorakhpur",
+              addressRegion: process.env.NEXT_PUBLIC_ADDRESS_REGION || "Uttar Pradesh",
+              addressCountry: process.env.NEXT_PUBLIC_ADDRESS_COUNTRY || "IN",
             },
-            url: "https://thecodiq.com",
+            url: siteUrl,
             openingHoursSpecification: {
               "@type": "OpeningHoursSpecification",
               dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -95,13 +125,13 @@ export default function ContactPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://thecodiq.com",
+                item: siteUrl,
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Contact",
-                item: "https://thecodiq.com/contact",
+                item: `${siteUrl}/contact`,
               },
             ],
           }),

@@ -1,11 +1,21 @@
 import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
+
 export const metadata: Metadata = {
-  title: "Careers | TheCodiQ Global - Join Our Team",
+  title: "Careers | Join Our Team",
   description: "Explore career opportunities at TheCodiQ Global. We're always looking for talented developers, designers, and marketers to join our growing team.",
+  keywords: ["software development jobs", "tech careers", "developer jobs", "designer careers", "IT job openings", "work at tech company"],
+  openGraph: {
+    title: `Careers | ${siteName}`,
+    description: "Explore career opportunities at TheCodiQ Global. We're always looking for talented developers, designers, and marketers to join our growing team.",
+    url: `${siteUrl}/careers`,
+    type: "website",
+  },
   alternates: {
-    canonical: "https://thecodiq.com/careers",
+    canonical: `${siteUrl}/careers`,
   },
 };
 
@@ -51,13 +61,13 @@ export default function CareersPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://thecodiq.com",
+                item: siteUrl,
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Careers",
-                item: "https://thecodiq.com/careers",
+                item: `${siteUrl}/careers`,
               },
             ],
           }),

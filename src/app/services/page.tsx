@@ -16,11 +16,47 @@ import {
 } from "lucide-react";
 import JsonLd from "@/components/seo/JsonLd";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
+const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
+const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
+
 export const metadata: Metadata = {
-  title: "IT Services | Web, Mobile, AI & Cloud Solutions – TheCodiQ",
+  title: "IT Services | Web, Mobile, AI & Cloud Solutions",
   description: "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
+  keywords: [
+    "IT services",
+    "web development services",
+    "mobile app development",
+    "AI solutions",
+    "UI/UX design services",
+    "digital marketing services",
+    "cloud infrastructure",
+    "DevOps services",
+    "software development"
+  ],
+  openGraph: {
+    title: `IT Services | ${siteName}`,
+    description: "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
+    url: `${siteUrl}/services`,
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `IT Services by ${siteName}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `IT Services | ${siteName}`,
+    description: "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
+    images: [twitterImage],
+  },
   alternates: {
-    canonical: "https://thecodiq.com/services",
+    canonical: `${siteUrl}/services`,
   },
 };
 
@@ -29,7 +65,7 @@ const servicesSchema = {
   "@type": "CollectionPage",
   "name": "IT Services",
   "description": "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
-  "url": "https://thecodiq.com/services"
+  "url": `${siteUrl}/services`
 };
 
 // NOTE: id/href values below are aligned 1:1 with the 9 slugs defined in
@@ -232,13 +268,13 @@ export default function ServicesPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://thecodiq.com",
+                item: siteUrl,
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Services",
-                item: "https://thecodiq.com/services",
+                item: `${siteUrl}/services`,
               },
             ],
           }),

@@ -6,52 +6,91 @@ import Testimonials from "@/app/home/Testimonials";
 import FAQ from "@/app/home/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
+const organizationName = process.env.NEXT_PUBLIC_ORGANIZATION_NAME || 'The CodiQ Global Pvt. Ltd.';
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'pawas.singh@thecodiq.com';
+const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '+91 9621315796';
+const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/thecodiq/';
+const linkedinUrl = process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/company/thecodiq';
+const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
+const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
+const logoUrl = process.env.NEXT_PUBLIC_LOGO_URL || '/logo/logo.png';
 
 export const metadata: Metadata = {
-  title: "Home | TheCodiQ - Premium IT Solutions",
+  title: "Home | Premium IT Solutions",
   description:
     "Transform your business with premium IT solutions. Expert web development, mobile apps, AI solutions, and digital marketing services.",
+  keywords: [
+    "IT solutions",
+    "web development",
+    "mobile app development",
+    "AI solutions",
+    "digital marketing",
+    "software development",
+    "custom software",
+    "cloud services"
+  ],
+  openGraph: {
+    title: `Home | ${siteName} - Premium IT Solutions`,
+    description: "Transform your business with premium IT solutions. Expert web development, mobile apps, AI solutions, and digital marketing services.",
+    url: siteUrl,
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteName} - Premium IT Solutions`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Home | ${siteName} - Premium IT Solutions`,
+    description: "Transform your business with premium IT solutions. Expert web development, mobile apps, AI solutions, and digital marketing services.",
+    images: [twitterImage],
+  },
   alternates: {
-    canonical: "https://thecodiq.com",
+    canonical: siteUrl,
   },
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareCompany",
-  "name": "The CodiQ Global Pvt. Ltd.",
+  "name": organizationName,
   "description": "Premium software development company specializing in mobile apps, web applications, AI solutions, machine learning, and digital marketing services.",
-  "url": "https://thecodiq.com",
-  "logo": "https://thecodiq.com/logo/logo.png",
+  "url": siteUrl,
+  "logo": `${siteUrl}${logoUrl}`,
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1 (555) 123-4567", // TODO: Replace with real phone number
+    "telephone": contactPhone,
     "contactType": "sales",
-    "email": "pawas.singh@thecodiq.com",
+    "email": contactEmail,
     "availableLanguage": ["English"]
   },
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "IN",
-    "addressRegion": "Uttar Pradesh",
-    "addressLocality": "Gorakhpur"
+    "addressCountry": process.env.NEXT_PUBLIC_ADDRESS_COUNTRY || "IN",
+    "addressRegion": process.env.NEXT_PUBLIC_ADDRESS_REGION || "Uttar Pradesh",
+    "addressLocality": process.env.NEXT_PUBLIC_ADDRESS_LOCALITY || "Gorakhpur"
   },
   "sameAs": [
-    "https://linkedin.com/company/thecodiq",
-    "https://twitter.com/thecodiq",
-    "https://facebook.com/thecodiq"
+    instagramUrl,
+    linkedinUrl
   ]
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "The CodiQ Global",
-  "url": "https://thecodiq.com",
+  "name": siteName,
+  "url": siteUrl,
   "description": "Premium software development and AI solutions",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://thecodiq.com/search?q={search_term_string}",
+    "target": `${siteUrl}/search?q={search_term_string}`,
     "query-input": "required name=search_term_string"
   }
 };
@@ -123,17 +162,17 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            name: "TheCodiQ Global",
-            image: "https://thecodiq.com/logo/logo.png",
-            telephone: "+91 9621315796",
-            email: "pawas.singh@thecodiq.com",
+            name: siteName,
+            image: `${siteUrl}${logoUrl}`,
+            telephone: contactPhone,
+            email: contactEmail,
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Gorakhpur",
-              addressRegion: "Uttar Pradesh",
-              addressCountry: "IN",
+              addressLocality: process.env.NEXT_PUBLIC_ADDRESS_LOCALITY || "Gorakhpur",
+              addressRegion: process.env.NEXT_PUBLIC_ADDRESS_REGION || "Uttar Pradesh",
+              addressCountry: process.env.NEXT_PUBLIC_ADDRESS_COUNTRY || "IN",
             },
-            url: "https://thecodiq.com",
+            url: siteUrl,
             openingHoursSpecification: {
               "@type": "OpeningHoursSpecification",
               dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

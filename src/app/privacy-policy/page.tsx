@@ -1,11 +1,18 @@
 import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
+
 export const metadata: Metadata = {
-  title: "Privacy Policy | TheCodiQ Global",
+  title: "Privacy Policy",
   description: "TheCodiQ Global's privacy policy explains how we collect, use, and protect your personal information when you use our services.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
-    canonical: "https://thecodiq.com/privacy-policy",
+    canonical: `${siteUrl}/privacy-policy`,
   },
 };
 
@@ -90,13 +97,13 @@ export default function PrivacyPolicyPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://thecodiq.com",
+                item: siteUrl,
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Privacy Policy",
-                item: "https://thecodiq.com/privacy-policy",
+                item: `${siteUrl}/privacy-policy`,
               },
             ],
           }),

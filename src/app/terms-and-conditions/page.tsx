@@ -1,11 +1,18 @@
 import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
+
 export const metadata: Metadata = {
-  title: "Terms & Conditions | TheCodiQ Global",
+  title: "Terms & Conditions",
   description: "TheCodiQ Global's terms and conditions govern your use of our website and services. Read our legal terms here.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
-    canonical: "https://thecodiq.com/terms-and-conditions",
+    canonical: `${siteUrl}/terms-and-conditions`,
   },
 };
 
@@ -101,13 +108,13 @@ export default function TermsAndConditionsPage() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://thecodiq.com",
+                item: siteUrl,
               },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Terms & Conditions",
-                item: "https://thecodiq.com/terms-and-conditions",
+                item: `${siteUrl}/terms-and-conditions`,
               },
             ],
           }),

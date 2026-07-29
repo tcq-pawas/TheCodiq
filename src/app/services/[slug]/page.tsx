@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import { serviceDetails, footerCTA } from "@/data/serviceDetails";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 import {
@@ -16,6 +17,58 @@ interface Props {
     params: Promise<{
         slug: string;
     }>;
+}
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
+const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
+const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = await params;
+    const service = serviceDetails.find((item) => item.slug === slug);
+
+    if (!service) {
+        return {
+            title: "Service Not Found",
+        };
+    }
+
+    return {
+        title: `${service.title} | ${siteName}`,
+        description: service.description,
+        keywords: [
+            service.title.toLowerCase(),
+            "IT services",
+            "software development",
+            "technology solutions",
+            "digital transformation",
+            ...service.deliverables.slice(0, 3).map(d => d.toLowerCase())
+        ],
+        openGraph: {
+            title: `${service.title} | ${siteName}`,
+            description: service.description,
+            url: `${siteUrl}/services/${service.slug}`,
+            type: "website",
+            images: [
+                {
+                    url: ogImage,
+                    width: 1200,
+                    height: 630,
+                    alt: service.title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${service.title} | ${siteName}`,
+            description: service.description,
+            images: [twitterImage],
+        },
+        alternates: {
+            canonical: `${siteUrl}/services/${service.slug}`,
+        },
+    };
 }
 
 const sectionMeta = {
@@ -135,8 +188,58 @@ export default async function ServicePage({ params }: Props) {
         "whyChooseUs",
     ];
 
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": service.title,
+        "description": service.description,
+        "provider": {
+            "@type": "Organization",
+            "name": siteName,
+            "url": siteUrl,
+        },
+        "url": `${siteUrl}/services/${service.slug}`,
+    };
+
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: siteUrl,
+            },
+            {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: `${siteUrl}/services`,
+            },
+            {
+                "@type": "ListItem",
+                position: 3,
+                name: service.title,
+                item: `${siteUrl}/services/${service.slug}`,
+            },
+        ],
+    };
+
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(serviceSchema),
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(breadcrumbSchema),
+                }}
+            />
             <InnerPageBanner title={service.title} subtitle={service.subtitle} />
 
             <div className="py-10 bg-background sm:py-12 md:py-16">

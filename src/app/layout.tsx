@@ -6,11 +6,24 @@ import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
+const organizationName = process.env.NEXT_PUBLIC_ORGANIZATION_NAME || 'The CodiQ Global Pvt. Ltd.';
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'pawas.singh@thecodiq.com';
+const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '+91 9621315796';
+const instagramUrl = process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/thecodiq/';
+const linkedinUrl = process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/company/thecodiq';
+const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
+const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
+const logoUrl = process.env.NEXT_PUBLIC_LOGO_URL || '/logo/logo.png';
+const faviconUrl = process.env.NEXT_PUBLIC_FAVICON_URL || '/logo/codiqi-favicon.png';
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thecodiq.com'),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "The CodiQ Global | Premium Software Development & AI Solutions",
-    template: "%s | The CodiQ Global"
+    default: `${siteName} | Premium Software Development & AI Solutions`,
+    template: `%s | ${siteName}`
   },
   description: "Premium software development company specializing in mobile apps, web applications, AI solutions, machine learning, and digital marketing services for businesses worldwide.",
   keywords: [
@@ -24,12 +37,15 @@ export const metadata: Metadata = {
     "custom software",
     "IT services"
   ],
-  authors: [{ name: "TheCodiQ" }],
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: organizationName,
   icons: {
-    icon: "/logo/codiqi-favicon.png",
-    shortcut: "/logo/codiqi-favicon.png",
-    apple: "/logo/codiqi-favicon.png",
+    icon: faviconUrl,
+    shortcut: faviconUrl,
+    apple: faviconUrl,
   },
+  manifest: '/site.webmanifest',
   robots: {
     index: true,
     follow: true,
@@ -44,32 +60,32 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://thecodiq.com",
-    title: "The CodiQ Global | Premium Software Development & AI Solutions",
+    url: siteUrl,
+    title: `${siteName} | Premium Software Development & AI Solutions`,
     description: "Transform your business with AI-powered software solutions. Expert mobile app development, web development, and digital marketing services.",
-    siteName: "The CodiQ Global",
+    siteName: siteName,
     images: [
       {
-        url: "/og-image.jpg",
+        url: ogImage,
         width: 1200,
         height: 630,
-        alt: "The CodiQ Global - Software Development Company",
+        alt: `${siteName} - Software Development Company`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The CodiQ Global | Premium Software Development & AI Solutions",
+    title: `${siteName} | Premium Software Development & AI Solutions`,
     description: "Transform your business with AI-powered software solutions. Expert mobile app development, web development, and digital marketing services.",
-    images: ["/twitter-image.jpg"],
-    creator: "@thecodiq",
+    images: [twitterImage],
   },
-  verification: {
-    google: "TODO: insert real GSC verification code",
-  },
+  verification: googleVerification ? {
+    google: googleVerification,
+  } : undefined,
   alternates: {
-    canonical: "https://thecodiq.com",
+    canonical: siteUrl,
   },
+  category: 'technology',
 };
 
 export default function RootLayout({
@@ -86,25 +102,25 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "TheCodiQ Global Pvt. Ltd.",
-              url: "https://thecodiq.com",
-              logo: "https://thecodiq.com/logo/logo.png",
+              name: organizationName,
+              url: siteUrl,
+              logo: `${siteUrl}${logoUrl}`,
               sameAs: [
-                "https://twitter.com/thecodiq",
-                "https://linkedin.com/company/thecodiq",
-                "https://facebook.com/thecodiq",
+                instagramUrl,
+                linkedinUrl,
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+91 9621315796",
+                telephone: contactPhone,
                 contactType: "customer service",
-                email: "pawas.singh@thecodiq.com",
+                email: contactEmail,
+                availableLanguage: ["English"]
               },
               address: {
                 "@type": "PostalAddress",
-                addressCountry: "IN",
-                addressRegion: "Uttar Pradesh",
-                addressLocality: "Gorakhpur"
+                addressCountry: process.env.NEXT_PUBLIC_ADDRESS_COUNTRY || "IN",
+                addressRegion: process.env.NEXT_PUBLIC_ADDRESS_REGION || "Uttar Pradesh",
+                addressLocality: process.env.NEXT_PUBLIC_ADDRESS_LOCALITY || "Gorakhpur"
               }
             }),
           }}

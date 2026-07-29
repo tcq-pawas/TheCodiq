@@ -1,18 +1,9 @@
 import { MetadataRoute } from 'next';
-import { services } from '@/data/services';
+import { serviceDetails } from '@/data/serviceDetails';
 
-const serviceSlugs: Record<string, string> = {
-  '1': 'web-development',
-  '2': 'mobile-app-development',
-  '3': 'ai-solutions',
-  '4': 'ui-ux-design',
-  '5': 'digital-marketing',
-  '6': 'cloud-devops',
-};
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://thecodiq.com';
-  
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -70,10 +61,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const servicePages: MetadataRoute.Sitemap = services.map((service) => {
-    const slug = serviceSlugs[service.id] || service.id;
+  const servicePages: MetadataRoute.Sitemap = serviceDetails.map((service) => {
     return {
-      url: `${baseUrl}/services/${slug}`,
+      url: `${baseUrl}/services/${service.slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
