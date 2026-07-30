@@ -18,34 +18,38 @@ const items = [
 ];
 
 const sharedIconStyle =
-  "border-cyan-300/25 bg-cyan-300/10 text-cyan-300 shadow-cyan-300/10";
+  "border-cyan-400/30 bg-cyan-400/15 text-cyan-400 shadow-cyan-400/15";
 
-const sharedLineStyle = "from-transparent via-cyan-300/80 to-transparent";
+const sharedLineStyle = "from-transparent via-cyan-400/80 to-transparent";
 const sharedProgressStyle = "from-cyan-300 via-primary to-blue-400";
 
 export default function MissionVision() {
   return (
     <motion.section
-      className="relative mb-16 sm:mb-20 lg:mb-24 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.03] px-4 py-10 sm:px-6 sm:py-12 shadow-2xl shadow-primary/10 md:px-8 lg:px-10"
+      className="relative mb-16 sm:mb-20 lg:mb-24 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[#C5D5EB] bg-white px-4 py-10 sm:px-6 sm:py-12 shadow-[0_18px_60px_rgba(37,99,235,.08)] md:px-8 lg:px-10"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_35%,rgba(59,130,246,0.1))]" />
-      <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+      {/* Soft radial gradients */}
+      <div className="pointer-events-none absolute -top-24 -left-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-top-40 sm:-left-40 rounded-full bg-blue-500/5 blur-[90px] sm:blur-[150px]" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-bottom-40 sm:-right-40 rounded-full bg-orange-500/5 blur-[90px] sm:blur-[150px]" />
+      
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),transparent_35%,rgba(59,130,246,0.04))]" />
+      <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#2563EB]/30 to-transparent" />
 
       <div className="relative">
         <div className="mx-auto mb-9 sm:mb-11 lg:mb-12 max-w-2xl text-center">
-          <span className="inline-flex rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3.5 py-1.5 sm:px-4 text-[9px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary">
+          <span className="inline-flex rounded-full border border-[#C5D5EB] bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3.5 py-1.5 sm:px-4 text-[9px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#2563EB] shadow-[0_8px_24px_rgba(37,99,235,.12)]">
             Purpose Driven
           </span>
 
-          <h2 className="mt-4 sm:mt-5 text-[26px] leading-tight  font-bold text-white">
-            Mission & <span className="gradient-text">Vision</span>
+          <h2 className="mt-4 sm:mt-5 text-[26px] leading-tight  font-bold text-[#111827]">
+            Mission & <span className="bg-gradient-to-r from-[#2563EB] via-[#7C3AED] via-[#F59E0B] to-[#22C55E] bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Vision</span>
           </h2>
 
-          <p className="mt-3 sm:mt-4 text-[12px] leading-6 sm:leading-7 text-secondary-text">
+          <p className="mt-3 sm:mt-4 text-[12px] leading-6 sm:leading-7 text-[#475569]">
             We are driven by innovation, guided by purpose, and committed to
             delivering technology solutions that create lasting business impact.
           </p>
@@ -75,7 +79,7 @@ export default function MissionVision() {
                 className="group h-full"
               >
                
-                  <div className="relative flex h-full min-h-[280px] sm:min-h-[320px] md:min-h-[360px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-background/70 p-5 sm:p-6 shadow-xl shadow-black/20 transition-all duration-500 group-hover:-translate-y-1 group-hover:border-cyan-300/35 group-hover:bg-white/[0.06] group-hover:shadow-[0_24px_70px_-30px_rgba(34,211,238,0.55)] md:p-7">
+                  <div className="relative flex h-full min-h-[280px] sm:min-h-[320px] md:min-h-[360px] flex-col overflow-hidden rounded-2xl border border-[#C5D5EB] bg-gradient-to-br from-white to-[#fbfdff] p-5 sm:p-6 shadow-[0_18px_60px_rgba(37,99,235,.08)] transition-all duration-500 group-hover:-translate-y-1 group-hover:border-cyan-400/35 group-hover:shadow-[0_24px_70px_rgba(34,211,238,0.15)] md:p-7">
                     <div
                       className={`pointer-events-none absolute inset-x-0 top-0 h-px scale-x-0 bg-gradient-to-r transition-transform duration-500 group-hover:scale-x-100 ${sharedLineStyle}`}
                     />
@@ -86,14 +90,14 @@ export default function MissionVision() {
 
                     <div className="relative mb-5  flex items-center justify-between gap-4">
                       <div
-                        className={`flex h-10 w-10 sm:h-[3.25rem] sm:w-[3.25rem] md:h-12 md:w-12 shrink-0 items-center justify-center rounded-2xl border text-2xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-300/45 group-hover:bg-cyan-300/15 group-hover:shadow-[0_18px_45px_-22px_rgba(34,211,238,0.9)] ${sharedIconStyle}`}
+                        className={`flex h-10 w-10 sm:h-[3.25rem] sm:w-[3.25rem] md:h-12 md:w-12 shrink-0 items-center justify-center rounded-2xl border text-2xl shadow-lg transition-all duration-500 group-hover:scale-105 group-hover:border-cyan-400/45 group-hover:bg-cyan-400/20 group-hover:shadow-[0_18px_45px_-22px_rgba(34,211,238,0.9)] ${sharedIconStyle}`}
                       >
                         <Icon aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
                       </div>
                     </div>
 
                     <div className="relative flex flex-1 flex-col">
-                      <h3 className="mb-2.5 sm:mb-3 text-lg  font-bold text-white transition-colors duration-300 group-hover:text-primary">
+                      <h3 className="mb-2.5 sm:mb-3 text-lg  font-bold text-[#111827] transition-colors duration-300 group-hover:text-[#2563EB]">
                         {item.title}
                       </h3>
 
@@ -106,12 +110,12 @@ export default function MissionVision() {
                         always pushes the progress bar to the exact same
                         vertical position on both cards, every time.
                       */}
-                      <p className="leading-7 sm:leading-8 text-gray-400 transition-colors duration-300 group-hover:text-gray-300 line-clamp-6 text-[12px]">
+                      <p className="leading-7 sm:leading-8 text-[#475569] transition-colors duration-300 group-hover:text-[#525F73] line-clamp-6 text-[12px]">
                         {item.text}
                       </p>
 
                       <div className="mt-auto pt-5">
-                        <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
+                        <div className="h-1.5 overflow-hidden rounded-full bg-[#E6ECF5]">
                           <div
                             className={`h-full w-2/3 rounded-full bg-gradient-to-r transition-all duration-500 group-hover:w-full ${sharedProgressStyle}`}
                           />

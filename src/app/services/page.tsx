@@ -43,11 +43,11 @@ const services = [
     icon: BrainCircuit,
     href: "/services/ai-intelligent-automation",
     color: {
-      icon: "text-purple-400",
-      bg: "bg-purple-500/10",
-      border: "border-purple-500/20",
-      hoverBorder: "hover:border-purple-500/35",
-      hoverText: "group-hover:text-purple-400",
+      icon: "text-purple-500",
+      bg: "bg-purple-500/15",
+      border: "border-purple-500/40",
+      hoverBorder: "hover:border-purple-500/50",
+      hoverText: "group-hover:text-purple-500",
     },
   },
   {
@@ -57,11 +57,11 @@ const services = [
     icon: Layers,
     href: "/services/digital-product-engineering",
     color: {
-      icon: "text-blue-400",
-      bg: "bg-blue-500/10",
-      border: "border-blue-500/20",
-      hoverBorder: "hover:border-blue-500/35",
-      hoverText: "group-hover:text-blue-400",
+      icon: "text-blue-500",
+      bg: "bg-blue-500/15",
+      border: "border-blue-500/40",
+      hoverBorder: "hover:border-blue-500/50",
+      hoverText: "group-hover:text-blue-500",
     },
   },
   {
@@ -71,11 +71,11 @@ const services = [
     icon: Code2,
     href: "/services/custom-software-development",
     color: {
-      icon: "text-amber-400",
-      bg: "bg-amber-500/10",
-      border: "border-amber-500/20",
-      hoverBorder: "hover:border-amber-500/35",
-      hoverText: "group-hover:text-amber-400",
+      icon: "text-amber-500",
+      bg: "bg-amber-500/15",
+      border: "border-amber-500/40",
+      hoverBorder: "hover:border-amber-500/50",
+      hoverText: "group-hover:text-amber-500",
     },
   },
   {
@@ -85,11 +85,11 @@ const services = [
     icon: Smartphone,
     href: "/services/web-mobile-experience",
     color: {
-      icon: "text-emerald-400",
-      bg: "bg-emerald-500/10",
-      border: "border-emerald-500/20",
-      hoverBorder: "hover:border-emerald-500/35",
-      hoverText: "group-hover:text-emerald-400",
+      icon: "text-emerald-500",
+      bg: "bg-emerald-500/15",
+      border: "border-emerald-500/40",
+      hoverBorder: "hover:border-emerald-500/50",
+      hoverText: "group-hover:text-emerald-500",
     },
   },
   {
@@ -99,11 +99,11 @@ const services = [
     icon: CloudCog,
     href: "/services/cloud-infrastructure-engineering",
     color: {
-      icon: "text-cyan-400",
-      bg: "bg-cyan-500/10",
-      border: "border-cyan-500/20",
-      hoverBorder: "hover:border-cyan-500/35",
-      hoverText: "group-hover:text-cyan-400",
+      icon: "text-cyan-500",
+      bg: "bg-cyan-500/15",
+      border: "border-cyan-500/40",
+      hoverBorder: "hover:border-cyan-500/50",
+      hoverText: "group-hover:text-cyan-500",
     },
   },
   {
@@ -113,11 +113,11 @@ const services = [
     icon: Database,
     href: "/services/integration-data-solutions",
     color: {
-      icon: "text-indigo-400",
-      bg: "bg-indigo-500/10",
-      border: "border-indigo-500/20",
-      hoverBorder: "hover:border-indigo-500/35",
-      hoverText: "group-hover:text-indigo-400",
+      icon: "text-indigo-500",
+      bg: "bg-indigo-500/15",
+      border: "border-indigo-500/40",
+      hoverBorder: "hover:border-indigo-500/50",
+      hoverText: "group-hover:text-indigo-500",
     },
   },
   {
@@ -127,11 +127,11 @@ const services = [
     icon: Palette,
     href: "/services/experience-design-digital-transformation",
     color: {
-      icon: "text-pink-400",
-      bg: "bg-pink-500/10",
-      border: "border-pink-500/20",
-      hoverBorder: "hover:border-pink-500/35",
-      hoverText: "group-hover:text-pink-400",
+      icon: "text-pink-500",
+      bg: "bg-pink-500/15",
+      border: "border-pink-500/40",
+      hoverBorder: "hover:border-pink-500/50",
+      hoverText: "group-hover:text-pink-500",
     },
   },
   {
@@ -141,11 +141,11 @@ const services = [
     icon: Settings,
     href: "/services/managed-technology-services",
     color: {
-      icon: "text-orange-400",
-      bg: "bg-orange-500/10",
-      border: "border-orange-500/20",
-      hoverBorder: "hover:border-orange-500/35",
-      hoverText: "group-hover:text-orange-400",
+      icon: "text-orange-500",
+      bg: "bg-orange-500/15",
+      border: "border-orange-500/40",
+      hoverBorder: "hover:border-orange-500/50",
+      hoverText: "group-hover:text-orange-500",
     },
   },
   {
@@ -155,11 +155,11 @@ const services = [
     icon: Lightbulb,
     href: "/services/technology-consulting-innovation",
     color: {
-      icon: "text-rose-400",
-      bg: "bg-rose-500/10",
-      border: "border-rose-500/20",
-      hoverBorder: "hover:border-rose-500/35",
-      hoverText: "group-hover:text-rose-400",
+      icon: "text-rose-500",
+      bg: "bg-rose-500/15",
+      border: "border-rose-500/40",
+      hoverBorder: "hover:border-rose-500/50",
+      hoverText: "group-hover:text-rose-500",
     },
   },
 ];
@@ -173,8 +173,12 @@ export default function ServicesPage() {
         subtitle="Technology solutions for your business growth"
       />
 
-      <div className="py-16 bg-background">
-        <div className="container max-w-7xl px-4 mx-auto">
+      <div className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 20%, #fffdf8 45%, #f8fff9 70%, #ffffff 100%)' }}>
+        {/* Background Effects */}
+        <div className="pointer-events-none absolute -top-24 -left-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-top-40 sm:-left-40 rounded-full bg-blue-500/5 blur-[90px] sm:blur-[150px]" />
+        <div className="pointer-events-none absolute -bottom-24 -right-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-bottom-40 sm:-right-40 rounded-full bg-orange-500/5 blur-[90px] sm:blur-[150px]" />
+
+        <div className="relative z-10 container max-w-7xl px-4 mx-auto">
           <div className="mb-16">
             <SectionTitle
               badge="OUR EXPERTISE"
@@ -190,27 +194,27 @@ export default function ServicesPage() {
                 <Link
                   key={service.id}
                   href={service.href}
-                  className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-6 shadow-xl shadow-black/20 transition duration-300 hover:-translate-y-1.5 hover:bg-white/[0.065] ${service.color.hoverBorder}`}
+                  className={`group relative overflow-hidden rounded-2xl border border-[#C5D5EB] bg-white p-6 shadow-[0_18px_60px_rgba(37,99,235,.08)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_70px_rgba(37,99,235,.12)] ${service.color.hoverBorder}`}
                 >
                   <div className="relative mb-6 flex items-start justify-between gap-4">
                     <div
-                      className={`flex h-12 w-12 items-center justify-center rounded-2xl border shadow-lg shadow-black/10 transition duration-300 group-hover:scale-105 ${service.color.border} ${service.color.bg} ${service.color.icon}`}
+                      className={`flex h-12 w-12 items-center justify-center rounded-2xl border shadow-lg transition duration-300 group-hover:scale-105 ${service.color.border} ${service.color.bg} ${service.color.icon}`}
                     >
                       <Icon className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
                     </div>
                     <ArrowRight
-                      className={`h-5 w-5 text-gray-500 transition-transform duration-300 group-hover:translate-x-1 ${service.color.hoverText}`}
+                      className={`h-5 w-5 text-[#94A3B8] transition-transform duration-300 group-hover:translate-x-1 ${service.color.hoverText}`}
                     />
                   </div>
 
                   <div className="relative">
                     <h3
-                      className={`text-medium font-bold text-white transition duration-300 ${service.color.hoverText}`}
+                      className={`text-medium font-bold text-[#111827] transition duration-300 ${service.color.hoverText}`}
                     >
                       {service.title}
                     </h3>
 
-                    <p className="mt-3 text-[12px] leading-6 text-gray-400">
+                    <p className="mt-3 text-[12px] leading-6 text-[#475569]">
                       {service.description}
                     </p>
                   </div>

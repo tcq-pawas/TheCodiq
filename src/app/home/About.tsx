@@ -23,42 +23,42 @@ const features = [
     description:
       "Highly skilled professionals with years of experience in building enterprise-grade solutions. Our team consists of certified developers, architects, and consultants who bring deep expertise across multiple technologies and industries.",
     Icon: FaUserTie,
-    accent: "from-brand-blue/25 to-brand-blue/5 text-brand-blue",
+    accent: "from-blue-100 to-blue-50 text-[#2563EB]",
   },
   {
     title: "Modern Tech",
     description:
       "Latest technologies and best practices. We stay at the forefront of technology innovation, utilizing cutting-edge frameworks, cloud-native architectures, and AI-powered tools to deliver future-proof solutions.",
     Icon: FaBolt,
-    accent: "from-brand-gold/25 to-brand-gold/5 text-brand-gold",
+    accent: "from-orange-100 to-orange-50 text-[#F59E0B]",
   },
   {
     title: "24/7 Support",
     description:
       "Round-the-clock assistance for your needs. Our dedicated support team is available 24/7 to ensure your applications run smoothly, with rapid response times and proactive monitoring.",
     Icon: FaHeadset,
-    accent: "from-brand-green/25 to-brand-green/5 text-brand-green",
+    accent: "from-green-100 to-green-50 text-[#22C55E]",
   },
   {
     title: "Quality Code",
     description:
       "Clean, maintainable, and scalable solutions. We follow industry best practices, implement comprehensive testing, and maintain high code quality standards to ensure long-term success.",
     Icon: FaCode,
-    accent: "from-silver-primary/20 to-white/5 text-silver-primary",
+    accent: "from-blue-100 to-blue-50 text-[#2563EB]",
   },
   {
     title: "Secure Solutions",
     description:
       "Security is integrated into every stage of development. From secure coding standards and encrypted communication to regular security audits, we ensure your applications remain protected against modern cyber threats.",
     Icon: FaShieldAlt,
-    accent: "from-red-500/20 to-red-500/5 text-red-400",
+    accent: "from-orange-100 to-orange-50 text-[#F59E0B]",
   },
   {
     title: "Innovative Approach",
     description:
       "We combine creativity with technology to build future-ready digital products. Our team constantly explores emerging technologies and innovative strategies to deliver solutions that keep your business ahead of the competition.",
     Icon: FaLightbulb,
-    accent: "from-yellow-400/20 to-yellow-400/5 text-yellow-400",
+    accent: "from-green-100 to-green-50 text-[#22C55E]",
   },
 ];
 
@@ -78,10 +78,10 @@ export default function About() {
   };
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 bg-bg-secondary relative overflow-hidden">
+    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 20%, #fefcf7 45%, #f8fff9 70%, #ffffff 100%)' }}>
       {/* Decorative blurs - smaller & clipped on mobile so they don't cause horizontal scroll */}
-      <div className="absolute -top-24 -left-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-top-40 sm:-left-40 rounded-full bg-brand-blue/10 blur-[90px] sm:blur-[150px]" />
-      <div className="absolute -bottom-24 -right-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-bottom-40 sm:-right-40 rounded-full bg-brand-gold/10 blur-[90px] sm:blur-[150px]" />
+      <div className="absolute -top-24 -left-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-top-40 sm:-left-40 rounded-full bg-blue-500/5 blur-[90px] sm:blur-[150px]" />
+      <div className="absolute -bottom-24 -right-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-bottom-40 sm:-right-40 rounded-full bg-orange-500/5 blur-[90px] sm:blur-[150px]" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
         <motion.div
@@ -91,14 +91,16 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="text-center mb-10 sm:mb-16"
         >
-          <div className="mb-4 inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md">
-            <span className="text-[9px] text-silver-primary tracking-wide">
+          <div className="mb-4 inline-flex items-center rounded-full border border-[#2563EB]/20 bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md shadow-[0_8px_24px_rgba(37,99,235,.12)]">
+            <span className="text-[9px] text-[#2563EB] tracking-wide font-semibold">
               WHY CHOOSE US
             </span>
           </div>
           <SectionTitle
             title="Your Trusted Technology Partner"
             subtitle="We combine innovation, expertise, and a client-first approach to deliver digital solutions that create measurable business results."
+            titleColor="text-[#0F172A]"
+            subtitleColor="text-[#64748B]"
           />
         </motion.div>
 
@@ -117,7 +119,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="min-h-[420px] xs:min-h-[460px] sm:min-h-[520px]"
           >
-            <div className="relative h-full min-h-[420px] xs:min-h-[460px] sm:min-h-[520px] w-full overflow-hidden rounded-[18px] sm:rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#08111d] shadow-[0_15px_50px_rgba(0,0,0,.4)] sm:shadow-[0_25px_80px_rgba(0,0,0,.45)]">
+            <div className="relative h-full min-h-[420px] xs:min-h-[460px] sm:min-h-[520px] w-full overflow-hidden rounded-[18px] sm:rounded-[24px] md:rounded-[28px] border border-[#CBD5E1] bg-white shadow-[0_15px_45px_rgba(30,64,175,.08)] sm:shadow-[0_25px_80px_rgba(37,99,235,.08)]">
 
               {/* Background - object-top stops the top of the rocket getting cropped */}
               <Image
@@ -129,21 +131,19 @@ export default function About() {
                 className="object-cover object-[50%_15%]"
               />
 
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/15 via-[#020617]/30 to-[#020617]/95" />
+              {/* Light Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/30 to-white/90" />
 
               {/* Launch Ready Badge */}
               <div className="absolute left-3 top-3 z-20 sm:left-4 sm:top-4 md:left-7 md:top-7">
                 <div
-                  className="flex items-center gap-1.5 sm:gap-2 md:gap-3 rounded-full border border-[#3b82f6]/30 bg-gradient-to-r
-        from-[#2563eb]/25 via-[#1e3a8a]/20 to-[#0b1220]/90 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-5 backdrop-blur-2xl
-        shadow-[0_0_30px_rgba(37,99,235,0.22)] ring-1 ring-white/5"
+                  className="flex items-center gap-1.5 sm:gap-2 md:gap-3 rounded-full border border-[#CBD5E1] bg-white/80 px-2.5 py-1.5 sm:px-3 sm:py-2 md:px-5 backdrop-blur-2xl shadow-[0_10px_30px_rgba(37,99,235,.08)] ring-1 ring-white/50"
                 >
                   <div className="flex h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#60a5fa] to-[#2563eb] shadow-[0_0_18px_rgba(59,130,246,.45)]">
                     <FaRocket className="text-[9px] sm:text-xs md:text-sm text-white -rotate-45" />
                   </div>
 
-                  <span className="text-[8px] sm:text-[10px] md:text-[9px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-white whitespace-nowrap">
+                  <span className="text-[8px] sm:text-[10px] md:text-[9px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#0F172A] whitespace-nowrap">
                     Launch Ready
                   </span>
                 </div>
@@ -154,13 +154,13 @@ export default function About() {
 
                 {/* Text */}
                 <div className="px-4 sm:px-5 md:px-8 text-center">
-                  <h2 className="text-[22px] leading-[1.15] font-semibold xs:text-[24px] sm:text-[28px] md:text-[24px] text-white">
+                  <h2 className="text-[22px] leading-[1.15] font-semibold xs:text-[24px] sm:text-[28px] md:text-[24px] text-[#0F172A]">
                     Excellence in
                     <br />
-                    Every <span className="text-brand-blue">Project Idea</span>
+                    Every <span className="text-[#2563EB]">Project Idea</span>
                   </h2>
 
-                  <p className="mx-auto mt-2 sm:mt-3 md:mt-4 max-w-[260px] sm:max-w-[320px] md:max-w-[360px] text-[12px] sm:text-[13px] md:text-[12px] leading-5 md:leading-6 text-white">
+                  <p className="mx-auto mt-2 sm:mt-3 md:mt-4 max-w-[260px] sm:max-w-[320px] md:max-w-[360px] text-[12px] sm:text-[13px] md:text-[12px] leading-5 md:leading-6 text-[#64748B]">
                     Delivering premium IT solutions worldwide with innovation,
                     reliability, and exceptional customer satisfaction.
                   </p>
@@ -169,42 +169,42 @@ export default function About() {
                 {/* Stats */}
                 <div className="mt-5 sm:mt-6 md:mt-7 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-2 px-3 sm:px-4 pb-4">
 
-                  <div className="rounded-[14px] sm:rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-2.5 sm:py-3 md:py-4 backdrop-blur-xl">
-                    <Users className="mx-auto mb-1.5 sm:mb-2 h-5 w-5 sm:h-6 sm:w-6 md:h-[26px] md:w-[26px] text-brand-blue" />
-                    <h3 className="text-center text-[14px] sm:text-[16px] md:text-[18px] font-bold text-white">
+                  <div className="rounded-[14px] sm:rounded-[16px] md:rounded-[18px] border border-[#CBD5E1] bg-white px-2 py-2.5 sm:py-3 md:py-4 backdrop-blur-xl shadow-[0_15px_45px_rgba(30,64,175,.08)]">
+                    <Users className="mx-auto mb-1.5 sm:mb-2 h-5 w-5 sm:h-6 sm:w-6 md:h-[26px] md:w-[26px] text-[#2563EB]" />
+                    <h3 className="text-center text-[14px] sm:text-[16px] md:text-[18px] font-bold text-[#0F172A]">
                       250+
                     </h3>
-                    <p className="mt-0.5 sm:mt-1 text-center text-[9px] sm:text-[10px] md:text-[11px] leading-4 text-slate-400">
+                    <p className="mt-0.5 sm:mt-1 text-center text-[9px] sm:text-[10px] md:text-[11px] leading-4 text-[#64748B]">
                       Happy Clients
                     </p>
                   </div>
 
-                  <div className="rounded-[14px] sm:rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-2.5 sm:py-3 md:py-4 backdrop-blur-xl">
-                    <Rocket className="mx-auto mb-1.5 sm:mb-2 h-5 w-5 sm:h-6 sm:w-6 md:h-[26px] md:w-[26px] text-violet-500" />
-                    <h3 className="text-center text-[14px] sm:text-[16px] md:text-[18px] font-bold text-white">
+                  <div className="rounded-[14px] sm:rounded-[16px] md:rounded-[18px] border border-[#CBD5E1] bg-white px-2 py-2.5 sm:py-3 md:py-4 backdrop-blur-xl shadow-[0_15px_45px_rgba(30,64,175,.08)]">
+                    <Rocket className="mx-auto mb-1.5 sm:mb-2 h-5 w-5 sm:h-6 sm:w-6 md:h-[26px] md:w-[26px] text-[#F59E0B]" />
+                    <h3 className="text-center text-[14px] sm:text-[16px] md:text-[18px] font-bold text-[#0F172A]">
                       400+
                     </h3>
-                    <p className="mt-0.5 sm:mt-1 text-center text-[9px] sm:text-[10px] md:text-[11px] leading-4 text-slate-400">
+                    <p className="mt-0.5 sm:mt-1 text-center text-[9px] sm:text-[10px] md:text-[11px] leading-4 text-[#64748B]">
                       Projects Delivered
                     </p>
                   </div>
 
-                  <div className="rounded-[14px] sm:rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-2.5 sm:py-3 md:py-4 backdrop-blur-xl">
-                    <Award className="mx-auto mb-1.5 sm:mb-2 h-5 w-5 sm:h-6 sm:w-6 md:h-[26px] md:w-[26px] text-amber-400" />
-                    <h3 className="text-center text-[14px] sm:text-[16px] md:text-[18px] font-bold text-white">
+                  <div className="rounded-[14px] sm:rounded-[16px] md:rounded-[18px] border border-[#CBD5E1] bg-white px-2 py-2.5 sm:py-3 md:py-4 backdrop-blur-xl shadow-[0_15px_45px_rgba(30,64,175,.08)]">
+                    <Award className="mx-auto mb-1.5 sm:mb-2 h-5 w-5 sm:h-6 sm:w-6 md:h-[26px] md:w-[26px] text-[#22C55E]" />
+                    <h3 className="text-center text-[14px] sm:text-[16px] md:text-[18px] font-bold text-[#0F172A]">
                       50+
                     </h3>
-                    <p className="mt-0.5 sm:mt-1 text-center text-[9px] sm:text-[10px] md:text-[11px] leading-4 text-slate-400">
+                    <p className="mt-0.5 sm:mt-1 text-center text-[9px] sm:text-[10px] md:text-[11px] leading-4 text-[#64748B]">
                       Experts
                     </p>
                   </div>
 
-                  <div className="rounded-[14px] sm:rounded-[16px] md:rounded-[18px] border border-white/10 bg-[#0B1324]/80 px-2 py-2.5 sm:py-3 md:py-4 backdrop-blur-xl">
-                    <Globe className="mx-auto mb-1.5 sm:mb-2 h-5 w-5 sm:h-6 sm:w-6 md:h-[26px] md:w-[26px] text-green-500" />
-                    <h3 className="text-center text-[14px] sm:text-[16px] md:text-[18px] font-bold text-white">
+                  <div className="rounded-[14px] sm:rounded-[16px] md:rounded-[18px] border border-[#CBD5E1] bg-white px-2 py-2.5 sm:py-3 md:py-4 backdrop-blur-xl shadow-[0_15px_45px_rgba(30,64,175,.08)]">
+                    <Globe className="mx-auto mb-1.5 sm:mb-2 h-5 w-5 sm:h-6 sm:w-6 md:h-[26px] md:w-[26px] text-[#2563EB]" />
+                    <h3 className="text-center text-[14px] sm:text-[16px] md:text-[18px] font-bold text-[#0F172A]">
                       25+
                     </h3>
-                    <p className="mt-0.5 sm:mt-1 text-center text-[9px] sm:text-[10px] md:text-[11px] leading-4 text-slate-400">
+                    <p className="mt-0.5 sm:mt-1 text-center text-[9px] sm:text-[10px] md:text-[11px] leading-4 text-[#64748B]">
                       Countries Served
                     </p>
                   </div>
@@ -247,8 +247,8 @@ export default function About() {
                       role="button"
                       tabIndex={0}
                       className={`w-full text-left rounded-xl sm:rounded-2xl border transition-all duration-300 cursor-pointer ${isActive
-                          ? "border-brand-blue bg-bg-card/80 backdrop-blur-xl shadow-lg shadow-brand-blue/20"
-                          : "border-white/8 bg-bg-card/30 backdrop-blur-sm hover:border-brand-blue/50"
+                          ? "border-[#2563EB] bg-white shadow-[0_20px_60px_rgba(37,99,235,.08)]"
+                          : "border-[#CBD5E1] bg-white hover:border-[#2563EB]/50 hover:shadow-[0_15px_45px_rgba(30,64,175,.08)]"
                         }`}
                       onClick={() => toggleFeature(index)}
                       onKeyDown={(e) => {
@@ -263,14 +263,14 @@ export default function About() {
                         <div className="flex items-center gap-3 sm:gap-4">
                           <div
                             className={`h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 shrink-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${feature.accent
-                              } flex items-center justify-center ring-1 ring-white/10 transition-all duration-300 ${isActive ? "scale-105 shadow-lg" : ""
+                              } flex items-center justify-center ring-1 ring-white/50 transition-all duration-300 ${isActive ? "scale-105 shadow-lg" : ""
                               }`}
                           >
                             <Icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                           </div>
                           <div className="min-w-0 flex-1">
                             <h3
-                              className={`text-[14px] font-semibold transition-colors ${isActive ? "text-brand-blue" : "text-silver-primary"
+                              className={`text-[14px] font-semibold transition-colors ${isActive ? "text-[#2563EB]" : "text-[#0F172A]"
                                 }`}
                             >
                               {feature.title}
@@ -279,7 +279,7 @@ export default function About() {
                           <motion.div
                             animate={{ rotate: isActive ? 180 : 0 }}
                             transition={{ duration: 0.3 }}
-                            className="shrink-0 text-silver-secondary"
+                            className="shrink-0 text-[#64748B]"
                           >
                             <FiChevronDown className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
                           </motion.div>
@@ -301,7 +301,7 @@ export default function About() {
                               shows, clamp removed, toggle hidden.
                             */}
                             <p
-                              className={`text-secondary-text text-[12px] leading-relaxed ${isMobileExpanded ? "" : "line-clamp-2"
+                              className={`text-[#64748B] text-[12px] leading-relaxed ${isMobileExpanded ? "" : "line-clamp-2"
                                 } sm:line-clamp-none`}
                             >
                               {feature.description}
@@ -310,7 +310,7 @@ export default function About() {
                             <button
                               type="button"
                               onClick={(e) => toggleMobileAnswer(e, index)}
-                              className="mt-1.5 text-xs font-semibold text-brand-blue sm:hidden"
+                              className="mt-1.5 text-xs font-semibold text-[#2563EB] sm:hidden"
                             >
                               {isMobileExpanded ? "Show less" : "Know more"}
                             </button>

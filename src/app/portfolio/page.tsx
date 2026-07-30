@@ -36,16 +36,12 @@ export default function PortfolioPage() {
         subtitle="Explore our latest projects and success stories"
       />
 
-      <div className="py-16 bg-background relative overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute inset-0 grid-pattern opacity-10" />
-        <div className="animated-blob w-96 h-96 bg-primary/20 top-1/4 -left-48" />
-        <div
-          className="animated-blob w-96 h-96 bg-accent/20 bottom-1/4 -right-48"
-          style={{ animationDelay: "3s" }}
-        />
+      <div className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 20%, #fffdf8 45%, #f8fff9 70%, #ffffff 100%)' }}>
+        {/* Background Effects */}
+        <div className="pointer-events-none absolute -top-24 -left-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-top-40 sm:-left-40 rounded-full bg-blue-500/5 blur-[90px] sm:blur-[150px]" />
+        <div className="pointer-events-none absolute -bottom-24 -right-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-bottom-40 sm:-right-40 rounded-full bg-orange-500/5 blur-[90px] sm:blur-[150px]" />
 
-        <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
           <Hero />
           <PortfolioGrid />
         </div>

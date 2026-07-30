@@ -46,10 +46,10 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-bg-primary py-16 sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 20%, #fefcf7 45%, #f8fff9 70%, #ffffff 100%)' }}>
       {/* Decorative ambient glows */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-brand-blue/10 blur-[90px] sm:blur-[140px]" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-brand-gold/10 blur-[90px] sm:blur-[140px]" />
+      <div className="pointer-events-none absolute -top-24 -left-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-blue-500/5 blur-[90px] sm:blur-[140px]" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-orange-500/5 blur-[90px] sm:blur-[140px]" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -59,15 +59,15 @@ export default function Testimonials() {
           transition={{ duration: 0.45 }}
           className="mx-auto mb-10 sm:mb-14 max-w-2xl text-center"
         >
-          <div className="mb-4 inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md">
-            <span className="text-[9px] text-silver-primary tracking-wide">
+          <div className="mb-4 inline-flex items-center rounded-full border border-[#2563EB]/20 bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md shadow-[0_8px_24px_rgba(37,99,235,.12)]">
+            <span className="text-[9px] text-[#2563EB] tracking-wide font-semibold">
               CLIENT TESTIMONIALS
             </span>
           </div>
-          <h2 className="mb-3 sm:mb-4 text-[26px] leading-tight sm:text-3xl md:text-3xl font-bold text-silver-primary">
+          <h2 className="mb-3 sm:mb-4 text-[26px] leading-tight sm:text-3xl md:text-3xl font-bold text-[#0F172A]">
             Feedback from our clients
           </h2>
-          <p className="mx-auto max-w-xl text-[12px] leading-6 sm:leading-7 text-secondary-text ">
+          <p className="mx-auto max-w-xl text-[12px] leading-6 sm:leading-7 text-[#64748B]">
             Our WORK speaks louder than our WORD. Find out how we helped clients overcome challenges and succeed.
           </p>
         </motion.div>
@@ -84,8 +84,8 @@ export default function Testimonials() {
                   }}
                   className={`w-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? "h-10 bg-brand-blue shadow-[0_0_16px_rgba(59,130,246,0.5)]"
-                      : "h-6 bg-white/20 hover:bg-white/40"
+                      ? "h-10 bg-[#2563EB] shadow-[0_0_16px_rgba(37,99,235,0.5)]"
+                      : "h-6 bg-[#E6ECF5] hover:bg-[#2563EB]/40"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -130,18 +130,18 @@ export default function Testimonials() {
                         <article
                           className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border p-6 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 ${
                             isFeatured
-                              ? "border-brand-blue/25 bg-[linear-gradient(145deg,rgba(255,255,255,0.12),rgba(255,255,255,0.045))] hover:shadow-[0_24px_60px_rgba(59,130,246,0.18)]"
-                              : "border-white/[0.08] bg-white/[0.045] hover:border-white/[0.16]"
+                              ? "border-[#2563EB]/25 bg-white/90 hover:shadow-[0_24px_60px_rgba(37,99,235,0.18)]"
+                              : "border-[#CBD5E1] bg-white hover:border-[#2563EB]/50"
                           }`}
                         >
                           {isFeatured && (
-                            <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.65),transparent)]" />
+                            <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(37,99,235,0.5),transparent)]" />
                           )}
 
                           {/* Decorative quote mark */}
                           <svg
                             className={`absolute -right-1 -top-1 h-16 w-16 sm:h-20 sm:w-20 ${
-                              isFeatured ? "text-brand-blue/10" : "text-white/[0.05]"
+                              isFeatured ? "text-[#2563EB]/10" : "text-[#E6ECF5]/50"
                             }`}
                             fill="currentColor"
                             viewBox="0 0 24 24"
@@ -152,15 +152,17 @@ export default function Testimonials() {
 
                           <div className="relative mb-3 flex items-start gap-3">
                             <div
-                              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-gradient text-white text-lg font-bold ring-2 ring-brand-blue/30 ring-offset-2 ring-offset-transparent shadow-[0_12px_26px_rgba(59,130,246,0.25)] sm:text-xl">
+                              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white text-lg font-bold ring-2 ring-[#2563EB]/30 ring-offset-2 ring-offset-transparent shadow-[0_12px_26px_rgba(37,99,235,0.25)] sm:text-xl"
+                              style={{ background: 'linear-gradient(135deg, #2563EB, #3B82F6)' }}
+                            >
                               {testimonials[idx].name.charAt(0)}
                             </div>
 
                             <div className="min-w-0 flex-1">
-                              <h4 className="truncate text-[14px] font-semibold leading-tight text-silver-primary">
+                              <h4 className="truncate text-[14px] font-semibold leading-tight text-[#0F172A]">
                                 {testimonials[idx].name}
                               </h4>
-                              <p className="mt-0.5 truncate text-[12px] leading-5 text-white">
+                              <p className="mt-0.5 truncate text-[12px] leading-5 text-[#64748B]">
                                 {testimonials[idx].role} at {testimonials[idx].company}
                               </p>
                             </div>
@@ -171,7 +173,7 @@ export default function Testimonials() {
                               <span
                                 key={s}
                                 className={`text-base sm:text-lg ${
-                                  isFeatured ? "text-brand-gold" : "text-brand-gold/60"
+                                  isFeatured ? "text-[#F59E0B]" : "text-[#F59E0B]/60"
                                 }`}
                               >
                                 &#9733;
@@ -189,7 +191,7 @@ export default function Testimonials() {
                             since only one card is visible at a time there.
                           */}
                           <p
-                            className="relative flex-1 text-[12px] sm:text-[12px] font-medium leading-6 sm:leading-7 text-silver-secondary line-clamp-4"
+                            className="relative flex-1 text-[12px] sm:text-[12px] font-medium leading-6 sm:leading-7 text-[#64748B] line-clamp-4"
                           >
                             &ldquo;{testimonials[idx].content}&rdquo;
                           </p>
@@ -212,7 +214,7 @@ export default function Testimonials() {
                     setCurrentIndex(index);
                   }}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? "w-7 bg-brand-blue" : "w-2 bg-white/25 hover:bg-white/45"
+                    index === currentIndex ? "w-7 bg-[#2563EB]" : "w-2 bg-[#E6ECF5] hover:bg-[#2563EB]/45"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -222,7 +224,7 @@ export default function Testimonials() {
             <div className="mt-5 sm:mt-6 flex justify-center gap-3 sm:gap-4">
               <button
                 onClick={prevTestimonial}
-                className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white transition-all duration-300 hover:scale-[1.04] hover:border-brand-blue/40 hover:bg-white/[0.12]"
+                className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-[#CBD5E1] bg-gradient-to-br from-white to-[#F8FAFC] text-[#2563EB] transition-all duration-300 hover:scale-[1.04] hover:border-[#2563EB] hover:shadow-[0_8px_24px_rgba(37,99,235,.15)]"
                 aria-label="Previous testimonials"
               >
                 <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -232,7 +234,7 @@ export default function Testimonials() {
 
               <button
                 onClick={nextTestimonial}
-                className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white transition-all duration-300 hover:scale-[1.04] hover:border-brand-blue/40 hover:bg-white/[0.12]"
+                className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-[#CBD5E1] bg-gradient-to-br from-white to-[#F8FAFC] text-[#2563EB] transition-all duration-300 hover:scale-[1.04] hover:border-[#2563EB] hover:shadow-[0_8px_24px_rgba(37,99,235,.15)]"
                 aria-label="Next testimonials"
               >
                 <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

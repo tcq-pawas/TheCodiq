@@ -106,8 +106,8 @@ export default function DesktopShowcaseCard({
   };
 
   const linkIconClass = isHovering
-    ? "absolute left-3 top-3 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-[#0f1720]/90 text-primary backdrop-blur-xl shadow-lg transition-all duration-300 opacity-100"
-    : "absolute left-3 top-3 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-[#0f1720]/90 text-primary backdrop-blur-xl shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100";
+    ? "absolute left-3 top-3 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-[#C5D5EB] bg-white/90 text-[#2563EB] backdrop-blur-xl shadow-lg transition-all duration-300 opacity-100"
+    : "absolute left-3 top-3 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-[#C5D5EB] bg-white/90 text-[#2563EB] backdrop-blur-xl shadow-lg transition-all duration-300 opacity-0 group-hover:opacity-100";
 
   type TechMeta = {
     icon: JSX.Element;
@@ -117,79 +117,79 @@ export default function DesktopShowcaseCard({
 
   const fallbackTech: TechMeta = {
     icon: <FaReact />,
-    boxClass: "border-emerald-400/25 bg-emerald-400/10",
-    iconClass: "text-emerald-300",
+    boxClass: "border-emerald-500/40 bg-emerald-500/15",
+    iconClass: "text-emerald-500",
   };
 
   const techMeta: Record<string, TechMeta> = {
     "Next.js": {
       icon: <SiNextdotjs />,
-      boxClass: "border-white/70 bg-white text-black",
+      boxClass: "border-white/40 bg-white text-black",
       iconClass: "text-[#0B1117]",
     },
     NextJS: {
       icon: <SiNextdotjs />,
-      boxClass: "border-white/70 bg-white text-black",
+      boxClass: "border-white/40 bg-white text-black",
       iconClass: "text-[#0B1117]",
     },
     TypeScript: {
       icon: <SiTypescript />,
-      boxClass: "border-[#3178C6]/60 bg-[#3178C6]",
-      iconClass: "text-white",
+      boxClass: "border-[#3178C6]/40 bg-[#3178C6]/15",
+      iconClass: "text-[#3178C6]",
     },
     JavaScript: {
       icon: <SiJavascript />,
-      boxClass: "border-[#F7DF1E]/60 bg-[#F7DF1E]",
-      iconClass: "text-[#111827]",
+      boxClass: "border-[#F7DF1E]/40 bg-[#F7DF1E]/15",
+      iconClass: "text-[#F7DF1E]",
     },
     React: {
       icon: <FaReact />,
-      boxClass: "border-[#61DAFB]/25 bg-[#61DAFB]/10",
+      boxClass: "border-[#61DAFB]/40 bg-[#61DAFB]/15",
       iconClass: "text-[#61DAFB]",
     },
     "React.js": {
       icon: <FaReact />,
-      boxClass: "border-[#61DAFB]/25 bg-[#61DAFB]/10",
+      boxClass: "border-[#61DAFB]/40 bg-[#61DAFB]/15",
       iconClass: "text-[#61DAFB]",
     },
     Tailwind: {
       icon: <SiTailwindcss />,
-      boxClass: "border-[#38BDF8]/25 bg-[#38BDF8]/10",
+      boxClass: "border-[#38BDF8]/40 bg-[#38BDF8]/15",
       iconClass: "text-[#38BDF8]",
     },
     "Tailwind CSS": {
       icon: <SiTailwindcss />,
-      boxClass: "border-[#38BDF8]/25 bg-[#38BDF8]/10",
+      boxClass: "border-[#38BDF8]/40 bg-[#38BDF8]/15",
       iconClass: "text-[#38BDF8]",
     },
     Node: {
       icon: <FaNodeJs />,
-      boxClass: "border-[#68A063]/25 bg-[#68A063]/10",
+      boxClass: "border-[#68A063]/40 bg-[#68A063]/15",
       iconClass: "text-[#68A063]",
     },
     "Node.js": {
       icon: <FaNodeJs />,
-      boxClass: "border-[#68A063]/25 bg-[#68A063]/10",
+      boxClass: "border-[#68A063]/40 bg-[#68A063]/15",
       iconClass: "text-[#68A063]",
     },
     Django: {
       icon: <SiDjango />,
-      boxClass: "border-[#092E20]/25 bg-[#092E20]/10",
+      boxClass: "border-[#092E20]/40 bg-[#092E20]/15",
       iconClass: "text-[#44B78B]",
     },
     MongoDB: {
       icon: <SiMongodb />,
-      boxClass: "border-[#47A248]/25 bg-[#47A248]/10",
+      boxClass: "border-[#47A248]/40 bg-[#47A248]/15",
       iconClass: "text-[#47A248]",
     },
     Firebase: {
       icon: <SiFirebase />,
-      boxClass: "border-[#FFCA28]/25 bg-[#FFCA28]/10",
+      boxClass: "border-[#FFCA28]/40 bg-[#FFCA28]/15",
       iconClass: "text-[#FFCA28]",
     },
     WordPress: {
       icon: <FaWordpress />,
-      boxClass: "border-[#21759B]/25 bg-[#21759B]/10",
+      boxClass: "border-[#21759B]/40 bg-[#21759B]/15",
       iconClass: "text-[#4CB3D4]",
     },
   };
@@ -197,16 +197,16 @@ export default function DesktopShowcaseCard({
   return (
     <div className="group relative flex h-full flex-col gap-4 bg-transparent">
       {/* Monitor Container */}
-      <div className="relative overflow-hidden rounded-[26px] border border-[#6F93E0]/45 bg-[linear-gradient(135deg,rgba(23,44,90,0.72)_0%,rgba(7,16,21,0.78)_45%,rgba(5,14,18,0.92)_100%)] px-4 pb-6 pt-8 shadow-[0_24px_70px_rgba(0,0,0,.35)] backdrop-blur-xl sm:px-6 sm:pb-8 sm:pt-10 md:px-4 md:pb-5 md:pt-6 lg:px-5 lg:pb-6 lg:pt-7">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,.18),transparent_70%)]" />
-        <div className="absolute left-1/2 top-12 h-52 w-52 -translate-x-1/2 rounded-full bg-primary/20 blur-[90px]" />
+      <div className="relative overflow-hidden rounded-[26px] border border-[#C5D5EB] bg-white px-4 pb-6 pt-8 shadow-[0_18px_60px_rgba(37,99,235,.08)] backdrop-blur-xl sm:px-6 sm:pb-8 sm:pt-10 md:px-4 md:pb-5 md:pt-6 lg:px-5 lg:pb-6 lg:pt-7">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,.05),transparent_70%)]" />
+        <div className="absolute left-1/2 top-12 h-52 w-52 -translate-x-1/2 rounded-full bg-[#2563EB]/5 blur-[90px]" />
 
         {badge && (
-          <div className="absolute right-4 top-4 z-30 rounded-xl border border-blue-500/35 bg-[#101a14]/90 px-4 py-2 shadow-[0_10px_30px_rgba(0,0,0,.35)] backdrop-blur-xl">
+          <div className="absolute right-4 top-4 z-30 rounded-xl border border-[#2563EB]/35 bg-white/90 px-4 py-2 shadow-[0_10px_30px_rgba(37,99,235,.12)] backdrop-blur-xl">
             <div className="flex items-center gap-2">
-              <HiOutlineStatusOnline className="text-lg text-blue-400" />
+              <HiOutlineStatusOnline className="text-lg text-[#2563EB]" />
               <span
-                className={`font-medium text-white ${portfolioTextSizes.categoryBadge}`}
+                className={`font-medium text-[#111827] ${portfolioTextSizes.categoryBadge}`}
               >
                 {badge}
               </span>
@@ -217,11 +217,11 @@ export default function DesktopShowcaseCard({
         <div className="relative mx-auto w-full max-w-[420px] md:max-w-[300px] lg:max-w-[340px]">
           <div className="absolute -inset-4 bg-primary/10 blur-2xl" />
 
-          <div className="relative rounded-[10px] border border-white/10 bg-[#11181f] p-[8px] shadow-[0_25px_60px_rgba(0,0,0,.55)]">
+          <div className="relative rounded-[10px] border border-[#C5D5EB] bg-[#F8FAFC] p-[8px] shadow-[0_25px_60px_rgba(37,99,235,.15)]">
             <div
               onMouseEnter={handleEnter}
               onMouseLeave={handleLeave}
-              className="relative isolate aspect-[16/10] overflow-hidden rounded-[7px] border border-white/10 bg-black"
+              className="relative isolate aspect-[16/10] overflow-hidden rounded-[7px] border border-[#C5D5EB] bg-white"
             >
               <div
                 className="flex h-full"
@@ -262,27 +262,27 @@ export default function DesktopShowcaseCard({
             </div>
           </div>
 
-          <div className="mx-auto h-5 w-16 rounded-b-md bg-gradient-to-b from-[#404a55] to-[#222b35]" />
-          <div className="mx-auto h-[7px] w-28 rounded-full bg-[#2b3540]" />
+          <div className="mx-auto h-5 w-16 rounded-b-md bg-gradient-to-b from-[#C5D5EB] to-[#94A3B8]" />
+          <div className="mx-auto h-[7px] w-28 rounded-full bg-[#94A3B8]" />
         </div>
       </div>
 
       {/* Details Container */}
-      <div className="flex flex-1 flex-col rounded-[22px] border border-[#6F93E0]/45 bg-[linear-gradient(135deg,rgba(8,20,24,0.94)_0%,rgba(7,16,21,0.88)_48%,rgba(18,43,66,0.72)_100%)] p-4 shadow-[0_18px_55px_rgba(0,0,0,.28)] backdrop-blur-xl sm:p-5 md:p-2.5 lg:p-3">
+      <div className="flex flex-1 flex-col rounded-[22px] border border-[#C5D5EB] bg-gradient-to-br from-white to-[#fbfdff] p-4 shadow-[0_18px_60px_rgba(37,99,235,.08)] backdrop-blur-xl sm:p-5 md:p-2.5 lg:p-3">
         <span
-          className={`mb-1 inline-flex w-fit items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 uppercase tracking-wider text-blue-500 ${portfolioTextSizes.categoryBadge}`}
+          className={`mb-1 inline-flex w-fit items-center gap-2 rounded-full border border-[#2563EB]/20 bg-[#2563EB]/10 px-3 py-1 uppercase tracking-wider text-[#2563EB] ${portfolioTextSizes.categoryBadge}`}
         >
           {category}
         </span>
 
         <h4
-          className={`mb-1 mt-0.5 font-semibold leading-tight text-white transition-colors duration-300 group-hover:text-primary ${portfolioTextSizes.cardTitle}`}
+          className={`mb-1 mt-0.5 font-semibold leading-tight text-[#111827] transition-colors duration-300 group-hover:text-[#2563EB] ${portfolioTextSizes.cardTitle}`}
         >
           {title}
         </h4>
 
         <p
-          className={`mb-1 line-clamp-2 text-gray-400 ${portfolioTextSizes.cardDescription}`}
+          className={`mb-1 line-clamp-2 text-[#475569] ${portfolioTextSizes.cardDescription}`}
         >
           {description}
         </p>
@@ -294,7 +294,7 @@ export default function DesktopShowcaseCard({
             return (
               <span
                 key={tech}
-                className={`inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-gray-200 transition-all duration-300 hover:scale-105 ${meta.boxClass} ${portfolioTextSizes.techPill}`}
+                className={`inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-[#475569] transition-all duration-300 hover:scale-105 ${meta.boxClass} ${portfolioTextSizes.techPill}`}
               >
                 <span className={`text-base ${meta.iconClass}`}>
                   {meta.icon}
