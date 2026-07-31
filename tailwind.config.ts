@@ -13,13 +13,22 @@ const config: Config = {
         foreground: "#D6D6D6",
         border: "rgba(255,255,255,0.08)",
         
-        // TheCodiQ Global brand colors
-        "brand-blue": "#1E88FF",
-        "brand-gold": "#F7A600",
-        "brand-green": "#69B33B",
+        // Premium SaaS Color Palette
+        "primary-blue": "#2563EB",
+        "premium-yellow": "#FBBF24",
+        "leaf-green": "#22C55E",
+        "dark-navbar": "#0B1220",
+        "page-background": "#F8FAFC",
+        "heading-color": "#111827",
+        "body-text": "#6B7280",
+        
+        // TheCodiQ Global brand colors (keeping for compatibility)
+        "brand-blue": "#2563EB",
+        "brand-gold": "#FBBF24",
+        "brand-green": "#22C55E",
         
         // Dark graphite backgrounds
-        "bg-primary": "#0D0F12",
+        "bg-primary": "#0B1220",
         "bg-secondary": "#151A21",
         "bg-card": "#1B2028",
         "bg-panel": "#222831",
@@ -37,8 +46,8 @@ const config: Config = {
         "secondary-text": "#A8A8A8",
         
         // Accent gradient colors
-        "accent-start": "#1E88FF",
-        "accent-end": "#F7A600",
+        "accent-start": "#2563EB",
+        "accent-end": "#FBBF24",
         
         // Dark theme colors
         dark: {
@@ -61,12 +70,20 @@ const config: Config = {
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         
         // Brand gradients
-        "blue-gradient": "linear-gradient(135deg, #1E88FF 0%, #4DA3FF 100%)",
-        "gold-gradient": "linear-gradient(135deg, #F7A600 0%, #FFC94D 100%)",
-        "green-gradient": "linear-gradient(135deg, #69B33B 0%, #8DD85A 100%)",
+        "blue-gradient": "linear-gradient(135deg, #2563EB 0%, #3B82F6 100%)",
+        "gold-gradient": "linear-gradient(135deg, #FBBF24 0%, #FCD34D 100%)",
+        "green-gradient": "linear-gradient(135deg, #22C55E 0%, #4ADE80 100%)",
         
         // Accent gradient
-        "accent-gradient": "linear-gradient(135deg, #1E88FF 0%, #F7A600 100%)",
+        "accent-gradient": "linear-gradient(135deg, #2563EB 0%, #FBBF24 100%)",
+        
+        // Section-specific gradients
+        "hero-gradient": "linear-gradient(180deg, #EFF6FF 0%, #F0F9FF 20%, #FEFCE8 45%, #F0FDF4 70%, #F8FAFC 100%)",
+        "services-gradient": "linear-gradient(180deg, #FFFFFF 0%, #FFFBEB 20%, #FFFFFF 45%, #F0FDF4 70%, #FFFFFF 100%)",
+        "why-choose-gradient": "linear-gradient(180deg, #F0FDF4 0%, #DCFCE7 20%, #FFFFFF 45%, #EFF6FF 70%, #FFFFFF 100%)",
+        "testimonials-gradient": "linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 20%, #DBEAFE 45%, #FFFFFF 70%, #EFF6FF 100%)",
+        "faq-gradient": "linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 20%, #FFFFFF 45%, #F0F9FF 70%, #FFFFFF 100%)",
+        "cta-gradient": "linear-gradient(135deg, #1E3A8A 0%, #1E40AF 50%, #2563EB 100%)",
         
         // Radial glow
         "radial-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(30, 136, 255, 0.15), transparent)",

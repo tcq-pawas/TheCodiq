@@ -161,12 +161,15 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-14 sm:py-24 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 20%, #fefcf7 45%, #f8fff9 70%, #ffffff 100%)' }}>
-      <div className="absolute -top-24 -left-24 h-[240px] w-[240px] sm:-top-40 sm:-left-40 sm:h-[500px] sm:w-[500px] rounded-full bg-blue-500/5 blur-[80px] sm:blur-[150px]" />
+    <section className="py-14 sm:py-24 relative overflow-hidden section-spacing-mobile sm:section-spacing-tablet lg:section-spacing-desktop" style={{ background: '#F5F9FF' }}>
+      <div className="absolute -top-24 -left-24 h-[240px] w-[240px] sm:-top-40 sm:-left-40 sm:h-[500px] sm:w-[500px] rounded-full bg-[#2563EB]/5 blur-[80px] sm:blur-[150px]" />
 
-      <div className="absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:-bottom-40 sm:-right-40 sm:h-[500px] sm:w-[500px] rounded-full bg-orange-500/5 blur-[80px] sm:blur-[150px]" />
+      <div className="absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:-bottom-40 sm:-right-40 sm:h-[500px] sm:w-[500px] rounded-full bg-[#FBBF24]/5 blur-[80px] sm:blur-[150px]" />
 
-      <div className="absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500/5 blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22C55E]/5 blur-[120px]" />
+      
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 grid-pattern opacity-20" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
         <motion.div
@@ -176,17 +179,21 @@ export default function FAQ() {
           transition={{ duration: 0.5 }}
           className="mb-10 sm:mb-16 text-center"
         >
-          <div className="mb-4 sm:mb-6 inline-flex items-center rounded-full border border-[#2563EB]/20 bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md shadow-[0_8px_24px_rgba(37,99,235,.12)]">
+          <motion.div 
+            className="mb-4 sm:mb-6 inline-flex items-center rounded-full border border-[#2563EB]/20 bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md shadow-[0_8px_24px_rgba(37,99,235,.12)]"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
             <span className="text-[9px]  text-[#2563EB] tracking-wide font-semibold">
               FREQUENTLY ASKED QUESTIONS
             </span>
-          </div>
+          </motion.div>
 
-          <h2 className="mb-4 sm:mb-6 text-[26px] leading-tight sm:text-4xl font-bold text-[#0F172A] md:text-3xl lg:text-3xl">
+          <h2 className="mb-4 sm:mb-6 text-[26px] leading-tight sm:text-4xl font-bold text-[#111827] md:text-3xl lg:text-3xl">
             Questions We Hear Most Often
           </h2>
 
-          <p className="mx-auto max-w-3xl text-[12px]  leading-relaxed text-[#64748B]">
+          <p className="mx-auto max-w-3xl text-[12px]  leading-relaxed text-[#6B7280]">
             Everything you need to know about our software development, AI solutions, project delivery process, and long-term support.
           </p>
         </motion.div>
@@ -205,11 +212,11 @@ export default function FAQ() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] border border-[#CBD5E1] bg-white p-5 sm:p-8 lg:col-span-6 lg:p-10 xl:col-span-5 h-full shadow-[0_20px_60px_rgba(37,99,235,.08)]"
+            className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] border border-[#CBD5E1] bg-white p-5 sm:p-8 lg:col-span-6 lg:p-10 xl:col-span-5 h-full shadow-[0_20px_60px_rgba(37,99,235,.08)] hover:shadow-[0_25px_70px_rgba(37,99,235,.12)] transition-all duration-300"
           >
             {/* Background glows */}
-            <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/10 blur-[100px]" />
-            <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-green-500/10 blur-[110px]" />
+            <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#2563EB]/10 blur-[100px]" />
+            <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-[#22C55E]/10 blur-[110px]" />
 
             {/* Coding-themed background texture */}
             <div className="pointer-events-none absolute inset-0 select-none overflow-hidden opacity-[0.03] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]">
@@ -256,9 +263,9 @@ export default function FAQ() {
                   </div>
                   <div>
                     <div className="text-[10px] sm:text-[11px] text-[#2563EB]">AI ASSISTANT</div>
-                    <div className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#0F172A]">
+                    <div className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#111827]">
                       GPT-5
-                      <BsStars className="text-xs text-[#F59E0B]" />
+                      <BsStars className="text-xs text-[#FBBF24]" />
                     </div>
                     <div className="text-[9px] sm:text-[10px] text-[#64748B]">Thinking...</div>
                   </div>
@@ -346,8 +353,8 @@ export default function FAQ() {
                 >
                   <div
                     className={`cursor-pointer overflow-hidden rounded-xl sm:rounded-2xl border transition-all duration-300 ${isOpen
-                      ? `${c.border} bg-white shadow-[0_20px_60px_rgba(37,99,235,.08)]`
-                      : "border-[#CBD5E1] bg-white hover:border-[#2563EB]/50 hover:shadow-[0_15px_45px_rgba(30,64,175,.08)]"
+                      ? `${c.border} bg-white shadow-[0_20px_60px_rgba(34,197,94,.08)]`
+                      : "border-[#CBD5E1] bg-white hover:border-[#22C55E]/50 hover:shadow-[0_15px_45px_rgba(34,197,94,.08)]"
                       }`}
                     onClick={() => toggleFAQ(index)}
                     onKeyDown={(e) => {
@@ -368,7 +375,7 @@ export default function FAQ() {
                           >
                             <item.icon className="text-sm" />
                           </div>
-                          <h4 className="text-xs  font-semibold text-[#0F172A]">
+                          <h4 className="text-xs  font-semibold text-[#111827]">
                             {item.question}
                           </h4>
                         </div>
@@ -376,7 +383,7 @@ export default function FAQ() {
                         <motion.span
                           animate={{ rotate: isOpen ? 45 : 0 }}
                           transition={{ duration: 0.3 }}
-                          className="shrink-0 text-lg sm:text-xl font-light text-[#64748B]"
+                          className="shrink-0 text-lg sm:text-xl font-light text-[#6B7280]"
                         >
                           +
                         </motion.span>
@@ -399,7 +406,7 @@ export default function FAQ() {
                             clamp is removed and the toggle is hidden.
                           */}
                           <p
-                            className={`text-[12px] leading-relaxed text-[#64748B] ${isMobileExpanded ? "" : "line-clamp-2"
+                            className={`text-[12px] leading-relaxed text-[#6B7280] ${isMobileExpanded ? "" : "line-clamp-2"
                               } sm:line-clamp-none`}
                           >
                             {item.answer}
@@ -418,7 +425,7 @@ export default function FAQ() {
                               className={`mt-3 sm:mt-4 flex items-center gap-2 rounded-xl border ${c.border} ${c.bg} px-3 py-2.5 sm:px-4 sm:py-3`}
                             >
                               <BsStars className={`text-sm shrink-0 ${c.text}`} />
-                              <span className="text-xs sm:text-sm text-[#0F172A]">
+                              <span className="text-xs sm:text-sm text-[#111827]">
                                 {item.cta}
                               </span>
                             </div>

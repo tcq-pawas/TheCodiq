@@ -46,10 +46,13 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24" style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 20%, #fefcf7 45%, #f8fff9 70%, #ffffff 100%)' }}>
+    <section className="relative overflow-hidden py-16 sm:py-20 lg:py-24 section-spacing-mobile sm:section-spacing-tablet lg:section-spacing-desktop" style={{ background: 'linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%)' }}>
       {/* Decorative ambient glows */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-blue-500/5 blur-[90px] sm:blur-[140px]" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-orange-500/5 blur-[90px] sm:blur-[140px]" />
+      <div className="pointer-events-none absolute -top-24 -left-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-[#2563EB]/8 blur-[90px] sm:blur-[140px]" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:h-[420px] sm:w-[420px] rounded-full bg-[#2563EB]/5 blur-[90px] sm:blur-[140px]" />
+      
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 grid-pattern opacity-20" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -59,15 +62,19 @@ export default function Testimonials() {
           transition={{ duration: 0.45 }}
           className="mx-auto mb-10 sm:mb-14 max-w-2xl text-center"
         >
-          <div className="mb-4 inline-flex items-center rounded-full border border-[#2563EB]/20 bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md shadow-[0_8px_24px_rgba(37,99,235,.12)]">
+          <motion.div 
+            className="mb-4 inline-flex items-center rounded-full border border-[#2563EB]/20 bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md shadow-[0_8px_24px_rgba(37,99,235,.12)]"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
             <span className="text-[9px] text-[#2563EB] tracking-wide font-semibold">
               CLIENT TESTIMONIALS
             </span>
-          </div>
-          <h2 className="mb-3 sm:mb-4 text-[26px] leading-tight sm:text-3xl md:text-3xl font-bold text-[#0F172A]">
+          </motion.div>
+          <h2 className="mb-3 sm:mb-4 text-[26px] leading-tight sm:text-3xl md:text-3xl font-bold text-[#111827]">
             Feedback from our clients
           </h2>
-          <p className="mx-auto max-w-xl text-[12px] leading-6 sm:leading-7 text-[#64748B]">
+          <p className="mx-auto max-w-xl text-[12px] leading-6 sm:leading-7 text-[#6B7280]">
             Our WORK speaks louder than our WORD. Find out how we helped clients overcome challenges and succeed.
           </p>
         </motion.div>
@@ -85,7 +92,7 @@ export default function Testimonials() {
                   className={`w-2 rounded-full transition-all duration-300 ${
                     index === currentIndex
                       ? "h-10 bg-[#2563EB] shadow-[0_0_16px_rgba(37,99,235,0.5)]"
-                      : "h-6 bg-[#E6ECF5] hover:bg-[#2563EB]/40"
+                      : "h-6 bg-[#DBEAFE] hover:bg-[#2563EB]/40"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -128,10 +135,10 @@ export default function Testimonials() {
                         }`}
                       >
                         <article
-                          className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border p-6 shadow-[0_18px_50px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 ${
+                          className={`group relative flex h-full flex-col overflow-hidden rounded-[18px] border p-6 shadow-[0_20px_60px_rgba(37,99,235,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 ${
                             isFeatured
                               ? "border-[#2563EB]/25 bg-white/90 hover:shadow-[0_24px_60px_rgba(37,99,235,0.18)]"
-                              : "border-[#CBD5E1] bg-white hover:border-[#2563EB]/50"
+                              : "border-[#CBD5E1] bg-white hover:border-[#2563EB]/50 hover:shadow-[0_20px_60px_rgba(37,99,235,0.12)]"
                           }`}
                         >
                           {isFeatured && (
@@ -159,10 +166,10 @@ export default function Testimonials() {
                             </div>
 
                             <div className="min-w-0 flex-1">
-                              <h4 className="truncate text-[14px] font-semibold leading-tight text-[#0F172A]">
+                              <h4 className="truncate text-[14px] font-semibold leading-tight text-[#111827]">
                                 {testimonials[idx].name}
                               </h4>
-                              <p className="mt-0.5 truncate text-[12px] leading-5 text-[#64748B]">
+                              <p className="mt-0.5 truncate text-[12px] leading-5 text-[#6B7280]">
                                 {testimonials[idx].role} at {testimonials[idx].company}
                               </p>
                             </div>
@@ -173,7 +180,7 @@ export default function Testimonials() {
                               <span
                                 key={s}
                                 className={`text-base sm:text-lg ${
-                                  isFeatured ? "text-[#F59E0B]" : "text-[#F59E0B]/60"
+                                  isFeatured ? "text-[#FBBF24]" : "text-[#FBBF24]/60"
                                 }`}
                               >
                                 &#9733;
@@ -191,7 +198,7 @@ export default function Testimonials() {
                             since only one card is visible at a time there.
                           */}
                           <p
-                            className="relative flex-1 text-[12px] sm:text-[12px] font-medium leading-6 sm:leading-7 text-[#64748B] line-clamp-4"
+                            className="relative flex-1 text-[12px] sm:text-[12px] font-medium leading-6 sm:leading-7 text-[#6B7280] line-clamp-4"
                           >
                             &ldquo;{testimonials[idx].content}&rdquo;
                           </p>

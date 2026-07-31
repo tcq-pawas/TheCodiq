@@ -139,7 +139,7 @@ export default async function ServicePage({ params }: Props) {
         <>
             <InnerPageBanner title={service.title} subtitle={service.subtitle} />
 
-            <div className="py-10 bg-background sm:py-12 md:py-16">
+            <div className="py-10 sm:py-12 md:py-16" style={{ background: 'linear-gradient(180deg, #D4D4D4 0%, #D8E0D8 20%, #D4D4D4 40%, #E0E0D8 60%, #D4D4D4 80%, #E8E0D8 100%)' }}>
                 <div className="container max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
                     {/* Hero */}
                     <div className="relative mb-10 text-center sm:mb-12 md:mb-16">
