@@ -21,7 +21,7 @@
   body {
     @apply bg-page-background text-heading-color;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background: #D4D4D4;
+    background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%);
   }
 
   html {

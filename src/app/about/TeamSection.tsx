@@ -8,6 +8,10 @@ import {
   FaAward,
   FaCheckCircle,
   FaQuoteLeft,
+  FaBriefcase,
+  FaUsers,
+  FaCode,
+  FaTrophy,
 } from "react-icons/fa";
 
 const founder = {

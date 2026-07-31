@@ -17,10 +17,11 @@ export default function InnerPageBanner({
         'relative mt-[120px] w-full overflow-hidden',
         className
       )}
+      style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%)' }}
     >
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
         <div 
-          className="relative overflow-hidden rounded-[24px] bg-white/80 backdrop-blur-xl sm:rounded-[32px]"
+          className="relative overflow-hidden rounded-[24px] bg-white/60 backdrop-blur-xl sm:rounded-[32px]"
           style={{
             boxShadow: '0 8px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
             transform: 'perspective(1000px) rotateX(1deg) translateY(-2px)',
@@ -29,7 +30,7 @@ export default function InnerPageBanner({
         >
           {/* Background */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-white via-[#fcfdff] to-white" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#EFF6FF]/40 via-white/60 to-white/80" />
           </div>
 
           {/* Content */}
