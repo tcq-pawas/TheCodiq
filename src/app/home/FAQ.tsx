@@ -32,28 +32,28 @@ type ColorConfig = {
 
 const colorMap: Record<Color, ColorConfig> = {
   emerald: {
-    bg: "bg-emerald-500/15",
-    text: "text-emerald-400",
-    border: "border-emerald-400/20",
-    dot: "bg-emerald-400",
+    bg: "bg-green-50",
+    text: "text-[#22C55E]",
+    border: "border-[#22C55E]/20",
+    dot: "bg-[#22C55E]",
   },
   blue: {
-    bg: "bg-blue-500/15",
-    text: "text-blue-400",
-    border: "border-blue-400/20",
-    dot: "bg-blue-400",
+    bg: "bg-blue-50",
+    text: "text-[#2563EB]",
+    border: "border-[#2563EB]/20",
+    dot: "bg-[#2563EB]",
   },
   violet: {
-    bg: "bg-violet-500/15",
-    text: "text-violet-400",
-    border: "border-violet-400/20",
-    dot: "bg-violet-400",
+    bg: "bg-blue-50",
+    text: "text-[#2563EB]",
+    border: "border-[#2563EB]/20",
+    dot: "bg-[#2563EB]",
   },
   amber: {
-    bg: "bg-amber-500/15",
-    text: "text-amber-400",
-    border: "border-amber-400/20",
-    dot: "bg-amber-400",
+    bg: "bg-orange-50",
+    text: "text-[#F59E0B]",
+    border: "border-[#F59E0B]/20",
+    dot: "bg-[#F59E0B]",
   },
 };
 
@@ -161,12 +161,15 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-14 sm:py-24 bg-bg-primary relative overflow-hidden">
-      <div className="absolute -top-24 -left-24 h-[240px] w-[240px] sm:-top-40 sm:-left-40 sm:h-[500px] sm:w-[500px] rounded-full bg-sky-500/10 blur-[80px] sm:blur-[150px]" />
+    <section className="py-14 sm:py-24 relative overflow-hidden section-spacing-mobile sm:section-spacing-tablet lg:section-spacing-desktop" style={{ background: '#F5F9FF' }}>
+      <div className="absolute -top-24 -left-24 h-[240px] w-[240px] sm:-top-40 sm:-left-40 sm:h-[500px] sm:w-[500px] rounded-full bg-[#2563EB]/5 blur-[80px] sm:blur-[150px]" />
 
-      <div className="absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:-bottom-40 sm:-right-40 sm:h-[500px] sm:w-[500px] rounded-full bg-cyan-500/10 blur-[80px] sm:blur-[150px]" />
+      <div className="absolute -bottom-24 -right-24 h-[240px] w-[240px] sm:-bottom-40 sm:-right-40 sm:h-[500px] sm:w-[500px] rounded-full bg-[#FBBF24]/5 blur-[80px] sm:blur-[150px]" />
 
-      <div className="absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/5 blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#22C55E]/5 blur-[120px]" />
+      
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 grid-pattern opacity-20" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
         <motion.div
@@ -176,17 +179,21 @@ export default function FAQ() {
           transition={{ duration: 0.5 }}
           className="mb-10 sm:mb-16 text-center"
         >
-          <div className="mb-4 sm:mb-6 inline-flex items-center rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md">
-            <span className="text-[9px]  text-silver-primary">
+          <motion.div 
+            className="mb-4 sm:mb-6 inline-flex items-center rounded-full border border-[#2563EB]/20 bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-md shadow-[0_8px_24px_rgba(37,99,235,.12)]"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
+            <span className="text-[9px]  text-[#2563EB] tracking-wide font-semibold">
               FREQUENTLY ASKED QUESTIONS
             </span>
-          </div>
+          </motion.div>
 
-          <h2 className="mb-4 sm:mb-6 text-[26px] leading-tight sm:text-4xl font-bold text-silver-primary md:text-3xl lg:text-3xl">
+          <h2 className="mb-4 sm:mb-6 text-[26px] leading-tight sm:text-4xl font-bold text-[#111827] md:text-3xl lg:text-3xl">
             Questions We Hear Most Often
           </h2>
 
-          <p className="mx-auto max-w-3xl text-[12px]  leading-relaxed text-secondary-text">
+          <p className="mx-auto max-w-3xl text-[12px]  leading-relaxed text-[#6B7280]">
             Everything you need to know about our software development, AI solutions, project delivery process, and long-term support.
           </p>
         </motion.div>
@@ -205,21 +212,21 @@ export default function FAQ() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] border border-white/10 bg-[#080b13] p-5 sm:p-8 lg:col-span-6 lg:p-10 xl:col-span-5 h-full"
+            className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] border border-[#CBD5E1] bg-white p-5 sm:p-8 lg:col-span-6 lg:p-10 xl:col-span-5 h-full shadow-[0_20px_60px_rgba(37,99,235,.08)] hover:shadow-[0_25px_70px_rgba(37,99,235,.12)] transition-all duration-300"
           >
             {/* Background glows */}
-            <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-sky-500/25 blur-[100px]" />
-            <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-cyan-500/20 blur-[110px]" />
+            <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#2563EB]/10 blur-[100px]" />
+            <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-[#22C55E]/10 blur-[110px]" />
 
             {/* Coding-themed background texture */}
-            <div className="pointer-events-none absolute inset-0 select-none overflow-hidden opacity-[0.07] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]">
-              <pre className="p-6 font-mono text-[11px] leading-relaxed text-blue-200">
+            <div className="pointer-events-none absolute inset-0 select-none overflow-hidden opacity-[0.03] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]">
+              <pre className="p-6 font-mono text-[11px] leading-relaxed text-[#2563EB]">
                 {bgCodeLines.join("\n").repeat(3)}
               </pre>
             </div>
 
             {/* Faint watermark </> mark */}
-            <FaCode className="pointer-events-none absolute -right-6 -top-6 text-[90px] sm:text-[160px] text-white/[0.03]" />
+            <FaCode className="pointer-events-none absolute -right-6 -top-6 text-[90px] sm:text-[160px] text-[#2563EB]/10" />
 
             {/* Drifting binary specks */}
             {[
@@ -230,7 +237,7 @@ export default function FAQ() {
             ].map((p, i) => (
               <motion.span
                 key={i}
-                className="pointer-events-none absolute select-none font-mono text-[10px] text-blue-300/20"
+                className="pointer-events-none absolute select-none font-mono text-[10px] text-[#2563EB]/20"
                 style={{ top: p.top, left: p.left }}
                 animate={{ y: [0, -10, 0], opacity: [0.15, 0.35, 0.15] }}
                 transition={{ duration: 5, repeat: Infinity, delay: p.delay }}
@@ -249,52 +256,52 @@ export default function FAQ() {
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
-                  className="flex items-center gap-2.5 sm:gap-3 rounded-2xl border border-blue-400/20 bg-white/5 px-3 py-2.5 sm:px-4 sm:py-3 backdrop-blur-xl"
+                  className="flex items-center gap-2.5 sm:gap-3 rounded-2xl border border-[#DBEAFE] bg-white/80 px-3 py-2.5 sm:px-4 sm:py-3 backdrop-blur-xl shadow-[0_10px_30px_rgba(37,99,235,.08)]"
                 >
-                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/25 to-cyan-500/20 text-cyan-300">
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 text-[#2563EB]">
                     <FaRobot className="text-sm sm:text-lg" />
                   </div>
                   <div>
-                    <div className="text-[10px] sm:text-[11px] text-blue-400">AI ASSISTANT</div>
-                    <div className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-white">
+                    <div className="text-[10px] sm:text-[11px] text-[#2563EB]">AI ASSISTANT</div>
+                    <div className="flex items-center gap-1 text-xs sm:text-sm font-semibold text-[#111827]">
                       GPT-5
-                      <BsStars className="text-xs text-yellow-400" />
+                      <BsStars className="text-xs text-[#FBBF24]" />
                     </div>
-                    <div className="text-[9px] sm:text-[10px] text-white/50">Thinking...</div>
+                    <div className="text-[9px] sm:text-[10px] text-[#64748B]">Thinking...</div>
                   </div>
                 </motion.div>
 
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 5, repeat: Infinity }}
-                  className="flex items-center gap-2.5 sm:gap-3 rounded-2xl border border-violet-400/20 bg-white/5 px-3 py-2.5 sm:px-4 sm:py-3 backdrop-blur-xl"
+                  className="flex items-center gap-2.5 sm:gap-3 rounded-2xl border border-[#E6ECF5] bg-white/80 px-3 py-2.5 sm:px-4 sm:py-3 backdrop-blur-xl shadow-[0_10px_30px_rgba(37,99,235,.08)]"
                 >
-                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-violet-500/20 text-violet-400">
+                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-orange-50 text-[#F59E0B]">
                     <FaCloudUploadAlt className="text-sm sm:text-lg" />
                   </div>
                   <div>
-                    <div className="text-[10px] sm:text-[11px] text-violet-400">Cloud Deploy</div>
-                    <div className="mt-1 h-1.5 w-20 sm:w-28 rounded-full bg-white/10">
+                    <div className="text-[10px] sm:text-[11px] text-[#F59E0B]">Cloud Deploy</div>
+                    <div className="mt-1 h-1.5 w-20 sm:w-28 rounded-full bg-[#E6ECF5]">
                       <motion.div
-                        className="h-full rounded-full bg-violet-500"
+                        className="h-full rounded-full bg-[#F59E0B]"
                         animate={{ width: ["25%", "100%", "60%"] }}
                         transition={{ duration: 3, repeat: Infinity }}
                       />
                     </div>
-                    <div className="mt-1 text-[9px] sm:text-[10px] text-white/50">Production Ready</div>
+                    <div className="mt-1 text-[9px] sm:text-[10px] text-[#64748B]">Production Ready</div>
                   </div>
                 </motion.div>
               </div>
 
               {/* Heading + copy */}
-              <h3 className="mb-3 text-[26px] font-bold leading-tight text-white sm:mb-4 ">
+              <h3 className="mb-3 text-[26px] font-bold leading-tight text-[#0F172A] sm:mb-4 ">
                 Build{" "}
-                <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#2563EB] to-[#3B82F6] bg-clip-text text-transparent">
                   Smarter.
                 </span>
                 <br />
                 Ship Faster.</h3>
-              <p className="mb-6 sm:mb-8 max-w-md text-[12px] leading-relaxed text-white/60">
+              <p className="mb-6 sm:mb-8 max-w-md text-[12px] leading-relaxed text-[#64748B]">
                 AI-powered development platform that helps you build,
                 deploy and scale with confidence.
               </p>
@@ -310,10 +317,10 @@ export default function FAQ() {
                       >
                         <f.icon className="text-sm sm:text-base" />
                       </div>
-                      <div className="mb-1 text-xs font-semibold text-white">
+                      <div className="mb-1 text-xs font-semibold text-[#0F172A]">
                         {f.title}
                       </div>
-                      <div className="text-[12px] leading-relaxed text-white/50">
+                      <div className="text-[12px] leading-relaxed text-[#64748B]">
                         {f.desc}
                       </div>
                     </div>
@@ -346,8 +353,8 @@ export default function FAQ() {
                 >
                   <div
                     className={`cursor-pointer overflow-hidden rounded-xl sm:rounded-2xl border transition-all duration-300 ${isOpen
-                      ? `${c.border} bg-[#0a0e18]`
-                      : "border-white/8 bg-[#0a0e18]/60 hover:border-white/20"
+                      ? `${c.border} bg-white shadow-[0_20px_60px_rgba(34,197,94,.08)]`
+                      : "border-[#CBD5E1] bg-white hover:border-[#22C55E]/50 hover:shadow-[0_15px_45px_rgba(34,197,94,.08)]"
                       }`}
                     onClick={() => toggleFAQ(index)}
                     onKeyDown={(e) => {
@@ -368,7 +375,7 @@ export default function FAQ() {
                           >
                             <item.icon className="text-sm" />
                           </div>
-                          <h4 className="text-xs  font-semibold text-white">
+                          <h4 className="text-xs  font-semibold text-[#111827]">
                             {item.question}
                           </h4>
                         </div>
@@ -376,7 +383,7 @@ export default function FAQ() {
                         <motion.span
                           animate={{ rotate: isOpen ? 45 : 0 }}
                           transition={{ duration: 0.3 }}
-                          className="shrink-0 text-lg sm:text-xl font-light text-white/40"
+                          className="shrink-0 text-lg sm:text-xl font-light text-[#6B7280]"
                         >
                           +
                         </motion.span>
@@ -399,7 +406,7 @@ export default function FAQ() {
                             clamp is removed and the toggle is hidden.
                           */}
                           <p
-                            className={`text-[12px] leading-relaxed text-white/50 ${isMobileExpanded ? "" : "line-clamp-2"
+                            className={`text-[12px] leading-relaxed text-[#6B7280] ${isMobileExpanded ? "" : "line-clamp-2"
                               } sm:line-clamp-none`}
                           >
                             {item.answer}
@@ -418,7 +425,7 @@ export default function FAQ() {
                               className={`mt-3 sm:mt-4 flex items-center gap-2 rounded-xl border ${c.border} ${c.bg} px-3 py-2.5 sm:px-4 sm:py-3`}
                             >
                               <BsStars className={`text-sm shrink-0 ${c.text}`} />
-                              <span className="text-xs sm:text-sm text-white/70">
+                              <span className="text-xs sm:text-sm text-[#111827]">
                                 {item.cta}
                               </span>
                             </div>
@@ -439,7 +446,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-6 sm:mt-8 grid grid-cols-2 gap-4 sm:gap-8 rounded-[20px] sm:rounded-[28px] border border-white/10 bg-[#080b13] p-5 sm:p-8 sm:grid-cols-4"
+          className="mt-6 sm:mt-8 grid grid-cols-2 gap-4 sm:gap-8 rounded-[20px] sm:rounded-[28px] border border-[#CBD5E1] bg-white p-5 sm:p-8 sm:grid-cols-4 shadow-[0_20px_60px_rgba(37,99,235,.08)]"
         >
           {stats.map((s) => {
             const c = colorMap[s.color];
@@ -447,10 +454,10 @@ export default function FAQ() {
               <div key={s.label} className="flex items-center gap-2.5 sm:gap-3">
                 <s.icon className={`text-xl  shrink-0 ${c.text}`} />
                 <div className="min-w-0">
-                  <div className="text-xl font-bold text-white truncate">
+                  <div className="text-xl font-bold text-[#0F172A] truncate">
                     {s.value}
                   </div>
-                  <div className="text-[8px] sm:text-xs text-white/50 leading-tight">{s.label}</div>
+                  <div className="text-[8px] sm:text-xs text-[#64748B] leading-tight">{s.label}</div>
                 </div>
               </div>
             );

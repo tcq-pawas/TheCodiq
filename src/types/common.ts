@@ -20,6 +20,8 @@ export interface SectionTitleProps {
   subtitle?: string;
   align?: "left" | "center" | "right";
   className?: string;
+  titleColor?: string;
+  subtitleColor?: string;
 }
 
 export interface NavLink {

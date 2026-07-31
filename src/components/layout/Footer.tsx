@@ -60,7 +60,7 @@ export default function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="bg-[#050505] border-t border-white/8 relative top-20">
+    <footer className="bg-[#050816] border-t border-white/8 relative top-20">
       {/* Floating CTA Banner */}
       <div className="relative mb-8 sm:mb-12 lg:-mt-32 lg:mb-20 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
         <motion.div

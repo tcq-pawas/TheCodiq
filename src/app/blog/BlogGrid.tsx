@@ -36,9 +36,9 @@ const authCards: AuthCard[] = [
       "Passkeys, device checks, and email verification help reduce fake access while keeping sign-in simple.",
     proof: "Trusted user flow",
     icon: ShieldCheck,
-    iconColor: "text-blue-400",
-    iconBg: "bg-blue-500/10",
-    iconBorder: "border-blue-500/20",
+    iconColor: "text-blue-500",
+    iconBg: "bg-blue-500/15",
+    iconBorder: "border-blue-500/40",
   },
   {
     id: "secure-login",
@@ -49,9 +49,9 @@ const authCards: AuthCard[] = [
       "Session protection, encrypted tokens, and retry limits help defend accounts from common attacks.",
     proof: "Encrypted sessions",
     icon: LockKeyhole,
-    iconColor: "text-amber-400",
-    iconBg: "bg-amber-500/10",
-    iconBorder: "border-amber-500/20",
+    iconColor: "text-amber-500",
+    iconBg: "bg-amber-500/15",
+    iconBorder: "border-amber-500/40",
   },
   {
     id: "passwordless",
@@ -62,9 +62,9 @@ const authCards: AuthCard[] = [
       "Magic links and passkeys make the login experience faster without weakening your security posture.",
     proof: "Low-friction entry",
     icon: KeyRound,
-    iconColor: "text-purple-400",
-    iconBg: "bg-purple-500/10",
-    iconBorder: "border-purple-500/20",
+    iconColor: "text-purple-500",
+    iconBg: "bg-purple-500/15",
+    iconBorder: "border-purple-500/40",
   },
   {
     id: "biometric-ready",
@@ -75,9 +75,9 @@ const authCards: AuthCard[] = [
       "Fingerprint-style device signals add context before a session is approved or challenged.",
     proof: "Risk-based checks",
     icon: Fingerprint,
-    iconColor: "text-pink-400",
-    iconBg: "bg-pink-500/10",
-    iconBorder: "border-pink-500/20",
+    iconColor: "text-pink-500",
+    iconBg: "bg-pink-500/15",
+    iconBorder: "border-pink-500/40",
   },
   {
     id: "reliable-sessions",
@@ -88,9 +88,9 @@ const authCards: AuthCard[] = [
       "Refresh handling and server-side validation reduce unexpected logouts and stale session issues.",
     proof: "Always validated",
     icon: ServerCog,
-    iconColor: "text-emerald-400",
-    iconBg: "bg-emerald-500/10",
-    iconBorder: "border-emerald-500/20",
+    iconColor: "text-emerald-500",
+    iconBg: "bg-emerald-500/15",
+    iconBorder: "border-emerald-500/40",
   },
   {
     id: "account-alerts",
@@ -101,9 +101,9 @@ const authCards: AuthCard[] = [
       "Login alerts and recovery notices build confidence by making account activity easy to verify.",
     proof: "User confidence",
     icon: BellRing,
-    iconColor: "text-cyan-400",
-    iconBg: "bg-cyan-500/10",
-    iconBorder: "border-cyan-500/20",
+    iconColor: "text-cyan-500",
+    iconBg: "bg-cyan-500/15",
+    iconBorder: "border-cyan-500/40",
   },
 ];
 
@@ -122,9 +122,9 @@ function AuthFeatureCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ delay: index * 0.05, duration: 0.42 }}
-      className="group relative flex flex-col overflow-hidden rounded-lg border border-white/10 bg-background/80 p-4 shadow-lg shadow-black/20 transition-all duration-500 sm:min-h-[236px] sm:p-5 md:hover:-translate-y-1 md:hover:border-primary/35 md:hover:bg-white/[0.04] md:hover:shadow-[0_22px_55px_-28px_rgba(59,130,246,0.45)]"
+      className="group relative flex flex-col overflow-hidden rounded-lg border border-[#C5D5EB] bg-gradient-to-br from-white to-[#fbfdff] p-4 shadow-[0_18px_60px_rgba(37,99,235,.08)] transition-all duration-500 sm:min-h-[236px] sm:p-5 md:hover:-translate-y-1 md:hover:shadow-[0_24px_70px_rgba(37,99,235,.12)]"
     >
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2563EB]/70 to-transparent opacity-0 transition-opacity duration-500 md:group-hover:opacity-100" />
 
       <div className="flex items-start justify-between gap-3 sm:gap-4">
         <div
@@ -135,31 +135,31 @@ function AuthFeatureCard({
       </div>
 
       <div className="mt-5 sm:mt-7">
-        <span className="text-[10px] font-semibold uppercase tracking-wider text-primary/80 ">
+        <span className="text-[10px] font-semibold uppercase tracking-wider text-[#64748B]">
           {card.label}
         </span>
 
-        <h3 className="mt-2 text-[15px] font-bold leading-snug text-white transition-colors duration-300 md:group-hover:text-primary ">
+        <h3 className="mt-2 text-[15px] font-bold leading-snug text-[#111827] transition-colors duration-300 md:group-hover:text-[#2563EB]">
           {card.title}
         </h3>
 
-        <p className="mt-2 text-[12px] leading-6 text-gray-400">{card.summary}</p>
+        <p className="mt-2 text-[12px] leading-6 text-[#475569]">{card.summary}</p>
       </div>
 
       {/*
         Mobile: detail panel is always visible, stacked in normal flow (no hover on touch devices).
         From sm/md up: reverts to the absolute, hover-revealed slide-up panel.
       */}
-      <div className="relative mt-4 border-t border-white/10 pt-4 sm:absolute sm:inset-x-0 sm:bottom-0 sm:mt-0 sm:translate-y-5 sm:bg-background/95 sm:px-5 sm:pb-5 sm:pt-4 sm:opacity-0 sm:shadow-[0_-18px_45px_-30px_rgba(0,0,0,0.85)] sm:backdrop-blur-md sm:transition-all sm:duration-500 sm:ease-out md:group-hover:translate-y-0 md:group-hover:opacity-100">
-        <p className="text-[12px] leading-6 text-gray-300">{card.detail}</p>
+      <div className="relative mt-4 border-t border-[#C5D5EB] pt-4 sm:absolute sm:inset-x-0 sm:bottom-0 sm:mt-0 sm:translate-y-5 sm:bg-white/95 sm:px-5 sm:pb-5 sm:pt-4 sm:opacity-0 sm:shadow-[0_-18px_45px_-30px_rgba(0,0,0,0.85)] sm:backdrop-blur-md sm:transition-all sm:duration-500 sm:ease-out md:group-hover:translate-y-0 md:group-hover:opacity-100">
+        <p className="text-[12px] leading-6 text-[#475569]">{card.detail}</p>
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-400">
-            <CheckCircle2 className="h-3 w-3 text-primary" />
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#64748B]">
+            <CheckCircle2 className="h-3 w-3 text-[#2563EB]" />
             {card.proof}
           </span>
 
-          <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-primary">
+          <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#2563EB]">
             Learn more
             <ArrowRight className="h-4 w-4 transition-transform duration-300 md:group-hover:translate-x-1" />
           </span>

@@ -17,23 +17,27 @@ const fadeUp = {
 export default function Hero() {
   return (
     <motion.section
-      className="relative mb-16 sm:mb-20 lg:mb-24 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.03] px-5 py-10 sm:px-8 sm:py-12 shadow-2xl shadow-primary/10 backdrop-blur md:px-10 lg:px-14"
+      className="relative mb-16 sm:mb-20 lg:mb-24 overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[#C5D5EB] bg-white px-5 py-10 sm:px-8 sm:py-12 shadow-[0_18px_60px_rgba(37,99,235,.08)] backdrop-blur md:px-10 lg:px-14"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.25 }}
       transition={{ staggerChildren: 0.12 }}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_35%,rgba(59,130,246,0.08))]" />
-      <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      {/* Soft radial gradients */}
+      <div className="pointer-events-none absolute -top-24 -left-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-top-40 sm:-left-40 rounded-full bg-blue-500/5 blur-[90px] sm:blur-[150px]" />
+      <div className="pointer-events-none absolute -bottom-24 -right-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-bottom-40 sm:-right-40 rounded-full bg-orange-500/5 blur-[90px] sm:blur-[150px]" />
+      
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),transparent_35%,rgba(59,130,246,0.04))]" />
+      <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#2563EB]/30 to-transparent" />
 
       <div className="relative grid items-center gap-10 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div>
           <motion.span
             variants={fadeUp}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3.5 py-1.5 sm:px-4 text-[11px] font-medium text-primary shadow-lg shadow-primary/10"
+            className="inline-flex items-center gap-2 rounded-full border border-[#C5D5EB] bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3.5 py-1.5 sm:px-4 text-[11px] font-semibold text-[#2563EB] shadow-[0_8px_24px_rgba(37,99,235,.12)]"
           >
-            <span className="h-2 w-2 shrink-0 rounded-full bg-blue-600 shadow-[0_0_18px_rgba(59,130,246,0.9)]" />
+            <span className="h-2 w-2 shrink-0 rounded-full bg-[#2563EB] shadow-[0_0_18px_rgba(37,99,235,0.6)]" />
             About TheCodiQ
           </motion.span>
 
@@ -45,16 +49,19 @@ export default function Hero() {
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-5 sm:mt-6 max-w-2xl text-[26px] leading-[1.2]  sm:leading-tight  font-bold text-white"
+            className="mt-5 sm:mt-6 max-w-2xl text-[26px] leading-[1.2]  sm:leading-tight  font-bold text-[#0F172A]"
           >
             Building the Future with{" "}
-            <span className="gradient-text">Innovative Technology</span>
+            <span 
+              className="bg-gradient-to-r from-[#2563EB] via-[#7C3AED] via-[#F59E0B] to-[#22C55E] bg-clip-text text-transparent"
+              style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+            >Innovative Technology</span>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-4 sm:mt-6 max-w-xl text-[12px] leading-7 sm:leading-8 text-secondary-text"
+            className="mt-4 sm:mt-6 max-w-xl text-[12px] leading-7 sm:leading-8 text-[#475569]"
           >
             At TheCodiQ, we help startups, businesses, and enterprises transform
             ideas into powerful digital products. From modern web applications
@@ -65,7 +72,7 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-3 sm:mt-4 max-w-xl text-[12px] leading-7 sm:leading-8 text-gray-400"
+            className="mt-3 sm:mt-4 max-w-xl text-[12px] leading-7 sm:leading-8 text-[#475569]"
           >
             Our team combines technical expertise, creative thinking, and a
             customer-first approach to build scalable, secure, and future-ready
@@ -81,7 +88,7 @@ export default function Hero() {
               (item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-300 transition-colors duration-300 hover:border-primary/30 hover:bg-primary/5 hover:text-white"
+                  className="rounded-full border border-[#C5D5EB] bg-white px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-[#475569] transition-colors duration-300 hover:border-[#2563EB]/30 hover:bg-[#EFF6FF] hover:text-[#0F172A]"
                 >
                   {item}
                 </span>
@@ -93,30 +100,20 @@ export default function Hero() {
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-white/10 bg-white/[0.05] p-2.5 sm:p-3 shadow-2xl shadow-primary/10 backdrop-blur-xl md:p-4"
+          className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[#C5D5EB] bg-white p-2.5 sm:p-3 shadow-[0_18px_60px_rgba(37,99,235,.08)] backdrop-blur-xl md:p-4"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),transparent_35%,rgba(59,130,246,0.12))]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),transparent_35%,rgba(59,130,246,0.04))]" />
 
-          <div className="relative rounded-[1.1rem] sm:rounded-[1.5rem] border border-white/10 bg-background/75 p-4 sm:p-5 md:p-6">
+          <div className="relative rounded-[1.1rem] sm:rounded-[1.5rem] border border-[#C5D5EB] bg-gradient-to-br from-white to-[#fbfdff] p-4 sm:p-5 md:p-6">
             <div className="mb-5 sm:mb-6 flex items-center justify-between gap-4">
               <div className="min-w-0">
-                <span className="inline-flex rounded-full border border-brand-blue/30 bg-brand-blue/10 px-3 py-1 text-[9px]  font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-primary shadow-[0_0_20px_rgba(59,130,246,0.35)]">
+                <span className="inline-flex rounded-full border border-[#C5D5EB] bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3 py-1 text-[9px]  font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#2563EB] shadow-[0_8px_24px_rgba(37,99,235,.12)]">
                   Our Impact
                 </span>
 
-                <h3 className="mt-2.5 sm:mt-3  font-semibold text-white ">
+                <h3 className="mt-2.5 sm:mt-3  font-semibold text-[#111827] ">
                   Results That Build Trust
                 </h3>
-              </div>
-
-              {/*
-                Fixed: outer badge was h-4 w-4 while the inner gradient
-                block was h-6 w-6 — the icon overflowed its own container.
-                Outer is now sized to comfortably contain the inner block
-                at every breakpoint.
-              */}
-              <div>
-                <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-lg bg-gradient-to-br from-primary to-cyan-300 shadow-lg shadow-primary/30" />
               </div>
             </div>
 
@@ -126,15 +123,18 @@ export default function Hero() {
                   key={stat.label}
                   variants={fadeUp}
                   transition={{ duration: 0.65, delay: index * 0.05 }}
-                  className="group relative flex min-h-[92px] sm:min-h-[100px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-4 text-center shadow-lg shadow-black/20 transition duration-300 hover:-translate-y-1 hover:border-primary/35 hover:bg-primary/[0.08]"
+                  className="group relative flex min-h-[92px] sm:min-h-[100px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-[#C5D5EB] bg-white px-3 py-4 text-center shadow-[0_15px_45px_rgba(30,64,175,.08)] transition duration-300 hover:-translate-y-1 hover:border-[#2563EB]/35 hover:shadow-[0_24px_70px_rgba(37,99,235,.12)]"
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2563EB]/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-                  <h3 className="gradient-text text-lg font-bold">
+                  <h3 
+                    className="text-lg font-bold bg-gradient-to-r from-[#2563EB] via-[#7C3AED] via-[#F59E0B] to-[#22C55E] bg-clip-text text-transparent"
+                    style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+                  >
                     {stat.value}
                   </h3>
 
-                  <p className="mt-1.5 sm:mt-2 max-w-[120px] text-[10px]  uppercase tracking-wide text-gray-300">
+                  <p className="mt-1.5 sm:mt-2 max-w-[120px] text-[10px]  uppercase tracking-wide text-[#475569]">
                     {stat.label}
                   </p>
                 </motion.div>
@@ -144,13 +144,13 @@ export default function Hero() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.75, ease: "easeOut" }}
-              className="mt-4 sm:mt-5 rounded-2xl border border-primary/20 bg-primary/[0.07] p-4 sm:p-6 shadow-xl shadow-primary/10"
+              className="mt-4 sm:mt-5 rounded-2xl border border-[#C5D5EB] bg-gradient-to-br from-[#EFF6FF] to-[#DBEAFE] p-4 sm:p-6 shadow-[0_15px_45px_rgba(30,64,175,.08)]"
             >
-              <h4 className="text-sm sm:text-base font-semibold text-white">
+              <h4 className="text-sm sm:text-base font-semibold text-[#111827]">
                 Empowering Businesses Through Innovation
               </h4>
 
-              <p className="mt-2.5 sm:mt-3 text-[12px] leading-6 sm:leading-7 text-secondary-text">
+              <p className="mt-2.5 sm:mt-3 text-[12px] leading-6 sm:leading-7 text-[#475569]">
                 Every project we build is designed with performance, scalability, and
                 long-term success in mind. We do not just write code; we create digital
                 experiences that help businesses grow.

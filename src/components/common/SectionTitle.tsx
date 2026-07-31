@@ -7,6 +7,8 @@ export default function SectionTitle({
   subtitle,
   align = "center",
   className = "",
+  titleColor = "text-[#0F172A]",
+  subtitleColor = "text-[#64748B]",
 }: SectionTitleProps) {
   const alignments = {
     left: "text-left",
@@ -25,15 +27,14 @@ export default function SectionTitle({
       {/* Badge */}
       {badge && (
         <div className="mb-5">
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-blue/30 bg-brand-blue/10 px-4 py-1.5 text-[11px] font-medium text-primary shadow-[0_0_20px_rgba(59,130,246,0.35)]">
-            <span className="h-1.5 w-1.5 rounded-full bg-blue-600 shadow-[0_0_8px] shadow-primary" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#2563EB]/20 bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-4 py-1.5 text-[11px] font-semibold text-[#2563EB] shadow-[0_8px_24px_rgba(37,99,235,.12)]">
             {badge}
           </span>
         </div>
       )}
 
       {/* Heading */}
-      <h2 className="text-[26px] font-bold tracking-tight text-white">
+      <h2 className={`text-[26px] font-bold tracking-tight ${titleColor}`}>
         {title}
       </h2>
 
@@ -41,7 +42,7 @@ export default function SectionTitle({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-[12px] leading-7 text-secondary-text",
+            `mt-4 max-w-2xl text-[12px] leading-7 ${subtitleColor}`,
             subtitleAlignments[align]
           )}
         >
