@@ -18,9 +18,9 @@ export default function Navbar() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-navbar",
-        scrollY > 50 ? "backdrop-blur-xl" : ""
+        scrollY > 50 ? "backdrop-blur-xl shadow-[0_4px_24px_rgba(15,23,42,0.08)]" : ""
       )}
-      style={{ height: "80px", background: scrollY > 50 ? "rgba(11, 18, 32, 0.9)" : "#0B1220" }}
+      style={{ height: "80px", background: scrollY > 50 ? "rgba(255, 255, 255, 0.9)" : "#FFFFFF" }}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 h-full">
         <div className="flex items-center justify-between h-full">
@@ -32,10 +32,10 @@ export default function Navbar() {
               <Image 
                 src="/logo/logo.png" 
                 alt="TheCodiQ Global - Software Development Company Logo" 
-                width={80} 
-                height={80} 
-                sizes="80px"
-                className="h-12 w-auto"
+                width={120} 
+                height={120} 
+                sizes="120px"
+                className="h-16 w-auto"
               />
             </motion.div>
           </Link>
@@ -49,13 +49,13 @@ export default function Navbar() {
                   className={cn(
                     "px-3 py-1.5 rounded-full text-[16px] font-medium transition-all duration-300 relative group whitespace-nowrap",
                     pathname === link.href
-                      ? "bg-[#2563EB] text-white shadow-[0_8px_24px_rgba(37,99,235,0.3)] px-5"
-                      : "text-white hover:text-white hover:bg-white/10 hover:px-5"
+                      ? "text-[#2563EB]"
+                      : "text-slate-700 hover:text-[#2563EB] hover:bg-blue-50"
                   )}
                 >
                   {pathname === link.href && (
                     <motion.div
-                      className="absolute inset-0 bg-[#2563EB] rounded-full"
+                      className="absolute left-3 right-3 -bottom-0.5 h-[2px] bg-[#2563EB] rounded-full"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -65,21 +65,8 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center">
-            <Link
-              href="/contact"
-              className="px-4 py-2 rounded-full text-xs font-medium text-white transition-all duration-300 hover:shadow-[0_8px_24px_rgba(37,99,235,0.4)] hover:-translate-y-0.5"
-              style={{ 
-                background: 'linear-gradient(135deg, #2563EB, #3B82F6)',
-                boxShadow: '0 4px 14px rgba(37,99,235,0.3)'
-              }}
-            >
-              Get Started
-            </Link>
-          </div>
-
           <button
-            className="md:hidden text-white p-2 hover:bg-white/10 rounded-full transition-colors"
+            className="md:hidden text-slate-800 p-2 hover:bg-slate-100 rounded-full transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg
@@ -114,7 +101,8 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-navbar border-t border-white/10 overflow-hidden"
+            className="md:hidden glass-navbar border-t border-slate-200 overflow-hidden"
+            style={{ background: "#FFFFFF" }}
           >
             <div className="px-4 py-4 space-y-2">
               {NAV_LINKS.map((link, index) => (
@@ -129,8 +117,8 @@ export default function Navbar() {
                     className={cn(
                       "block text-sm py-3 px-4 rounded-full transition-colors",
                       pathname === link.href
-                        ? "bg-[#2563EB] text-white"
-                        : "text-white hover:bg-white/10"
+                        ? "text-[#2563EB] bg-blue-50 font-medium"
+                        : "text-slate-700 hover:bg-slate-100"
                     )}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -138,20 +126,6 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: NAV_LINKS.length * 0.1 }}
-              >
-                <Link
-                  href="/contact"
-                  className="block text-sm py-3 px-4 rounded-full text-center text-white transition-colors"
-                  style={{ background: 'linear-gradient(135deg, #2563EB, #3B82F6)' }}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Get Started
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}
