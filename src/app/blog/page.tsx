@@ -11,11 +11,11 @@ const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
 const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
 
 export const metadata: Metadata = {
-  title: "The CodiQ Blog | Tech Insights & Development Trends",
+  title: "The CodiQ Tech Journal | Tech Insights & Development Trends",
   description: "Latest tech insights and development trends. Expert articles on software development, AI, mobile apps, web development, and digital marketing.",
   keywords: ["software development blog", "tech insights", "development trends", "AI blog", "web development articles", "programming tutorials", "technology news"],
   openGraph: {
-    title: `The CodiQ Blog | Tech Insights & Development Trends`,
+    title: `The CodiQ Tech Journal | Tech Insights & Development Trends`,
     description: "Latest tech insights and development trends. Expert articles on software development, AI, mobile apps, and web development.",
     url: `${siteUrl}/blog`,
     type: "website",
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteName} Blog`,
+        alt: `${siteName} Tech Journal`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `The CodiQ Blog | Tech Insights & Development Trends`,
+    title: `The CodiQ Tech Journal | Tech Insights & Development Trends`,
     description: "Latest tech insights and development trends. Expert articles on software development, AI, mobile apps, and web development.",
     images: [twitterImage],
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "The CodiQ Blog",
+  "name": "The CodiQ Tech Journal",
   "description": "Latest tech insights and development trends. Expert articles on software development, AI, mobile apps, and web development.",
   "url": `${siteUrl}/blog`
 };
@@ -52,7 +52,7 @@ export default function BlogPage() {
     <>
       <JsonLd data={blogSchema} />
       <InnerPageBanner
-        title="Our Blog"
+        title="Tech Journal"
         subtitle="Insights and updates from the world of technology"
       />
 
@@ -88,7 +88,7 @@ export default function BlogPage() {
               {
                 "@type": "ListItem",
                 position: 2,
-                name: "Blog",
+                name: "Tech Journal",
                 item: `${siteUrl}/blog`,
               },
             ],

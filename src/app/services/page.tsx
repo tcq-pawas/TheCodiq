@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
+import Hero from "@/app/services/Hero";
 import SectionTitle from "@/components/common/SectionTitle";
 import Link from "next/link";
 import {
@@ -22,7 +23,7 @@ const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
 const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
 
 export const metadata: Metadata = {
-  title: "IT Services | Web, Mobile, AI & Cloud Solutions",
+  title: "Ideas to Execution | Web, Mobile, AI & Cloud Solutions",
   description: "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
   keywords: [
     "IT services",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     "software development"
   ],
   openGraph: {
-    title: `IT Services | ${siteName}`,
+    title: `Ideas to Execution | ${siteName}`,
     description: "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
     url: `${siteUrl}/services`,
     type: "website",
@@ -45,13 +46,13 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: `IT Services by ${siteName}`,
+        alt: `Ideas to Execution by ${siteName}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `IT Services | ${siteName}`,
+    title: `Ideas to Execution | ${siteName}`,
     description: "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
     images: [twitterImage],
   },
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
 const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "IT Services",
+  "name": "Ideas to Execution",
   "description": "Comprehensive IT services including web development, mobile apps, AI solutions, UI/UX design, digital marketing, and cloud infrastructure.",
   "url": `${siteUrl}/services`
 };
@@ -205,19 +206,21 @@ export default function ServicesPage() {
     <>
       <JsonLd data={servicesSchema} />
       <InnerPageBanner
-        title="Our Services"
+        title="Ideas to Execution"
         subtitle="Technology solutions for your business growth"
       />
 
-      <div className="py-16 bg-background">
-        <div className="container max-w-7xl px-4 mx-auto">
-          <div className="mb-16">
-            <SectionTitle
-              badge="OUR EXPERTISE"
-              title="Transforming Ideas Into Powerful Digital Solutions"
-              subtitle="Discover our comprehensive range of technology services designed to help businesses innovate, scale, and achieve sustainable growth through cutting-edge digital solutions."
-            />
-          </div>
+      <div className="py-16 bg-background relative overflow-hidden">
+        {/* Background effects */}
+        <div className="absolute inset-0 grid-pattern opacity-10" />
+        <div className="animated-blob w-96 h-96 bg-primary/20 top-1/4 -left-48" />
+        <div
+          className="animated-blob w-96 h-96 bg-accent/20 bottom-1/4 -right-48"
+          style={{ animationDelay: "3s" }}
+        />
+
+        <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
+          <Hero />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {services.map((service) => {

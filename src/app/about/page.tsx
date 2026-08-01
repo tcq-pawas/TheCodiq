@@ -13,11 +13,11 @@ const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
 const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
 
 export const metadata: Metadata = {
-  title: "About Us | IT Solutions Company",
+  title: "Our Story | IT Solutions Company",
   description: "Learn about TheCodiQ Global - our mission, vision, team, and why businesses choose us for web development, mobile apps, AI solutions, and digital marketing services.",
   keywords: ["software company profile", "about software company", "IT company profile", "software development company", "company mission", "company vision"],
   openGraph: {
-    title: `About Us | ${siteName}`,
+    title: `Our Story | ${siteName}`,
     description: "Learn about TheCodiQ Global - our mission, vision, team, and why businesses choose us for software development services.",
     url: `${siteUrl}/about`,
     type: "website",
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: `About ${siteName}`,
+        alt: `Our Story ${siteName}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `About Us | ${siteName}`,
+    title: `Our Story | ${siteName}`,
     description: "Learn about TheCodiQ Global - our mission, vision, team, and why businesses choose us for software development services.",
     images: [twitterImage],
   },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": `About ${siteName}`,
+  "name": `Our Story ${siteName}`,
   "description": "Learn about The CodiQ Global - a leading software development company building innovative digital solutions.",
   "url": `${siteUrl}/about`,
   "mainEntity": {
@@ -59,7 +59,7 @@ export default function AboutPage() {
     <>
       <JsonLd data={organizationSchema} />
       <InnerPageBanner
-        title="About Us"
+        title="Our Story"
         subtitle="Learn more about our company and mission"
       />
 

@@ -10,11 +10,11 @@ const ogImage = process.env.NEXT_PUBLIC_OG_IMAGE || '/og-image.jpg';
 const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jpg';
 
 export const metadata: Metadata = {
-  title: "Case Studies | Client Success Stories",
+  title: "Success Stories | Client Case Studies",
   description: "Explore our client success stories and portfolio. See how The CodiQ Global delivers exceptional software development projects across industries.",
   keywords: ["software development case studies", "client success stories", "portfolio", "software development projects", "work samples", "project showcase"],
   openGraph: {
-    title: `Case Studies | ${siteName}`,
+    title: `Success Stories | ${siteName}`,
     description: "Explore our client success stories and portfolio. See how The CodiQ Global delivers exceptional software development projects.",
     url: `${siteUrl}/portfolio`,
     type: "website",
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteName} Case Studies`,
+        alt: `${siteName} Success Stories`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Case Studies | ${siteName}`,
+    title: `Success Stories | ${siteName}`,
     description: "Explore our client success stories and portfolio. See how The CodiQ Global delivers exceptional software development projects.",
     images: [twitterImage],
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 const portfolioSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Case Studies",
+  "name": "Success Stories",
   "description": "Explore our client success stories and portfolio. See how The CodiQ Global delivers exceptional software development projects.",
   "url": `${siteUrl}/portfolio`
 };
@@ -51,7 +51,7 @@ export default function PortfolioPage() {
     <>
       <JsonLd data={portfolioSchema} />
       <InnerPageBanner
-        title="Our Portfolio"
+        title="Success Stories"
         subtitle="Explore our latest projects and success stories"
       />
 

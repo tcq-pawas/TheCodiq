@@ -14,11 +14,11 @@ const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jp
 const logoUrl = process.env.NEXT_PUBLIC_LOGO_URL || '/logo/logo.png';
 
 export const metadata: Metadata = {
-  title: "Contact Us | Get in Touch",
+  title: "Work With Us | Get in Touch",
   description: "Contact TheCodiQ Global for web development, mobile apps, AI solutions, and digital marketing services. Get a free quote for your next project.",
   keywords: ["contact software company", "get quote", "software development consultation", "IT services contact", "free consultation"],
   openGraph: {
-    title: `Contact Us | ${siteName}`,
+    title: `Work With Us | ${siteName}`,
     description: "Contact TheCodiQ Global for web development, mobile apps, AI solutions, and digital marketing services. Get a free quote for your next project.",
     url: `${siteUrl}/contact`,
     type: "website",
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: `Contact ${siteName}`,
+        alt: `Work With Us ${siteName}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Contact Us | ${siteName}`,
+    title: `Work With Us | ${siteName}`,
     description: "Contact TheCodiQ Global for web development, mobile apps, AI solutions, and digital marketing services. Get a free quote for your next project.",
     images: [twitterImage],
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 const contactPageSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "name": `Contact ${siteName}`,
+  "name": `Work With Us ${siteName}`,
   "description": "Get free consultation for your software project. Contact The CodiQ Global for expert software development services.",
   "url": `${siteUrl}/contact`,
   "mainEntity": {
@@ -66,7 +66,7 @@ export default function ContactPage() {
     <>
       <JsonLd data={contactPageSchema} />
       <InnerPageBanner
-        title="Contact Us"
+        title="Work With Us"
         subtitle="Let's discuss your next project"
       />
 
