@@ -1,4 +1,4 @@
-import { cn } from '@/lib/helper';
+import { cn } from "@/lib/helper";
 
 interface InnerPageBannerProps {
   title: string;
@@ -6,46 +6,73 @@ interface InnerPageBannerProps {
   className?: string;
 }
 
+const GradientTitle = ({ text }: { text: string }) => {
+  const words = text.split(" ");
+
+  return (
+    <>
+      {words.map((word, index) => (
+        <span
+          key={index}
+          className={
+            index === 0
+              ? "text-white"
+              : "bg-gradient-to-r from-[#2563EB] via-[#06B6D4] to-[#22C55E] bg-clip-text text-transparent"
+          }
+        >
+          {word}
+          {index !== words.length - 1 && " "}
+        </span>
+      ))}
+    </>
+  );
+};
+
 export default function InnerPageBanner({
   title,
   subtitle,
-  className = '',
+  className = "",
 }: InnerPageBannerProps) {
   return (
     <section
       className={cn(
-        'relative mt-[120px] w-full overflow-hidden',
+        "relative mt-[80px] w-full overflow-hidden",
         className
       )}
-      style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%)' }}
+      style={{
+        background: "linear-gradient(180deg,#EFF6FF 0%,#FFFFFF 100%)",
+      }}
     >
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
-        <div 
-          className="relative overflow-hidden rounded-[24px] bg-white/60 backdrop-blur-xl sm:rounded-[32px]"
-          style={{
-            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
-            transform: 'perspective(1000px) rotateX(1deg) translateY(-2px)',
-            transformStyle: 'preserve-3d',
-          }}
-        >
-          {/* Background */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#EFF6FF]/40 via-white/60 to-white/80" />
-          </div>
+      <div
+        className="relative overflow-hidden"
+        style={{
+          boxShadow:
+            "0 12px 35px rgba(0,0,0,.18), 0 6px 15px rgba(0,0,0,.12)",
+        }}
+      >
+        {/* Background */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/images/banner1.0.png')",
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#081B3A]/85 via-[#081B3A]/55 to-transparent" />
+        </div>
 
-          {/* Content */}
-          <div className="relative z-10 flex items-center px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-            <div>
-              <h1 className="text-3xl font-bold leading-tight text-[#111827] sm:text-4xl md:text-5xl">
-                {title}
-              </h1>
+        {/* Content */}
+        <div className="relative z-10 flex min-h-[260px] items-center px-8 ">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl font-extrabold leading-tight ">
+              <GradientTitle text={title} />
+            </h1>
 
-              {subtitle && (
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#6B7280] sm:text-base lg:text-lg">
-                  {subtitle}
-                </p>
-              )}
-            </div>
+            {subtitle && (
+              <p className="mt-3 max-w-2xl text-[12px] leading-relaxed text-slate-200 ">
+                {subtitle}
+              </p>
+            )}
           </div>
         </div>
       </div>

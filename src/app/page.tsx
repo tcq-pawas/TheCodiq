@@ -1,10 +1,18 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Hero from "@/app/home/Hero";
 import Services from "@/app/home/Services";
 import About from "@/app/home/About";
-import Testimonials from "@/app/home/Testimonials";
-import FAQ from "@/app/home/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+
+// Lazy load below-the-fold sections for better performance
+const Testimonials = dynamic(() => import("@/app/home/Testimonials"), {
+  loading: () => <div className="h-20 animate-pulse bg-gray-100" />
+});
+
+const FAQ = dynamic(() => import("@/app/home/FAQ"), {
+  loading: () => <div className="h-20 animate-pulse bg-gray-100" />
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';

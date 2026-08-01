@@ -72,7 +72,7 @@ const stats = [
 export default function FounderSection() {
   return (
     <motion.section
-      className="relative overflow-hidden px-4 sm:px-0"
+      className="relative mb-16 sm:mb-20 lg:mb-24 overflow-hidden px-4 sm:px-0"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

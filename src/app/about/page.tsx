@@ -1,10 +1,18 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 import Hero from "@/app/about/Hero";
 import MissionVision from "@/app/about/MissionVision";
-import TeamSection from "@/app/about/TeamSection";
-import WhyChooseUs from "@/app/about/WhyChooseUs";
 import JsonLd from "@/components/seo/JsonLd";
+
+// Lazy load below-the-fold sections for better performance
+const TeamSection = dynamic(() => import("@/app/about/TeamSection"), {
+  loading: () => <div className="h-20 animate-pulse bg-gray-100" />
+});
+
+const WhyChooseUs = dynamic(() => import("@/app/about/WhyChooseUs"), {
+  loading: () => <div className="h-20 animate-pulse bg-gray-100" />
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thecodiq.com';
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The CodiQ Global';
@@ -59,8 +67,8 @@ export default function AboutPage() {
     <>
       <JsonLd data={organizationSchema} />
       <InnerPageBanner
-        title="About Us"
-        subtitle="Learn more about our company and mission"
+        title="Our Story"
+        subtitle="We are dedicated to helping businesses thrive through creativity, cutting-edge technology, and a commitment to excellence in every project we undertake."
       />
 
       <div className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%)' }}>

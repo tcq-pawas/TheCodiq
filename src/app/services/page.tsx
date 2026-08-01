@@ -205,8 +205,8 @@ export default function ServicesPage() {
     <>
       <JsonLd data={servicesSchema} />
       <InnerPageBanner
-        title="Our Services"
-        subtitle="Technology solutions for your business growth"
+        title="Ideas to Execution"
+        subtitle="We design and develop innovative digital products that streamline operations, enhance customer experiences, and accelerate your journey toward long-term success."
       />
 
       <div className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%)' }}>

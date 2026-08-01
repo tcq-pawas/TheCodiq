@@ -1,13 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { FiGlobe, FiSmartphone, FiCloud, FiCode } from "react-icons/fi";
+import { TbBrain } from "react-icons/tb";
 
-const stats = [
-  { value: "500+", label: "Projects Completed" },
-  { value: "200+", label: "Happy Clients" },
-  { value: "50+", label: "Team Members" },
-  { value: "10+", label: "Years Experience" },
-];
+// Floating capability cards placed around the globe graphic (images/earth.png).
+// left/top are the % position of each card's CENTER inside the relative
+// image wrapper below — measured directly off the reference mockup with a
+// percentage grid, not eyeballed.
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -26,7 +28,7 @@ export default function Hero() {
       {/* Soft radial gradients */}
       <div className="pointer-events-none absolute -top-24 -left-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-top-40 sm:-left-40 rounded-full bg-blue-500/5 blur-[90px] sm:blur-[150px]" />
       <div className="pointer-events-none absolute -bottom-24 -right-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-bottom-40 sm:-right-40 rounded-full bg-orange-500/5 blur-[90px] sm:blur-[150px]" />
-      
+
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),transparent_35%,rgba(59,130,246,0.04))]" />
       <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#2563EB]/30 to-transparent" />
 
@@ -49,13 +51,10 @@ export default function Hero() {
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-5 sm:mt-6 max-w-2xl text-[26px] leading-[1.2]  sm:leading-tight  font-bold text-[#0F172A]"
+            className="mt-5 sm:mt-6 max-w-2xl text-[26px] leading-[1.2]  sm:leading-tight  font-bold text-black"
           >
             Building the Future with{" "}
-            <span 
-              className="bg-gradient-to-r from-[#2563EB] via-[#7C3AED] via-[#F59E0B] to-[#22C55E] bg-clip-text text-transparent"
-              style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-            >Innovative Technology</span>
+            <span className="text-black">Innovative Technology</span>
           </motion.h2>
 
           <motion.p
@@ -97,66 +96,20 @@ export default function Hero() {
           </motion.div>
         </div>
 
+        {/* Globe graphic + floating capability cards — mirrors the shared reference image */}
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[2rem] border border-[#C5D5EB] bg-white p-2.5 sm:p-3 shadow-[0_18px_60px_rgba(37,99,235,.08)] backdrop-blur-xl md:p-4"
+          className="relative mx-auto aspect-[1418/1109] w-full max-w-[400px] sm:max-w-[460px] lg:max-w-[540px]"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),transparent_35%,rgba(59,130,246,0.04))]" />
-
-          <div className="relative rounded-[1.1rem] sm:rounded-[1.5rem] border border-[#C5D5EB] bg-gradient-to-br from-white to-[#fbfdff] p-4 sm:p-5 md:p-6">
-            <div className="mb-5 sm:mb-6 flex items-center justify-between gap-4">
-              <div className="min-w-0">
-                <span className="inline-flex rounded-full border border-[#C5D5EB] bg-gradient-to-r from-[#2563EB]/10 to-[#3B82F6]/10 px-3 py-1 text-[9px]  font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#2563EB] shadow-[0_8px_24px_rgba(37,99,235,.12)]">
-                  Our Impact
-                </span>
-
-                <h3 className="mt-2.5 sm:mt-3  font-semibold text-[#111827] ">
-                  Results That Build Trust
-                </h3>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  variants={fadeUp}
-                  transition={{ duration: 0.65, delay: index * 0.05 }}
-                  className="group relative flex min-h-[92px] sm:min-h-[100px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-[#C5D5EB] bg-white px-3 py-4 text-center shadow-[0_15px_45px_rgba(30,64,175,.08)] transition duration-300 hover:-translate-y-1 hover:border-[#2563EB]/35 hover:shadow-[0_24px_70px_rgba(37,99,235,.12)]"
-                >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2563EB]/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                  <h3 
-                    className="text-lg font-bold bg-gradient-to-r from-[#2563EB] via-[#7C3AED] via-[#F59E0B] to-[#22C55E] bg-clip-text text-transparent"
-                    style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-                  >
-                    {stat.value}
-                  </h3>
-
-                  <p className="mt-1.5 sm:mt-2 max-w-[120px] text-[10px]  uppercase tracking-wide text-[#475569]">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              variants={fadeUp}
-              transition={{ duration: 0.75, ease: "easeOut" }}
-              className="mt-4 sm:mt-5 rounded-2xl border border-[#C5D5EB] bg-gradient-to-br from-[#EFF6FF] to-[#DBEAFE] p-4 sm:p-6 shadow-[0_15px_45px_rgba(30,64,175,.08)]"
-            >
-              <h4 className="text-sm sm:text-base font-semibold text-[#111827]">
-                Empowering Businesses Through Innovation
-              </h4>
-
-              <p className="mt-2.5 sm:mt-3 text-[12px] leading-6 sm:leading-7 text-[#475569]">
-                Every project we build is designed with performance, scalability, and
-                long-term success in mind. We do not just write code; we create digital
-                experiences that help businesses grow.
-              </p>
-            </motion.div>
-          </div>
+          <Image
+            src="/images/earth.png"
+            alt="Global technology network"
+            fill
+            priority
+            sizes="(min-width: 1024px) 540px, 85vw"
+            className="object-contain"
+          />
         </motion.div>
       </div>
     </motion.section>

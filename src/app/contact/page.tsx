@@ -66,8 +66,8 @@ export default function ContactPage() {
     <>
       <JsonLd data={contactPageSchema} />
       <InnerPageBanner
-        title="Contact Us"
-        subtitle="Let's discuss your next project"
+        title="Work With Us"
+        subtitle="Share your vision with us, and together we'll transform your ideas into high-performing web, mobile, AI, and cloud solutions that drive measurable business growth."
       />
 
       <div className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%)' }}>

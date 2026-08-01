@@ -18,6 +18,14 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  // Safe performance optimization
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Safe optimization for lucide-react (commonly used icon library)
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
   // SEO optimizations
   compress: true,
   poweredByHeader: false,

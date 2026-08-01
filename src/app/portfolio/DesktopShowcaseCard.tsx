@@ -217,11 +217,11 @@ export default function DesktopShowcaseCard({
         <div className="relative mx-auto w-full max-w-[420px] md:max-w-[300px] lg:max-w-[340px]">
           <div className="absolute -inset-4 bg-primary/10 blur-2xl" />
 
-          <div className="relative rounded-[10px] border border-[#C5D5EB] bg-[#F8FAFC] p-[8px] shadow-[0_25px_60px_rgba(37,99,235,.15)]">
+          <div className="relative rounded-[10px] border border-[#4B5563] bg-gradient-to-b from-[#5F6875] via-[#434C59] to-[#2C3440] p-[6px] shadow-[0_25px_60px_rgba(37,99,235,.15)]">
             <div
               onMouseEnter={handleEnter}
               onMouseLeave={handleLeave}
-              className="relative isolate aspect-[16/10] overflow-hidden rounded-[7px] border border-[#C5D5EB] bg-white"
+              className="relative isolate aspect-[16/10] overflow-hidden rounded-[7px] bg-[#0F172A]"
             >
               <div
                 className="flex h-full"
@@ -262,8 +262,8 @@ export default function DesktopShowcaseCard({
             </div>
           </div>
 
-          <div className="mx-auto h-5 w-16 rounded-b-md bg-gradient-to-b from-[#C5D5EB] to-[#94A3B8]" />
-          <div className="mx-auto h-[7px] w-28 rounded-full bg-[#94A3B8]" />
+          <div className="mx-auto h-5 w-16 rounded-b-md border border-[#6B7280]/40 bg-gradient-to-b from-[#8A94A3] via-[#667085] to-[#475467] shadow-[inset_0_1px_1px_rgba(255,255,255,.15),0_4px_8px_rgba(0,0,0,.18)]" />
+          <div className="mx-auto h-[7px] w-28 rounded-full border border-[#475467]/40 bg-gradient-to-r from-[#667085] via-[#475467] to-[#2C3440] shadow-[0_4px_10px_rgba(0,0,0,.2)]" />
         </div>
       </div>
 

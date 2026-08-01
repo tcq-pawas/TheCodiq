@@ -51,8 +51,8 @@ export default function PortfolioPage() {
     <>
       <JsonLd data={portfolioSchema} />
       <InnerPageBanner
-        title="Our Portfolio"
-        subtitle="Explore our latest projects and success stories"
+        title="Success Stories"
+        subtitle="Discover how we've transformed innovative ideas into high-performing digital solutions through modern design, scalable development, and cutting-edge technologies across diverse industries."
       />
 
       <div className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%)' }}>

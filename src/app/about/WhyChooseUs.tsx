@@ -99,7 +99,7 @@ export default function WhyChooseUs() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="relative pb-10"
+      className="relative mb-16 sm:mb-20 lg:mb-24"
     >
       {/* Soft radial gradients */}
       <div className="pointer-events-none absolute -top-24 -left-24 h-[260px] w-[260px] sm:h-[500px] sm:w-[500px] sm:-top-40 sm:-left-40 rounded-full bg-blue-500/5 blur-[90px] sm:blur-[150px]" />
@@ -119,9 +119,9 @@ export default function WhyChooseUs() {
           Our Advantages
         </motion.span>
 
-        <h2 className="mt-6 text-[26px] font-bold tracking-tight text-[#111827]">
+        <h2 className="mt-6 text-[26px] font-bold tracking-tight text-black">
           Why Businesses Choose{" "}
-          <span className="bg-gradient-to-r from-[#2563EB] via-[#7C3AED] via-[#F59E0B] to-[#22C55E] bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>TheCodiQ</span>
+          <span className="text-black">TheCodiQ</span>
         </h2>
 
         <p className="mx-auto mt-4 max-w-2xl text-[12px] leading-7 text-[#475569]">
@@ -166,7 +166,7 @@ export default function WhyChooseUs() {
           
                 </div>
 
-                <h3 className="relative mb-3  font-semibold text-[#111827]">
+                <h3 className="relative mb-3  font-semibold text-black">
                   {feature.title}
                 </h3>
 

@@ -128,6 +128,7 @@ export default function Hero() {
                   alt="TheCodiQ Global - Premium Software Development and AI Solutions Hero Banner"
                   fill
                   priority
+                  sizes="(min-width: 1536px) 800px, (min-width: 1280px) 700px, (min-width: 1024px) 600px, (min-width: 768px) 500px, 100vw"
                   className="object-contain relative z-10"
                 />
               </motion.div>

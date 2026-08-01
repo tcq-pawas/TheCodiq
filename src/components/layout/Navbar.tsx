@@ -34,6 +34,7 @@ export default function Navbar() {
                 alt="TheCodiQ Global - Software Development Company Logo" 
                 width={80} 
                 height={80} 
+                sizes="80px"
                 className="h-12 w-auto"
               />
             </motion.div>
@@ -54,7 +55,6 @@ export default function Navbar() {
                 >
                   {pathname === link.href && (
                     <motion.div
-                      layoutId="activePill"
                       className="absolute inset-0 bg-[#2563EB] rounded-full"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
