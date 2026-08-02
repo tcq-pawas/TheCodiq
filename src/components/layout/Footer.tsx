@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { serviceDetails } from "@/data/serviceDetails";
 
 const SOCIAL_LINKS = [
   {
@@ -224,16 +225,16 @@ export default function Footer() {
       </div>
       {/* Main Footer Area */}
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 py-10 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 text-center md:text-left">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-4 text-center md:text-left">
           {/* Company Info */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center md:items-start sm:col-span-2 lg:col-span-1">
             <div className="mb-6">
-              <Link href="/" className="flex items-center justify-center md:justify-start mb-4">
-                <Image src="/logo/logo.png" alt="TheCodiQ Global - Software Development Company Logo" width={48} height={48} className="h-12 w-auto" />
+              <Link href="/" className="mb-2 flex items-center justify-center gap-3 md:justify-start">
+                <Image src="/logo/logo.png" alt="TheCodiQ Global - Software Development Company Logo" width={48} height={48} className="h-12 w-auto shrink-0" />
+                <h3 className="text-xl font-bold text-silver-primary">TheCodiQ Global</h3>
               </Link>
-              <h3 className="text-xl font-bold text-silver-primary mb-2">TheCodiQ Global</h3>
             </div>
-            <p className="text-sm text-secondary-text mb-6 leading-relaxed">
+            <p className="mb-6 max-w-sm text-sm leading-relaxed text-secondary-text">
               Building innovative digital solutions, AI-powered applications, enterprise software, and scalable technology products for businesses worldwide.
             </p>
             <div className="space-y-2 text-sm text-secondary-text">
@@ -244,104 +245,101 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div className="lg:pt-[5rem] flex flex-col items-center md:items-start">
-            <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Services</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/services/web-development" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  Web Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/mobile-app-development" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  Mobile App Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/ui-ux-design" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  UI/UX Design
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/cloud-devops" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  Cloud Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/ai-solutions" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  AI Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/digital-marketing" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  Digital Marketing
-                </Link>
-              </li>
+          <div className="flex flex-col items-center md:items-start">
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-silver-primary">Services</h4>
+            <ul className="w-full max-w-xs space-y-3 md:max-w-none">
+              {serviceDetails.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="text-sm leading-snug text-secondary-text transition-colors hover:text-brand-blue"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Quick Links */}
-          <div className="lg:pt-[5rem] flex flex-col items-center md:items-start">
-            <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Quick Links</h4>
+          <div className="flex flex-col items-center md:items-start">
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-silver-primary">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+                <Link href="/" className="text-sm text-secondary-text transition-colors hover:text-brand-blue">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  About Us
+                <Link href="/services" className="text-sm text-secondary-text transition-colors hover:text-brand-blue">
+                  Solutions
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  Services
+                <Link href="/portfolio" className="text-sm text-secondary-text transition-colors hover:text-brand-blue">
+                  Success Stories
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  Portfolio
+                <Link href="/about" className="text-sm text-secondary-text transition-colors hover:text-brand-blue">
+                  Our Story
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
+                <Link href="/blog" className="text-sm text-secondary-text transition-colors hover:text-brand-blue">
+                  Tech Journal
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers" className="text-sm text-secondary-text transition-colors hover:text-brand-blue">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-                  Contact Us
+                <Link href="/contact" className="text-sm text-secondary-text transition-colors hover:text-brand-blue">
+                  Work With Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="text-sm text-secondary-text transition-colors hover:text-brand-blue">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-and-conditions" className="text-sm text-secondary-text transition-colors hover:text-brand-blue">
+                  Terms & Conditions
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact */}
-          <div className="lg:pt-[5rem] flex flex-col items-center md:items-start">
-            <h4 className="text-sm font-semibold text-silver-primary mb-6 uppercase tracking-wider">Contact</h4>
-            <ul className="space-y-3">
+          <div className="flex flex-col items-center md:items-start">
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-wider text-silver-primary">Contact</h4>
+            <ul className="space-y-4">
               <li className="text-sm text-secondary-text">
-                <span className="block text-silver-primary mb-1">Phone</span>
+                <span className="mb-1 block text-silver-primary">Phone</span>
                 +91 9621315796
               </li>
               <li className="text-sm text-secondary-text">
-                <span className="block text-silver-primary mb-1">Email</span>
-                pawas.singh@thecodiq.com
+                <span className="mb-1 block text-silver-primary">Email</span>
+                <a href="mailto:pawas.singh@thecodiq.com" className="break-all transition-colors hover:text-brand-blue">
+                  pawas.singh@thecodiq.com
+                </a>
               </li>
               <li className="text-sm text-secondary-text">
-                <span className="block text-silver-primary mb-1">Business Hours</span>
+                <span className="mb-1 block text-silver-primary">Business Hours</span>
                 Mon - Fri: 9AM - 6PM
               </li>
             </ul>
-            <div className="flex justify-center md:justify-start space-x-4 mt-6">
+            <div className="mt-6 flex justify-center space-x-4 md:justify-start">
               {SOCIAL_LINKS.map((social) => (
                 <a
                   key={social.platform}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-8 h-8 rounded-lg flex items-center justify-center shadow-md ${social.bgColor}`}
+                  className={`flex h-8 w-8 items-center justify-center rounded-lg shadow-md ${social.bgColor}`}
                 >
                   {social.icon}
                 </a>
@@ -352,20 +350,10 @@ export default function Footer() {
       </div>
 
       {/* Bottom Copyright Bar */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 py-6 border-t border-white/8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-secondary-text">
-            © {new Date().getFullYear()} TheCodiQ Global. All Rights Reserved.
-          </p>
-          <div className="flex gap-6">
-            <Link href="/privacy-policy" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms-and-conditions" className="text-sm text-secondary-text hover:text-brand-blue transition-colors">
-              Terms & Conditions
-            </Link>
-          </div>
-        </div>
+      <div className="w-full border-t border-white/8 px-4 py-6 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
+        <p className="text-center text-sm text-secondary-text">
+          © {new Date().getFullYear()} TheCodiQ Global. All Rights Reserved.
+        </p>
       </div>
     </footer>
   );
