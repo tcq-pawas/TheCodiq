@@ -8,6 +8,7 @@ interface BackgroundGlowProps {
   variant?: GlowVariant;
 }
 
+/** Soft radial depth using logo blue / leaf green / golden yellow */
 const GLOW_PRESETS: Record<
   GlowVariant,
   { className: string; style: CSSProperties }[]
@@ -23,7 +24,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 520,
         maxHeight: 520,
         background:
-          "radial-gradient(circle, rgba(59,130,246,0.14) 0%, rgba(59,130,246,0) 70%)",
+          "radial-gradient(circle, rgba(45,156,255,0.10) 0%, rgba(45,156,255,0) 70%)",
       },
     },
     {
@@ -36,7 +37,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 440,
         maxHeight: 440,
         background:
-          "radial-gradient(circle, rgba(56,189,248,0.12) 0%, rgba(56,189,248,0) 70%)",
+          "radial-gradient(circle, rgba(111,207,74,0.07) 0%, rgba(111,207,74,0) 70%)",
         animationDelay: "4s",
       },
     },
@@ -50,7 +51,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 380,
         maxHeight: 380,
         background:
-          "radial-gradient(circle, rgba(99,102,241,0.10) 0%, rgba(99,102,241,0) 70%)",
+          "radial-gradient(circle, rgba(242,201,76,0.05) 0%, rgba(242,201,76,0) 70%)",
         animationDelay: "8s",
       },
     },
@@ -66,7 +67,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 500,
         maxHeight: 500,
         background:
-          "radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%)",
+          "radial-gradient(circle, rgba(45,156,255,0.11) 0%, transparent 70%)",
       },
     },
     {
@@ -79,7 +80,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 400,
         maxHeight: 400,
         background:
-          "radial-gradient(circle, rgba(59,130,246,0.11) 0%, transparent 70%)",
+          "radial-gradient(circle, rgba(111,207,74,0.07) 0%, transparent 70%)",
         animationDelay: "5s",
       },
     },
@@ -95,7 +96,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 480,
         maxHeight: 480,
         background:
-          "radial-gradient(circle, rgba(99,102,241,0.14) 0%, transparent 70%)",
+          "radial-gradient(circle, rgba(45,156,255,0.10) 0%, transparent 70%)",
       },
     },
     {
@@ -108,7 +109,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 360,
         maxHeight: 360,
         background:
-          "radial-gradient(circle, rgba(139,92,246,0.11) 0%, transparent 70%)",
+          "radial-gradient(circle, rgba(242,201,76,0.06) 0%, transparent 70%)",
         animationDelay: "6s",
       },
     },
@@ -124,7 +125,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 460,
         maxHeight: 460,
         background:
-          "radial-gradient(circle, rgba(34,197,94,0.10) 0%, transparent 70%)",
+          "radial-gradient(circle, rgba(111,207,74,0.09) 0%, transparent 70%)",
       },
     },
     {
@@ -137,7 +138,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 400,
         maxHeight: 400,
         background:
-          "radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)",
+          "radial-gradient(circle, rgba(45,156,255,0.09) 0%, transparent 70%)",
         animationDelay: "3s",
       },
     },
@@ -153,7 +154,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 500,
         maxHeight: 500,
         background:
-          "radial-gradient(circle, rgba(139,92,246,0.13) 0%, transparent 70%)",
+          "radial-gradient(circle, rgba(45,156,255,0.09) 0%, transparent 70%)",
       },
     },
     {
@@ -166,7 +167,7 @@ const GLOW_PRESETS: Record<
         maxWidth: 420,
         maxHeight: 420,
         background:
-          "radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%)",
+          "radial-gradient(circle, rgba(111,207,74,0.07) 0%, transparent 70%)",
         animationDelay: "7s",
       },
     },

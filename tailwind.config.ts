@@ -9,36 +9,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0D0F12",
-        foreground: "#D6D6D6",
-        border: "rgba(255,255,255,0.08)",
+        background: "#05070A",
+        foreground: "rgba(255,255,255,0.82)",
+        border: "rgba(255,255,255,0.05)",
         
-        // TheCodiQ Global brand colors
-        "brand-blue": "#1E88FF",
-        "brand-gold": "#F7A600",
-        "brand-green": "#69B33B",
+        // TheCodiQ logo-inspired brand colors
+        "brand-blue": "#2D9CFF",
+        "brand-gold": "#F2C94C",
+        "brand-green": "#6FCF4A",
         
-        // Dark graphite backgrounds
-        "bg-primary": "#0D0F12",
-        "bg-secondary": "#151A21",
-        "bg-card": "#1B2028",
-        "bg-panel": "#222831",
+        // Deep-black layered backgrounds
+        "bg-primary": "#05070A",
+        "bg-secondary": "#0A0E12",
+        "bg-section": "#090B0F",
+        "bg-card": "#10151A",
+        "bg-panel": "#0C1015",
         
-        // Metallic silver
-        "silver-primary": "#D6D6D6",
-        "silver-secondary": "#A8A8A8",
+        // Metallic silver / text
+        "silver-primary": "rgba(255,255,255,0.92)",
+        "silver-secondary": "rgba(255,255,255,0.60)",
         
         // Secondary backgrounds
-        "secondary-bg": "#151A21",
-        "card-bg": "#1B2028",
+        "secondary-bg": "#0A0E12",
+        "card-bg": "#10151A",
         
         // Text colors
-        "primary-text": "#D6D6D6",
-        "secondary-text": "#A8A8A8",
+        "primary-text": "rgba(255,255,255,0.92)",
+        "secondary-text": "rgba(255,255,255,0.60)",
+        "muted-text": "rgba(255,255,255,0.45)",
+        "body-text": "rgba(255,255,255,0.82)",
         
         // Accent gradient colors
-        "accent-start": "#1E88FF",
-        "accent-end": "#F7A600",
+        "accent-start": "#2D9CFF",
+        "accent-end": "#6FCF4A",
         
         // Dark theme colors
         dark: {
@@ -60,29 +63,40 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         
-        // Brand gradients
-        "blue-gradient": "linear-gradient(135deg, #1E88FF 0%, #4DA3FF 100%)",
-        "gold-gradient": "linear-gradient(135deg, #F7A600 0%, #FFC94D 100%)",
-        "green-gradient": "linear-gradient(135deg, #69B33B 0%, #8DD85A 100%)",
+        // Brand gradients (logo colors)
+        "blue-gradient": "linear-gradient(135deg, #2D9CFF 0%, #1A7ACC 100%)",
+        "gold-gradient": "linear-gradient(135deg, #F2C94C 0%, #D4A82E 100%)",
+        "green-gradient": "linear-gradient(135deg, #6FCF4A 0%, #4FA832 100%)",
         
-        // Accent gradient
-        "accent-gradient": "linear-gradient(135deg, #1E88FF 0%, #F7A600 100%)",
+        // Accent gradient — blue → leaf green
+        "accent-gradient": "linear-gradient(135deg, #2D9CFF 0%, #6FCF4A 100%)",
+        
+        // Primary button: dark with blue accent
+        "primary-btn": "linear-gradient(135deg, #0C1015 0%, #10151A 55%, #0A2840 100%)",
+        "primary-btn-hover": "linear-gradient(135deg, #2D9CFF 0%, #6FCF4A 100%)",
+        
+        // Layered depth backgrounds
+        "canvas-depth":
+          "radial-gradient(ellipse 80% 60% at 50% 0%, #06080D 0%, #05070A 45%, #040404 100%)",
+        "section-depth":
+          "linear-gradient(180deg, #05070A 0%, #090B0F 50%, #05070A 100%)",
         
         // Radial glow
-        "radial-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(30, 136, 255, 0.15), transparent)",
+        "radial-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(45, 156, 255, 0.12), transparent)",
         
         // Glass gradient
-        "glass-gradient": "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)",
+        "glass-gradient": "linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%)",
       },
       
       boxShadow: {
-        "glow-blue": "0 0 20px rgba(30, 136, 255, 0.3), 0 0 40px rgba(77, 163, 255, 0.2)",
-        "glow-gold": "0 0 20px rgba(247, 166, 0, 0.3), 0 0 40px rgba(255, 201, 77, 0.2)",
-        "glow-green": "0 0 20px rgba(105, 179, 59, 0.3), 0 0 40px rgba(141, 216, 90, 0.2)",
-        "glow-accent": "0 0 20px rgba(30, 136, 255, 0.3), 0 0 40px rgba(247, 166, 0, 0.2)",
-        "glass": "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
-        "premium": "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
-        "card": "0 1px 3px rgba(0, 0, 0, 0.3)",
+        "glow-blue": "0 0 20px rgba(45, 156, 255, 0.28), 0 0 40px rgba(45, 156, 255, 0.14)",
+        "glow-gold": "0 0 20px rgba(242, 201, 76, 0.28), 0 0 40px rgba(242, 201, 76, 0.14)",
+        "glow-green": "0 0 20px rgba(111, 207, 74, 0.28), 0 0 40px rgba(111, 207, 74, 0.14)",
+        "glow-accent": "0 0 20px rgba(45, 156, 255, 0.28), 0 0 40px rgba(111, 207, 74, 0.14)",
+        "glass": "0 8px 32px 0 rgba(0, 0, 0, 0.45)",
+        "premium": "0 25px 50px -12px rgba(0, 0, 0, 0.55)",
+        "card": "0 1px 3px rgba(0, 0, 0, 0.4)",
+        "card-hover": "0 8px 32px rgba(45, 156, 255, 0.12), 0 0 24px rgba(111, 207, 74, 0.06)",
       },
       
       backdropBlur: {

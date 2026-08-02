@@ -18,8 +18,8 @@ export async function GET(request: NextRequest) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#0D0F12',
-          backgroundImage: 'linear-gradient(135deg, #1E88FF 0%, #F7A600 100%)',
+          backgroundColor: '#040404',
+          backgroundImage: 'linear-gradient(135deg, #2D9CFF 0%, #6FCF4A 100%)',
         }}
       >
         <div

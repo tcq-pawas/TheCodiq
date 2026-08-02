@@ -17,9 +17,9 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-blue-gradient text-white hover:scale-105 focus:ring-brand-blue shadow-lg shadow-brand-blue/25 glow-button",
+      "bg-[#0C1015] bg-primary-btn text-white border border-brand-blue/35 shadow-lg shadow-brand-blue/20 hover:bg-primary-btn-hover hover:border-brand-green/40 hover:shadow-glow-accent hover:scale-105 focus:ring-brand-blue glow-button",
     secondary:
-      "bg-gold-gradient text-white hover:scale-105 focus:ring-brand-gold shadow-lg shadow-brand-gold/25 glow-button",
+      "bg-transparent text-silver-primary border border-white/10 hover:border-brand-gold/50 hover:text-brand-gold hover:shadow-glow-gold hover:scale-105 focus:ring-brand-gold transition-all",
     success:
       "bg-green-gradient text-white hover:scale-105 focus:ring-brand-green shadow-lg shadow-brand-green/25 glow-button",
     outline:

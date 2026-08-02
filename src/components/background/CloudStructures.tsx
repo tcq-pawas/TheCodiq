@@ -49,19 +49,19 @@ const CLOUDS: Record<CloudVariant, CloudDef[]> = {
 };
 
 const TONE_FILL: Record<CloudDef["tone"], string> = {
-  blue: "rgba(59,130,246,0.08)",
-  cyan: "rgba(56,189,248,0.08)",
-  indigo: "rgba(99,102,241,0.08)",
-  purple: "rgba(139,92,246,0.08)",
-  emerald: "rgba(34,197,94,0.07)",
+  blue: "rgba(45,156,255,0.08)",
+  cyan: "rgba(45,156,255,0.08)",
+  indigo: "rgba(45,156,255,0.08)",
+  purple: "rgba(242,201,76,0.08)",
+  emerald: "rgba(111,207,74,0.07)",
 };
 
 const TONE_STROKE: Record<CloudDef["tone"], string> = {
-  blue: "rgba(59,130,246,0.16)",
-  cyan: "rgba(56,189,248,0.16)",
-  indigo: "rgba(99,102,241,0.15)",
-  purple: "rgba(139,92,246,0.15)",
-  emerald: "rgba(34,197,94,0.14)",
+  blue: "rgba(45,156,255,0.16)",
+  cyan: "rgba(45,156,255,0.16)",
+  indigo: "rgba(45,156,255,0.15)",
+  purple: "rgba(242,201,76,0.15)",
+  emerald: "rgba(111,207,74,0.14)",
 };
 
 function CloudShape({ tone, id }: { tone: CloudDef["tone"]; id: string }) {
@@ -119,7 +119,7 @@ export default function CloudStructures({ variant = "a" }: CloudStructuresProps)
           y1="18%"
           x2="78%"
           y2="16%"
-          stroke="rgba(56,189,248,0.09)"
+          stroke="rgba(45,156,255,0.09)"
           strokeWidth="1"
           strokeDasharray="4 8"
           className="tech-anim-pulse-stroke"
@@ -129,7 +129,7 @@ export default function CloudStructures({ variant = "a" }: CloudStructuresProps)
           y1="78%"
           x2="80%"
           y2="78%"
-          stroke="rgba(99,102,241,0.08)"
+          stroke="rgba(45,156,255,0.08)"
           strokeWidth="1"
           strokeDasharray="4 8"
           className="tech-anim-pulse-stroke"
@@ -140,7 +140,7 @@ export default function CloudStructures({ variant = "a" }: CloudStructuresProps)
           y1="28%"
           x2="22%"
           y2="72%"
-          stroke="rgba(59,130,246,0.07)"
+          stroke="rgba(45,156,255,0.07)"
           strokeWidth="1"
           strokeDasharray="3 7"
           className="tech-anim-pulse-stroke"

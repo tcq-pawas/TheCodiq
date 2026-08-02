@@ -60,7 +60,7 @@ export default function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="bg-[#050505] border-t border-white/8 relative top-20">
+    <footer className="bg-[#040404] border-t border-white/5 relative top-20">
       {/* Floating CTA Banner */}
       <div className="relative mb-8 sm:mb-12 lg:-mt-32 lg:mb-20 px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
         <motion.div
@@ -71,7 +71,7 @@ export default function Footer() {
           className={`max-w-6xl mx-auto ${pathname === "/contact" ? "hidden" : ""}`}
         >
           {/* Card 1: Hero content */}
-          <div className="relative overflow-hidden rounded-[22px] border border-white/10 bg-bg-card/95 p-5 shadow-xl backdrop-blur-xl sm:rounded-[32px] sm:p-6 sm:shadow-2xl md:p-10 lg:p-12">
+          <div className="relative overflow-hidden rounded-[22px] border border-white/5 bg-bg-card/95 p-5 shadow-xl backdrop-blur-xl sm:rounded-[32px] sm:p-6 sm:shadow-2xl md:p-10 lg:p-12">
             {/* Background glow effects */}
             <div className="absolute -top-20 -left-20 h-[300px] w-[300px] rounded-full bg-brand-blue/10 blur-[100px]" />
             <div className="absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full bg-brand-gold/10 blur-[100px]" />
