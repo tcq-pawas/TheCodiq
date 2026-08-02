@@ -5,7 +5,7 @@ export const SITE_URL = "https://thecodiq.com";
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Ideas to Execution", href: "/services" },
+  { label: "Solutions", href: "/services" },
   { label: "Success Stories", href: "/portfolio" },
   { label: "Our Story", href: "/about" },
   { label: "Work With Us", href: "/contact" },

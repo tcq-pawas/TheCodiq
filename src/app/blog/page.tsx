@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import InnerPageBanner from "@/components/common/InnerPageBanner";
 import Hero from "@/app/blog/Hero";
-import FeaturedPost from "@/app/blog/FeaturedPost";
 import BlogGrid from "@/app/blog/BlogGrid";
 import JsonLd from "@/components/seo/JsonLd";
 
@@ -67,7 +66,6 @@ export default function BlogPage() {
 
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24">
           <Hero />
-          <FeaturedPost />
           <BlogGrid />
         </div>
       </div>

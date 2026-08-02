@@ -35,18 +35,16 @@ export default function Hero() {
 
               {/* Heading */}
               <h1 className="mt-6 text-3xl font-bold leading-tight text-silver-primary sm:text-4xl md:text-5xl lg:mt-8 lg:text-3xl">
-                Build AI-Powered Software That
+                Build Intelligent Digital Products
                 <br className="hidden sm:block" />
                 <span className="accent-gradient-text">
-                  Accelerates Business Growth
+                  That Scale
                 </span>
               </h1>
 
               {/* Description */}
               <p className="mx-auto mt-5 max-w-2xl  leading-relaxed text-secondary-text  text-[12px] lg:mx-0 lg:mt-6">
-                Custom Web Applications, Mobile Apps, AI Solutions, Cloud
-                Infrastructure, and Digital Transformation Services for
-                Startups, Enterprises, and Growing Businesses.
+                Transform your ideas into AI-powered web platforms, mobile applications, SaaS products, and enterprise solutions engineered for performance, scalability, and growth.
               </p>
 
               {/* Buttons */}
@@ -55,14 +53,14 @@ export default function Hero() {
                   href="/contact"
                   className="rounded-full bg-blue-gradient px-6 py-3 text-center font-medium text-white transition-all duration-300 hover:opacity-90 glow-button sm:px-8 sm:py-4"
                 >
-                  Get Free Consultation
+                  Start Your Project
                 </Link>
 
                 <Link
-                  href="/portfolio"
+                  href="/services"
                   className="rounded-full border border-brand-gold/30 bg-brand-gold/10 px-6 py-3 text-center font-medium text-silver-primary transition-all duration-300 hover:bg-brand-gold/20 sm:px-8 sm:py-4"
                 >
-                  View Our Work
+                  Explore Solutions
                 </Link>
               </div>
 

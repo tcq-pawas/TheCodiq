@@ -18,22 +18,22 @@ const twitterImage = process.env.NEXT_PUBLIC_TWITTER_IMAGE || '/twitter-image.jp
 const logoUrl = process.env.NEXT_PUBLIC_LOGO_URL || '/logo/logo.png';
 
 export const metadata: Metadata = {
-  title: "Home | Premium IT Solutions",
+  title: "Build Intelligent Digital Products That Scale",
   description:
-    "Transform your business with premium IT solutions. Expert web development, mobile apps, AI solutions, and digital marketing services.",
+    "Transform your ideas into AI-powered web platforms, mobile applications, SaaS products, and enterprise solutions engineered for performance, scalability, and growth.",
   keywords: [
-    "IT solutions",
+    "intelligent digital products",
+    "AI-powered platforms",
     "web development",
     "mobile app development",
-    "AI solutions",
-    "digital marketing",
+    "SaaS products",
+    "enterprise solutions",
     "software development",
-    "custom software",
-    "cloud services"
+    "scalable software"
   ],
   openGraph: {
-    title: `Home | ${siteName} - Premium IT Solutions`,
-    description: "Transform your business with premium IT solutions. Expert web development, mobile apps, AI solutions, and digital marketing services.",
+    title: `Build Intelligent Digital Products That Scale | ${siteName}`,
+    description: "Transform your ideas into AI-powered web platforms, mobile applications, SaaS products, and enterprise solutions engineered for performance, scalability, and growth.",
     url: siteUrl,
     type: "website",
     images: [
@@ -41,14 +41,14 @@ export const metadata: Metadata = {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteName} - Premium IT Solutions`,
+        alt: `${siteName} - Build Intelligent Digital Products That Scale`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Home | ${siteName} - Premium IT Solutions`,
-    description: "Transform your business with premium IT solutions. Expert web development, mobile apps, AI solutions, and digital marketing services.",
+    title: `Build Intelligent Digital Products That Scale | ${siteName}`,
+    description: "Transform your ideas into AI-powered web platforms, mobile applications, SaaS products, and enterprise solutions engineered for performance, scalability, and growth.",
     images: [twitterImage],
   },
   alternates: {
