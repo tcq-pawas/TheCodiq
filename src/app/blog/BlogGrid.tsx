@@ -164,11 +164,6 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
               {formatDate(post.date)} · {post.readTime}
             </p>
           </div>
-
-          <span className="inline-flex shrink-0 items-center gap-1 text-[12px] font-semibold text-[#2D9CFF] opacity-80 transition-all duration-[250ms] ease-out group-hover:translate-x-0.5 group-hover:opacity-100">
-            Read
-            <ArrowRight className="h-3.5 w-3.5" />
-          </span>
         </div>
       </div>
     </motion.article>
