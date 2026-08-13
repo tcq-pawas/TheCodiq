@@ -1,5 +1,6 @@
 "use client";
 
+import { TbApi } from "react-icons/tb";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
@@ -14,6 +15,10 @@ import {
   SiMongodb,
   SiFirebase,
   SiDjango,
+  SiHtml5,
+  SiCss,
+  SiPostgresql,
+  SiPython,
 } from "react-icons/si";
 
 import { HiOutlineStatusOnline } from "react-icons/hi";
@@ -116,7 +121,7 @@ export default function DesktopShowcaseCard({
   };
 
   const fallbackTech: TechMeta = {
-    icon: <FaReact />,
+    icon: <TbApi />,
     boxClass: "border-emerald-400/25 bg-emerald-400/10",
     iconClass: "text-emerald-300",
   };
@@ -139,8 +144,35 @@ export default function DesktopShowcaseCard({
     },
     JavaScript: {
       icon: <SiJavascript />,
-      boxClass: "border-[#F7DF1E]/60 bg-[#F7DF1E]",
-      iconClass: "text-[#111827]",
+      boxClass: "border-[#D97706]/50 bg-[#D97706]/20",
+      iconClass: "text-[#FBBF24]",
+    },
+
+    JS: {
+      icon: <SiJavascript />,
+      boxClass: "border-[#D97706]/50 bg-[#D97706]/20",
+      iconClass: "text-[#FBBF24]",
+    },
+    HTML: {
+      icon: <SiHtml5 />,
+      boxClass: "border-[#E34F26]/25 bg-[#E34F26]/10",
+      iconClass: "text-[#E34F26]",
+    },
+    HTML5: {
+      icon: <SiHtml5 />,
+      boxClass: "border-[#E34F26]/25 bg-[#E34F26]/10",
+      iconClass: "text-[#E34F26]",
+    },
+    CSS: {
+      icon: <SiCss />,
+      boxClass: "border-[#1572B6]/25 bg-[#1572B6]/10",
+      iconClass: "text-[#1572B6]",
+    },
+
+    CSS3: {
+      icon: <SiCss />,
+      boxClass: "border-[#1572B6]/25 bg-[#1572B6]/10",
+      iconClass: "text-[#1572B6]",
     },
     React: {
       icon: <FaReact />,
@@ -177,10 +209,25 @@ export default function DesktopShowcaseCard({
       boxClass: "border-[#092E20]/25 bg-[#092E20]/10",
       iconClass: "text-[#44B78B]",
     },
+    Python: {
+      icon: <SiPython />,
+      boxClass: "border-[#3776AB]/30 bg-[#3776AB]/10",
+      iconClass: "text-[#3776AB]",
+    },
     MongoDB: {
       icon: <SiMongodb />,
       boxClass: "border-[#47A248]/25 bg-[#47A248]/10",
       iconClass: "text-[#47A248]",
+    },
+    PostgreSQL: {
+      icon: <SiPostgresql />,
+      boxClass: "border-[#4169E1]/25 bg-[#4169E1]/10",
+      iconClass: "text-[#4169E1]",
+    },
+    Postgres: {
+      icon: <SiPostgresql />,
+      boxClass: "border-[#4169E1]/25 bg-[#4169E1]/10",
+      iconClass: "text-[#4169E1]",
     },
     Firebase: {
       icon: <SiFirebase />,
@@ -250,15 +297,7 @@ export default function DesktopShowcaseCard({
                 ))}
               </div>
 
-              <a
-                href={liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className={linkIconClass}
-              >
-                <ArrowUpRight className="h-4 w-4" />
-              </a>
+
             </div>
           </div>
 

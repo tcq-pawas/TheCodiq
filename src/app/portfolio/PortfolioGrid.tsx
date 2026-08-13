@@ -10,68 +10,12 @@ import Button from "@/components/common/Button";
 import DesktopShowcaseCard, {
   portfolioTextSizes,
 } from "@/app/portfolio/DesktopShowcaseCard";
-
-const categories = [
-  "All",
-  "Web Development",
-  "Mobile App",
-  "AI Solutions",
-  "UI/UX Design",
-];
-
-type PortfolioItem = {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  technologies: string[];
-  /**
-   * "desktop" -> monitor mockup with a hover-to-slide screenshot preview.
-   * "image"   -> the original plain screenshot card. Default when omitted.
-   */
-  showcase?: "desktop" | "image";
-  liveUrl?: string; // required when showcase === "desktop"
-  previewImage?: string; // poster shown before hover / permanently on touch devices
-  previewBadge?: string; // small label on the monitor's top-right corner, default "Live Preview"
-  /**
-   * 5 screenshots the monitor slides through on hover, in order. Replace
-   * the placeholder paths below with real screenshots of each page.
-   */
-  images?: string[];
-};
-
-const portfolioItems: PortfolioItem[] = [
-  {
-    id: "1",
-    title: `HeyDay RealEstate`,
-    category: "Web Development",
-    description:
-      "A modern real estate website built with Next.js and TypeScript — fast, SEO-optimized, and easy to browse for property seekers.",
-    technologies: ["React.js", "Tailwind CSS", "Django"],
-    showcase: "desktop",
-    liveUrl: "https://www.heydayrealty.in/",
-    previewImage: "/images/portfolio/image.png",
-    // TODO: replace with 5 real screenshots of the site's pages
-    images: [
-      "/images/portfolio/heyday/HeyDay.png",
-      "/images/portfolio/heyday/HeyDay2.png",
-      "/images/portfolio/heyday/HeyDay3.png",
-      "/images/portfolio/heyday/HeyDay4.png",
-      "/images/portfolio/heyday/HeyDay5.png",
-    ],
-  },
-];
-
-const projectImages: Record<string, string> = {
-  "1": "/images/portfolio/web-development.png",
-};
-
-const categoryImages: Record<string, string> = {
-  "Web Development": "/images/portfolio/web-development.png",
-  "Mobile App": "/images/portfolio/web-development.png",
-  "AI Solutions": "/images/portfolio/web-development.png",
-  "UI/UX Design": "/images/portfolio/web-development.png",
-};
+import {
+  categories,
+  portfolioItems,
+  projectImages,
+  categoryImages,
+} from "@/app/portfolio/portfolioData";
 
 export default function PortfolioGrid() {
   const [selectedCategory, setSelectedCategory] = useState("All");
