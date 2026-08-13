@@ -6,3 +6,7 @@ export { default as CodeBubbles } from "./CodeBubbles";
 export { default as CodingIcons } from "./CodingIcons";
 export { default as ApiArchitecture } from "./ApiArchitecture";
 export { default as CodingGraphics } from "./CodingGraphics";
+export { default as NeuralMesh } from "./NeuralMesh";
+export { default as BinaryField } from "./BinaryField";
+export { default as InfraDiagrams } from "./InfraDiagrams";
+export { default as SoftwareStructures } from "./SoftwareStructures";

@@ -19,32 +19,32 @@ interface CloudDef {
 
 const CLOUDS: Record<CloudVariant, CloudDef[]> = {
   a: [
-    { x: "6%", y: "8%", w: 220, h: 110, delay: "0s", duration: "18s", tone: "blue", label: "edge" },
-    { x: "72%", y: "6%", w: 260, h: 130, delay: "2s", duration: "20s", tone: "cyan", label: "cdn" },
-    { x: "8%", y: "70%", w: 200, h: 100, delay: "4s", duration: "16s", tone: "indigo" },
-    { x: "68%", y: "72%", w: 240, h: 120, delay: "1s", duration: "19s", tone: "purple", label: "api" },
-    { x: "40%", y: "42%", w: 160, h: 80, delay: "3s", duration: "17s", tone: "emerald" },
+    { x: "6%", y: "8%", w: 220, h: 110, delay: "0s", duration: "36s", tone: "blue", label: "edge" },
+    { x: "72%", y: "6%", w: 260, h: 130, delay: "4s", duration: "42s", tone: "cyan", label: "cdn" },
+    { x: "8%", y: "70%", w: 200, h: 100, delay: "8s", duration: "38s", tone: "indigo" },
+    { x: "68%", y: "72%", w: 240, h: 120, delay: "2s", duration: "40s", tone: "purple", label: "api" },
+    { x: "40%", y: "42%", w: 160, h: 80, delay: "6s", duration: "44s", tone: "emerald" },
   ],
   b: [
-    { x: "4%", y: "12%", w: 240, h: 120, delay: "0s", duration: "17s", tone: "cyan", label: "region" },
-    { x: "70%", y: "14%", w: 210, h: 105, delay: "2.5s", duration: "19s", tone: "blue" },
-    { x: "10%", y: "68%", w: 230, h: 115, delay: "1.5s", duration: "18s", tone: "emerald", label: "storage" },
-    { x: "74%", y: "66%", w: 190, h: 95, delay: "3.5s", duration: "16s", tone: "indigo" },
-    { x: "45%", y: "38%", w: 150, h: 75, delay: "5s", duration: "20s", tone: "purple" },
+    { x: "4%", y: "12%", w: 240, h: 120, delay: "0s", duration: "38s", tone: "cyan", label: "region" },
+    { x: "70%", y: "14%", w: 210, h: 105, delay: "5s", duration: "40s", tone: "blue" },
+    { x: "10%", y: "68%", w: 230, h: 115, delay: "3s", duration: "42s", tone: "emerald", label: "storage" },
+    { x: "74%", y: "66%", w: 190, h: 95, delay: "7s", duration: "36s", tone: "indigo" },
+    { x: "45%", y: "38%", w: 150, h: 75, delay: "10s", duration: "46s", tone: "purple" },
   ],
   c: [
-    { x: "8%", y: "6%", w: 200, h: 100, delay: "0s", duration: "16s", tone: "indigo", label: "k8s" },
-    { x: "68%", y: "10%", w: 250, h: 125, delay: "2s", duration: "18s", tone: "purple", label: "ai" },
-    { x: "5%", y: "65%", w: 220, h: 110, delay: "4s", duration: "19s", tone: "blue" },
-    { x: "70%", y: "70%", w: 210, h: 105, delay: "1s", duration: "17s", tone: "cyan", label: "queue" },
-    { x: "38%", y: "45%", w: 170, h: 85, delay: "3s", duration: "21s", tone: "emerald" },
+    { x: "8%", y: "6%", w: 200, h: 100, delay: "0s", duration: "36s", tone: "indigo", label: "k8s" },
+    { x: "68%", y: "10%", w: 250, h: 125, delay: "4s", duration: "40s", tone: "purple", label: "ai" },
+    { x: "5%", y: "65%", w: 220, h: 110, delay: "8s", duration: "44s", tone: "blue" },
+    { x: "70%", y: "70%", w: 210, h: 105, delay: "2s", duration: "38s", tone: "cyan", label: "queue" },
+    { x: "38%", y: "45%", w: 170, h: 85, delay: "6s", duration: "48s", tone: "emerald" },
   ],
   d: [
-    { x: "5%", y: "10%", w: 230, h: 115, delay: "0s", duration: "18s", tone: "emerald", label: "edge" },
-    { x: "74%", y: "8%", w: 200, h: 100, delay: "2s", duration: "16s", tone: "blue" },
-    { x: "6%", y: "68%", w: 210, h: 105, delay: "3.5s", duration: "19s", tone: "cyan", label: "db" },
-    { x: "66%", y: "64%", w: 250, h: 125, delay: "1.5s", duration: "20s", tone: "indigo", label: "workers" },
-    { x: "42%", y: "40%", w: 155, h: 78, delay: "4.5s", duration: "17s", tone: "purple" },
+    { x: "5%", y: "10%", w: 230, h: 115, delay: "0s", duration: "40s", tone: "emerald", label: "edge" },
+    { x: "74%", y: "8%", w: 200, h: 100, delay: "4s", duration: "36s", tone: "blue" },
+    { x: "6%", y: "68%", w: 210, h: 105, delay: "7s", duration: "42s", tone: "cyan", label: "db" },
+    { x: "66%", y: "64%", w: 250, h: 125, delay: "3s", duration: "46s", tone: "indigo", label: "workers" },
+    { x: "42%", y: "40%", w: 155, h: 78, delay: "9s", duration: "38s", tone: "purple" },
   ],
 };
 
@@ -64,14 +64,9 @@ const TONE_STROKE: Record<CloudDef["tone"], string> = {
   emerald: "rgba(111,207,74,0.14)",
 };
 
-function CloudShape({ tone, id }: { tone: CloudDef["tone"]; id: string }) {
+function CloudShape({ tone }: { tone: CloudDef["tone"] }) {
   return (
     <svg viewBox="0 0 200 100" className="dev-cloud__svg" aria-hidden="true">
-      <defs>
-        <filter id={id} x="-15%" y="-15%" width="130%" height="130%">
-          <feGaussianBlur stdDeviation="0.8" />
-        </filter>
-      </defs>
       <ellipse cx="70" cy="62" rx="42" ry="28" fill={TONE_FILL[tone]} />
       <ellipse cx="110" cy="55" rx="50" ry="34" fill={TONE_FILL[tone]} />
       <ellipse cx="145" cy="64" rx="36" ry="24" fill={TONE_FILL[tone]} />
@@ -81,7 +76,6 @@ function CloudShape({ tone, id }: { tone: CloudDef["tone"]; id: string }) {
         fill={TONE_FILL[tone]}
         stroke={TONE_STROKE[tone]}
         strokeWidth="1"
-        filter={`url(#${id})`}
       />
       <circle cx="80" cy="55" r="2.2" fill={TONE_STROKE[tone]} opacity="0.55" />
       <circle cx="110" cy="48" r="2.2" fill={TONE_STROKE[tone]} opacity="0.55" />
@@ -109,7 +103,7 @@ function CloudShape({ tone, id }: { tone: CloudDef["tone"]; id: string }) {
 }
 
 export default function CloudStructures({ variant = "a" }: CloudStructuresProps) {
-  const clouds = CLOUDS[variant];
+  const clouds = CLOUDS[variant].slice(0, 3);
 
   return (
     <div className="tech-bg-layer tech-bg-clouds" aria-hidden="true">
@@ -122,46 +116,23 @@ export default function CloudStructures({ variant = "a" }: CloudStructuresProps)
           stroke="rgba(45,156,255,0.09)"
           strokeWidth="1"
           strokeDasharray="4 8"
-          className="tech-anim-pulse-stroke"
-        />
-        <line
-          x1="16%"
-          y1="78%"
-          x2="80%"
-          y2="78%"
-          stroke="rgba(45,156,255,0.08)"
-          strokeWidth="1"
-          strokeDasharray="4 8"
-          className="tech-anim-pulse-stroke"
-          style={{ animationDelay: "3s" }}
-        />
-        <line
-          x1="20%"
-          y1="28%"
-          x2="22%"
-          y2="72%"
-          stroke="rgba(45,156,255,0.07)"
-          strokeWidth="1"
-          strokeDasharray="3 7"
-          className="tech-anim-pulse-stroke"
-          style={{ animationDelay: "1.5s" }}
+          opacity="0.7"
         />
       </svg>
 
       {clouds.map((cloud, i) => (
         <div
           key={i}
-          className={`dev-cloud tech-anim-cloud-float dev-cloud--${cloud.tone}`}
+          className={`dev-cloud dev-cloud--${cloud.tone}`}
           style={{
             left: cloud.x,
             top: cloud.y,
             width: cloud.w,
             height: cloud.h,
-            animationDelay: cloud.delay,
-            animationDuration: cloud.duration,
+            opacity: 0.08,
           }}
         >
-          <CloudShape tone={cloud.tone} id={`cloud-f-${variant}-${i}`} />
+          <CloudShape tone={cloud.tone} />
           {cloud.label && <span className="dev-cloud__label">{cloud.label}</span>}
         </div>
       ))}

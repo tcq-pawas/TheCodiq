@@ -242,7 +242,15 @@
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  contain: layout paint style;
+  contain: layout paint;
+}
+
+.tech-parallax-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .tech-bg-layer {
@@ -255,14 +263,16 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(4px);
-  will-change: opacity, transform;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  opacity: 0.85;
 }
 
 /* ----- Water-drop glass code bubbles (subtle) ----- */
 
 /* Circuit / data-flow layer — soft neural paths, not PCB */
-.tech-circuit-svg {
+.tech-circuit-svg,
+.tech-neural-svg,
+.tech-infra-svg {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -270,7 +280,248 @@
 }
 
 .tech-bg-circuits {
-  opacity: 0.55;
+  opacity: 0.07;
+}
+
+.tech-bg-neural {
+  opacity: 0.065;
+}
+
+.tech-bg-infra {
+  opacity: 0.08;
+}
+
+.tech-bg-binary {
+  opacity: 0.07;
+}
+
+.tech-bg-clouds {
+  opacity: 0.75;
+}
+
+.tech-bg-api {
+  opacity: 0.8;
+}
+
+.tech-bg-bubbles {
+  opacity: 0.95;
+}
+
+.tech-bg-icons {
+  opacity: 0.65;
+}
+
+.tech-bg-code {
+  opacity: 0.75;
+}
+
+.tech-bg-structures {
+  opacity: 0.38;
+}
+
+/* Route accent: gently emphasize theme layer */
+.tech-accent--hero .tech-bg-neural,
+.tech-accent--hero .tech-bg-clouds,
+.tech-accent--hero .tech-bg-structures {
+  opacity: 0.4;
+}
+
+.tech-accent--circuit .tech-bg-circuits,
+.tech-accent--circuit .tech-bg-infra,
+.tech-accent--circuit .tech-bg-structures {
+  opacity: 0.36;
+}
+
+.tech-accent--code .tech-bg-bubbles,
+.tech-accent--code .tech-bg-code {
+  opacity: 1;
+}
+
+.tech-accent--code .tech-bg-structures {
+  opacity: 0.38;
+}
+
+.tech-accent--api .tech-bg-api,
+.tech-accent--api .tech-bg-infra,
+.tech-accent--api .tech-bg-structures {
+  opacity: 0.4;
+}
+
+.tech-accent--symbols .tech-bg-code,
+.tech-accent--symbols .tech-bg-icons {
+  opacity: 0.8;
+}
+
+.tech-accent--secure .tech-bg-infra,
+.tech-accent--secure .tech-bg-binary,
+.tech-accent--secure .tech-bg-structures {
+  opacity: 0.38;
+}
+
+.tech-accent--network .tech-bg-api,
+.tech-accent--network .tech-bg-neural,
+.tech-accent--network .tech-bg-structures {
+  opacity: 0.4;
+}
+
+.tech-accent--binary .tech-bg-binary {
+  opacity: 0.1;
+}
+
+/* ----- Software architecture structure nodes ----- */
+
+.tech-structures-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform: translate3d(0, 0, 0);
+}
+
+.tech-structure-link {
+  stroke: rgba(45, 156, 255, 0.55);
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+  fill: none;
+}
+
+.tech-structure-nodes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tech-structure-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px 7px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(45, 156, 255, 0.28);
+  background: rgba(10, 14, 18, 0.42);
+  pointer-events: none;
+  backface-visibility: hidden;
+  min-width: 108px;
+  transition: none;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.tech-structure-node__glyph {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  background: rgba(45, 156, 255, 0.7);
+  box-shadow: 0 0 8px rgba(45, 156, 255, 0.25);
+}
+
+.tech-structure-node__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.tech-structure-node__label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(214, 214, 214, 0.72);
+  white-space: nowrap;
+}
+
+.tech-structure-node__sub {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.04em;
+  color: rgba(214, 214, 214, 0.42);
+  white-space: nowrap;
+}
+
+.tech-structure-node--api {
+  border-color: rgba(45, 156, 255, 0.28);
+}
+.tech-structure-node--api .tech-structure-node__glyph {
+  background: rgba(45, 156, 255, 0.75);
+  border-radius: 50%;
+}
+
+.tech-structure-node--svc {
+  border-color: rgba(45, 156, 255, 0.2);
+}
+.tech-structure-node--svc .tech-structure-node__glyph {
+  background: rgba(45, 156, 255, 0.65);
+}
+
+.tech-structure-node--db {
+  border-color: rgba(111, 207, 74, 0.28);
+}
+.tech-structure-node--db .tech-structure-node__glyph {
+  background: rgba(111, 207, 74, 0.7);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(111, 207, 74, 0.22);
+}
+
+.tech-structure-node--cloud {
+  border-color: rgba(45, 156, 255, 0.24);
+}
+.tech-structure-node--cloud .tech-structure-node__glyph {
+  background: rgba(45, 156, 255, 0.6);
+  border-radius: 999px;
+  width: 12px;
+  height: 7px;
+}
+
+.tech-structure-node--ci {
+  border-color: rgba(242, 201, 76, 0.28);
+}
+.tech-structure-node--ci .tech-structure-node__glyph {
+  background: rgba(242, 201, 76, 0.7);
+  box-shadow: 0 0 8px rgba(242, 201, 76, 0.2);
+}
+
+.tech-structure-node--ai {
+  border-color: rgba(111, 207, 74, 0.24);
+}
+.tech-structure-node--ai .tech-structure-node__glyph {
+  background: rgba(111, 207, 74, 0.65);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tech-structure-node--git {
+  border-color: rgba(111, 207, 74, 0.26);
+}
+.tech-structure-node--git .tech-structure-node__glyph {
+  background: rgba(111, 207, 74, 0.7);
+  border-radius: 50%;
+}
+
+.tech-structure-node--secure {
+  border-color: rgba(242, 201, 76, 0.26);
+}
+.tech-structure-node--secure .tech-structure-node__glyph {
+  background: rgba(242, 201, 76, 0.65);
+  border-radius: 2px 2px 3px 3px;
+}
+
+@keyframes tech-structure-float {
+  0%,
+  100% {
+    /* transform driven inline for mouse; opacity only here */
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.tech-anim-structure-float {
+  animation: tech-structure-float 30s ease-in-out infinite;
 }
 
 /* ----- Cloud structures ----- */
@@ -289,8 +540,8 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  opacity: 0.35;
-  will-change: transform, opacity;
+  opacity: 0.08;
+  transform: translate3d(0, 0, 0);
 }
 
 .dev-cloud__svg {
@@ -319,10 +570,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(-50%, -50%) rotate(var(--icon-rot, 0deg)) translateZ(0);
-  opacity: 0.35;
+  transform: translate(-50%, -50%) rotate(var(--icon-rot, 0deg)) translate3d(0, 0, 0);
+  opacity: 0.07;
   will-change: transform, opacity;
-  filter: drop-shadow(0 0 6px currentColor);
 }
 
 .dev-code-icon svg {
@@ -339,19 +589,24 @@
   }
   50% {
     opacity: 1;
-    transform: scale(1.12);
+    transform: scale(1.08);
   }
 }
 
 .tech-anim-pulse-node {
-  animation: tech-pulse-node 8s ease-in-out infinite;
+  animation: tech-pulse-node 22s ease-in-out infinite;
   transform-origin: center;
   transform-box: fill-box;
 }
 
 @media (max-width: 639px) {
   .tech-bg-circuits {
-    opacity: 0.4;
+    opacity: 0.05;
+  }
+
+  .tech-bg-neural,
+  .tech-bg-infra {
+    opacity: 0.045;
   }
 }
 
@@ -365,17 +620,15 @@
   box-sizing: border-box;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 70% 55% at 30% 22%, rgba(255, 255, 255, 0.05), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 70% 78%, rgba(255, 255, 255, 0.015), transparent 60%),
-    rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(8px) saturate(1.05);
-  -webkit-backdrop-filter: blur(8px) saturate(1.05);
+    radial-gradient(ellipse 70% 55% at 30% 22%, rgba(255, 255, 255, 0.04), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 70% 78%, rgba(255, 255, 255, 0.01), transparent 60%),
+    rgba(255, 255, 255, 0.015);
   border: 0 !important;
   outline: none;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transform: rotate(var(--bubble-rot, 0deg)) translateZ(0);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transform: rotate(var(--bubble-rot, 0deg)) translate3d(0, 0, 0);
   will-change: transform, opacity, border-radius;
-  opacity: 0.08;
+  opacity: 0.06;
 }
 
 .code-bubble--drop {
@@ -556,11 +809,11 @@
   gap: 6px;
   padding: 4px 8px 4px 6px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(10, 14, 18, 0.4);
-  transform: translate(-50%, -50%) translateZ(0);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(10, 14, 18, 0.25);
+  transform: translate(-50%, -50%) translate3d(0, 0, 0);
   will-change: transform, opacity;
-  opacity: 0.45;
+  opacity: 0.07;
 }
 
 .dev-api-node__dot {
@@ -617,9 +870,22 @@
   font-weight: 500;
   letter-spacing: 0.04em;
   user-select: none;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
   will-change: transform, opacity;
   line-height: 1;
+  opacity: 0.7;
+}
+
+.tech-binary-glyph {
+  position: absolute;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  user-select: none;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  line-height: 1;
+  pointer-events: none;
 }
 
 .tech-bg-overlay {
@@ -641,21 +907,23 @@
   paint over the fixed tech layer. Matching fills only.
 */
 main > div.bg-background,
-main > section.bg-bg-primary {
+main > section.bg-bg-primary,
+main > section.bg-bg-secondary,
+main > section.bg-black {
   background-color: transparent !important;
 }
 
-/* ----- Ambient animations ----- */
+/* ----- Ambient animations (20–60s, ease-in-out, infinite) ----- */
 
 @keyframes tech-breathe {
   0%,
   100% {
     opacity: 0.7;
-    transform: scale(1) translateZ(0);
+    transform: scale(1) translate3d(0, 0, 0);
   }
   50% {
     opacity: 1;
-    transform: scale(1.04) translateZ(0);
+    transform: scale(1.03) translate3d(0, 0, 0);
   }
 }
 
@@ -663,83 +931,83 @@ main > section.bg-bg-primary {
   0%,
   100% {
     opacity: 0.55;
-    transform: scale(1) translateZ(0);
+    transform: scale(1) translate3d(0, 0, 0);
   }
   50% {
-    opacity: 0.95;
-    transform: scale(1.06) translateZ(0);
+    opacity: 0.9;
+    transform: scale(1.04) translate3d(0, 0, 0);
   }
 }
 
 @keyframes tech-float-micro {
   0%,
   100% {
-    transform: translate(-50%, -50%) translateY(0) translateZ(0);
+    transform: translate(-50%, -50%) translate3d(0, 0, 0);
   }
   50% {
-    transform: translate(-50%, -50%) translateY(-4px) translateZ(0);
+    transform: translate(-50%, -50%) translate3d(0, -6px, 0);
   }
 }
 
 @keyframes tech-float-symbol {
   0%,
   100% {
-    transform: translateY(0) rotate(var(--tech-rot, 0deg)) translateZ(0);
+    transform: translate3d(0, 0, 0) rotate(var(--tech-rot, 0deg));
     opacity: 0.85;
   }
   50% {
-    transform: translateY(-3px) rotate(var(--tech-rot, 0deg)) translateZ(0);
+    transform: translate3d(0, -5px, 0) rotate(var(--tech-rot, 0deg));
     opacity: 1;
   }
 }
 
 @keyframes tech-drop-drift {
   0% {
-    transform: rotate(var(--bubble-rot, 0deg)) translate(0, 0) scale(1, 1) translateZ(0);
-    opacity: 0.05;
+    transform: rotate(var(--bubble-rot, 0deg)) translate3d(0, 0, 0) scale(1, 1);
+    opacity: 0.04;
   }
   15% {
-    transform: rotate(calc(var(--bubble-rot, 0deg) + 2deg)) translate(10px, -18px) scale(0.94, 1.08) translateZ(0);
-    opacity: 0.08;
-  }
-  35% {
-    transform: rotate(calc(var(--bubble-rot, 0deg) - 1.5deg)) translate(-12px, -28px) scale(1.06, 0.92) translateZ(0);
+    transform: rotate(calc(var(--bubble-rot, 0deg) + 1.5deg)) translate3d(12px, -20px, 0) scale(0.96, 1.05);
     opacity: 0.07;
   }
-  55% {
-    transform: rotate(calc(var(--bubble-rot, 0deg) + 1.8deg)) translate(14px, -12px) scale(0.95, 1.06) translateZ(0);
+  35% {
+    transform: rotate(calc(var(--bubble-rot, 0deg) - 1deg)) translate3d(-14px, -30px, 0) scale(1.04, 0.94);
     opacity: 0.06;
   }
+  55% {
+    transform: rotate(calc(var(--bubble-rot, 0deg) + 1.2deg)) translate3d(16px, -14px, 0) scale(0.97, 1.04);
+    opacity: 0.055;
+  }
   75% {
-    transform: rotate(calc(var(--bubble-rot, 0deg) - 2.2deg)) translate(-8px, -22px) scale(1.04, 0.94) translateZ(0);
-    opacity: 0.08;
+    transform: rotate(calc(var(--bubble-rot, 0deg) - 1.5deg)) translate3d(-10px, -24px, 0) scale(1.03, 0.96);
+    opacity: 0.07;
   }
   100% {
-    transform: rotate(var(--bubble-rot, 0deg)) translate(0, 0) scale(1, 1) translateZ(0);
-    opacity: 0.05;
+    transform: rotate(var(--bubble-rot, 0deg)) translate3d(0, 0, 0) scale(1, 1);
+    opacity: 0.04;
   }
 }
 
 @keyframes tech-drop-drift-alt {
   0% {
-    transform: rotate(var(--bubble-rot, 0deg)) translate(0, 0) scale(1, 1) translateZ(0);
-    opacity: 0.04;
+    transform: rotate(var(--bubble-rot, 0deg)) translate3d(0, 0, 0) scale(1, 1);
+    opacity: 0.035;
   }
   20% {
-    transform: rotate(calc(var(--bubble-rot, 0deg) - 2.5deg)) translate(-14px, -20px) scale(1.07, 0.9) translateZ(0);
-    opacity: 0.07;
+    transform: rotate(calc(var(--bubble-rot, 0deg) - 1.8deg)) translate3d(-16px, -22px, 0) scale(1.05, 0.92);
+    opacity: 0.065;
   }
   45% {
-    transform: rotate(calc(var(--bubble-rot, 0deg) + 1.6deg)) translate(8px, -32px) scale(0.93, 1.09) translateZ(0);
-    opacity: 0.08;
+    transform: rotate(calc(var(--bubble-rot, 0deg) + 1.2deg)) translate3d(10px, -34px, 0) scale(0.94, 1.07);
+    opacity: 0.07;
   }
   70% {
-    transform: rotate(calc(var(--bubble-rot, 0deg) - 1deg)) translate(12px, -8px) scale(1.03, 0.96) translateZ(0);
-    opacity: 0.05;
+    transform: rotate(calc(var(--bubble-rot, 0deg) - 0.8deg)) translate3d(14px, -10px, 0) scale(1.02, 0.97);
+    opacity: 0.045;
   }
   100% {
-    transform: rotate(var(--bubble-rot, 0deg)) translate(0, 0) scale(1, 1) translateZ(0);
-    opacity: 0.04;
+    transform: rotate(var(--bubble-rot, 0deg)) translate3d(0, 0, 0) scale(1, 1);
+    opacity: 0.035;
   }
 }
 
@@ -785,87 +1053,148 @@ main > section.bg-bg-primary {
 @keyframes tech-drop-shine {
   0%,
   100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.25;
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.2;
   }
   50% {
-    transform: translate(6px, 5px) scale(1.12);
-    opacity: 0.4;
+    transform: translate3d(5px, 4px, 0) scale(1.08);
+    opacity: 0.35;
   }
 }
 
 @keyframes tech-pulse-stroke {
   0%,
   100% {
-    opacity: 0.45;
+    opacity: 0.4;
   }
   50% {
-    opacity: 0.95;
+    opacity: 0.9;
   }
 }
 
 .tech-anim-breathe {
-  animation: tech-breathe 12s ease-in-out infinite;
+  animation: none;
 }
 
 .tech-anim-breathe-slow {
-  animation: tech-breathe-slow 18s ease-in-out infinite;
+  animation: none;
 }
 
 .tech-anim-float-micro {
-  animation: tech-float-micro 10s ease-in-out infinite;
+  animation: tech-float-micro 26s ease-in-out infinite;
 }
 
 .tech-code-symbol.tech-anim-float-micro {
-  animation: tech-float-symbol 14s ease-in-out infinite;
+  animation: tech-float-symbol 32s ease-in-out infinite;
 }
 
 /* Drop motion: names come from shape classes; timing here */
 .tech-anim-float-bubble {
-  animation-duration: 11s, 7s;
+  animation-duration: 28s, 18s;
   animation-timing-function: ease-in-out, ease-in-out;
   animation-iteration-count: infinite, infinite;
   will-change: transform, opacity, border-radius;
 }
 
 .tech-anim-pulse-stroke {
-  animation: tech-pulse-stroke 10s ease-in-out infinite;
+  animation: tech-pulse-stroke 24s ease-in-out infinite;
 }
 
 @keyframes tech-cloud-float {
   0%,
   100% {
-    transform: translate(0, 0) scale(1) translateZ(0);
-    opacity: 0.48;
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
   }
   33% {
-    transform: translate(6px, -8px) scale(1.03) translateZ(0);
-    opacity: 0.6;
+    transform: translate3d(8px, -10px, 0) scale(1.02);
+    opacity: 0.75;
   }
   66% {
-    transform: translate(-5px, -4px) scale(0.98) translateZ(0);
-    opacity: 0.52;
+    transform: translate3d(-6px, -5px, 0) scale(0.99);
+    opacity: 0.6;
   }
 }
 
 @keyframes tech-icon-float {
   0%,
   100% {
-    transform: translate(-50%, -50%) rotate(var(--icon-rot, 0deg)) translateY(0) translateZ(0);
-    opacity: 0.45;
+    transform: translate(-50%, -50%) rotate(var(--icon-rot, 0deg)) translate3d(0, 0, 0);
+    opacity: 0.55;
   }
   50% {
-    transform: translate(-50%, -50%) rotate(var(--icon-rot, 0deg)) translateY(-5px) translateZ(0);
+    transform: translate(-50%, -50%) rotate(var(--icon-rot, 0deg)) translate3d(0, -6px, 0);
+    opacity: 0.85;
+  }
+}
+
+@keyframes tech-binary-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.35;
+  }
+  25% {
+    transform: translate3d(10px, -28px, 0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(-8px, -48px, 0);
+    opacity: 0.45;
+  }
+  75% {
+    transform: translate3d(6px, -22px, 0);
     opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.35;
+  }
+}
+
+@keyframes tech-infra-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes tech-packet-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(120px, 40px, 0);
+    opacity: 0.15;
   }
 }
 
 .tech-anim-cloud-float {
-  animation: tech-cloud-float 18s ease-in-out infinite;
+  animation: tech-cloud-float 36s ease-in-out infinite;
 }
 
 .tech-anim-icon-float {
-  animation: tech-icon-float 12s ease-in-out infinite;
+  animation: tech-icon-float 28s ease-in-out infinite;
+}
+
+.tech-anim-binary-drift {
+  animation: tech-binary-drift 48s ease-in-out infinite;
+}
+
+.tech-anim-infra-float {
+  animation: tech-infra-float 34s ease-in-out infinite;
+}
+
+.tech-anim-packet {
+  animation: tech-packet-drift 40s ease-in-out infinite;
 }
 
 /* Responsive density */
@@ -890,9 +1219,17 @@ main > section.bg-bg-primary {
     display: none;
   }
 
+  .tech-bg-binary .tech-binary-glyph:nth-child(n + 6) {
+    display: none;
+  }
+
+  .tech-bg-structures .tech-structure-nodes .tech-structure-node:nth-child(n + 6) {
+    display: none;
+  }
+
   .code-bubble {
-    transform: rotate(var(--bubble-rot, 0deg)) scale(0.88) translateZ(0);
-    opacity: 0.06;
+    transform: rotate(var(--bubble-rot, 0deg)) scale(0.88) translate3d(0, 0, 0);
+    opacity: 0.05;
   }
 
   .code-bubble__code {
@@ -921,14 +1258,26 @@ main > section.bg-bg-primary {
     display: none;
   }
 
+  .tech-bg-binary .tech-binary-glyph:nth-child(n + 4) {
+    display: none;
+  }
+
+  .tech-bg-structures .tech-structure-nodes .tech-structure-node:nth-child(n + 5) {
+    display: none;
+  }
+
+  .tech-bg-structures {
+    opacity: 0.16;
+  }
+
   .tech-bg-circuits {
-    opacity: 0.4;
+    opacity: 0.045;
   }
 
   .code-bubble {
     max-width: 150px;
     max-height: 150px;
-    opacity: 0.05;
+    opacity: 0.045;
   }
 
   .code-bubble--drop-wide {
@@ -955,15 +1304,31 @@ main > section.bg-bg-primary {
   .tech-anim-pulse-node,
   .tech-anim-cloud-float,
   .tech-anim-icon-float,
+  .tech-anim-binary-drift,
+  .tech-anim-infra-float,
+  .tech-anim-packet,
+  .tech-anim-structure-float,
   .code-bubble,
   .code-bubble__shine {
     animation: none !important;
   }
 
+  .tech-parallax-layer,
+  .tech-structures-svg {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .tech-structure-node {
+    transform: translate3d(-50%, -50%, 0) !important;
+    will-change: auto;
+  }
+
   .tech-glow,
   .code-bubble,
   .dev-api-node,
-  .tech-code-symbol {
+  .tech-code-symbol,
+  .tech-binary-glyph {
     will-change: auto;
   }
 }

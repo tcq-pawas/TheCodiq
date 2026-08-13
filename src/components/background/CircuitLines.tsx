@@ -91,18 +91,13 @@ export default function CircuitLines({ variant = "a" }: CircuitLinesProps) {
             strokeWidth="1.25"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="tech-anim-pulse-stroke"
-            style={{ animationDelay: path.delay }}
+            opacity="0.7"
           />
         ))}
 
         {/* Glowing nodes */}
         {nodes.map((node, i) => (
-          <g
-            key={`n-${i}`}
-            className="tech-anim-pulse-node"
-            style={{ animationDelay: `${i * 1.1}s` }}
-          >
+          <g key={`n-${i}`}>
             <circle
               cx={node.cx}
               cy={node.cy}
@@ -111,15 +106,6 @@ export default function CircuitLines({ variant = "a" }: CircuitLinesProps) {
               opacity="0.12"
             />
             <circle cx={node.cx} cy={node.cy} r={node.r ?? 2.5} fill={node.color} />
-            <circle
-              cx={node.cx}
-              cy={node.cy}
-              r={7}
-              fill="none"
-              stroke={node.color}
-              strokeWidth="0.6"
-              opacity="0.35"
-            />
           </g>
         ))}
       </svg>

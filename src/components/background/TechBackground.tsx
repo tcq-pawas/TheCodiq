@@ -1,54 +1,59 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import BackgroundGlow from "./BackgroundGlow";
 import CircuitLines from "./CircuitLines";
 import CloudStructures from "./CloudStructures";
-import CodeBubbles from "./CodeBubbles";
-import CodingIcons from "./CodingIcons";
-import ApiArchitecture from "./ApiArchitecture";
+import SoftwareStructures from "./SoftwareStructures";
 import CodingGraphics from "./CodingGraphics";
+import BinaryField from "./BinaryField";
+import { useParallaxPointer } from "@/hooks/useParallaxPointer";
 
 type GlowVariant = "default" | "cyan" | "indigo" | "emerald" | "purple";
 type LayoutKey = "a" | "b" | "c" | "d";
 
 interface PageTheme {
   glow: GlowVariant;
-  bubbles: LayoutKey;
   circuit: LayoutKey;
   clouds: LayoutKey;
-  icons: LayoutKey;
-  api: LayoutKey;
   symbols: LayoutKey;
+  binary: LayoutKey;
+  infra: LayoutKey;
+  accent: "hero" | "circuit" | "code" | "api" | "symbols" | "secure" | "network" | "binary";
 }
 
 function resolveTheme(pathname: string | null): PageTheme {
   const path = pathname ?? "/";
 
   if (path === "/") {
-    return { glow: "default", bubbles: "a", circuit: "a", clouds: "a", icons: "a", api: "a", symbols: "a" };
+    return { glow: "default", circuit: "a", clouds: "a", symbols: "a", binary: "a", infra: "a", accent: "hero" };
   }
   if (path.startsWith("/about")) {
-    return { glow: "cyan", bubbles: "b", circuit: "b", clouds: "b", icons: "b", api: "b", symbols: "b" };
+    return { glow: "cyan", circuit: "b", clouds: "b", symbols: "b", binary: "b", infra: "b", accent: "circuit" };
   }
   if (path.startsWith("/services")) {
-    return { glow: "indigo", bubbles: "c", circuit: "c", clouds: "c", icons: "c", api: "c", symbols: "c" };
+    return { glow: "indigo", circuit: "c", clouds: "c", symbols: "c", binary: "c", infra: "c", accent: "code" };
   }
   if (path.startsWith("/portfolio")) {
-    return { glow: "purple", bubbles: "d", circuit: "d", clouds: "d", icons: "d", api: "d", symbols: "d" };
+    return { glow: "purple", circuit: "d", clouds: "d", symbols: "d", binary: "a", infra: "c", accent: "api" };
   }
-  if (path.startsWith("/blog")) {
-    return { glow: "cyan", bubbles: "a", circuit: "a", clouds: "b", icons: "c", api: "b", symbols: "b" };
+  if (path.startsWith("/blog") || path.startsWith("/careers")) {
+    return {
+      glow: path.startsWith("/careers") ? "indigo" : "cyan",
+      circuit: path.startsWith("/careers") ? "d" : "a",
+      clouds: path.startsWith("/careers") ? "a" : "b",
+      symbols: path.startsWith("/careers") ? "a" : "b",
+      binary: "c",
+      infra: "b",
+      accent: "symbols",
+    };
   }
   if (path.startsWith("/contact")) {
-    return { glow: "emerald", bubbles: "b", circuit: "b", clouds: "c", icons: "d", api: "d", symbols: "d" };
-  }
-  if (path.startsWith("/careers")) {
-    return { glow: "indigo", bubbles: "d", circuit: "d", clouds: "a", icons: "b", api: "a", symbols: "a" };
+    return { glow: "emerald", circuit: "b", clouds: "c", symbols: "d", binary: "a", infra: "a", accent: "network" };
   }
   if (path.startsWith("/privacy") || path.startsWith("/terms")) {
-    return { glow: "default", bubbles: "c", circuit: "c", clouds: "d", icons: "a", api: "c", symbols: "c" };
+    return { glow: "default", circuit: "c", clouds: "d", symbols: "c", binary: "b", infra: "d", accent: "secure" };
   }
 
   let hash = 0;
@@ -59,32 +64,54 @@ function resolveTheme(pathname: string | null): PageTheme {
   const glows: GlowVariant[] = ["default", "cyan", "indigo", "emerald"];
   return {
     glow: glows[hash],
-    bubbles: keys[hash],
     circuit: keys[(hash + 1) % 4],
     clouds: keys[(hash + 2) % 4],
-    icons: keys[(hash + 3) % 4],
-    api: keys[hash],
     symbols: keys[(hash + 1) % 4],
+    binary: keys[(hash + 3) % 4],
+    infra: keys[hash],
+    accent: "binary",
   };
 }
 
 /**
- * Global decorative tech background.
- * Fixed behind all content. pointer-events: none. Ambient animation only.
+ * Lightweight tech background — fewer layers, snappy mouse parallax.
  */
 export default function TechBackground() {
   const pathname = usePathname();
   const theme = useMemo(() => resolveTheme(pathname), [pathname]);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
+  useParallaxPointer(rootRef, ready);
 
   return (
-    <div className="tech-background" aria-hidden="true">
-      <BackgroundGlow variant={theme.glow} />
-      <CloudStructures variant={theme.clouds} />
-      <CircuitLines variant={theme.circuit} />
-      <ApiArchitecture variant={theme.api} />
-      <CodeBubbles variant={theme.bubbles} />
-      <CodingIcons variant={theme.icons} />
-      <CodingGraphics variant={theme.symbols} />
+    <div
+      ref={rootRef}
+      className={`tech-background tech-accent--${theme.accent}`}
+      aria-hidden="true"
+    >
+      {/* Far — soft glow only */}
+      <div className="tech-parallax-layer" data-parallax-layer="14">
+        <BackgroundGlow variant={theme.glow} />
+      </div>
+
+      {/* Mid — circuits + clouds */}
+      <div className="tech-parallax-layer" data-parallax-layer="28">
+        <CircuitLines variant={theme.circuit} />
+        <CloudStructures variant={theme.clouds} />
+      </div>
+
+      {/* Near — architecture structures (main mouse-reactive layer) */}
+      <div className="tech-parallax-layer" data-parallax-layer="18">
+        <SoftwareStructures variant={theme.infra} />
+        <CodingGraphics variant={theme.symbols} />
+        <BinaryField variant={theme.binary} />
+      </div>
+
       <div className="tech-bg-overlay" />
     </div>
   );

@@ -81,7 +81,7 @@ export default function CodingIcons({ variant = "a" }: CodingIconsProps) {
 
   return (
     <div className="tech-bg-layer tech-bg-icons" aria-hidden="true">
-      {icons.map(({ Icon, x, y, size, delay, duration, color, rotate }, i) => (
+      {icons.map(({ Icon, x, y, size, delay, color, rotate }, i) => (
         <span
           key={i}
           className="dev-code-icon tech-anim-icon-float"
@@ -92,7 +92,6 @@ export default function CodingIcons({ variant = "a" }: CodingIconsProps) {
             width: size,
             height: size,
             animationDelay: delay,
-            animationDuration: duration,
             ["--icon-rot" as string]: rotate ?? "0deg",
           }}
         >

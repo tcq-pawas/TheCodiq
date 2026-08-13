@@ -52,15 +52,15 @@ export default function CodingGraphics({ variant = "a" }: CodingGraphicsProps) {
         {symbols.map((sym, i) => (
           <span
             key={i}
-            className="tech-code-symbol tech-anim-float-micro"
+            className="tech-code-symbol"
             style={{
               left: sym.x,
               top: sym.y,
               fontSize: sym.size,
               color: sym.color,
-              animationDelay: sym.delay,
-              animationDuration: sym.duration,
+              opacity: 0.7,
               ["--tech-rot" as string]: sym.rotate ?? "0deg",
+              transform: `rotate(var(--tech-rot, 0deg))`,
             }}
           >
             {sym.text}

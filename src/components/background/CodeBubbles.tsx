@@ -401,7 +401,6 @@ export default function CodeBubbles({ variant = "a" }: CodeBubblesProps) {
             width: bubble.size,
             height: bubble.size,
             animationDelay: `${bubble.delay}, ${bubble.delay}`,
-            animationDuration: `${bubble.duration}, 7s`,
             ["--bubble-rot" as string]: bubble.rotate,
             zIndex: i + 1,
           }}
